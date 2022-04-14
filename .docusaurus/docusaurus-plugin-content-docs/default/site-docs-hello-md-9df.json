@@ -1,0 +1,22 @@
+{
+  "unversionedId": "hello",
+  "id": "hello",
+  "title": "Hello",
+  "description": "bold",
+  "source": "@site/docs/hello.md",
+  "sourceDirName": ".",
+  "slug": "/hello",
+  "permalink": "/docs/hello",
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/hello.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "sidebar_position": 6
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Huge!",
+    "permalink": "/docs/tutorial-experts/test-experts"
+  }
+}
