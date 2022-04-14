@@ -14,6 +14,7 @@
   --ifm-color-primary-lighter: #B3D4FF;
   --ifm-color-primary-lightest: #DEECFF;
   --ifm-code-font-size: 100%;
+  --doc-sidebar-width: 244px !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -40,4 +41,35 @@
 
 [data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.menu {
+  padding: 8px 16px 16px !important;
+  overflow-x: inherit;
+}
+
+.menu__link {
+  border-radius: 12px;
+  height: 40px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  line-height: inherit;
+}
+
+.menu__link:hover {
+  border-radius: 12px;
+  height: 40px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  line-height: inherit;
+}
+
+.menu__link--sublist-caret:after {
+  height: auto;
+}
+
+.menu__list-item-collapsible {
+  border-radius: 12px;
 }

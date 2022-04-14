@@ -36,7 +36,8 @@ export default {
       "title": "Lago",
       "logo": {
         "alt": "Lago",
-        "src": "img/logo.svg"
+        "src": "img/logo.svg",
+        "href": "/docs/intro"
       },
       "items": [
         {
