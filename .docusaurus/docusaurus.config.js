@@ -18,7 +18,7 @@ export default {
       "classic",
       {
         "docs": {
-          "sidebarPath": "/Users/raffi/Documents/lago-docs/sidebars.js",
+          "sidebarPath": "/Users/michaelponrajah/Documents/lago-docs/sidebars.js",
           "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
         },
         "blog": {
@@ -26,7 +26,7 @@ export default {
           "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
         },
         "theme": {
-          "customCss": "/Users/raffi/Documents/lago-docs/src/css/custom.css"
+          "customCss": "/Users/michaelponrajah/Documents/lago-docs/src/css/custom.css"
         }
       }
     ]
@@ -36,8 +36,7 @@ export default {
       "title": "Lago",
       "logo": {
         "alt": "Lago",
-        "src": "img/logo.svg",
-        "href": '/docs/intro'
+        "src": "img/logo.svg"
       },
       "items": [
         {

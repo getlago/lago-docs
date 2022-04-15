@@ -21,6 +21,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "mike",
+              "path": "/docs/mike",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "test",
               "path": "/docs/test",
               "sidebar": "tutorialSidebar"

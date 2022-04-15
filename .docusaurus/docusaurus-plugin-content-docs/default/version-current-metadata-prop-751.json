@@ -100,6 +100,12 @@
       },
       {
         "type": "link",
+        "label": "Mike",
+        "href": "/docs/mike",
+        "docId": "mike"
+      },
+      {
+        "type": "link",
         "label": "Hello",
         "href": "/docs/hello",
         "docId": "hello"
@@ -117,6 +123,12 @@
       "id": "intro",
       "title": "Lago Intro",
       "description": "Let's discover Lago in 10 minutes",
+      "sidebar": "tutorialSidebar"
+    },
+    "mike": {
+      "id": "mike",
+      "title": "Mike",
+      "description": "bold",
       "sidebar": "tutorialSidebar"
     },
     "test": {
