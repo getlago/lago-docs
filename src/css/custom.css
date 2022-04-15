@@ -73,3 +73,81 @@
 .menu__list-item-collapsible {
   border-radius: 12px;
 }
+
+.markdown > h1 {
+  font-family: Inter, Arial, Verdana, Helvetica, sans-serif;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+.markdown > h2 {
+  font-family: Inter, Arial, Verdana, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.markdown > h3 {
+  font-family: Inter, Arial, Verdana, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.markdown > h4 {
+  font-family: Inter, Arial, Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.markdown > p {
+  font-family: Inter, Arial, Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 500;
+}
+
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: #F3F4F6;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 4px 8px 4px 8px;
+  border: 0px;
+  color: #19212E;
+}
+
+.breadcrumbs__link {
+  border-radius: 12px;
+  font-family: Inter, Arial, Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.token-line {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.codeBlockTitle_node_modules- {
+  font-family: Inter, Arial, Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.pagination-nav__label {
+  font-family: Inter, Arial, Verdana, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
