@@ -3,3 +3,4 @@ build
 
 .yarn
 .docusaurus
+.DS_Store
