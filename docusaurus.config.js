@@ -13,8 +13,9 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'Lago', // Usually your GitHub org/user name.
-  projectName: 'Lago', // Usually your repo name.
+  organizationName: 'getlago',
+  projectName: 'lago-docs',
+  trailingSlash: false,
 
   presets: [
     [
