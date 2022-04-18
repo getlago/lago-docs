@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-# Lago Intro
+# Welcome to Lago
 
 Let's discover Lago in 10 minutes
 ```bash
