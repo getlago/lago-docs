@@ -76,7 +76,7 @@ Customer unique identifier in your application.
 | `type: string` | **required**
 
 Code identifying the type of the event.<br/>
-It should match the `code` property of one of your active billable metric.
+It should match the `code` property of one of your active billable metrics, otherwise it will be ignored.
 
 #### timestamp
 
@@ -114,7 +114,7 @@ The event has been stored in the system and will be aggregated to generate fees.
 }
 ```
 
-Access to the API endpoint is unhautorized.
+Access to the API end point is unhautorized.
 
 Possible reasons are:
 - The `Authorization` header is missing

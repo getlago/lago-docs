@@ -7,7 +7,9 @@ import TabItem from '@theme/TabItem';
 
 # Subscriptions
 
-## Assign a subscription to a customer
+TODO: Add a clear description of what are subscriptions.
+
+## Assign a plan to a customer
 
 ### Route
 
@@ -23,14 +25,12 @@ POST /api/v1/subscriptions
   ```bash
   echo "test"
   ```
-
   </TabItem>
   <TabItem value="ruby" label="Ruby">
 
   ```ruby
   echo "test"
   ```
-
   </TabItem>
 </Tabs>
 
@@ -46,10 +46,69 @@ POST /api/v1/subscriptions
 }
 ```
 
+####  customer_id
+| `type: string` | **required**
 
-| Argument | Mandatory | Data type | Description |
-|--|--|--|--|
-| customer_id | **true** | **String** | Customer unique identifier in client application |
-| plan_code | **true** | **String** | Unique Plan code.<br/>Defined in the lago application |
+Customer unique identifier in your application.
+
+:::info
+If the customer is not found, it will be created with blank metadata
+:::
+
+####  plan_code
+| `type: string` | **required**
+
+Code identifying the plan.<br/>
+It must match the `code` property of one of plans.
 
 ### Responses
+
+#### HTTP 200
+
+```json
+{
+  "subscription": {
+    "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "plan_code": "new_code",
+    "status": "active",
+    "started_at": "2022-04-28 15:53:03 UTC",
+    "terminated_at": null,
+    "canceled_at": "2022-04-28 15:53:03 UTC",
+    "created_at": "2022-04-28 15:53:03 UTC"
+  }
+}
+```
+
+The plan was succesfuly assigned to the customer. A subscription has been created.
+
+TODO: describe the field and the data types
+
+#### HTTP 401
+
+```json
+{
+  "message": "Unauthorized"
+}
+```
+
+Access to the API end point is unhautorized.
+
+Possible reasons are:
+- The `Authorization` header is missing
+- The `Authorization` header does not contains the API key
+- The Api key is invalid or expired
+
+#### HTTP 422
+
+```json
+{
+  "message": "Unprocessable entity",
+  "errors": {
+    "field": ["message"]
+  }
+}
+```
+
+TODO
