@@ -5,7 +5,6 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 # Customers
 
 ## Create a customer
@@ -22,26 +21,14 @@ POST /api/v1/customers
   <TabItem value="curl" label="Curl" default>
 
   ```bash
-  LAGO_URL="https://api.lago.dev"
-  API_KEY="__CLIENT_API_KEY__"
-
-  curl --location --request POST "$LAGO_URL/api/v1/events" \
-  --header "Authorization: Bearer $API_KEY" \
-  --header 'Content-Type: application/json' \
-  --data-raw "{
-      \"event\": { \
-          \"customer_id\": \"__CUSTOMER_ID__\", \
-          \"code\": \"__EVENT_CODE__\", \
-          \"timestamp\": $(date +%s) \
-      } \
-  }"
+  echo "test"
   ```
 
   </TabItem>
   <TabItem value="ruby" label="Ruby">
 
   ```ruby
-  foo
+  echo "test"
   ```
 
   </TabItem>

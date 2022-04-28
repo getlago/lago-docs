@@ -2,11 +2,40 @@
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Subscriptions
 
 ## Assign a subscription to a customer
 
-## POST `/api/v1/subscriptions`
+### Route
+
+```
+POST /api/v1/subscriptions
+```
+
+### Code samples
+
+<Tabs>
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  echo "test"
+  ```
+
+  </TabItem>
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  echo "test"
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Arguments
+
 
 ```json
 {
@@ -17,7 +46,6 @@ sidebar_position: 3
 }
 ```
 
-### Arguments
 
 | Argument | Mandatory | Data type | Description |
 |--|--|--|--|
