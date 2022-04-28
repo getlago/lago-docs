@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 TODO: Add a clear description of what are events.
 
-## Push an event for a customer
+## Send an event for a customer
 
 ### Route
 
