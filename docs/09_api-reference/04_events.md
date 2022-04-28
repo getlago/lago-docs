@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 # Events
 
+TODO: Add a clear description of what are events.
+
 ## Push an event for a customer
 
 ### Route
@@ -15,7 +17,7 @@ import TabItem from '@theme/TabItem';
 POST /api/v1/events
 ```
 
-### Code samples
+### Usage
 
 <Tabs>
   <TabItem value="curl" label="Curl" default>
@@ -62,12 +64,59 @@ POST /api/v1/events
 }
 ```
 
-| Argument | Mandatory | Data type | Description |
-|--|--|--|--|
-| customer_id | **true** | **String** | Customer unique identifier in client application |
-| code | **true** | **String** | Code of the matching billable metric defined in the lago application |
-| timestamp | **false** | **Integer** | Unix timestamp of the event occurence. If not provided, the API will set the event reception time.
-| properties | Depend on the aggregation type of the billable metric: `COUNT`: **false**,<br/>`COUNT UNIQUE`: **true**<br/>`MAX`: **true**<br/> `SUM`: **true** | **JSON** | Extra data to use for the event aggregation. When mandatory, it should contains the field name defined in the billable metric.
+#### customer_id
 
+| `type: string` | **required**
+
+Customer unique identifier in your application.
+
+
+#### code
+
+| `type: string` | **required**
+
+Code identifying the type of the event.<br/>
+It should match the `code` property of one of your active billable metric.
+
+#### timestamp
+
+| `type: integer` | **optional** | *default: event reception timestamp*
+
+Unix timestamp of the event occurence.<br/>
+If not provided, the API will set the event reception time.
+
+#### properties
+
+| `type: json` | **variable**
+
+Extra data to use for the event aggregation.<br/>
+When mandatory, it should contains the `field_name` configured at billable metric level as `key` and any value as field `value`.
+
+Aggregation type:
+- `COUNT`: **optional**
+- `MAX`: **required** | value must be an integer
+- `SUM`: **required** | value must be an integer
+- `COUNT UNIQUE`: **required** | value could have any datatype
 
 ### Responses
+
+#### HTTP 200
+
+`Empty response body`
+
+The event has been stored in the system and will be aggregated to generate fees.
+
+#### HTTP 401
+
+```json
+{
+  "message": "Unauthorized"
+}
+```
+
+Access to the API endpoint is unhautorized.
+
+Possible reasons are:
+- The `Authorization` header is missing
+- The `Authorization` header does not contains the API key
+- The Api key is invalid or expired

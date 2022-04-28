@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 POST /api/v1/customers
 ```
 
-### Code samples
+### Usage
 
 <Tabs>
   <TabItem value="curl" label="Curl" default>
