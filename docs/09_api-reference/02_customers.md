@@ -23,7 +23,30 @@ POST /api/v1/customers
   <TabItem value="curl" label="Curl" default>
 
   ```bash
-  echo "test"
+  LAGO_URL="https://api.lago.dev"
+  API_KEY="__CLIENT_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/customers" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "customer": {
+        "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+        "address_line1": "5230 Penfield Ave",
+        "address_line2": null,
+        "city": "Woodland Hills",
+        "country": "US",
+        "email": "dinesh@piedpiper.test",
+        "legal_name": "Coleman-Blair",
+        "legal_number": "49-008-2965",
+        "logo_url": "http://hooli.com/logo.png",
+        "name": "Gavin Belson",
+        "phone": "1-171-883-3711 x245",
+        "state": "CA",
+        "url": "http://hooli.com",
+        "zipcode": "91364"
+      }
+    }'
   ```
 
   </TabItem>

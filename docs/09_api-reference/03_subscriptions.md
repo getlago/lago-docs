@@ -23,7 +23,18 @@ POST /api/v1/subscriptions
   <TabItem value="curl" label="Curl" default>
 
   ```bash
-  echo "test"
+  LAGO_URL="https://api.lago.dev"
+  API_KEY="__CLIENT_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/subscriptions" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "subscriptions": {
+        "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+        "plan_code": "new_code"
+      }
+    }'
   ```
   </TabItem>
   <TabItem value="ruby" label="Ruby">
@@ -125,7 +136,11 @@ DELETE /api/v1/subscriptions
   <TabItem value="curl" label="Curl" default>
 
   ```bash
-  echo "test"
+  LAGO_URL="https://api.lago.dev"
+  API_KEY="__CLIENT_API_KEY__"
+
+  curl --location --request DELETE "$LAGO_URL/api/v1/subscriptions?customer_id=5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba" \
+    --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
   <TabItem value="ruby" label="Ruby">
@@ -139,10 +154,10 @@ DELETE /api/v1/subscriptions
 
 ### Arguments
 
-```json
-{
-  "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba"
-}
+Should be send as request parameters, or in a JSON body.
+
+```
+customer_id: 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba
 ```
 
 ####  customer_id
