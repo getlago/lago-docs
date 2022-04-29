@@ -57,21 +57,93 @@ POST /api/v1/customers
 }
 ```
 
-| Argument | Mandatory | Data type | Description |
-|--|--|--|--|
-| customer_id | **true** | **String** | Customer unique identifier in client application |
-| name | **true** | **String** | Customer full name |
-| country | **false** | **String**<br/>ISO 3166 alpha 2 Country code | Country code of the customer |
-| address_line1 | **false** | **String** | First line of address |
-| address_line2 | **false** | **String** | Second line of address |
-| state | **false** | **String** | State of the customer |
-| zipcode | **false** | **String** | Zipcode of customer |
-| email | **false** | **String** | Email of the customer |
-| city | **false** | **String** | City of the customer |
-| url | **false** | **String** | Custom URL of the customer |
-| phone | **false** | **String** | Phone number of the customer |
-| logo_url | **false** | **String** | Logo URL of the customer |
-| legal_name | **false** | **String** | Legal company name of the customer |
-| legal_number | **false** | **String** | Legal company number of the customer |
+#### customer_id
+
+ `type: string` | **required**
+
+Customer unique identifier in your application.
+
+:::info
+If the customer already exists, the call will work as an update
+:::
+
+#### name
+
+ `type: string` | **required**
+
+Full name of the customer.
+
+#### country
+
+|`type: string` | **optional**
+
+ISO 3166 alpha 2 Country code.<br/>
+Country code of the customer's billing address.
+
+#### address_line1
+
+|`type: string` | **optional**
+
+First line of the billing address.
+
+#### address_line2
+
+|`type: string` | **optional**
+
+Second line of the billing address.
+
+#### state
+
+|`type: string` | **optional**
+
+State of the customer's billing address.
+
+#### zipcode
+
+|`type: string` | **optional**
+
+Zipcode of the customer's billing address.
+
+#### email
+
+|`type: string` | **optional**
+
+Email of the customer.
+
+#### city
+
+|`type: string` | **optional**
+
+City of the customer's billing address.
+
+#### url
+
+|`type: string` | **optional**
+
+Custom URL of the customer.
+
+#### phone
+
+|`type: string` | **optional**
+
+Phone number of the customer.
+
+#### logo_url
+
+|`type: string` | **optional**
+
+Logo URL of the customer
+
+#### legal_name
+
+|`type: string` | **optional**
+
+Legal company name of the customer.
+
+#### legal_number
+
+|`type: string` | **optional**
+
+Legal company number of the customer.
 
 ### Responses
