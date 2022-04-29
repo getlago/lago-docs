@@ -65,25 +65,9 @@ It must match the `code` property of one of plans.
 
 #### HTTP 200
 
-```json
-{
-  "subscription": {
-    "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
-    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
-    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "plan_code": "new_code",
-    "status": "active",
-    "started_at": "2022-04-28 15:53:03 UTC",
-    "terminated_at": null,
-    "canceled_at": "2022-04-28 15:53:03 UTC",
-    "created_at": "2022-04-28 15:53:03 UTC"
-  }
-}
-```
-
 The plan was succesfuly assigned to the customer. A subscription has been created.
 
-TODO: describe the field and the data types
+Returns a [subscription](#subscription-object) object.
 
 #### HTTP 401
 
@@ -112,3 +96,44 @@ Possible reasons are:
 ```
 
 TODO
+
+## Subscription object
+
+```json
+{
+  "subscription": {
+    "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "plan_code": "new_code",
+    "status": "active",
+    "started_at": "2022-04-28 15:53:03 UTC",
+    "terminated_at": null,
+    "canceled_at": "2022-04-28 15:53:03 UTC",
+    "created_at": "2022-04-28 15:53:03 UTC"
+  }
+}
+```
+
+### Fields
+
+#### lago_id
+
+#### lago_customer_id
+
+#### customer_id
+
+#### plan_code
+
+#### status
+
+#### started_at
+
+#### terminated_at
+
+#### canceled_at
+
+#### created_at
+
+
+TODO: describe the field and the data types

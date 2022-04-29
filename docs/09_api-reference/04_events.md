@@ -102,9 +102,9 @@ Aggregation type:
 
 #### HTTP 200
 
-`Empty response body`
-
 The event has been stored in the system and will be aggregated to generate fees.
+
+Returns an empty response body.
 
 #### HTTP 401
 
