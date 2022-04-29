@@ -59,7 +59,7 @@ If the customer is not found, it will be created with blank metadata
 | `type: string` | **required**
 
 Code identifying the plan.<br/>
-It must match the `code` property of one of plans.
+It must match the `code` property of one of the plans.
 
 ### Responses
 
@@ -119,21 +119,64 @@ TODO
 
 #### lago_id
 
+| `type: string` | **not null**
+
+Unique identifer of the subscription in Lago application.
+
 #### lago_customer_id
+
+| `type: string` | **not null**
+
+Unique identifer of the customer in Lago application.
 
 #### customer_id
 
+| `type: string` | **not null**
+
+Unique identifer of the customer in your application.
 #### plan_code
+
+| `type: string` | **not null**
+
+Code identifying the plan.<br/>
+It matches the `code` property of one of the plans.
 
 #### status
 
+| `type: string` | **not null**
+
+Status of the subscription.
+
+Possible values:
+- `pending`: a previous subscription has been downgraded, the current one is waiting for its automatic activation at the end of the billing period.
+- `active`: the subscription is currently applied to the customer.
+- `terminated`: the subscription is not active anymore
+- `canceled`: the subscription has been stopped before its activation. It could happen when two consecutive downgrade have been applied to a customer or when a subscription with a pending one is terminaded.
+
+
 #### started_at
 
+| `type: string` | **nullable**
+
+ISO 8601 date<br/>
+Start date of the subscription. It could be null if the subscription is `pending` of `canceled`.
 #### terminated_at
+
+| `type: string` | **nullable**
+
+ISO 8601 date<br/>
+Termination date of the subscription. It's not null when the subscription is `terminated`.
 
 #### canceled_at
 
+| `type: string` | **nullable**
+
+ISO 8601 date<br/>
+Cancelation date of the subscription. It's not null when the subscription is `canceled`.
+
 #### created_at
 
+| `type: string` | **not null**
 
-TODO: describe the field and the data types
+ISO 8601 date<br/>
+Creation date of the subscription.
