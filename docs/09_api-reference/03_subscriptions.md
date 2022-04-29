@@ -71,11 +71,23 @@ The plan was succesfuly assigned to the customer. A subscription has been create
 
 Returns a [subscription](#subscription-object) object.
 
+#### HTTP 400
+
+```json
+{
+  "status": 400,
+  "error": "Bad Request"
+}
+```
+
+The `subscription` json is not present in the request body.
+
 #### HTTP 401
 
 ```json
 {
-  "message": "Unauthorized"
+  "status": 401,
+  "error": "Unauthorized"
 }
 ```
 
@@ -90,14 +102,103 @@ Possible reasons are:
 
 ```json
 {
-  "message": "Unprocessable entity",
-  "error": "message"
+  "status": 422,
+  "error": "Unprocessable entity",
+  "message": "message"
   }
 }
 ```
 
 Possible error messages:
 - `plan does not exists`: The plan code does not match an exisiting plan.
+
+## Terminate a subscription
+
+### Route
+
+```
+DELETE /api/v1/subscriptions
+```
+### Usage
+
+<Tabs>
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  echo "test"
+  ```
+  </TabItem>
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  echo "test"
+  ```
+  </TabItem>
+</Tabs>
+
+
+### Arguments
+
+```json
+{
+  "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba"
+}
+```
+
+####  customer_id
+
+| `type: string` | **required**
+
+Unique identifer of the subscription in Lago application.
+
+### Response
+
+#### HTTP 200
+
+The customer subscription was successfully terminated.
+
+Returns a [subscription](#subscription-object) object.
+
+#### HTTP 400
+
+```json
+{
+  "status": 400,
+  "error": "Bad Request"
+}
+```
+
+The mandatory argument `customer_id` is not present in the request body.
+
+#### HTTP 401
+
+```json
+{
+  "status": 401,
+  "error": "Unauthorized"
+}
+```
+
+Access to the API end point is unhautorized.
+
+Possible reasons are:
+- The `Authorization` header is missing
+- The `Authorization` header does not contains the API key
+- The Api key is invalid or expired
+
+#### HTTP 422
+
+```json
+{
+  "status": 422,
+  "error": "Unprocessable entity",
+  "message": "message"
+  }
+}
+```
+
+Possible error messages:
+- `not_found`: The provided customer was not found or does not have a subscription.
 
 ## Subscription object
 

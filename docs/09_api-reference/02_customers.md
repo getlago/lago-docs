@@ -156,11 +156,23 @@ The customer was succesfuly created or updated.
 
 Returns a [customer](#customer-object) object.
 
+#### HTTP 400
+
+```json
+{
+  "status": 400,
+  "error": "Bad Request"
+}
+```
+
+The `customer` json is not present in the request body.
+
 #### HTTP 401
 
 ```json
 {
-  "message": "Unauthorized"
+  "status": 401,
+  "error": "Unauthorized"
 }
 ```
 
@@ -175,8 +187,9 @@ Possible reasons are:
 
 ```json
 {
-  "message": "Unprocessable entity",
-  "error": "message",
+  "status": 422,
+  "error": "Unprocessable entity",
+  "message": "message",
   "error_details": {
     "field": ["message"]
   }
@@ -185,10 +198,11 @@ Possible reasons are:
 
 Possible error messages:
 - `Validation error on the record`: The `error_details` field contains the details of the errors
-  - `customer_id`:
-    - `value_is_mandatory`: customer_id is missing
-  - `country`:
-    - `not_a_valid_country_code`: Provided country value is not an ISO 3166 country code.
+
+| field | error | description |
+|--|--|--|
+| `customer_id` | `value_is_mandatory` | customer_id is missing |
+| `country` | `not_a_valid_country_code` | Provided country value is not an ISO 3166 country code |
 
 ## Customer object
 

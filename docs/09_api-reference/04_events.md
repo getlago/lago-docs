@@ -106,11 +106,23 @@ The event has been stored in the system and will be aggregated to generate fees.
 
 Returns an empty response body.
 
+#### HTTP 400
+
+```json
+{
+  "status": 400,
+  "error": "Bad Request",
+}
+```
+
+The `event` json is not present in the request body.
+
 #### HTTP 401
 
 ```json
 {
-  "message": "Unauthorized"
+  "status": 401,
+  "error": "Unauthorized",
 }
 ```
 
