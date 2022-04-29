@@ -89,13 +89,13 @@ Possible reasons are:
 ```json
 {
   "message": "Unprocessable entity",
-  "errors": {
-    "field": ["message"]
+  "errors": "message"
   }
 }
 ```
 
-TODO
+Possible error messages:
+- `plan does not exists`: The plan code does not match an exisiting plan.
 
 ## Subscription object
 
