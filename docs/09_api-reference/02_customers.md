@@ -112,9 +112,8 @@ City of the customer's billing address.
 
 #### country
 
-|`type: string` | **optional**
+|`type: string` | ISO 3166 alpha 2 Country code. | **optional**
 
-ISO 3166 alpha 2 Country code.<br/>
 Country code of the customer's billing address.
 
 #### email
@@ -297,9 +296,8 @@ City of the customer's billing address.
 
 #### country
 
-|`type: string` | **nullable**
+|`type: string` | ISO 3166 alpha 2 Country code | **nullable**
 
-ISO 3166 alpha 2 Country code.<br/>
 Country code of the customer's billing address.
 
 #### email

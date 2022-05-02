@@ -277,16 +277,14 @@ Unique identifer of the customer in your application.
 
 #### canceled_at
 
-| `type: string` | **nullable**
+| `type: string` | ISO 8601 datetime | **nullable**
 
-ISO 8601 date<br/>
 Cancelation date of the subscription. It's not null when the subscription is `canceled`.
 
 #### created_at
 
-| `type: string` | **not null**
+| `type: string` | ISO 8601 datetime | **not null**
 
-ISO 8601 date<br/>
 Creation date of the subscription.
 
 #### plan_code
@@ -298,9 +296,8 @@ It matches the `code` property of one of the plans.
 
 #### started_at
 
-| `type: string` | **nullable**
+| `type: string` | ISO 8601 datetime | **nullable**
 
-ISO 8601 date<br/>
 Start date of the subscription. It could be null if the subscription is `pending` of `canceled`.
 
 #### status
@@ -317,7 +314,6 @@ Possible values:
 
 #### terminated_at
 
-| `type: string` | **nullable**
+| `type: string` | ISO 8601 datetime | **nullable**
 
-ISO 8601 date<br/>
 Termination date of the subscription. It's not null when the subscription is `terminated`.
