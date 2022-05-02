@@ -24,7 +24,7 @@ POST /api/v1/customers
 
   ```bash
   LAGO_URL="https://api.lago.dev"
-  API_KEY="__CLIENT_API_KEY__"
+  API_KEY="__YOUR_API_KEY__"
 
   curl --location --request POST "$LAGO_URL/api/v1/customers" \
     --header "Authorization: Bearer $API_KEY" \

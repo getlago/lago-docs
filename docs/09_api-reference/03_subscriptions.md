@@ -24,7 +24,7 @@ POST /api/v1/subscriptions
 
   ```bash
   LAGO_URL="https://api.lago.dev"
-  API_KEY="__CLIENT_API_KEY__"
+  API_KEY="__YOUR_API_KEY__"
 
   curl --location --request POST "$LAGO_URL/api/v1/subscriptions" \
     --header "Authorization: Bearer $API_KEY" \
@@ -147,7 +147,7 @@ DELETE /api/v1/subscriptions
 
   ```bash
   LAGO_URL="https://api.lago.dev"
-  API_KEY="__CLIENT_API_KEY__"
+  API_KEY="__YOUR_API_KEY__"
 
   curl --location --request DELETE "$LAGO_URL/api/v1/subscriptions?customer_id=5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba" \
     --header "Authorization: Bearer $API_KEY"
