@@ -76,52 +76,62 @@ It must match the `code` property of one of the plans.
 
 ### Responses
 
-#### HTTP 200
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
 
-The plan was succesfuly assigned to the customer. A subscription has been created.
+  The plan was succesfuly assigned to the customer. A subscription has been created.
 
-Returns a [subscription](#subscription-object) object.
+  Returns a [subscription](#subscription-object) object.
 
-#### HTTP 400
+  </TabItem>
+  <TabItem value="400" label="HTTP 400">
 
-```json
-{
-  "status": 400,
-  "error": "Bad Request"
-}
-```
-
-The `subscription` json is not present in the request body.
-
-#### HTTP 401
-
-```json
-{
-  "status": 401,
-  "error": "Unauthorized"
-}
-```
-
-Access to the API end point is unhautorized.
-
-Possible reasons are:
-- The `Authorization` header is missing
-- The `Authorization` header does not contains the API key
-- The Api key is invalid or expired
-
-#### HTTP 422
-
-```json
-{
-  "status": 422,
-  "error": "Unprocessable entity",
-  "message": "message"
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
   }
-}
-```
+  ```
 
-Possible error messages:
-- `plan does not exists`: The plan code does not match an exisiting plan.
+  The `subscription` json is not present in the request body.
+
+  </TabItem>
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API end point is unhautorized.
+
+  Possible reasons are:
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contains the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message"
+    }
+  }
+  ```
+
+  Possible error messages:
+  * `plan does not exists`: The plan code does not match an exisiting plan.
+
+
+  </TabItem>
+</Tabs>
 
 ## Terminate a subscription
 
@@ -168,52 +178,64 @@ Unique identifer of the subscription in Lago application.
 
 ### Response
 
-#### HTTP 200
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
 
-The customer subscription was successfully terminated.
+  The customer subscription was successfully terminated.
 
-Returns a [subscription](#subscription-object) object.
+  Returns a [subscription](#subscription-object) object.
 
-#### HTTP 400
+  </TabItem>
 
-```json
-{
-  "status": 400,
-  "error": "Bad Request"
-}
-```
+  <TabItem value="400" label="HTTP 400">
 
-The mandatory argument `customer_id` is not present in the request body.
-
-#### HTTP 401
-
-```json
-{
-  "status": 401,
-  "error": "Unauthorized"
-}
-```
-
-Access to the API end point is unhautorized.
-
-Possible reasons are:
-- The `Authorization` header is missing
-- The `Authorization` header does not contains the API key
-- The Api key is invalid or expired
-
-#### HTTP 422
-
-```json
-{
-  "status": 422,
-  "error": "Unprocessable entity",
-  "message": "message"
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
   }
-}
-```
+  ```
 
-Possible error messages:
-- `not_found`: The provided customer was not found or does not have a subscription.
+  The mandatory argument `customer_id` is not present in the request body.
+
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API end point is unhautorized.
+
+  Possible reasons are:
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contains the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message"
+    }
+  }
+  ```
+
+  Possible error messages:
+  * `not_found`: The provided customer was not found or does not have a subscription.
+
+
+  </TabItem>
+</Tabs>
 
 ## Subscription object
 

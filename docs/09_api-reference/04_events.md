@@ -100,35 +100,42 @@ Aggregation type:
 
 ### Responses
 
-#### HTTP 200
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
 
-The event has been stored in the system and will be aggregated to generate fees.
+  The event has been stored in the system and will be aggregated to generate fees.
 
-Returns an empty response body.
+  Returns an empty response body.
 
-#### HTTP 400
+  </TabItem>
+  <TabItem value="400" label="HTTP 400">
 
-```json
-{
-  "status": 400,
-  "error": "Bad Request",
-}
-```
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request",
+  }
+  ```
 
-The `event` json is not present in the request body.
+  The `event` json is not present in the request body.
 
-#### HTTP 401
+  </TabItem>
+  <TabItem value="401" label="HTTP 401">
 
-```json
-{
-  "status": 401,
-  "error": "Unauthorized",
-}
-```
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized",
+  }
+  ```
 
-Access to the API end point is unhautorized.
+  Access to the API end point is unhautorized.
 
-Possible reasons are:
-- The `Authorization` header is missing
-- The `Authorization` header does not contains the API key
-- The Api key is invalid or expired
+  Possible reasons are:
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contains the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+</Tabs>

@@ -173,59 +173,70 @@ Zipcode of the customer's billing address.
 
 ### Responses
 
-#### HTTP 200
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The customer was succesfuly created or updated.
 
-The customer was succesfuly created or updated.
+  Returns a [customer](#customer-object) object.
+  </TabItem>
 
-Returns a [customer](#customer-object) object.
+  <TabItem value="400" label="HTTP 400">
 
-#### HTTP 400
-
-```json
-{
-  "status": 400,
-  "error": "Bad Request"
-}
-```
-
-The `customer` json is not present in the request body.
-
-#### HTTP 401
-
-```json
-{
-  "status": 401,
-  "error": "Unauthorized"
-}
-```
-
-Access to the API end point is unhautorized.
-
-Possible reasons are:
-- The `Authorization` header is missing
-- The `Authorization` header does not contains the API key
-- The Api key is invalid or expired
-
-#### HTTP 422
-
-```json
-{
-  "status": 422,
-  "error": "Unprocessable entity",
-  "message": "message",
-  "error_details": {
-    "field": ["message"]
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
   }
-}
-```
+  ```
 
-Possible error messages:
-- `Validation error on the record`: The `error_details` field contains the details of the errors
+  The `customer` json is not present in the request body.
+  </TabItem>
 
-| field | error | description |
-|--|--|--|
-| `customer_id` | `value_is_mandatory` | customer_id is missing |
-| `country` | `not_a_valid_country_code` | Provided country value is not an ISO 3166 country code |
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API end point is unhautorized.
+
+  Possible reasons are:
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contains the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message",
+    "error_details": {
+      "field": ["message"]
+    }
+  }
+  ```
+
+  Possible error messages:
+  - `Validation error on the record`: The `error_details` field contains the details of the errors
+
+  | field | error | description |
+  |--|--|--|
+  | `customer_id` | `value_is_mandatory` | customer_id is missing |
+  | `country` | `not_a_valid_country_code` | Provided country value is not an ISO 3166 country code |
+
+
+  </TabItem>
+</Tabs>
+
 
 ## Customer object
 
