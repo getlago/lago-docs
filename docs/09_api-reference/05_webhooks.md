@@ -44,10 +44,14 @@ To verify the signature, you must decode the signature and compare the result wi
     request.header['X-Lago-Signature'],
     RsaPublicKey,
     true,
-    { algorithm: 'RS256' },
+    {
+      algorithm: 'RS256',
+      iss: "https://api.getlago.com",
+      verify_iss: true,
+    },
   ).first
 
-  decoded_signature == request.body
+  decoded_signature['data'] == request.body
   ```
 
   </TabItem>
@@ -56,6 +60,10 @@ To verify the signature, you must decode the signature and compare the result wi
 ## Messages
 
 ### Invoice created
+
+Sent when a new invoice has been generated for a customer.
+
+It will allow your application to perform the billing.
 
 ```json
 {
