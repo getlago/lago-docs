@@ -19,7 +19,7 @@ You must retrieve your API key from your account.
   <TabItem value="curl" label="Curl" default>
 
   ```bash
-  LAGO_URL="https://api.lago.dev"
+  LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
   curl --location --request POST "$LAGO_URL/api/v1/..." \

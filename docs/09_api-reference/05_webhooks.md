@@ -31,18 +31,12 @@ It is used to ensure the message is comming from Lago and that the message has n
 To verify the signature, you must decode the signature and compare the result with the body of the webhook.
 
 <Tabs>
-  <TabItem value="curl" label="Bash" default>
-
-  ```bash
-  ```
-
-  </TabItem>
   <TabItem value="ruby" label="Ruby" default>
 
   ```ruby
   decoded_signature = JWT.decode(
     request.header['X-Lago-Signature'],
-    RsaPublicKey,
+    __PUBLIC_KEY__,
     true,
     {
       algorithm: 'RS256',

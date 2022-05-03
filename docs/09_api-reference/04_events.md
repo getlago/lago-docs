@@ -23,7 +23,7 @@ POST /api/v1/events
   <TabItem value="curl" label="Curl" default>
 
   ```bash
-  LAGO_URL="https://api.lago.dev"
+  LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
   curl --location --request POST "$LAGO_URL/api/v1/events" \

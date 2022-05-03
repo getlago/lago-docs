@@ -23,7 +23,7 @@ POST /api/v1/subscriptions
   <TabItem value="curl" label="Curl" default>
 
   ```bash
-  LAGO_URL="https://api.lago.dev"
+  LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
   curl --location --request POST "$LAGO_URL/api/v1/subscriptions" \
@@ -146,7 +146,7 @@ DELETE /api/v1/subscriptions
   <TabItem value="curl" label="Curl" default>
 
   ```bash
-  LAGO_URL="https://api.lago.dev"
+  LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
   curl --location --request DELETE "$LAGO_URL/api/v1/subscriptions?customer_id=5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba" \
