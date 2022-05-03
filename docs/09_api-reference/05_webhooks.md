@@ -2,10 +2,18 @@
 sidebar_position: 5
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Webhooks
 
-TODO: Add a clear description of what are webhooks and how user can use it.
+Webhooks are HTTP notifications sent from Lago to your application.
+
+The messages are sent as a `POST` to the URL defined in the settings of your Lago workspace.
+
 ## Message format
+
+`POST __WEBHOOK_URL__`
 
 ```json
 {
@@ -16,7 +24,34 @@ TODO: Add a clear description of what are webhooks and how user can use it.
 
 ## Signature
 
-TODO: describe signature mechanisme for webhooks
+Allong with the payload the message contains a `X-Lago-Signature` HTTP header.
+
+It is used to ensure the message is comming from Lago and that the message has not been altered.
+
+To verify the signature, you must decode the signature and compare the result with the body of the webhook.
+
+<Tabs>
+  <TabItem value="curl" label="Bash" default>
+
+  ```bash
+  ```
+
+  </TabItem>
+  <TabItem value="ruby" label="Ruby" default>
+
+  ```ruby
+  decoded_signature = JWT.decode(
+    request.header['X-Lago-Signature'],
+    RsaPublicKey,
+    true,
+    { algorithm: 'RS256' },
+  ).first
+
+  decoded_signature == request.body
+  ```
+
+  </TabItem>
+</Tabs>
 
 ## Messages
 
