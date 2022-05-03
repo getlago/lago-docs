@@ -44,6 +44,7 @@ POST /api/v1/customers
         "phone": "1-171-883-3711 x245",
         "state": "CA",
         "url": "http://hooli.com",
+        "vat_rate": 12.5,
         "zipcode": "91364"
       }
     }'
@@ -77,6 +78,7 @@ POST /api/v1/customers
     "phone": "1-171-883-3711 x245",
     "state": "CA",
     "url": "http://hooli.com",
+    "vat_rate": 12.5,
     "zipcode": "91364"
   }
 }
@@ -163,6 +165,15 @@ State of the customer's billing address.
 |`type: string` | **optional**
 
 Custom URL of the customer.
+
+#### vat_rate
+
+| `type: float` | **optional**
+
+Custom VAT applied to the customer.<br/>
+It will override the one defiend at organization level.
+
+
 #### zipcode
 
 |`type: string` | **optional**
@@ -231,6 +242,7 @@ Zipcode of the customer's billing address.
   |--|--|--|
   | `customer_id` | `value_is_mandatory` | customer_id is missing |
   | `country` | `not_a_valid_country_code` | Provided country value is not an ISO 3166 country code |
+  | `vat_rate` | `value_is_out_of_range` | Provided VAT rate is invalid.<br/>It must be a positive integer or floating number between 0 and 100. |
 
 
   </TabItem>
@@ -257,6 +269,7 @@ Zipcode of the customer's billing address.
     "phone": "1-171-883-3711 x245",
     "state": "CA",
     "url": "http://hooli.com",
+    "vat_rate": 12.5,
     "zipcode": "91364"
   }
 }
@@ -347,6 +360,13 @@ State of the customer's billing address.
 |`type: string` | **nullable**
 
 Custom URL of the customer.
+
+#### vat_rate
+
+| `type: float` | **nullable**
+
+Custom VAT rate applied to the customer.
+
 #### zipcode
 
 |`type: string` | **nullable**
