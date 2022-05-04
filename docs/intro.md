@@ -7,72 +7,27 @@ import TabItem from '@theme/TabItem';
 
 
 # Welcome to Lago
+Lago is an open-source Stripe Billing alternative. 
 
-Let's discover Lago in 10 minutes
-```bash
-npm init lago
-```
+By implementing this library, you are able to build an entire billing logic from zero to hero, even the most complex one. Lago is a real-time event-based library made for usage-based billing, metered billing, subscription-based billing, and all the nuances of pricing in between.
 
-**Hello mike**
+## Four-step billing workflow
 
+### 1. Events ingestion
+By ingesting events into Lago, you send the consumption of your clients at scale. You can send anything that is happening in your product, with the highest granularity. You can also use events to send a daily summary for one of your feature that is being charged. Any features that you want your customers to pay should be a specific event.
 
+### 2. Billable Metrics aggregation
+``Billable Metrics`` aggregation is the way we translate your events into a real billable metric that can be charge at the end of a billable period. You can:
+- ``COUNT`` count the number of times an incoming event occurs
+- ``SUM`` sum a defined property for incoming events
+- ``MAX`` get the maximum value of a defined property for incoming events
+- ``COUNT DISTINCT`` get the number of unique value of a defined property for incoming events
 
-## Getting Started
+### 3. Pricing definition
+Pricing represents how much a customer should pay based on the consumption. Each ``Billable metric`` can be priced differently regarding the ``Plan`` a customer belongs to.
 
-Get started by **creating a new site**.
+### 4. Invoicing creation
+Invoicing occurs at the end of the billing period, regarding the ``Plan`` a customer belongs to. Invoices detail all the usage a customer should pay for, alongside the total amount and the applied taxes to pay.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
-
-<Tabs
-  defaultValue="apple"
-  values={[
-    {label: 'Apple', value: 'apple'},
-    {label: 'Orange', value: 'orange'},
-    {label: 'Banana', value: 'banana'},
-  ]}>
-  <TabItem value="apple">Ceci est une pomme 🍎</TabItem>
-  <TabItem value="orange">Ceci est une orange 🍊</TabItem>
-  <TabItem value="banana">Ceci est une banane 🍌</TabItem>
-</Tabs>
-
-```js
-async function signInWithApple() {
-  const { user, session, error } = await supabase.auth.signIn({
-    provider: 'apple',
-  })
-}
-```
+## Next steps
+Before ingesting events and define your usage metrics, you must [deploy Lago locally](./self-hosting/installation.md). 
