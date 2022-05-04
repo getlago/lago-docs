@@ -50,7 +50,6 @@ POST /api/v1/events
 
 ### Arguments
 
-
 ```json
 {
   "event": {

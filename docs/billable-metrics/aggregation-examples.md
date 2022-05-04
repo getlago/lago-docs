@@ -39,12 +39,12 @@ You decided to charge the `Tracked Pages`. **This is your Billable metric.** Her
 Let's see below the differences between the aggregation types.
 
 ## Differences between the aggregation types
-| Aggregation | Code                                                      | Result to be charged  |
-| --------    | --------------------------------------------------------  | --------------------- |
-| **COUNT**   | `COUNT(tracked_pages)`                                    | 2                     |
-| **SUM**     | `SUM(tracked_pages.properties.pageviews)`                 | 30                    |
-| **MAX**     | `MAX(tracked_pages.properties.pageviews)`                 | 20                    |
-| **COUNT**   | `DISTINC_COUNT(tracked_pages.properties.tracked_user_id)` | 1                     |
+| Aggregation           | Code                                                                | Result to be charged  |
+| ----------------------| --------------------------------------------------------------------| --------------------- |
+| **COUNT**             | `COUNT(tracked_pages)`                                              | 2                     |
+| **SUM**               | `SUM(tracked_pages.properties.pageviews)`                           | 30                    |
+| **MAX**               | `MAX(tracked_pages.properties.pageviews)`                           | 20                    |
+| **COUNT DISTINCT**    | `DISTINCT_COUNT(tracked_pages.properties.tracked_user_id)`          | 1                     |
 
 
 Based on the aggregation type you defined for you Billable metric `Tracked Pages`, the result that is going to be charged to your customer is completely different. Make sure to choose the right aggregation type for all your Billable metrics. If you need help, don't hesitate to reach out the Lago Team!
