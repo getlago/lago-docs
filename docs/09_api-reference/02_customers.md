@@ -199,7 +199,7 @@ Zipcode of the customer's billing address.
   }
   ```
 
-  The `customer` json is not present in the request body.
+  The `customer` json root is not present in the request body.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">

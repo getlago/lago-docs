@@ -31,6 +31,7 @@ POST /api/v1/events
   --header 'Content-Type: application/json' \
   --data-raw "{
       \"event\": { \
+          \"transaction_id\": \"__UNIQUE_ID__\", \
           \"customer_id\": \"__CUSTOMER_ID__\", \
           \"code\": \"__EVENT_CODE__\", \
           \"timestamp\": $(date +%s) \
@@ -53,8 +54,9 @@ POST /api/v1/events
 ```json
 {
   "event": {
+    "transaction_id": "__UNIQUE_ID__",
     "customer_id": "__CUSTOMER_ID__",
-    "code": "__EVENT_CODE__", // Replace with event code
+    "code": "__EVENT_CODE__",
     "timestamp": 1650893379,
     "properties": {
       "custom_field": 12
@@ -62,6 +64,13 @@ POST /api/v1/events
   }
 }
 ```
+
+#### transaction_id
+
+| `type: string` | **required**
+
+Unique ID identifying the event.<br/>
+As it will be used for idem potency, it should be a unique identifier.
 
 #### customer_id
 
@@ -116,7 +125,7 @@ Aggregation type:
   }
   ```
 
-  The `event` json is not present in the request body.
+  The `event` json root is not present in the request body.
 
   </TabItem>
   <TabItem value="401" label="HTTP 401">

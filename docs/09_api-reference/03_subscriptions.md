@@ -93,7 +93,7 @@ It must match the `code` property of one of the plans.
   }
   ```
 
-  The `subscription` json is not present in the request body.
+  The `subscription` json root is not present in the request body.
 
   </TabItem>
   <TabItem value="401" label="HTTP 401">
