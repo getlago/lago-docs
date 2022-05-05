@@ -16,7 +16,7 @@ You decided to charge the `Tracked Pages`. **This is your Billable metric.** Her
     "transaction_id": "1111-1111-1111-1111",
     "customer_id": "1",
     "timestamp": "2022-03-16T00:00:00Z",
-    "event_type": "tracked_pages",
+    "code": "tracked_pages",
     "properties": {
 		    "tracked_user_id": "1234-5678-9098-7654"
 			"pageviews": 10
@@ -29,7 +29,7 @@ You decided to charge the `Tracked Pages`. **This is your Billable metric.** Her
     "transaction_id": "2222-2222-2222-2222",
     "customer_id": "1",
     "timestamp": "2022-03-17T00:00:00Z",
-    "event_type": "tracked_pages",
+    "code": "tracked_pages",
     "properties": {
 		    "tracked_user_id": "1234-5678-9098-7654",
 			"pageviews": 20
