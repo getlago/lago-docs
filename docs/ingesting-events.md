@@ -33,7 +33,17 @@ To send usage events to Lago, you need to use the **Lago API**. A measurement ev
 }
 ```
 ### 1. The `transaction_id`
+The `transaction_id` is very useful to ensure the uniqueness of the events received. It is mandatory to define on your own a unique `transaction_id` for each event you send to Lago.
 
+This identifier is used to deduplicate events ingested, making sure we don't ingest twice the same event (otherwise, this could create billing errors for your customers). 
+- If a `transaction_id` is new to Lago, the event is ingested;
+- If a `transaction_id` has already been received by Lago, it's ignored.
+
+:::tip
+**A good practice is to send the id of the transaction coming from your backend**.
+
+If you do not have an existing id for a transaction, you can create a unique one by concatenating the `code` of the Billable metric and the `timestamp` of the event *(example: `api_searches_2022-04-01T03:49:23Z`).
+:::
 
 ### 2. The `customer_id`
 The `customer_id` specifies which one of your customers is triggering the event associated with your billing. For now **a customer can only have one ID** and we don't manage aliases, parents and child IDs (for instance, billing subsidiaries).
@@ -46,11 +56,15 @@ This code is required for all events received in Lago. For instance, you can sta
 ### 4. The event `timestamp`
 The event timestamp is the date when the billing event occurs in your application and sent to Lago. This event must be a **[UNIX Timestamp](https://www.unixtimestamp.com/).** For instance, you could define `1650893379` for *Mon Apr 25 2022 13:29:39 GMT+0000* or `1651682217`for *Wed May 04 2022 16:36:57 GMT+0000*.
 
+**This `timestamp` is not mandatory to send the event**. If you do not specify a timestamp on your own, Lago automatically defines the reception date of the event as the event timestamp.
+
 ### 5. The event `properties`
 Event properties are useful to send more context in usage events. Moreover, they are also very useful when you need to aggregate a Billable metrics for `SUM`, `MAX` and `COUNT DISTINCT`. Event properties can be `strings`, `integers`, `floats`, `uuids` or `timestamps`.
 
-
 ## Idempotency and retries
+By using a unique `transaction_id`, can send events to Lago as much as you want without worrying about sending twice the same event. Duplicates will be ignored by our system. This ensures that your customers' usage is counted once. In case of duplicates, we guarantee that only one of the events will be ingested, and the other ones are ignored.
+
+In case you are not sure if an event has been ingested, we recommend you to send it multiple times (or to replay it). Once again, with the uniqueness of the `transaction_id`, your customers won't be badly affected.
 
 ## User action trigger or periodic trigger
 With Lago, you can define when you need to trigger events based on the actions your customers make in your application.
