@@ -109,7 +109,7 @@ It must match the `code` property of one of the plans.
 
   Possible reasons are:
   * The `Authorization` header is missing
-  * The `Authorization` header does not contains the API key
+  * The `Authorization` header does not contain the API key
   * The Api key is invalid or expired
 
 
@@ -213,7 +213,7 @@ Unique identifer of the subscription in Lago application.
 
   Possible reasons are:
   * The `Authorization` header is missing
-  * The `Authorization` header does not contains the API key
+  * The `Authorization` header does not contain the API key
   * The Api key is invalid or expired
 
 

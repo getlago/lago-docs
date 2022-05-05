@@ -215,7 +215,7 @@ Zipcode of the customer's billing address.
 
   Possible reasons are:
   * The `Authorization` header is missing
-  * The `Authorization` header does not contains the API key
+  * The `Authorization` header does not contain the API key
   * The Api key is invalid or expired
 
 

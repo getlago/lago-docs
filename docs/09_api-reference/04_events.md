@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Events
 
-TODO: Add a clear description of what are events.
+Events represents the data delivered to lago application that will then be aggregated into billable metrics.
 
 ## Send an event for a customer
 
@@ -141,7 +141,7 @@ Aggregation type:
 
   Possible reasons are:
   * The `Authorization` header is missing
-  * The `Authorization` header does not contains the API key
+  * The `Authorization` header does not contain the API key
   * The Api key is invalid or expired
 
 
