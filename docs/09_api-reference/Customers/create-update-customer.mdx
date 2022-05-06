@@ -1,0 +1,211 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Create or update a customer
+
+## Route
+
+```curl title="POST"
+/api/v1/customers
+```
+
+## Usage
+
+<Tabs>
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/customers" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "customer": {
+        "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+        "address_line1": "5230 Penfield Ave",
+        "address_line2": null,
+        "city": "Woodland Hills",
+        "country": "US",
+        "email": "dinesh@piedpiper.test",
+        "legal_name": "Coleman-Blair",
+        "legal_number": "49-008-2965",
+        "logo_url": "http://hooli.com/logo.png",
+        "name": "Gavin Belson",
+        "phone": "1-171-883-3711 x245",
+        "state": "CA",
+        "url": "http://hooli.com",
+        "vat_rate": 12.5,
+        "zipcode": "91364"
+      }
+    }'
+  ```
+
+  </TabItem>
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  echo "test"
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "customer": {
+    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "address_line1": "5230 Penfield Ave",
+    "address_line2": null,
+    "city": "Woodland Hills",
+    "country": "US",
+    "email": "dinesh@piedpiper.test",
+    "legal_name": "Coleman-Blair",
+    "legal_number": "49-008-2965",
+    "logo_url": "http://hooli.com/logo.png",
+    "name": "Gavin Belson",
+    "phone": "1-171-883-3711 x245",
+    "state": "CA",
+    "url": "http://hooli.com",
+    "vat_rate": 12.5,
+    "zipcode": "91364"
+  }
+}
+```
+:::info
+If the customer already exists, the call will work as an update
+:::
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
+| address_line1 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | First line of the billing address |
+| address_line2 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Second line of the billing address |
+| city | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | City of the customer's billing address |
+| country | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*ISO 3166 alpha 2 Country code.*</Comment>| Country code of the customer's billing address |
+| email | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Email of the customer |
+| legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal company name of the customer |
+| legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal company number of the customer |
+| logo_url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Logo URL of the customer |
+| logo_url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Logo URL of the customer |
+| name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Full name of the customer |
+| phone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Phone number of the customer |
+| state | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | State of the customer's billing address |
+| url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom URL of the customer |
+| vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom VAT applied to the customer.<br></br> It will override the one defined at organization level |
+| zipcode | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Zipcode of the customer's billing address |
+
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The customer was succesfuly created or updated.
+
+  Returns a [customer](#customer-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `customer` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message",
+    "error_details": {
+      "field": ["message"]
+    }
+  }
+  ```
+
+  Possible error messages:
+  - `Validation error on the record`: The `error_details` field contains the details of the errors
+
+  | field | error | description |
+  |--|--|--|
+  | `customer_id` | `value_is_mandatory` | customer_id is missing |
+  | `country` | `not_a_valid_country_code` | Provided country value is not an ISO 3166 country code |
+  | `vat_rate` | `value_is_out_of_range` | Provided VAT rate is invalid.<br/>It must be a positive integer or floating number between 0 and 100. |
+
+
+  </TabItem>
+</Tabs>
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
