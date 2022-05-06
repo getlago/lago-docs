@@ -1,0 +1,145 @@
+---
+sidebar_position: 6
+---
+
+# Invoices
+
+TODO: Add a clear description of what are invoices.
+
+## Invoice object
+
+```json
+{
+  "webhook_type": "invoice.created",
+  "object_type": "invoice",
+  "invoice": {
+    "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "sequential_id": 2,
+    "from_date": "2022-04-01",
+    "to_date": "2022-04-30",
+    "issuing_date": "",
+    "amount_cents": 100,
+    "amount_currency": "EUR",
+    "vat_amount_cents": 20,
+    "vat_amount_currency": "EUR",
+    "total_amount_cents": 120,
+    "total_amount_currency": "EUR",
+    "customer": {
+      "lago_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+      "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+      "address_line1": "5230 Penfield Ave",
+      "address_line2": null,
+      "city": "Woodland Hills",
+      "country": "US",
+      "created_at": "2022-04-29T08:59:51Z",
+      "email": "dinesh@piedpiper.test",
+      "legal_name": "Coleman-Blair",
+      "legal_number": "49-008-2965",
+      "logo_url": "http://hooli.com/logo.png",
+      "name": "Gavin Belson",
+      "phone": "1-171-883-3711 x245",
+      "state": "CA",
+      "url": "http://hooli.com",
+      "vat_rate": 20.0,
+      "zipcode": "91364"
+    },
+    "subscription": {
+      "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+      "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+      "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+      "canceled_at": "2022-04-29T08:59:51Z",
+      "created_at": "2022-04-29T08:59:51Z",
+      "plan_code": "new_code",
+      "started_at": "2022-04-29T08:59:51Z",
+      "status": "active",
+      "terminated_at": null
+    },
+    "fees": [
+      {
+        "item": {
+          "type": "subscription",
+          "code": "plan_code",
+          "name": "Plan"
+        },
+        "amount_cents": 100,
+        "amount_currency": "EUR",
+        "vat_amount_cents": 20,
+        "vat_amount_currency": "EUR"
+      }
+    ]
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the invoice in Lago application |
+| **sequential_id** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Invoice unique number|
+| **from_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Lower bound of the billing period |
+| **to_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Upper bound of the billing period |
+| **issuing_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Date of creation of the invoice |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents, VAT (tax) excluded|
+| **amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
+| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Vat amount in cents |
+| **vat_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
+| **total_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Should be the sum of the amount and the VAT amount |
+| **total_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount |
+| **customer** &nbsp &nbsp <Type>JSON</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | [Customer object](/docs/api-reference/customers/customer-object). Billed customer |
+| **subscription** &nbsp &nbsp <Type>JSON</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | [Subscription object](/docs/api-reference/subscriptions/subscription-object). Billed subscription |
+| **fees** &nbsp &nbsp <Type>JSON</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Array of [fee](#fee-object) object |
+
+
+
+## Fee object
+
+```json
+{
+  "item": {
+    "type": "subscription",
+    "code": "plan_code",
+    "name": "Plan"
+  },
+  "amount_cents": 100,
+  "amount_currency": "EUR",
+  "vat_amount_cents": 20,
+  "vat_amount_currency": "EUR"
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **item** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Item attached to the fee. <br></br>**Always have 3 attributes:**<br></br>- `type`: `charge` or `subscription`<br></br>- `code`: Code of the plan or of the billable metric attached to the fee.<br></br>- `name`: Name of the plan of of the billable metric attached to the fee |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents of the fee, VAT excluded |
+| **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
+| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents |
+| **vat_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
+
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
