@@ -142,13 +142,13 @@ Currency of the total amount.
 
 #### customer
 
-| `type: json` | [Customer object](/docs/api-reference/customers#customer-object) | **not null**
+| `type: json` | [Customer object](/docs/api-reference/customers/customer-object) | **not null**
 
 Billed customer.
 
 #### subscription
 
-| `type: json` | [Subscription object](/docs/api-reference/subscriptions#subscription-object) | **not null**
+| `type: json` | [Subscription object](/docs/api-reference/subscriptions/subscription-object) | **not null**
 
 Billed subscription.
 

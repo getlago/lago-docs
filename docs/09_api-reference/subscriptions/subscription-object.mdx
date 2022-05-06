@@ -1,0 +1,71 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# The subscription object
+
+TODO: Add a clear description of what are subscriptions.
+
+
+## Schema
+```json
+{
+  "subscription": {
+    "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "canceled_at": "2022-04-29T08:59:51Z",
+    "created_at": "2022-04-29T08:59:51Z",
+    "plan_code": "new_code",
+    "started_at": "2022-04-29T08:59:51Z",
+    "status": "active",
+    "terminated_at": null
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the subscription in Lago application |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
+| **customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **canceled_at** &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 8601 datetime*</Comment> | Cancelation date of the subscription. It's not null when the subscription is `canceled` |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetimee*</Comment> | Creation date of the subscription |
+| **plan_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Code identifying the plan.<br></br>It matches the `code` property of one of the plans |
+| **started_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime*</Comment> | Start date of the subscription. It could be null if the subscription is `pending` of `canceled` |
+| **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Status of the subscription. <br></br> <details><summary>**Possible values**</summary><div>- `pending`: a previous subscription has been downgraded, the current one is waiting for its automatic activation at the end of the billing period.<br></br>- `active`: the subscription is currently applied to the customer.<br></br>- `terminated`: the subscription is not active anymore<br></br>- `canceled`: the subscription has been stopped before its activation. It could happen when two consecutive downgrade have been applied to a customer or when a subscription with a pending one is terminaded.<div></div></div></details> |
+| **terminated_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetimee*</Comment> | Termination date of the subscription. It's not null when the subscription is `terminated` |
+
+
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
