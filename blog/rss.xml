@@ -4,7 +4,7 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/blog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Fri, 06 May 2022 19:10:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 06 May 2022 19:40:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,13 +12,13 @@
             <title><![CDATA[customers]]></title>
             <link>https://getlago.com/blog/customers</link>
             <guid>/customers</guid>
-            <pubDate>Fri, 06 May 2022 19:10:00 GMT</pubDate>
+            <pubDate>Fri, 06 May 2022 19:40:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[index]]></title>
             <link>https://getlago.com/blog/index</link>
             <guid>/index</guid>
-            <pubDate>Fri, 06 May 2022 19:10:00 GMT</pubDate>
+            <pubDate>Fri, 06 May 2022 19:40:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/blog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-05-06T19:10:00.000Z</updated>
+    <updated>2022-05-06T19:40:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/blog"/>
     <subtitle>Lago documentation Blog</subtitle>
@@ -11,12 +11,12 @@
         <title type="html"><![CDATA[customers]]></title>
         <id>/customers</id>
         <link href="https://getlago.com/blog/customers"/>
-        <updated>2022-05-06T19:10:00.000Z</updated>
+        <updated>2022-05-06T19:40:00.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[index]]></title>
         <id>/index</id>
         <link href="https://getlago.com/blog/index"/>
-        <updated>2022-05-06T19:10:00.000Z</updated>
+        <updated>2022-05-06T19:40:00.000Z</updated>
     </entry>
 </feed>
