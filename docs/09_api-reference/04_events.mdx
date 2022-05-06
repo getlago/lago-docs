@@ -1,0 +1,164 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Events
+
+Events represents the data delivered to lago application that will then be aggregated into billable metrics.
+The following endpoint explains how to **send an event for a customer.**
+
+## Route
+
+```curl title="POST"
+api/v1/events
+```
+
+## Usage
+
+<Tabs>
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/events" \
+  --header "Authorization: Bearer $API_KEY" \
+  --header 'Content-Type: application/json' \
+  --data-raw "{
+      \"event\": { \
+          \"transaction_id\": \"__UNIQUE_ID__\", \
+          \"customer_id\": \"__CUSTOMER_ID__\", \
+          \"code\": \"__EVENT_CODE__\", \
+          \"timestamp\": $(date +%s) \
+      } \
+  }"
+  ```
+
+  </TabItem>
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  foo
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "event": {
+    "transaction_id": "__UNIQUE_ID__",
+    "customer_id": "__CUSTOMER_ID__",
+    "code": "__EVENT_CODE__",
+    "timestamp": 1650893379,
+    "properties": {
+      "custom_field": 12
+    }
+  }
+}
+```
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| **transaction_id** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique ID identifying the event. <br></br>As it will be used for idempotency, it should be a unique identifier |
+| **customer_id** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
+| **code** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the type of the event.<br></br> It should match the `code` property of one of your active billable metrics, otherwise it will be ignored |
+| **timestamp** | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*Default: event reception timestamp*</Comment> | Unix timestamp of the event occurence.<br></br> If not provided, the API will set the event reception time |
+| **properties** | JSON &nbsp &nbsp &nbsp<Variable>**Variable**</Variable> | Extra data to use for the event aggregation.<br></br>When mandatory, it should contains the `field_name` configured at billable metric level as `key` and any value as field `value`.<br></br><details><summary>**Aggregation type:**</summary><div>- `COUNT`: **optional**<br></br>- `MAX`: **required**. value must be an integer<br></br>- `SUM`: **required**. value must be an integer<br></br>- `COUNT UNIQUE`: **required**. value could have any datatype<div></div></div></details> |
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+
+  The event has been stored in the system and will be aggregated to generate fees.
+
+  Returns an empty response body.
+
+  </TabItem>
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request",
+  }
+  ```
+
+  The `event` json root is not present in the request body.
+
+  </TabItem>
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized",
+  }
+  ```
+
+  Access to the API end point is unhautorized.
+
+  **Possible reasons are:**
+  - The `Authorization` header is missing
+  - The `Authorization` header does not contain the API key
+  - The Api key is invalid or expired
+
+
+  </TabItem>
+</Tabs>
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Variable = ({children, color}) => (
+  <span
+    style={{
+      color: "#422CC1",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

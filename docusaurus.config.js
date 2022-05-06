@@ -58,11 +58,6 @@ const config = {
             position: 'left',
             label: 'Guide',
           },
-          {
-            to: '/blog',
-            label: 'API Reference',
-            position: 'left'
-          },
           {to: 'https://getlago.com/', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/facebook/docusaurus',
