@@ -1,0 +1,150 @@
+---
+sidebar_position: 3
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Terminate a subscription
+
+## Route
+
+```curl title="DELETE"
+/api/v1/subscriptions
+```
+
+## Usage
+
+<Tabs>
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request DELETE "$LAGO_URL/api/v1/subscriptions?customer_id=5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba" \
+    --header "Authorization: Bearer $API_KEY"
+  ```
+  </TabItem>
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  echo "test"
+  ```
+  </TabItem>
+</Tabs>
+
+
+## Arguments
+
+Should be send as request parameters, or in a JSON body.
+
+```
+customer_id: 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp<Type>String</Type><Required>Not null</Required> | Unique identifer of the subscription in Lago application |
+
+
+## Response
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+
+  The customer subscription was successfully terminated.
+
+  Returns a [subscription](./subscription-object) object.
+
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The mandatory argument `customer_id` is not present in the request body.
+
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API end point is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message"
+    }
+  }
+  ```
+
+**Possible error messages:**
+- `not_found`: The provided customer was not found or does not have a subscription.
+
+
+  </TabItem>
+</Tabs>
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
