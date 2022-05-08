@@ -42,7 +42,7 @@ const config = {
         logo: {
           alt: 'Lago',
           src: 'img/logo.svg',
-          href: '/docs/intro',
+          href: '/docs/guide/intro',
           target: '_self'
         },
         items: [
