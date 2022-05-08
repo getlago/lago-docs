@@ -39,7 +39,7 @@ You decided to charge the `Tracked Pages`. **This is your Billable metric.** Her
 Let's see below the differences between the aggregation types.
 
 ## Differences between the aggregation types
-| Aggregation           | Code                                                                | Result to be charged  |
+| Aggregation           | Code                                                                | Units to be charged  |
 | ----------------------| --------------------------------------------------------------------| --------------------- |
 | **COUNT**             | `COUNT(tracked_pages)`                                              | 2                     |
 | **SUM**               | `SUM(tracked_pages.properties.pageviews)`                           | 30                    |
