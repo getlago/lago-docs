@@ -27,12 +27,6 @@ const config = {
           // Please change this to your repo.
           editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -58,6 +52,12 @@ const config = {
             position: 'left',
             label: 'Guide',
           },
+          {
+            docId: 'doc',
+            position: 'left',
+            label: 'API Reference',
+            to: 'blog'
+          },
           {to: 'https://getlago.com/', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/facebook/docusaurus',
@@ -74,7 +74,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/docs/intro'
               },
             ],
           },
