@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklago_doc=self.webpackChunklago_doc||[]).push([[195],{2841:function(e,n,t){t.r(n),t.d(n,{default:function(){return r}});var o=t(7294),c=(t(2600),t(2263)),u=t(6775);function r(){(0,c.Z)().siteConfig;return o.createElement(u.l_,{to:"/docs/intro"})}}}]);
