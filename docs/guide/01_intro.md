@@ -30,4 +30,4 @@ Pricing represents how much a customer should pay based on the consumption. Each
 Invoicing occurs at the end of the billing period, regarding the ``Plan`` a customer belongs to. Invoices detail all the usage a customer should pay for, alongside the total amount and the applied taxes to pay.
 
 ## Next steps
-Before ingesting events and define your usage metrics, you must [deploy Lago locally](./self-hosting/installation.md). 
+Before ingesting events and define your usage metrics, you must [deploy Lago locally](../guide/self-hosting/installation). 

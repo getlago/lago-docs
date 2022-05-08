@@ -74,7 +74,7 @@ You can create a subscription by assigning a plan to a customer. By creating a s
 - Terminate a subscription
 
 ## Ingesting events for a customer
-Before sending event to a customer as usage measurement, **you must define [billable metric(s)](./billable-metrics/overview.md) from the UI.** The `code` of the billable metric is passed as a parameter of the event. Each paying feature of your product is a distinct billable metric and has a proper event `code`.
+Before sending event to a customer as usage measurement, **you must define [billable metric(s)](./billable-metrics/overview) from the UI.** The `code` of the billable metric is passed as a parameter of the event. Each paying feature of your product is a distinct billable metric and has a proper event `code`.
 
 By sending an event to a customer, you are assigning a usage-based consumption from your application.
 
@@ -93,7 +93,7 @@ In Lago, all ingested events must hold a `customer_id`, as shown in the followin
   }
 }
 ```
-Events represents the data delivered to Lago application that are aggregated into billable metrics. At the end of each billable period, Lago automatically aggregates those events into a billable metric with priced units that have been consumed by a customer. By clicking the following link, you can [know more about the aggregation types](./billable-metrics/aggregation-types.md).
+Events represents the data delivered to Lago application that are aggregated into billable metrics. At the end of each billable period, Lago automatically aggregates those events into a billable metric with priced units that have been consumed by a customer. By clicking the following link, you can [know more about the aggregation types](./billable-metrics/aggregation-types).
 
 ## Invoicing a customer
 

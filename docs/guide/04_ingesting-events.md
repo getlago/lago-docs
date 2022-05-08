@@ -6,7 +6,7 @@ sidebar_position: 4
 This guide explains how Lago ingests usage-based events coming from you product. 
 
 ## Define a Billable metric
-**Usage events are designed to target very specific [Billable metrics](./billable-metrics/overview.md) created from the UI**. If you don't understand the concept of Billable metrics, we recommend you to read it first.
+**Usage events are designed to target very specific [Billable metrics](./billable-metrics/overview) created from the UI**. If you don't understand the concept of Billable metrics, we recommend you to read it first.
 
 First things first, you need to define a Billable metric from the UI to send usage measurement events:
 1. In the Lago App, go to the **Billable metrics** section
@@ -82,4 +82,4 @@ Some companies, such as infrastructure or cloud ones, often use periodic trigger
 Lago is designed to ingest a high number of events. By defining aggregation rules, you can define any billing  use cases your company might want to track. Whether you need to send **[user action triggered](#user-action-trigger)** events or **[periodic triggered](#periodic-trigger)** events, Lago does the math on your own so you don't have to query heavy databases before charging your customers.
 
 ## Next steps
-Once you defined your Billable metrics (with their aggregation rules), and started ingesting events to track usage, you are able to define how much your customers will pay for it. This has to be specified in **[Plans](./plans/overview.md)**.
+Once you defined your Billable metrics (with their aggregation rules), and started ingesting events to track usage, you are able to define how much your customers will pay for it. This has to be specified in **[Plans](./plans/overview)**.

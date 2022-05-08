@@ -6,7 +6,7 @@ sidebar_position: 2
 The plan model is crucial to define **how and how much a Customer is charged** by choosing a Plan. It is also defining the **frequency of invoicing** to your customers.
 
 ## The Plan interval
-The `interval` defines when the Plan is charged and when the invoicing is triggered. Also, other [Charges (price per-usage for your Billable metrics)](./charges.md) follow the Plan interval to be resumed to 0 and invoiced to a customer.
+The `interval` defines when the Plan is charged and when the invoicing is triggered. Also, other [Charges (price per-usage for your Billable metrics)](./charges) follow the Plan interval to be resumed to 0 and invoiced to a customer.
 
 **You have 2 options to define the Plan `interval`:**
 1. **Monthly**: Plans and Charges are billed every month

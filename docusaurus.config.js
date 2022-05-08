@@ -19,21 +19,21 @@ const config = {
 
   presets: [
     [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      '@docusaurus/preset-classic',
+      {
         docs: {
+          routeBasePath: 'docs',
+          path: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          lastVersion: 'current',
+          onlyIncludeVersions: ['current'],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+      },
     ],
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -46,21 +46,28 @@ const config = {
           target: '_self'
         },
         items: [
+          // {
+          //   type: 'doc',
+          //   docId: 'intro',
+          //   position: 'left',
+          //   label: 'Tutorials',
+          // },
+
           {
-            type: 'doc',
-            docId: 'intro',
+            type: 'docSidebar',  // docSidebar
             position: 'left',
-            label: 'Guide',
+            sidebarId: 'guide', // foldername
+            label: 'Guide',     // navbar title
           },
           {
-            docId: 'doc',
+            type: 'docSidebar',  // docSidebar
             position: 'left',
-            label: 'API Reference',
-            to: 'blog'
+            sidebarId: 'api', // foldername
+            label: 'API Reference',     // navbar title
           },
-          {to: 'https://getlago.com/', label: 'Blog', position: 'left'},
+          {to: 'https://lago-oss.webflow.io/company/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            to: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
             position: 'right',
           },
@@ -73,8 +80,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro'
+                label: 'Guide',
+                to: '/docs/guide/intro'
+              },
+              {
+                label: 'API Reference',
+                to: '/docs/api/intro'
               },
             ],
           },
@@ -82,16 +93,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/',
               },
             ],
           },
@@ -100,11 +103,11 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                to: 'https://www.getlago.com/company/blog',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/',
               },
             ],
           },
