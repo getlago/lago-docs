@@ -29,7 +29,10 @@ import TabItem from '@theme/TabItem';
   <TabItem value="ruby" label="Ruby">
 
   ```ruby
-  echo "test"
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+  client.subscriptions.delete(customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba")
   ```
   </TabItem>
 </Tabs>
@@ -43,9 +46,9 @@ Should be send as request parameters, or in a JSON body.
 customer_id: 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba
 ```
 
-| Attributes | Description |
-| -----------| ----------- |
-| **lago_id** &nbsp &nbsp<Type>String</Type><Required>Not null</Required> | Unique identifer of the subscription in Lago application |
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
 
 
 ## Response
