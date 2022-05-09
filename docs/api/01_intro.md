@@ -32,7 +32,7 @@ You must retrieve your API key from your account.
 
   <TabItem value="python" label="Python">
 
-  *Comming soon...*
+  *Coming soon...*
 
   </TabItem>
 
