@@ -39,10 +39,38 @@ To verify the signature, you must decode the signature and compare the result wi
 
   <TabItem value="ruby" label="Ruby" default>
 
+  * **Retrieve the public key:**
   ```ruby
+  require 'net/http'
+
+  api_key = "__YOUR_API_KEY__"
+  uri = URI('https://api.getlago.com/api/v1/webhooks/public_key')
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+
+  response = http.send_request(
+    'GET',
+    uri.request_uri,
+    '',
+    { 'Authorization' => "Bearer #{api_key}" }
+  )
+
+  webhooks_public_key = response.body
+  ```
+
+  :::tip
+  You should persist the public key on you side to prevent querying it for each webhook
+  :::
+
+  * **Decode and validate the signature:**
+  ```ruby
+  require 'openssl'
+  require 'jwt'
+
   decoded_signature = JWT.decode(
     request.header['X-Lago-Signature'],
-    __PUBLIC_KEY__,
+    OpenSSL::PKey::RSA.new(webhooks_public_key),
     true,
     {
       algorithm: 'RS256',
@@ -53,6 +81,7 @@ To verify the signature, you must decode the signature and compare the result wi
 
   decoded_signature['data'] == request.body
   ```
+
 
   </TabItem>
 </Tabs>
