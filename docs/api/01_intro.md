@@ -15,7 +15,7 @@ You must retrieve your API key from your account.
 
 ## Configuration
 
-<Tabs>
+<Tabs groupId="prog-language">
   <TabItem value="curl" label="Curl" default>
 
   ```bash
@@ -31,8 +31,23 @@ You must retrieve your API key from your account.
   </TabItem>
   <TabItem value="ruby" label="Ruby">
 
+  **Add the gem in your Gemfile**
+  ```bash
+  bundle add lago-ruby-client
+  ```
+
+  Or if bundler is not being used to manage dependencies, install the gem by executing:
+
+  ```bash
+  $ gem install lago-ruby-client
+  ```
+
+  **Usage**
+
   ```ruby
-  echo "test"
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
   ```
 
   </TabItem>
