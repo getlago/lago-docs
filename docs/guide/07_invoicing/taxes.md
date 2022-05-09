@@ -22,18 +22,18 @@ If you need to append a specific tax rate to a dedicated customer, you can decid
 
 You can update the tax rate at a customer level from both the UI and the API.
 
-**From the UI**:
+### From the UI
 1. Go under the **Customers** tab of the Lago app
 2. Click on the customer for whom you want to edit the tax rate
 3. In the *customer details view*, click on **Add a tax rate**
 4. Add a new tax rate to this customer. This tax rate overwrites the one at the app level
 5. You can delete or edit this per-customer tax rate anytime you want
 
-**From the API**
-
+### From the API
 Use the following route to **add or edit a customer**.
 
 ```curl title="POST"
 /api/v1/customers
 ```
+
 To update a per-customer tax rate, use the argument `vat_rate` in the customer object.
