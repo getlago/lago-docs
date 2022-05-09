@@ -29,6 +29,13 @@ You must retrieve your API key from your account.
   ```
 
   </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  *Comming soon...*
+
+  </TabItem>
+
   <TabItem value="ruby" label="Ruby">
 
   **Add the gem in your Gemfile**
