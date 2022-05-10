@@ -48,7 +48,7 @@ You can override them to customise your setup.
 | SENTRY_DSN | | Sentry DSN key for error and performance tracking |
 
 :::caution
-`POSTGRES_PASSWORD` and `SECRET_KEY_BASE` should be changed to improve security of your Lago application.
+`POSTGRES_PASSWORD` and `SECRET_KEY_BASE` should be changed to improve security of your Lago instance.
 :::
 
 :::info
