@@ -20,7 +20,7 @@ cd lago
 docker-compose up
 ```
 
-In a brother, navigate to [http://localhost](http://localhost) to access to the application.
+In a brother, navigate to [http://localhost](http://localhost) to connect to the application.
 
 Lago API is exposed at [http://localhost:3000](http://localhost:3000).
 
@@ -55,6 +55,9 @@ You can override them to customise your setup.
 
 :::info
 - `SECRET_KEY_BASE` can be generated using `openssl rand -hex 64` command in a shell.
+
+TODO: document RSA keys
+
 :::
 
 ### Components
