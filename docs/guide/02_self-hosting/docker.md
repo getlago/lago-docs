@@ -46,13 +46,15 @@ You can override them to customise your setup.
 | API_PORT | 3000 | Port the front end application is listening to |
 | SECRET_KEY_BASE | your-secret-key-base-hex-64 | Secret key used for session encryption |
 | SENTRY_DSN | | Sentry DSN key for error and performance tracking |
+| RSA_PRIVATE_KEY | | Private key used for webhook signatures |
+| RSA_PUBLIC_KEY | | Public key used to validate webhook signatures |
 
 :::caution
-`POSTGRES_PASSWORD` and `SECRET_KEY_BASE` should be changed to improve security of your Lago instance.
+`POSTGRES_PASSWORD`, `SECRET_KEY_BASE`, `RSA_PRIVATE_KEY` and `SECRET_KEY_BASE` should be changed to improve security of your Lago instance.
 :::
 
 :::info
-`SECRET_KEY_BASE` can be generated using `openssl rand -hex 64` command in a shell.
+- `SECRET_KEY_BASE` can be generated using `openssl rand -hex 64` command in a shell.
 :::
 
 ### Components
