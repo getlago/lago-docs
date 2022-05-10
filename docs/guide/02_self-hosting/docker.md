@@ -47,7 +47,17 @@ You can override them to customise your setup.
 | SECRET_KEY_BASE | your-secret-key-base-hex-64 | Secret key used for session encryption |
 | SENTRY_DSN | | Sentry DSN key for error and performance tracking |
 
+:::caution
+`POSTGRES_PASSWORD` and `SECRET_KEY_BASE` should be changed to improve security of your Lago application.
+:::
+
+:::info
+`SECRET_KEY_BASE` can be generated using `openssl rand -hex 64` command in a shell.
+:::
+
 ### Components
+
+Lago uses the following containers:
 
 | Container | Role |
 |--|--|
