@@ -65,7 +65,7 @@ const config = {
             sidebarId: 'api', // foldername
             label: 'API Reference',     // navbar title
           },
-          {to: 'https://lago-oss.webflow.io/company/blog', label: 'Blog', position: 'left'},
+          {to: 'https://getlago.com/company/blog', label: 'Blog', position: 'right'},
           {
             to: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',

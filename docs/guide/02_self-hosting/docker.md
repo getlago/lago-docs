@@ -24,7 +24,7 @@ cd lago
 docker-compose up
 ```
 
-In a brother, navigate to [http://localhost](http://localhost) to connect to the application. Lago API is exposed at [http://localhost:3000](http://localhost:3000).
+In a browser, navigate to [http://localhost](http://localhost) to connect to the application. Lago API is exposed at [http://localhost:3000](http://localhost:3000).
 
 ## Configuration
 
