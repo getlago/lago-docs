@@ -1,33 +1,34 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Docker
+Docker is the easiest way to get started with the self hosted version of Lago.
 
 ## Requirements
-
-* Install Docker on your system.
-  * [See instruction](https://docs.docker.com/get-docker/)
-* Make sure `docker-compose` is available. It should be the case if you choose to install Docker via Docker Desktop.
+* Install [Docker](https://docs.docker.com/get-docker/) on your system
+* Make sure [Docker Compose](https://docs.docker.com/compose/install/) is installed and available. It should be the case if you choose to install Docker via Docker Desktop
+* Make sure [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) is installed in your system
 
 ## Run the app
-
-Run in a shell:
+Run the following commands in a shell.
 
 ```bash
+# Get the code
 git clone https://github.com/getlago/lago.git
+
+# Go to Lago folder
 cd lago
+
+# Start
 docker-compose up
 ```
 
-In a brother, navigate to [http://localhost](http://localhost) to connect to the application.
-
-Lago API is exposed at [http://localhost:3000](http://localhost:3000).
+In a brother, navigate to [http://localhost](http://localhost) to connect to the application. Lago API is exposed at [http://localhost:3000](http://localhost:3000).
 
 ## Configuration
 
 ### Environment variables
-
 Lago uses environment variable to configure the components of the application.
 You can override them to customise your setup.
 
