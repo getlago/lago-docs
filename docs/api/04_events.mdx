@@ -134,6 +134,23 @@ api/v1/events
 
 
   </TabItem>
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "missing_mandatory_param",
+    "error_details": [
+        "transaction_id"
+    ]
+  }
+  ```
+
+  Required arguments are missing.
+
+
+  </TabItem>
 </Tabs>
 
 export const Required = ({children, color}) => (
