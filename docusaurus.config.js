@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/lago.ico',
   organizationName: 'getlago',
   projectName: 'lago-docs',
   trailingSlash: false,
