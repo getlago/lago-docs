@@ -70,7 +70,7 @@ To verify the signature, you must decode the signature and compare the result wi
 
   decoded_signature = JWT.decode(
     request.header['X-Lago-Signature'],
-    OpenSSL::PKey::RSA.new(webhooks_public_key),
+    OpenSSL::PKey::RSA.new(Base64.decode64(webhooks_public_key)),
     true,
     {
       algorithm: 'RS256',
