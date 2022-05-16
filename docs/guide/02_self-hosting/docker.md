@@ -29,6 +29,7 @@ In a browser, navigate to [http://localhost](http://localhost) to connect to the
 ## Configuration
 
 ### Environment variables
+
 Lago uses environment variable to configure the components of the application.
 You can override them to customise your setup.
 
@@ -57,8 +58,14 @@ You can override them to customise your setup.
 :::info
 - `SECRET_KEY_BASE` can be generated using `openssl rand -hex 64` command in a shell.
 
-TODO: document RSA keys
+- `RSA_PRIVATE_KEY` and `RSA_PRIVATE_KEY` can be generated with the following commands:
+  ```bash
+  openssl genrsa -out rsa_private.pem 2048
+  openssl rsa -in rsa_private.pem -outform PEM -pubout -out rsa_public.pem
 
+  RSA_PRIVATE_KEY=`cat rsa_private.pem | base64`
+  RSA_PUBLIC_KEY=`cat rsa_public.pem | base64`
+  ```
 :::
 
 ### Components
