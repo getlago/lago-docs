@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-# Welcome to Lago
+# Welcome to Lago!
 Lago is an open-source Stripe Billing alternative. 
 
 By implementing this library, you are able to build an entire billing logic from zero to hero, even the most complex one. Lago is a real-time event-based library made for usage-based billing, metered billing, subscription-based billing, and all the nuances of pricing in between.
