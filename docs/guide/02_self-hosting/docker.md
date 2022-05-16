@@ -49,7 +49,6 @@ You can override them to customise your setup.
 | SECRET_KEY_BASE | your-secret-key-base-hex-64 | Secret key used for session encryption |
 | SENTRY_DSN | | Sentry DSN key for error and performance tracking |
 | LAGO_RSA_PRIVATE_KEY | | Private key used for webhook signatures |
-| LAGO_RSA_PUBLIC_KEY | | Public key used to validate webhook signatures |
 
 :::caution
 `POSTGRES_PASSWORD`, `SECRET_KEY_BASE`, `RSA_PRIVATE_KEY` and `SECRET_KEY_BASE` should be changed to improve security of your Lago instance.
@@ -58,14 +57,7 @@ You can override them to customise your setup.
 :::info
 - `SECRET_KEY_BASE` can be generated using `openssl rand -hex 64` command in a shell.
 
-- `RSA_PRIVATE_KEY` and `RSA_PRIVATE_KEY` can be generated with the following commands:
-  ```bash
-  openssl genrsa -out rsa_private.pem 2048
-  openssl rsa -in rsa_private.pem -outform PEM -pubout -out rsa_public.pem
-
-  LAGO_RSA_PRIVATE_KEY=`cat rsa_private.pem | base64`
-  LAGO_RSA_PUBLIC_KEY=`cat rsa_public.pem | base64`
-  ```
+- `LAGO_RSA_PRIVATE_KEY` can be generated using `openssl genrsa 2048 | base64` command in a shell.
 :::
 
 ### Components
