@@ -6,28 +6,31 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-# Welcome to Lago!
-Lago is an open-source Stripe Billing alternative. 
+# Welcome to Lago
+Lago is an open-source Stripe Billing alternative.
 
-By implementing this library, you are able to build an entire billing logic from zero to hero, even the most complex one. Lago is a real-time event-based library made for usage-based billing, metered billing, subscription-based billing, and all the nuances of pricing in between.
+This library will allow you to build an entire billing logic from scratch, even the most complex one. Lago is a real-time event-based library made for usage-based billing, subscription-based billing, and all the nuances of pricing in between.
 
 ## Four-step billing workflow
 
-### 1. Events ingestion
-By ingesting events into Lago, you send the consumption of your clients at scale. You can send anything that is happening in your product, with the highest granularity. You can also use events to send a daily summary for one of your feature that is being charged. Any features that you want your customers to pay should be a specific event.
+### 1. Event ingestion
+Events provide information about your customers' consumption, with the highest level of granularity. Any product feature for which you want to charge your customers should correspond to a specific [event](https://doc.getlago.com/docs/guide/ingesting-events). An event can be triggered by an action or it can be sent periodically. Lago is able to ingest events at scale while preventing duplicates.
 
-### 2. Billable Metrics aggregation
-``Billable Metrics`` aggregation is the way we translate your events into a real billable metric that can be charge at the end of a billable period. You can:
-- ``COUNT`` count the number of times an incoming event occurs
-- ``SUM`` sum a defined property for incoming events
-- ``MAX`` get the maximum value of a defined property for incoming events
-- ``COUNT DISTINCT`` get the number of unique value of a defined property for incoming events
+### 2. Metrics aggregation
+The aggregation process consists in converting events into [billable metrics](https://doc.getlago.com/docs/guide/billable-metrics/overview). There are four aggregation types:
 
-### 3. Pricing definition
-Pricing represents how much a customer should pay based on the consumption. Each ``Billable metric`` can be priced differently regarding the ``Plan`` a customer belongs to.
+| Aggregation type   | Description                                                                      |
+| ------------------ | -------------------------------------------------------------------------------- |
+| **COUNT**          | Counts the number of times an incoming event occurs                              |
+| **SUM**            | Calculates the sum of a predefined property for incoming events                  |
+| **MAX**            | Returns the maximum value of a predefined property for incoming events           |
+| **COUNT DISTINCT** | Returns the number of unique values of a predefined property for incoming events |
 
-### 4. Invoicing creation
-Invoicing occurs at the end of the billing period, regarding the ``Plan`` a customer belongs to. Invoices detail all the usage a customer should pay for, alongside the total amount and the applied taxes to pay.
+### 3. Pricing
+Creating [plans](https://doc.getlago.com/docs/guide/plans/overview) allows you to define how much your customers should pay for using your product. You can then combine plans and billable metrics to implement any billing model (i.e. subscription-based, usage-based, or hybrid). Billable metrics may be priced differently depending on the associated plan.
+
+### 4. Invoicing
+An [invoice](https://doc.getlago.com/docs/guide/invoicing/overview) is generated for each customer at the end of the billing period, as defined in the corresponding plan. Invoices include fees, taxes and customer information.
 
 ## Next steps
-Before defining your usage metrics and start ingesting events, you must [deploy Lago locally](../guide/self-hosting/docker). 
+Before you can start defining usage metrics and pricing plans, you must [deploy Lago locally](https://doc.getlago.com/docs/guide/self-hosting/docker).
