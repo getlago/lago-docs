@@ -48,8 +48,8 @@ You can override them to customise your setup.
 | API_PORT | 3000 | Port the front end application is listening to |
 | SECRET_KEY_BASE | your-secret-key-base-hex-64 | Secret key used for session encryption |
 | SENTRY_DSN | | Sentry DSN key for error and performance tracking |
-| RSA_PRIVATE_KEY | | Private key used for webhook signatures |
-| RSA_PUBLIC_KEY | | Public key used to validate webhook signatures |
+| LAGO_RSA_PRIVATE_KEY | | Private key used for webhook signatures |
+| LAGO_RSA_PUBLIC_KEY | | Public key used to validate webhook signatures |
 
 :::caution
 `POSTGRES_PASSWORD`, `SECRET_KEY_BASE`, `RSA_PRIVATE_KEY` and `SECRET_KEY_BASE` should be changed to improve security of your Lago instance.
@@ -63,8 +63,8 @@ You can override them to customise your setup.
   openssl genrsa -out rsa_private.pem 2048
   openssl rsa -in rsa_private.pem -outform PEM -pubout -out rsa_public.pem
 
-  RSA_PRIVATE_KEY=`cat rsa_private.pem | base64`
-  RSA_PUBLIC_KEY=`cat rsa_public.pem | base64`
+  LAGO_RSA_PRIVATE_KEY=`cat rsa_private.pem | base64`
+  LAGO_RSA_PUBLIC_KEY=`cat rsa_public.pem | base64`
   ```
 :::
 
