@@ -47,4 +47,4 @@ Let's see below the differences between the aggregation types.
 | **COUNT DISTINCT**    | `DISTINCT_COUNT(tracked_pages.properties.tracked_user_id)`          | 1                     |
 
 
-Based on the aggregation type you defined for you Billable metric `Tracked Pages`, the result that is going to be charged to your customer is completely different. Make sure to choose the right aggregation type for all your Billable metrics. If you need help, don't hesitate to reach out the Lago Team!
+Based on the aggregation type you defined for your Billable metric `Tracked Pages`, the result that is going to be charged to your customer is completely different. Make sure to choose the right aggregation type for all your Billable metrics. If you need help, don't hesitate to reach out the Lago Team!
