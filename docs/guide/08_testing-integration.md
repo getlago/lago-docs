@@ -6,7 +6,7 @@ sidebar_position: 8
 This step-by-step integration guide will help you get started with Lago.
 
 ## Foreword
-At the moment, each Lago account is associated with a unique environment. It is not currently possible to have your test environment and production environment in the same account.
+At the moment, each Lago account is associated with a unique environment. It is currently not possible to have your test environment and production environment in the same account.
 
 However, we can suggest different workarounds:
 1. **Create two accounts** to get access to two environments, one that could be called "Company Staging" and another one that could be called "Company Production"; or
