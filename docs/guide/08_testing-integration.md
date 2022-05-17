@@ -61,7 +61,7 @@ Events sent from your backend to Lago will be automatically aggregated according
 At the end of the billing period, Lago will automatically generate an invoice for each customer. Invoices will be sent to your application using webhooks. To define the URL to which the webhooks will be sent:
 1. In the side menu of the user interface, select **"Developers"**;
 2. On the right-hand side, click **"Add a webhook"**;
-3. Enter your the URL of your application; and
+3. Enter the URL of your application; and
 4. Click **"Add webhook"** to confirm.
 
 To learn more about webhooks and invoices, please refer to the [API documentation](../api/06_invoices.mdx).
