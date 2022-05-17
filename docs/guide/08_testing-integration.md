@@ -34,9 +34,34 @@ To create a plan through the user interface:
 4. Click **"Add plan"** to save.
 
 ## 3. Create a customer
+To create a customer through the user interface:
+1. In the side menu, select **"Customers"**;
+2. Click **"Add a customer"** in the upper right corner;
+3. Fill in the form in the pop-up window ([learn more about customers](./06_customers.mdx)); and
+4. Click **"Add customer"** to save.
 
-## 4. Assign a subscription to a customer
+You can also create customers through the API, as described in the [documentation](../api/02_customers/create-update-customer.mdx).
 
-## 5. Start ingesting usage-based events
+## 4. Start a subscription
+To start a subscription, you need to assign a plan to an existing customer. To do so through the user interface:
+1. In the side menu, select **"Customers"**;
+2. Select a customer from the list;
+3. On the right-hand side, click **"Add a plan"**;
+4. Select the plan you would like to assign to your customer; and
+5. Click **"Add plan"** to confirm.
+
+A success toast will be displayed and the new subscription will appear in the customer view.
+
+You can also start a subscription through the API, as described in the [documentation](../api/03_subscriptions/create-subscription.mdx).
+
+## 5. Send usage-based events
+Events sent from your backend to Lago will be automatically aggregated according to the predefined billable metrics. To start sending usage-based events, please refer to the [API documentation](../api/04_events.mdx).
 
 ## 6. Invoice your customers
+At the end of the billing period, Lago will automatically generate an invoice for each customer. Invoices will be sent to your application using webhooks. To define the URL to which the webhooks will be sent:
+1. In the side menu of the user interface, select **"Developers"**;
+2. On the right-hand side, click **"Add a webhook"**;
+3. Enter your the URL of your application; and
+4. Click **"Add webhook"** to confirm.
+
+To learn more about webhooks and invoices, please refer to the [API documentation](../api/06_invoices.mdx).
