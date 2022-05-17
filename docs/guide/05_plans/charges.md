@@ -32,5 +32,11 @@ Let's take back the example of an API company. You might charge $1.00 per unit f
 
 In any case, the Lago UI will guide you (by providing you an exact quote) if you need to apply a graduated logic to a specific charge (just have a look at the purple tooltip in the image below).
 
-![Graduated example expained](../../../static/img/graduated-charge-pricing-model.png)
+![Graduated example explained](../../../static/img/graduated-charge-pricing-model.png)
 
+## The Package charge model
+Select a **package charge model** if you want to apply a price to a range of units. This charge model is useful when you want to apply the same price to a set of units. You also have the option to offer free units.
+
+Let's take back the example of our API company. You might want to price $5.00 per 100 units and offer the first 100 units. In this instance, 201 units would cost $10.00: $0.00 (100 first units) + $5.00 (next 100 units) + $5.00 (one additional unit).
+
+![Package example explained](../../../static/img/package-pricing-charge-model.png)
