@@ -46,22 +46,22 @@ api/v1/events
   <TabItem value="python" label="Python">
 
   ```python
-    from lago_python_client import Client
-    from lago_python_client.models import Event
+  from lago_python_client import Client
+  from lago_python_client.models import Event
 
-    client = Client(api_key='__YOUR_API_KEY__')
+  client = Client(api_key='__YOUR_API_KEY__')
 
-    event = Event(
-      customer_id="__UNIQUE_ID__",
-      transaction_id="__UNIQUE_ID__",
-      code="code",
-      transaction_id="123",
-      timestamp=1650893379,
-      properties={"custom_field": "custom"}
-    )
+  event = Event(
+    customer_id="__UNIQUE_ID__",
+    transaction_id="__UNIQUE_ID__",
+    code="code",
+    transaction_id="123",
+    timestamp=1650893379,
+    properties={"custom_field": "custom"}
+  )
 
-    client.events().create(event)
-    ```
+  client.events().create(event)
+```
 
   </TabItem>
 

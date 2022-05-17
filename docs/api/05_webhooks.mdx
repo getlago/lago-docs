@@ -34,7 +34,32 @@ To verify the signature, you must decode the signature and compare the result wi
 <Tabs groupId="prog-language">
   <TabItem value="python" label="Python">
 
-  *Coming soon...*
+  * **Retrieve the public key:**
+  ```python
+  from lago_python_client import Client
+
+  client = Client(api_key='__YOUR_API_KEY__')
+  webhooks_public_key = client.webhooks().public_key()
+  ```
+
+  :::tip
+  You should persist the public key on you side to prevent querying it for each webhook
+  :::
+
+  * **Decode and validate the signature:**
+  ```python
+  import jwt
+
+  decoded_signature = jwt.decode(
+    request.headers.get('X-Lago-Signature'),
+    webhooks_public_key,
+    algorithms=['RS256'],
+    issuer="https://api.getlago.com"
+  )
+
+  decoded_signature['data'] == request.body
+  ```
+
 
   </TabItem>
 
