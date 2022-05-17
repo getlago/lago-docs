@@ -4,13 +4,12 @@ sidebar_position: 1
 
 # Overview
 
-**Billable metrics** define how incoming events are aggregated to appear as a paying feature of your company.
+Billable metrics define how incoming events are aggregated in order to measure consumption. If you want to charge your customers for the use of a particular feature, then you should create the corresponding billable metric.
 
-Defining Billable metrics must be made through the user interface, by defining: 
-- A `name`;
-- A `code`. This code will be used as the event name sent from your backend;
-- A `description` *(optional)*;
-- An `aggregation type`, defining how this billable metric must be ingested at the end of the billable period.
+To add a new billable metric through the user interface:
+- Enter its `name`;
+- Assign it a `code` which will be used as the name of the event sent from your backend;
+- Add a `description` *(optional)*; and
+- Select the `aggregation type` which will define how consumption will be measured.
 
-To fully understand the rules of aggregation and how Lago calculates incoming events, let's dig on all the [aggregation rules](./aggregation-types).
-
+The next section describes the different [aggregation types](./aggregation-types). In addition to this, we have added some [examples](./aggregation-examples) to help you understand the relationship between incoming events and billable metrics.
