@@ -53,12 +53,13 @@ To verify the signature, you must decode the signature and compare the result wi
   decoded_signature = jwt.decode(
     request.headers.get('X-Lago-Signature'),
     webhooks_public_key,
-    algorithms=['RS256']
+    algorithms=['RS256'],
     issuer="https://api.getlago.com"
   )
 
   decoded_signature['data'] == request.body
   ```
+
 
   </TabItem>
 
