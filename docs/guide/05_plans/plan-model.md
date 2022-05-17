@@ -33,7 +33,7 @@ You can decide to apply a `Trial period` for a Plan. This means your customers c
 Note  that the trial period **can only be specified in days**. A pro-rata is applied to the Plan regarding the number of days offered.
 
 :::caution
-A trial period can only be applied to the first subscribed Plan. In case of an [upgrade or downgrade](./upgrades-downgrades.md), the trial period of the new Plan **is not applied**.
+A trial period can only be applied to the first subscribed Plan. In case of an upgrade or downgrade, the trial period of the new Plan **is not applied**.
 :::
 
 ## Pro-ratas based on subscription date
