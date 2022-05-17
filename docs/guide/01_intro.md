@@ -14,17 +14,17 @@ This library will allow you to build an entire billing logic from scratch, even 
 ## Four-step billing workflow
 
 ### 1. Event ingestion
-Events provide information about your customers' consumption, with the highest level of granularity. Any product feature for which you want to charge your customers should correspond to a specific [event](./ingesting-events). An event can be triggered by an action or it can be sent periodically. Lago is able to ingest events at scale while preventing duplicates.
+[Events](./ingesting-events) provide information about your customers' consumption, with the highest level of granularity. Any product feature for which you want to charge your customers should correspond to a specific event. An event can be triggered by an action or can be sent periodically. Lago is able to ingest events at scale while preventing duplicates.
 
 ### 2. Metrics aggregation
 The aggregation process consists in converting events into [billable metrics](./billable-metrics/overview). There are four aggregation types:
 
-| Aggregation type   | Description                                                                      |
-| ------------------ | -------------------------------------------------------------------------------- |
-| **COUNT**          | Counts the number of times an incoming event occurs                              |
-| **SUM**            | Calculates the sum of a predefined property for incoming events                  |
-| **MAX**            | Returns the maximum value of a predefined property for incoming events           |
-| **COUNT DISTINCT** | Returns the number of unique values of a predefined property for incoming events |
+| Aggregation    | Description                                                                      |
+| -------------- | -------------------------------------------------------------------------------- |
+| COUNT          | Counts the number of times an incoming event occurs                              |
+| SUM            | Calculates the sum of a predefined property for incoming events                  |
+| MAX            | Returns the maximum value of a predefined property for incoming events           |
+| COUNT DISTINCT | Returns the number of unique values of a predefined property for incoming events |
 
 ### 3. Pricing
 Creating [plans](./plans/overview) allows you to define how much your customers should pay for using your product. You can then combine plans and billable metrics to implement any billing model (i.e. subscription-based, usage-based, or hybrid). Billable metrics may be priced differently depending on the associated plan.
