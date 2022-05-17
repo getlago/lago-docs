@@ -32,7 +32,18 @@ You must retrieve your API key from your account.
 
   <TabItem value="python" label="Python">
 
-  *Coming soon...*
+  **Install package with pip**
+  ```bash
+  pip install lago-python-client
+  ```
+
+  **Usage**
+
+  ```python
+  from lago_python_client import Client
+
+  client = Client(api_key='__YOUR_API_KEY__')
+  ```
 
   </TabItem>
 
