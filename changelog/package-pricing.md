@@ -1,4 +1,4 @@
-# Use a Package pricing to your charges
+# Use a Package pricing to charge usage
 
 It's now possible to apply a Package pricing model to a charge.
 To do so, go to one of your [Plans](../docs/guide/plans/charges#the-package-charge-model), import a new charge and select the **Package pricing** model.
