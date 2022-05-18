@@ -28,6 +28,11 @@ const config = {
           lastVersion: 'current',
           onlyIncludeVersions: ['current'],
         },
+        blog: {
+          routeBasePath: 'changelog',
+          path: 'changelog',
+          editUrl: 'changelog'
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -65,6 +70,7 @@ const config = {
             sidebarId: 'api', // foldername
             label: 'API Reference',     // navbar title
           },
+          {to: 'changelog', label: 'Changelog', position: 'right'},
           {to: 'https://getlago.com/company/blog', label: 'Blog', position: 'right'},
           {
             to: 'https://github.com/facebook/docusaurus',
