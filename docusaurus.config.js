@@ -31,7 +31,10 @@ const config = {
         blog: {
           routeBasePath: 'changelog',
           path: 'changelog',
-          editUrl: 'changelog'
+          editUrl: 'changelog',
+          blogTitle: 'Changelog - New features',
+          blogDescription: 'Find here all the new features released by Lago.',
+          postsPerPage: 'ALL',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
