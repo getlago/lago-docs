@@ -55,13 +55,12 @@ api/v1/events
     customer_id="__UNIQUE_ID__",
     transaction_id="__UNIQUE_ID__",
     code="code",
-    transaction_id="123",
     timestamp=1650893379,
     properties={"custom_field": "custom"}
   )
 
   client.events().create(event)
-```
+  ```
 
   </TabItem>
 
@@ -81,6 +80,27 @@ api/v1/events
         custom_field: 12
     }
   )
+  ```
+
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import Client from 'lago-nodejs-client'
+  import Event from 'lago-nodejs-client/event'
+
+  let client = new Client('__API_KEY__')
+
+  let event = new Event(
+    "5eb02857-a71e-4ea2-bcf9-57d8885990ba", // customerId
+    "__UNIQUE_TRANSACTION_ID__",  // transactionId
+    "code",  // code
+    1650893379, // timestamp
+    {customField: "custom"} // properties
+  )
+
+  await client.createEvent(event);
   ```
 
   </TabItem>

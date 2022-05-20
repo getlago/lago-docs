@@ -64,6 +64,22 @@ import TabItem from '@theme/TabItem';
   )
   ```
   </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import Client from 'lago-nodejs-client'
+  import Subscription from 'lago-nodejs-client/subscription'
+
+  let client = new Client('__API_KEY__')
+
+  let subscription = new Subscription(
+    "5eb02857-a71e-4ea2-bcf9-57d8885990ba",  // customerId
+    "code"  // planCode
+  )
+  await client.createSubscription(subscription);
+  ```
+</TabItem>
 </Tabs>
 
 ## Arguments
