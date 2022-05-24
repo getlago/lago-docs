@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-05-18T12:40:57.000Z</updated>
+    <updated>2022-05-24T09:02:21.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Use a Package pricing to charge usage]]></title>
         <id>/package-pricing</id>
         <link href="https://getlago.com/changelog/package-pricing"/>
-        <updated>2022-05-18T12:40:57.000Z</updated>
+        <updated>2022-05-24T09:02:21.000Z</updated>
         <summary type="html"><![CDATA[It's now possible to apply a Package pricing model to a charge.]]></summary>
         <content type="html"><![CDATA[<p>It's now possible to apply a Package pricing model to a charge.
 To do so, go to one of your <a href="/docs/guide/plans/charges#the-package-charge-model">Plans</a>, import a new charge and select the <strong>Package pricing</strong> model.</p><p>Ths pricing model is very useful if you want to apply a price to a range of units. The price will be applied to the whole range, regardless the number of units consumed.</p>]]></content>
