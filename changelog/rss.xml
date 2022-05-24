@@ -4,18 +4,17 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Tue, 24 May 2022 12:39:23 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 24 May 2022 21:29:33 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[Use a Package pricing to charge usage]]></title>
+            <title><![CDATA[Package pricing for charges]]></title>
             <link>https://getlago.com/changelog/package-pricing</link>
             <guid>/package-pricing</guid>
-            <pubDate>Tue, 24 May 2022 12:39:23 GMT</pubDate>
-            <description><![CDATA[It's now possible to apply a Package pricing model to a charge.]]></description>
-            <content:encoded><![CDATA[<p>It's now possible to apply a Package pricing model to a charge.
-To do so, go to one of your <a href="/docs/guide/plans/charges#the-package-charge-model">Plans</a>, import a new charge and select the <strong>Package pricing</strong> model.</p><p>Ths pricing model is very useful if you want to apply a price to a range of units. The price will be applied to the whole range, regardless the number of units consumed.</p>]]></content:encoded>
+            <pubDate>Tue, 24 May 2022 21:29:33 GMT</pubDate>
+            <description><![CDATA[It is now possible to apply a package pricing model to a charge. To do so:]]></description>
+            <content:encoded><![CDATA[<p>It is now possible to apply a <a href="/docs/guide/05_plans/charges.md">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>]]></content:encoded>
         </item>
     </channel>
 </rss>

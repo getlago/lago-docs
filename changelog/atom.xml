@@ -2,18 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-05-24T12:39:23.000Z</updated>
+    <updated>2022-05-24T21:29:33.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
     <icon>https://getlago.com/img/lago.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Use a Package pricing to charge usage]]></title>
+        <title type="html"><![CDATA[Package pricing for charges]]></title>
         <id>/package-pricing</id>
         <link href="https://getlago.com/changelog/package-pricing"/>
-        <updated>2022-05-24T12:39:23.000Z</updated>
-        <summary type="html"><![CDATA[It's now possible to apply a Package pricing model to a charge.]]></summary>
-        <content type="html"><![CDATA[<p>It's now possible to apply a Package pricing model to a charge.
-To do so, go to one of your <a href="/docs/guide/plans/charges#the-package-charge-model">Plans</a>, import a new charge and select the <strong>Package pricing</strong> model.</p><p>Ths pricing model is very useful if you want to apply a price to a range of units. The price will be applied to the whole range, regardless the number of units consumed.</p>]]></content>
+        <updated>2022-05-24T21:29:33.000Z</updated>
+        <summary type="html"><![CDATA[It is now possible to apply a package pricing model to a charge. To do so:]]></summary>
+        <content type="html"><![CDATA[<p>It is now possible to apply a <a href="/docs/guide/05_plans/charges.md">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>]]></content>
     </entry>
 </feed>
