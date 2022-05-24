@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Route
 
 ```curl title="POST"
-/api/v1/coupons/apply
+/api/v1/applied_coupons
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request POST "$LAGO_URL/api/v1/coupons/apply" \
+  curl --location --request POST "$LAGO_URL/api/v1/applied_coupons" \
     --header "Authorization: Bearer $API_KEY" \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -40,7 +40,7 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import Coupon
+  from lago_python_client.models import AppliedCoupon
 
   client = Client(api_key='__YOUR_API_KEY__')
 
@@ -51,7 +51,7 @@ import TabItem from '@theme/TabItem';
     amount_currency="EUR"
   )
 
-  client.coupons().apply(applied_coupon)
+  client.applied_coupons().create(applied_coupon)
   ```
   </TabItem>
 
@@ -62,7 +62,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.coupons.apply(
+  client.applied_coupons.create(
     customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     coupon_code: "code",
     amount_cents: 123,
