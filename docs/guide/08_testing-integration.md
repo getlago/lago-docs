@@ -64,4 +64,4 @@ At the end of the billing period, Lago will automatically generate an invoice fo
 3. Enter the URL of your application; and
 4. Click **"Add webhook"** to confirm.
 
-To learn more about webhooks and invoices, please refer to the [API documentation](../api/06_invoices.mdx).
+To learn more about webhooks and invoices, please refer to the [API documentation](../api/11_invoices.mdx).
