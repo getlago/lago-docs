@@ -51,6 +51,20 @@ import TabItem from '@theme/TabItem';
   client.subscriptions.delete(customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba")
   ```
   </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import Client from 'lago-nodejs-client'
+
+  let client = new Client('__API_KEY__')
+
+  await client.deleteSubscription({
+    customerId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba"
+  })
+  ```
+  </TabItem>
+
 </Tabs>
 
 

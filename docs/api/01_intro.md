@@ -69,4 +69,19 @@ You must retrieve your API key from your account.
   ```
 
   </TabItem>
+  <TabItem value="javascript" label="Node.js">
+
+  **Install package with npm**
+  ```bash
+  npm install lago-nodejs-client
+  ```
+
+  **Usage**
+
+  ```javascript
+  import Client from 'lago-nodejs-client'
+
+  let client = new Client('__YOUR_API_KEY__')
+  ```
+  </TabItem>
 </Tabs>

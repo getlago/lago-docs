@@ -106,6 +106,35 @@ import TabItem from '@theme/TabItem';
   ```
 
   </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import Client from 'lago-nodejs-client'
+  import Customer from 'lago-nodejs-client/customer'
+
+  let client = new Client('__API_KEY__')
+
+  let customer = new Customer(
+    "5eb02857-a71e-4ea2-bcf9-57d8885990ba",  // customerId
+    None,  // addressLine1
+    None,  // addressLine2
+    None,  // city
+    None,  // country
+    "test@example.com",  // email
+    None,  // legalName
+    None,  // legalNumber
+    None,  // lagoUrl
+    "test name",  // name
+    None,  // phone
+    None,  // state
+    None,  // url
+    None,  // vatRate
+    None  // zipcode
+  )
+  await client.createCustomer(customer);
+  ```
+  </TabItem>
 </Tabs>
 
 ## Arguments
