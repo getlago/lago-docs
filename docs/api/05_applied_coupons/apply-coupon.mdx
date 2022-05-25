@@ -5,7 +5,7 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Apply coupon to a customer
+# Apply a coupon to a customer
 
 ## Route
 
@@ -68,6 +68,23 @@ import TabItem from '@theme/TabItem';
     amount_cents: 123,
     amount_currency: "EUR"
   )
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import AppliedCoupon from 'lago-nodejs-client/applied_coupon'
+
+  let client = new Client('__API_KEY__')
+
+  let appliedCoupon = new AppliedCoupon(
+      "5eb02857-a71e-4ea2-bcf9-57d8885990ba",  // customerId
+      "code"  // couponCode
+      123,  // amountCents
+      "EUR"  // amountCurrency
+  )
+  await client.applyCoupon(appliedCoupon);
   ```
   </TabItem>
 </Tabs>

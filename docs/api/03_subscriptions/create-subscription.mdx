@@ -51,20 +51,6 @@ import TabItem from '@theme/TabItem';
   ```
   </TabItem>
 
-  <TabItem value="ruby" label="Ruby">
-
-  ```ruby
-  require 'lago-ruby-client'
-
-  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
-
-  client.subscriptions.create(
-    customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    plan_code: "code"
-  )
-  ```
-  </TabItem>
-
   <TabItem value="javascript" label="Node.js">
 
   ```javascript
@@ -79,7 +65,22 @@ import TabItem from '@theme/TabItem';
   )
   await client.createSubscription(subscription);
   ```
-</TabItem>
+
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.subscriptions.create(
+    customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    plan_code: "code"
+  )
+  ```
+  </TabItem>
 </Tabs>
 
 ## Arguments
