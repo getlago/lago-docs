@@ -14,6 +14,7 @@ It lets you assign recuring coupons to customers.
   "applied_coupon": {
     "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
     "lago_coupon_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+    "coupon_code": "coupon-code",
     "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
     "amount_cents": 123,
@@ -27,13 +28,14 @@ It lets you assign recuring coupons to customers.
 
 | Attributes | Description |
 | -----------| ----------- |
-| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the applied coupon in Lago application |
-| **lago_coupon_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the coupon in Lago application |
-| **customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
-| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
-| **amount_cents** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents |
-| **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
-| **expiration_date** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 date*</Comment> | Date after which the coupon will stop to apply to customer's invoices |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the applied coupon in Lago application. |
+| **lago_coupon_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the coupon in Lago application. |
+| **coupon_code** &nbsp &nbsp <Type>String</Type> | Code identifying the coupon. |
+| **customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application. |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application. |
+| **amount_cents** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents. |
+| **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount. |
+| **expiration_date** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 date*</Comment> | Date after which the coupon will stop to apply to customer's invoices. |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of assignation of the coupon to the customer. |
 | **terminated_at** &nbsp &nbsp <Type>String</Type> | Date of manual deletion of the coupon from customer's coupons. |
 
