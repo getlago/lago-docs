@@ -20,6 +20,11 @@ These additional charges are often "pay-as-you-go" features and can be called in
 
 You have several charge model options to price these additional charges (following below).
 
+## Number of decimals for charges
+Lago lets you create charges with 5 decimals as a maximum (example: $0.00012). It gives you the flexibility to charge features with a high granularity, especially if you are running a cloud company. 
+
+It's useful to mention that all charges are invoiced in `amount_cents`. Thus, Lago automatically rounds the price to be charged (example: USD 1102 `amount_cents` = $11.02).
+
 ## The Standard charge model
 Select a **standard charge model** if you charge the same price for each unit consumed. This charge model can be applied only for additional charges triggered by your [Billable metrics](../billable-metrics/overview).
 
