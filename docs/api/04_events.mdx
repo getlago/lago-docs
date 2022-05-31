@@ -28,7 +28,7 @@ api/v1/events
   curl --location --request POST "$LAGO_URL/api/v1/events" \
   --header "Authorization: Bearer $API_KEY" \
   --header 'Content-Type: application/json' \
-  --data-raw "{
+  --data-raw '{
       \"event\": { \
           \"transaction_id\": \"__UNIQUE_ID__\", \
           \"customer_id\": \"__CUSTOMER_ID__\", \
@@ -38,7 +38,7 @@ api/v1/events
             \"custom_field\": 12 \
           } \
       } \
-  }"
+  }'
   ```
 
   </TabItem>
