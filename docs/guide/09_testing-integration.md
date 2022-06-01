@@ -23,24 +23,24 @@ In the future, you will be able to get access to a test environment and a produc
 To define a billable metric through the user interface:
 1. In the side menu, select **"Billable metrics"**;
 2. Click **"Add a billable metric"** in the upper right corner;
-3. Fill in the form ([learn more about billable metrics](./03_billable-metrics/overview.md)); and
+3. Fill in the form ([learn more about billable metrics](./billable-metrics/overview)); and
 4. Click **"Add billable metric"** to save.
 
 ## 2. Create a plan (with charges)
 To create a plan through the user interface:
 1. In the side menu, select **"Plans"**;
 2. Click **"Add a plan"** in the upper right corner;
-3. Fill in the form ([learn more about plans](./05_plans/overview.md)); and
+3. Fill in the form ([learn more about plans](./plans/overview)); and
 4. Click **"Add plan"** to save.
 
 ## 3. Create a customer
 To create a customer through the user interface:
 1. In the side menu, select **"Customers"**;
 2. Click **"Add a customer"** in the upper right corner;
-3. Fill in the form in the pop-up window ([learn more about customers](./06_customers.mdx)); and
+3. Fill in the form in the pop-up window ([learn more about customers](./customers)); and
 4. Click **"Add customer"** to save.
 
-You can also create customers through the API, as described in the [documentation](../api/02_customers/create-update-customer.mdx).
+You can also create customers through the API, as described in the [documentation](../api/customers/create-update-customer).
 
 ## 4. Start a subscription
 To start a subscription, you need to assign a plan to an existing customer. To do so through the user interface:
@@ -52,10 +52,10 @@ To start a subscription, you need to assign a plan to an existing customer. To d
 
 A success toast will be displayed and the new subscription will appear in the customer view.
 
-You can also start a subscription through the API, as described in the [documentation](../api/03_subscriptions/create-subscription.mdx).
+You can also start a subscription through the API, as described in the [documentation](../api/subscriptions/create-subscription).
 
 ## 5. Send usage-based events
-Events sent from your backend to Lago will be automatically aggregated according to the predefined billable metrics. To start sending usage-based events, please refer to the [API documentation](../api/04_events.mdx).
+Events sent from your backend to Lago will be automatically aggregated according to the predefined billable metrics. To start sending usage-based events, please refer to the [API documentation](../api/events).
 
 ## 6. Invoice your customers
 At the end of the billing period, Lago will automatically generate an invoice for each customer. Invoices will be sent to your application using webhooks. To define the URL to which the webhooks will be sent:
@@ -64,4 +64,4 @@ At the end of the billing period, Lago will automatically generate an invoice fo
 3. Enter the URL of your application; and
 4. Click **"Add webhook"** to confirm.
 
-To learn more about webhooks and invoices, please refer to the [API documentation](../api/11_invoices.mdx).
+To learn more about webhooks and invoices, please refer to the [API documentation](../api/invoices).
