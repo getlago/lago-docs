@@ -11,6 +11,8 @@ Lago is an open-source Stripe Billing alternative.
 
 This library will allow you to build an entire billing logic from scratch, even the most complex one. Lago is a real-time event-based library made for usage-based billing, subscription-based billing, and all the nuances of pricing in between.
 
+You can decide to use Lago in its **[self-hosted version](./self-hosting/docker)** or in its **cloud version (fully hosted by Lago)**, currently available on a per request basis. Request access to Lago Cloud [here](https://pktz41848np.typeform.com/to/t4boMDXm).
+
 ## Four-step billing workflow
 
 ### 1. Event ingestion
