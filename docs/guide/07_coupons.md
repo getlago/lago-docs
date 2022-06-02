@@ -65,9 +65,7 @@ The coupon will instantly disappear from the customer view but its pro-rata valu
 
 >Example:
 >
->On June 1st, you apply a $10 coupon to a customer.
->
->Later this month, on June 13th, you decide to remove it.
+>On June 1st, you apply a $10 coupon to a customer, then on June 13th, you decide to remove it.
 >
 >At the end of the month, $4.33 will be deducted from the customer's invoice:
 >
