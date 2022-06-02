@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-06-02T08:19:00.000Z</updated>
+    <updated>2022-06-02T14:58:42.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Package pricing for charges]]></title>
         <id>/package-pricing</id>
         <link href="https://getlago.com/changelog/package-pricing"/>
-        <updated>2022-06-02T08:19:00.000Z</updated>
+        <updated>2022-06-02T14:58:42.000Z</updated>
         <summary type="html"><![CDATA[It is now possible to apply a package pricing model to a charge. To do so:]]></summary>
         <content type="html"><![CDATA[<p>It is now possible to apply a <a href="/docs/guide/plans/charges#the-package-charge-model">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>]]></content>
     </entry>
@@ -19,7 +19,7 @@
         <title type="html"><![CDATA[Subscription changes]]></title>
         <id>/subscription-changes</id>
         <link href="https://getlago.com/changelog/subscription-changes"/>
-        <updated>2022-06-02T08:19:00.000Z</updated>
+        <updated>2022-06-02T14:58:42.000Z</updated>
         <summary type="html"><![CDATA[You can now modify the subscription assigned to a customer through the user interface.]]></summary>
         <content type="html"><![CDATA[<p>You can now modify the subscription assigned to a customer through the user interface.</p><p>To learn how to upgrade or downgrade a subscription and how it affects billing, please refer to the documentation.</p>]]></content>
     </entry>
