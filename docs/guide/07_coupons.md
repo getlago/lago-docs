@@ -29,7 +29,7 @@ To apply a coupon to a customer:
 3. Select a coupon; and
 4. Click **"Apply coupon"** to confirm.
 
-You can also apply coupons via the API ([learn more](../api/applied_coupons/apply-coupon))
+You can also apply coupons via the API ([learn more](../api/applied_coupons/apply-coupon)).
 
 ## Validity and application periods
 The validity period defines how much time you have to apply a coupon to a customer before it expires. If the validity period is **"Forever"**, you can apply the coupon at any time. If the validity period is **"Multiple days"**, you must apply the coupon to a customer before the end of the period, otherwise it will be lost.
@@ -61,12 +61,4 @@ To remove a coupon that has been applied to a customer and is still active:
 3. Click the **bin icon** on the right; and
 4. Click **"Remove coupon"** to confirm.
 
-The coupon will instantly disappear from the customer view but its pro-rata value will be applied to the next invoice.
-
->Example:
->
->On June 1st, you apply a $10 coupon to a customer, then on June 13th, you decide to remove it.
->
->At the end of the month, $4.33 will be deducted from the customer's invoice:
->
->13 days x $10 / 30 days = $4.33
+The coupon will instantly disappear from the customer view and will not be applied to the next invoice.
