@@ -28,6 +28,15 @@ You can now open your browser and go to [http://localhost](http://localhost) to 
 
 ## Configuration
 
+### Version
+
+Docker images are always updated to the last stable version in the `docker-compose.yml` file.
+You can use a different tag if needed by checking the [releases list](https://github.com/getlago/lago/releases).
+
+:::caution
+We recommend to avoid the usage of `latest` tag in a production environment
+:::
+
 ### Environment variables
 
 Lago uses the following environment variables to configure the components of the application. You can override them to customise your setup.
@@ -48,6 +57,7 @@ Lago uses the following environment variables to configure the components of the
 | SECRET_KEY_BASE | your-secret-key-base-hex-64 | Secret key used for session encryption |
 | SENTRY_DSN | | Sentry DSN key for error and performance tracking |
 | LAGO_RSA_PRIVATE_KEY | | Private key used for webhook signatures |
+| LAGO_SIDEKIQ_WEB | | Activate the Sidekiq web UI, disabled by default |
 
 :::caution
 We recommend that you change `POSTGRES_PASSWORD`, `SECRET_KEY_BASE` and `LAGO_RSA_PRIVATE_KEY` to improve the security of your Lago instance:
