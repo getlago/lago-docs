@@ -4,7 +4,7 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Thu, 02 Jun 2022 15:36:15 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 02 Jun 2022 15:52:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Coupons]]></title>
             <link>https://getlago.com/changelog/ftr-coupons</link>
             <guid>/ftr-coupons</guid>
-            <pubDate>Thu, 02 Jun 2022 15:36:15 GMT</pubDate>
+            <pubDate>Thu, 02 Jun 2022 15:52:22 GMT</pubDate>
             <description><![CDATA[Introducing coupons, a new feature that allows you to offer discounts to your customers.]]></description>
             <content:encoded><![CDATA[<p>Introducing coupons, a new feature that allows you to offer discounts to your customers.</p><p>Full documentation <a href="/docs/guide/coupons">available here</a>.</p>]]></content:encoded>
         </item>
@@ -20,7 +20,7 @@
             <title><![CDATA[Package pricing for charges]]></title>
             <link>https://getlago.com/changelog/package-pricing</link>
             <guid>/package-pricing</guid>
-            <pubDate>Thu, 02 Jun 2022 15:36:15 GMT</pubDate>
+            <pubDate>Thu, 02 Jun 2022 15:52:22 GMT</pubDate>
             <description><![CDATA[It is now possible to apply a package pricing model to a charge. To do so:]]></description>
             <content:encoded><![CDATA[<p>It is now possible to apply a <a href="/docs/guide/plans/charges#the-package-charge-model">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>]]></content:encoded>
         </item>
@@ -28,7 +28,7 @@
             <title><![CDATA[Subscription changes]]></title>
             <link>https://getlago.com/changelog/subscription-changes</link>
             <guid>/subscription-changes</guid>
-            <pubDate>Thu, 02 Jun 2022 15:36:15 GMT</pubDate>
+            <pubDate>Thu, 02 Jun 2022 15:52:22 GMT</pubDate>
             <description><![CDATA[You can now modify the subscription assigned to a customer through the user interface.]]></description>
             <content:encoded><![CDATA[<p>You can now modify the subscription assigned to a customer through the user interface.</p><p>To learn how to upgrade or downgrade a subscription and how it affects billing, please refer to the documentation.</p>]]></content:encoded>
         </item>
