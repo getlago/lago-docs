@@ -45,7 +45,7 @@ Once a coupon has been applied to a customer, its application periods depends on
 >Therefore, the coupon will be applied to both invoices generated at the end of June and at the end of July. Their total amount will be $0.
 
 ### Application scope
-**Coupons are deducted from the total amount of the following invoice(s)**, including the *subscription* (plan amount) ands the *charge* fees (used for usage-based billing). In case of a coupon's value greater than an invoice, the remaining amount of discount will be applied to the following invoices, until the coupon is totally consumed or removed from a customer.
+**Coupons are deducted from the total amount of the following invoice(s)**, including the *subscription* (plan amount) and the *charge* fees (used for usage-based billing). In case of a coupon's value greater than an invoice, the remaining amount of discount will be applied to the following invoices, until the coupon is totally consumed or removed from a customer.
 
 As mentioned previously, the value of the coupon is deducted from the amount of the invoice before tax.
 
