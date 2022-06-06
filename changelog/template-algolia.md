@@ -1,3 +1,7 @@
+---
+date: 2022-06-03T10:00
+---
+
 # Pay-as-you-go template
 We've added a new template to our collection: [click here](https://www.getlago.com/resources/templates/algolia) to learn how to replicate Algolia's pay-as-you-go pricing.
 

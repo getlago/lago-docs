@@ -1,3 +1,7 @@
+---
+date: 2022-05-24T10:00
+---
+
 # Subscription changes
 
 You can now modify the subscription assigned to a customer through the user interface.

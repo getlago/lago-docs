@@ -1,3 +1,7 @@
+---
+date: 2022-05-18T10:00
+---
+
 # Package pricing for charges
 
 It is now possible to apply a [package pricing model](../docs/guide/plans/charges#the-package-charge-model) to a charge. To do so:
