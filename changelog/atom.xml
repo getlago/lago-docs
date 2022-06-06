@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-06-03T15:24:32.000Z</updated>
+    <updated>2022-06-06T09:02:18.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Coupons]]></title>
         <id>/ftr-coupons</id>
         <link href="https://getlago.com/changelog/ftr-coupons"/>
-        <updated>2022-06-03T15:24:32.000Z</updated>
+        <updated>2022-06-06T09:02:18.000Z</updated>
         <summary type="html"><![CDATA[Introducing coupons, a new feature that allows you to offer discounts to your customers.]]></summary>
         <content type="html"><![CDATA[<p>Introducing coupons, a new feature that allows you to offer discounts to your customers.</p><p>Full documentation <a href="/docs/guide/coupons">available here</a>.</p>]]></content>
     </entry>
@@ -19,7 +19,7 @@
         <title type="html"><![CDATA[Package pricing for charges]]></title>
         <id>/package-pricing</id>
         <link href="https://getlago.com/changelog/package-pricing"/>
-        <updated>2022-06-03T15:24:32.000Z</updated>
+        <updated>2022-06-06T09:02:18.000Z</updated>
         <summary type="html"><![CDATA[It is now possible to apply a package pricing model to a charge. To do so:]]></summary>
         <content type="html"><![CDATA[<p>It is now possible to apply a <a href="/docs/guide/plans/charges#the-package-charge-model">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>]]></content>
     </entry>
@@ -27,7 +27,7 @@
         <title type="html"><![CDATA[Subscription changes]]></title>
         <id>/subscription-changes</id>
         <link href="https://getlago.com/changelog/subscription-changes"/>
-        <updated>2022-06-03T15:24:32.000Z</updated>
+        <updated>2022-06-06T09:02:18.000Z</updated>
         <summary type="html"><![CDATA[You can now modify the subscription assigned to a customer through the user interface.]]></summary>
         <content type="html"><![CDATA[<p>You can now modify the subscription assigned to a customer through the user interface.</p><p>To learn how to upgrade or downgrade a subscription and how it affects billing, please refer to the documentation.</p>]]></content>
     </entry>
@@ -35,7 +35,7 @@
         <title type="html"><![CDATA[Pay-as-you-go template]]></title>
         <id>/template-algolia</id>
         <link href="https://getlago.com/changelog/template-algolia"/>
-        <updated>2022-06-03T15:24:32.000Z</updated>
+        <updated>2022-06-06T09:02:18.000Z</updated>
         <summary type="html"><![CDATA[We've added a new template to our collection: click here to learn how to replicate Algolia's pay-as-you-go pricing.]]></summary>
         <content type="html"><![CDATA[<p>We've added a new template to our collection: <a href="https://www.getlago.com/resources/templates/algolia" target="_blank" rel="noopener noreferrer">click here</a> to learn how to replicate Algolia's pay-as-you-go pricing.</p><p>It's a great starting point for companies whose pricing fully depends on usage, such as cloud service providers and API companies.</p><p>With Lago, you can adapt this template to your products and services, using some of our most popular features, including the <a href="/docs/guide/billable-metrics/aggregation-types#2-sum">'sum' aggregation type</a> and the <a href="/docs/guide/plans/charges#the-package-charge-model">package charge model</a>.</p>]]></content>
     </entry>
