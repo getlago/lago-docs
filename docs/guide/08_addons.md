@@ -56,6 +56,5 @@ As told previously, an **add-on is invoiced straigh away**. You are able to find
 
 By assiging an add-on to a customer, an invoice is generated immediately.
 It's important to say that:
-1. Add-ons are ellible to the taxes defined for a customer;
+1. Add-ons are elligible to the taxes defined for a customer;
 2. Coupons cannot be used to discount the add-on amount.
-
