@@ -76,7 +76,7 @@ const config = {
           {to: 'changelog', label: 'Changelog', position: 'right'},
           {to: 'https://getlago.com/company/blog', label: 'Blog', position: 'right'},
           {
-            to: 'https://github.com/facebook/docusaurus',
+            to: 'https://github.com/getlago/lago',
             label: 'GitHub',
             position: 'right',
           },
@@ -103,7 +103,7 @@ const config = {
             items: [
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/',
+                href: 'https://twitter.com/GetLago',
               },
             ],
           },
@@ -116,7 +116,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/',
+                href: 'https://github.com/getlago/lago',
               },
             ],
           },
