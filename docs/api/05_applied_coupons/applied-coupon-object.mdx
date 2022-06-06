@@ -37,7 +37,7 @@ For now, it lets you assign a one-off coupon to a customer. This coupon can have
 | **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount. |
 | **expiration_date** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 date*</Comment> | Date after which the coupon will stop to apply to customer's invoices. |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of assignation of the coupon to the customer. |
-| **terminated_at** &nbsp &nbsp <Type>String</Type> | Date of manual deletion of the coupon from customer's coupons. |
+| **terminated_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of total consumption of the coupon amount or date of manual deletion of the coupon from customer's coupons. |
 
 
 export const Type = ({children, color}) => (
