@@ -4,41 +4,41 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Mon, 06 Jun 2022 09:30:01 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 03 Jun 2022 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
+            <title><![CDATA[Pay-as-you-go template]]></title>
+            <link>https://getlago.com/changelog/template-algolia</link>
+            <guid>/template-algolia</guid>
+            <pubDate>Fri, 03 Jun 2022 10:00:00 GMT</pubDate>
+            <description><![CDATA[We've added a new template to our collection: click here to learn how to replicate Algolia's pay-as-you-go pricing.]]></description>
+            <content:encoded><![CDATA[<p>We've added a new template to our collection: <a href="https://www.getlago.com/resources/templates/algolia" target="_blank" rel="noopener noreferrer">click here</a> to learn how to replicate Algolia's pay-as-you-go pricing.</p><p>It's a great starting point for companies whose pricing fully depends on usage, such as cloud service providers and API companies.</p><p>With Lago, you can adapt this template to your products and services, using some of our most popular features, including the <a href="/docs/guide/billable-metrics/aggregation-types#2-sum">'sum' aggregation type</a> and the <a href="/docs/guide/plans/charges#the-package-charge-model">package charge model</a>.</p>]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[Coupons]]></title>
             <link>https://getlago.com/changelog/ftr-coupons</link>
             <guid>/ftr-coupons</guid>
-            <pubDate>Mon, 06 Jun 2022 09:30:01 GMT</pubDate>
+            <pubDate>Thu, 02 Jun 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Introducing coupons, a new feature that allows you to offer discounts to your customers.]]></description>
             <content:encoded><![CDATA[<p>Introducing coupons, a new feature that allows you to offer discounts to your customers.</p><p>Full documentation <a href="/docs/guide/coupons">available here</a>.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Package pricing for charges]]></title>
-            <link>https://getlago.com/changelog/package-pricing</link>
-            <guid>/package-pricing</guid>
-            <pubDate>Mon, 06 Jun 2022 09:30:01 GMT</pubDate>
-            <description><![CDATA[It is now possible to apply a package pricing model to a charge. To do so:]]></description>
-            <content:encoded><![CDATA[<p>It is now possible to apply a <a href="/docs/guide/plans/charges#the-package-charge-model">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Subscription changes]]></title>
             <link>https://getlago.com/changelog/subscription-changes</link>
             <guid>/subscription-changes</guid>
-            <pubDate>Mon, 06 Jun 2022 09:30:01 GMT</pubDate>
+            <pubDate>Tue, 24 May 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[You can now modify the subscription assigned to a customer through the user interface.]]></description>
             <content:encoded><![CDATA[<p>You can now modify the subscription assigned to a customer through the user interface.</p><p>To learn how to upgrade or downgrade a subscription and how it affects billing, please refer to the documentation.</p>]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Pay-as-you-go template]]></title>
-            <link>https://getlago.com/changelog/template-algolia</link>
-            <guid>/template-algolia</guid>
-            <pubDate>Mon, 06 Jun 2022 09:30:01 GMT</pubDate>
-            <description><![CDATA[We've added a new template to our collection: click here to learn how to replicate Algolia's pay-as-you-go pricing.]]></description>
-            <content:encoded><![CDATA[<p>We've added a new template to our collection: <a href="https://www.getlago.com/resources/templates/algolia" target="_blank" rel="noopener noreferrer">click here</a> to learn how to replicate Algolia's pay-as-you-go pricing.</p><p>It's a great starting point for companies whose pricing fully depends on usage, such as cloud service providers and API companies.</p><p>With Lago, you can adapt this template to your products and services, using some of our most popular features, including the <a href="/docs/guide/billable-metrics/aggregation-types#2-sum">'sum' aggregation type</a> and the <a href="/docs/guide/plans/charges#the-package-charge-model">package charge model</a>.</p>]]></content:encoded>
+            <title><![CDATA[Package pricing for charges]]></title>
+            <link>https://getlago.com/changelog/package-pricing</link>
+            <guid>/package-pricing</guid>
+            <pubDate>Wed, 18 May 2022 10:00:00 GMT</pubDate>
+            <description><![CDATA[It is now possible to apply a package pricing model to a charge. To do so:]]></description>
+            <content:encoded><![CDATA[<p>It is now possible to apply a <a href="/docs/guide/plans/charges#the-package-charge-model">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>]]></content:encoded>
         </item>
     </channel>
 </rss>
