@@ -12,7 +12,7 @@ The value of a coupon is **not** deducted from an add-on. For more information, 
 :::
 
 ## Create add-ons
-To create an Aad-on through the user interface:
+To create an add-on through the user interface:
 1. Access the **"Add-ons"** section via the side menu;
 2. Click **"Add an add-on"**;
 3. Choose a **name**, a **code** and a description (optional) for your add-on;
@@ -54,7 +54,7 @@ In the add-ons section, you can click the **ellipsis icon** to see all available
 You **cannot** edit or delete an add-on if it has been applied to a customer.
 :::
 
-## Invoicing the add-ons
+## Invoicing
 As mentioned previously, an **add-on is invoiced straigh away**. You are able to find an assigned add-on through webhook with `webhook_type = invoice.add_on_added`.
 
 When assiging an add-on to a customer, an invoice is generated immediately. Please note that:
