@@ -2,11 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-06-03T10:00:00.000Z</updated>
+    <updated>2022-06-06T10:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
     <icon>https://getlago.com/img/lago.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Add-ons]]></title>
+        <id>/ftr-addons</id>
+        <link href="https://getlago.com/changelog/ftr-addons"/>
+        <updated>2022-06-06T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.]]></summary>
+        <content type="html"><![CDATA[<p>Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.</p><p>Full documentation <a href="/docs/guide/addons">available here</a>.</p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Pay-as-you-go template]]></title>
         <id>/template-algolia</id>

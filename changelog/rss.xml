@@ -4,10 +4,18 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Fri, 03 Jun 2022 10:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Jun 2022 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Add-ons]]></title>
+            <link>https://getlago.com/changelog/ftr-addons</link>
+            <guid>/ftr-addons</guid>
+            <pubDate>Mon, 06 Jun 2022 10:00:00 GMT</pubDate>
+            <description><![CDATA[Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.]]></description>
+            <content:encoded><![CDATA[<p>Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.</p><p>Full documentation <a href="/docs/guide/addons">available here</a>.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Pay-as-you-go template]]></title>
             <link>https://getlago.com/changelog/template-algolia</link>
