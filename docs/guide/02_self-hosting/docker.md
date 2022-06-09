@@ -20,6 +20,10 @@ git clone https://github.com/getlago/lago.git
 # Go to Lago folder
 cd lago
 
+# Set up RSA SECRET KEY
+# NOTE: if you want to use docker-compose for production, you should generate and save your private key.
+export LAGO_RSA_PRIVATE_KEY=$(openssl genrsa 2048 | base64)
+
 # Start
 docker-compose up
 ```
@@ -34,7 +38,9 @@ Docker images are always updated to the last stable version in the `docker-compo
 You can use a different tag if needed by checking the [releases list](https://github.com/getlago/lago/releases).
 
 :::caution
-We recommend to avoid the usage of `latest` tag in a production environment
+We recommend to avoid the usage of `latest` tag, you should use the last tagged version, you can track what are the last version on Dockerhub
+- lago-api : https://hub.docker.com/repository/docker/getlago/api
+- lago-front : https://hub.docker.com/repository/docker/getlago/front
 :::
 
 ### Environment variables
