@@ -16,7 +16,7 @@ You can decide to use Lago in its **[self-hosted version](./self-hosting/docker)
 ## Four-step billing workflow
 
 ### 1. Event ingestion
-[Events](./ingesting-events) provide information about your customers' consumption, with the highest level of granularity. Any product feature for which you want to charge your customers should correspond to a specific event. An event can be triggered by an action or can be sent periodically. Lago is able to ingest events at scale while preventing duplicates.
+[Events](./events/ingesting_events) provide information about your customers' consumption, with the highest level of granularity. Any product feature for which you want to charge your customers should correspond to a specific event. An event can be triggered by an action or can be sent periodically. Lago is able to ingest events at scale while preventing duplicates.
 
 ### 2. Metrics aggregation
 The aggregation process consists in converting events into [billable metrics](./billable-metrics/overview). There are four aggregation types:
