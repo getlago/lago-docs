@@ -13,6 +13,10 @@ It's now possible to **invoice billable metrics on a montly basis** for a plan b
 3. Price **additional charges** from your billable metrics; and
 4. Turn `on` the toggle for **applying charges monthly**.
 
-By switching on, all the charges will be invoiced monthly even if the plan is yearly
+By switching on, **all the charges** will be invoiced monthly even if the plan is yearly.
+
+:::tip
+The last invoice is gathering both the subscription and the usage-based charges
+:::
 
 ![charges invoiced monthly](../static/img/charges-monthly.png)
