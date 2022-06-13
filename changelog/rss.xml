@@ -4,14 +4,30 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Fri, 10 Jun 2022 10:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 13 Jun 2022 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
+            <title><![CDATA[Invoice monthly charges for a plan paid yearly]]></title>
+            <link>https://getlago.com/changelog/billable-metric-monthly-for-plan-yearly</link>
+            <guid>/billable-metric-monthly-for-plan-yearly</guid>
+            <pubDate>Mon, 13 Jun 2022 10:00:00 GMT</pubDate>
+            <description><![CDATA[Before the release of this feature, usaged-based features (charges) were following the plan period. If the plan period was invoiced yearly, the charges were invoiced yearly.]]></description>
+            <content:encoded><![CDATA[<p>Before the release of this feature, usaged-based features (charges) were following the plan period. If the plan period was invoiced yearly, the charges were invoiced yearly.</p><p>It's now possible to <strong>invoice billable metrics on a montly basis</strong> for a plan billed yearly. The base amount of the plan will be invoice yearly (in-arrears or in-advance), but your usage based features will be invoiced on a monthly basis.</p><p><strong>To do so:</strong></p><ol><li>Access a <strong>Plan</strong>;</li><li>Define a plan <strong>yearly</strong>;</li><li>Price <strong>additional charges</strong> from your billable metrics; and</li><li>Turn <code>on</code> the toggle for <strong>applying charges monthly</strong>.</li></ol><p>By switching on, all the charges will be invoiced monthly even if the plan is yearly</p><p><img loading="lazy" alt="charges invoiced monthly" src="/assets/images/charges-monthly-a2b67994b71b0178fa073e9bae0a574f.png" width="1386" height="162" class="img_E7b_"></p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Percentage charge model]]></title>
+            <link>https://getlago.com/changelog/percentage-charge-model</link>
+            <guid>/percentage-charge-model</guid>
+            <pubDate>Mon, 13 Jun 2022 10:00:00 GMT</pubDate>
+            <description><![CDATA[Inside the Plans, by creating a charge, you can now select the percentage charge model.]]></description>
+            <content:encoded><![CDATA[<p>Inside the <strong>Plans</strong>, by creating a charge, you can now select the <strong>percentage charge model</strong>.</p><p>This feature is pretty useful for industries willing to take a <code>% + fixed fee</code> out of a usage-based features (for banking or charity industry, for instance). These fees are applied on the <em>units to be charged</em> (e.g. the aggregation result of your billable metric).</p><p>The fixed charge can either be applied per <strong>each single unit</strong> or for <strong>all units</strong>.</p><p><img loading="lazy" alt="Percentage charge" src="/assets/images/percentage-charge-model-1765031606a0f56c4510321a24c7664c.png" width="1278" height="1060" class="img_E7b_"></p>]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[Event debugger]]></title>
-            <link>https://getlago.com/changelog/ftr-addons copy</link>
-            <guid>/ftr-addons copy</guid>
+            <link>https://getlago.com/changelog/event-debugger</link>
+            <guid>/event-debugger</guid>
             <pubDate>Fri, 10 Jun 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[You are now able to view all the ingested events sent from your application to Lago.]]></description>
             <content:encoded><![CDATA[<p>You are now able to view all the ingested events sent from your application to Lago.
