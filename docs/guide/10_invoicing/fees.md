@@ -31,6 +31,7 @@ The fee object is embedded in the invoice object triggered when a billing period
     "sequential_id": 2,
     "from_date": "2022-04-01",
     "to_date": "2022-04-30",
+    "charges_from_date": "2022-04-01",
     "issuing_date": "",
     "amount_cents": 100,
     "amount_currency": "EUR",
