@@ -20,9 +20,9 @@ git clone https://github.com/getlago/lago.git
 # Go to Lago folder
 cd lago
 
-# Set up RSA SECRET KEY
-# NOTE: if you want to use docker-compose for production, you should generate and save your private key.
-export LAGO_RSA_PRIVATE_KEY=$(openssl genrsa 2048 | base64)
+# Set up environment configuration
+echo "LAGO_RSA_PRIVATE_KEY=\"`openssl genrsa 2048 | base64`\"" >> .env
+source .env
 
 # Start
 docker-compose up
@@ -64,11 +64,17 @@ Lago uses the following environment variables to configure the components of the
 | SENTRY_DSN | | Sentry DSN key for error and performance tracking |
 | LAGO_RSA_PRIVATE_KEY | | Private key used for webhook signatures |
 | LAGO_SIDEKIQ_WEB | | Activate the Sidekiq web UI, disabled by default |
+| LAGO_ENCRYPTION_PRIMARY_KEY | | Encryption primary key used to secure sensitive values stored in the database |
+| LAGO_ENCRYPTION_DETERMINISTIC_KEY | | Encryption deterministic key used to secure sensitive values stored in the database |
+| LAGO_ENCRYPTION_KEY_DERIVATION_SALT | | Encryption key salt used to secure sensitive values stored in the database |
 
 :::caution
-We recommend that you change `POSTGRES_PASSWORD`, `SECRET_KEY_BASE` and `LAGO_RSA_PRIVATE_KEY` to improve the security of your Lago instance:
-- `SECRET_KEY_BASE` can be generated using the `openssl rand -hex 64` command; and
+We recommend that you change `POSTGRES_PASSWORD`, `SECRET_KEY_BASE`, `LAGO_RSA_PRIVATE_KEY`, `LAGO_ENCRYPTION_PRIMARY_KEY`, `LAGO_ENCRYPTION_DETERMINISTIC_KEY` and `LAGO_ENCRYPTION_KEY_DERIVATION_SALT` to improve the security of your Lago instance:
+
+- `SECRET_KEY_BASE` can be generated using the `openssl rand -hex 64` command.
 - `LAGO_RSA_PRIVATE_KEY` can be generated using the `openssl genrsa 2048 | base64` command.
+- `LAGO_ENCRYPTION_PRIMARY_KEY`, `LAGO_ENCRYPTION_DETERMINISTIC_KEY` and `LAGO_ENCRYPTION_KEY_DERIVATION_SALT` can all be gerated using the `cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1` command.
+
 :::
 
 ### Components
