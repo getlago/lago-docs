@@ -56,7 +56,7 @@ Lago uses the following environment variables to configure the components of the
 | POSTGRES_PORT | 5432 | Port the postgres database listens to |
 | REDIS_HOST | redis | Host name of the redis server |
 | REDIS_PORT | 6379 | Port the redis database listens to |
-| LAGO_FRONT_URL | http://localhost | URL of the Lago front-end application |
+| LAGO_FRONT_URL | http://localhost | URL of the Lago front-end application.<br/>Used for CORS configuration |
 | FRONT_PORT | 80 | Port the front-end application listens to |
 | LAGO_API_URL | http://localhost:3000 | URL of the Lago back-end application |
 | API_PORT | 3000 | Port the back-end application listens to |
