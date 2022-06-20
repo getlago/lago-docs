@@ -297,6 +297,28 @@ You can use this information to generate a PDF invoice or collect the payment.
 }
 ```
 
+### Event error
+
+This webhook type is sent when there is an error with event creation.
+
+```json
+{
+  "webhook_type": "event.error",
+  "object_type": "event_error",
+  "event_error": {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "code does not exist",
+    "input_params": {
+      "transaction_id": "__transaction_id__",
+      "customer_id": "customer123",
+      "code": "code123"
+    }
+  }
+}
+```
+
+
 | Attributes | Description |
 | -----------| ----------- |
 | **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](./invoices) |
