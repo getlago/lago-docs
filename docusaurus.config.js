@@ -74,12 +74,12 @@ const config = {
             label: 'API Reference',     // navbar title
           },
           {to: 'changelog', label: 'Changelog', position: 'right'},
-          {to: 'https://getlago.com/company/blog', label: 'Blog', position: 'right'},
           {
             to: 'https://github.com/getlago/lago',
             label: 'GitHub',
             position: 'right',
           },
+          {to: 'https://calendly.com/lago-team/20min-meeting-with-lago-team', label: 'Book a demo', position: 'right'},
         ],
       },
       footer: {
@@ -102,6 +102,10 @@ const config = {
             title: 'Community',
             items: [
               {
+                label: 'Discourse',
+                href: 'https://community.getlago.com/',
+              },
+              {
                 label: 'Twitter',
                 href: 'https://twitter.com/GetLago',
               },
@@ -111,8 +115,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: 'https://www.getlago.com/company/blog',
+                label: 'Book a demo',
+                href: 'https://calendly.com/lago-team/20min-meeting-with-lago-team',
               },
               {
                 label: 'GitHub',
