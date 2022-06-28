@@ -44,7 +44,8 @@ import TabItem from '@theme/TabItem';
         "zipcode": "91364",
         "billing_configuration": {
           "payment_provider": "stripe",
-          "provider_customer_id": "cus_12345"
+          "provider_customer_id": "cus_12345",
+          "sync": true
         }
       }
     }'
@@ -78,7 +79,8 @@ import TabItem from '@theme/TabItem';
     zipcode="91364",
     billing_configuration=BillingConfiguration(
       payment_provider="stripe",
-      provider_customer_id="cus_12345"
+      provider_customer_id="cus_12345",
+      sync=true
     )
   )
 
@@ -114,7 +116,8 @@ import TabItem from '@theme/TabItem';
     None,  // zipcode
     new BillingConfiguration(
       "stripe",
-      "cus_12345"
+      "cus_12345",
+      true
     )
   )
   await client.createCustomer(customer);
@@ -146,7 +149,8 @@ import TabItem from '@theme/TabItem';
     zipcode: "91364",
     billing_configuration: {
       payment_provider: "stripe",
-      provider_customer_id: "cus_12345"
+      provider_customer_id: "cus_12345",
+      sync: true
     }
   )
   ```
@@ -176,7 +180,8 @@ import TabItem from '@theme/TabItem';
     "zipcode": "91364",
     "billing_configuration": {
       "payment_provider": "stripe",
-      "provider_customer_id": "cus_12345"
+      "provider_customer_id": "cus_12345",
+      "sync": true
     }
   }
 }
@@ -210,6 +215,7 @@ If the customer already exists, the call will work as an update
 | -----------| -----| ----------- |
 | payment_provider | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider used to bill the customer.<br/>Only accepted value: `stripe`
 | provider_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer ID on the payment provider.<br/>If not provided, Lago can optionally create the provider customer
+| sync | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to true is you want to create the provider customer synchronously with the customer creation.<br/>Apply only when provider_customer_id is null and payment provider is configured to create customer.<br/>Default value: `false`
 
 ## Responses
 
