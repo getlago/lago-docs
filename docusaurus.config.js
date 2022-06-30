@@ -103,7 +103,7 @@ const config = {
             items: [
               {
                 label: 'Slack',
-                href: 'https://join.slack.com/t/lago-community/shared_invite/zt-1bw903041-PsxQmQios5utmETm1EZkvQ',
+                href: 'https://lago-community.slack.com/',
               },
               {
                 label: 'Twitter',
