@@ -102,8 +102,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Discourse',
-                href: 'https://community.getlago.com/',
+                label: 'Slack',
+                href: 'https://join.slack.com/t/lago-community/shared_invite/zt-1bw903041-PsxQmQios5utmETm1EZkvQ',
               },
               {
                 label: 'Twitter',
