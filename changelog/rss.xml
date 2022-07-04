@@ -4,10 +4,18 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Mon, 13 Jun 2022 10:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 04 Jul 2022 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Integration with Stripe Payments]]></title>
+            <link>https://getlago.com/changelog/stripe-integration</link>
+            <guid>/stripe-integration</guid>
+            <pubDate>Mon, 04 Jul 2022 10:00:00 GMT</pubDate>
+            <description><![CDATA[Lago now offers native integration with Stripe, including (but not limited to):]]></description>
+            <content:encoded><![CDATA[<p>Lago now offers native integration with Stripe, including (but not limited to):</p><ul><li>Ability to create Lago customers in Stripe automatically and retrieve their customer ID;</li><li>Ability to define Stripe as the default payment provider for a customer;</li><li>Ability to generate payment intents automatically;</li><li>Ability to update the status of an invoice depending on the payment status; and</li><li>Ability to receive a webhook when a payment fails.</li></ul><p>To learn more about this integration, please <a href="/docs/guide/stripe-integration">consult our guide</a>.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Invoice monthly charges for a plan paid yearly]]></title>
             <link>https://getlago.com/changelog/billable-metric-monthly-for-plan-yearly</link>

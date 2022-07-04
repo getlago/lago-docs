@@ -2,11 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-06-13T10:00:00.000Z</updated>
+    <updated>2022-07-04T10:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
     <icon>https://getlago.com/img/lago.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Integration with Stripe Payments]]></title>
+        <id>/stripe-integration</id>
+        <link href="https://getlago.com/changelog/stripe-integration"/>
+        <updated>2022-07-04T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Lago now offers native integration with Stripe, including (but not limited to):]]></summary>
+        <content type="html"><![CDATA[<p>Lago now offers native integration with Stripe, including (but not limited to):</p><ul><li>Ability to create Lago customers in Stripe automatically and retrieve their customer ID;</li><li>Ability to define Stripe as the default payment provider for a customer;</li><li>Ability to generate payment intents automatically;</li><li>Ability to update the status of an invoice depending on the payment status; and</li><li>Ability to receive a webhook when a payment fails.</li></ul><p>To learn more about this integration, please <a href="/docs/guide/stripe-integration">consult our guide</a>.</p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Invoice monthly charges for a plan paid yearly]]></title>
         <id>/billable-metric-monthly-for-plan-yearly</id>
