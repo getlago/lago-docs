@@ -145,7 +145,7 @@ To verify the signature, you must decode the signature and compare the result wi
 
 ## Messages
 
-### Invoice created
+### invoice.created
 
 Sent when a new invoice has been generated for a customer.
 
@@ -227,7 +227,11 @@ It will allow your application to perform the billing.
 }
 ```
 
-### Add-on applied to customer
+| Attributes | Description |
+| -----------| ----------- |
+| **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](./invoices) |
+
+### invoice.add_on_added
 
 Sent when an add-on has been applied to customer.
 
@@ -297,7 +301,45 @@ You can use this information to generate a PDF invoice or collect the payment.
 }
 ```
 
-### Event error
+| Attributes | Description |
+| -----------| ----------- |
+| **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](./invoices) |
+
+### invoice.payment_failure
+
+Sent when an error occurs during the processing of an invoice on a payment provider.
+
+It usually happen when the invoiced customer does not have a payment method on the payment provider.
+
+```json
+{
+  "webhook_type": "invoice.payment_failure",
+  "object_type": "payment_provider_invoice_payment_error",
+  "payment_provider_invoice_payment_error": {
+    "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "provider_customer_id": "cus_123456",
+    "payment_provider": "stripe",
+    "provider_error": {
+      "message": "Cannot charge a customer that has no active card",
+      "error_code": "missing"
+    }
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_invoice_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the invoice in Lago application |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
+| **customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **provider_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in payment provider application |
+| **payment_provider** &nbsp &nbsp <Type>String</Type> | Payment provider used to process the payment |
+| **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
+| **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
+
+### event.error
 
 This webhook type is sent when there is an error with event creation.
 
@@ -318,11 +360,75 @@ This webhook type is sent when there is an error with event creation.
 }
 ```
 
+### customer.payment_provider_created
+
+This webhook is sent when a customer is succeffuly created on a payment provider.
+
+It allows you to retrieve the customer id on the provider application and then to attach a payment method to the customer.
+
+```json
+{
+  "webhook_type": "customer.payment_provider_created",
+  "object_type": "customer",
+  "customer": {
+    "lago_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "address_line1": "5230 Penfield Ave",
+    "address_line2": null,
+    "city": "Woodland Hills",
+    "country": "US",
+    "created_at": "2022-04-29T08:59:51Z",
+    "email": "dinesh@piedpiper.test",
+    "legal_name": "Coleman-Blair",
+    "legal_number": "49-008-2965",
+    "logo_url": "http://hooli.com/logo.png",
+    "name": "Gavin Belson",
+    "phone": "1-171-883-3711 x245",
+    "state": "CA",
+    "url": "http://hooli.com",
+    "vat_rate": 12.5,
+    "zipcode": "91364",
+    "billing_configuration": {
+      "payment_provider": "stripe",
+      "provider_customer_id": "cus_12345"
+    }
+  }
+}
+```
 
 | Attributes | Description |
 | -----------| ----------- |
-| **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](./invoices) |
+| **customer** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Customer object](./customers/customer-object) |
 
+### customer.payment_provider_error
+
+This webhook type is sent when there is an error with customer creation on a payment provider. It usualy happen when something is wrong with the customer data.
+
+Your application should take care of fixing the issue on the customer data.
+
+```json
+{
+  "webhook_type": "invoice.payment_failure",
+  "object_type": "payment_provider_customer_error",
+  "payment_provider_customer_error": {
+    "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "payment_provider": "stripe",
+    "provider_error": {
+      "message": "Invalid email address",
+      "error_code": "email_invalid"
+    }
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
+| **customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **payment_provider** &nbsp &nbsp <Type>String</Type> | Payment provider used to process the payment |
+| **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
+| **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
 
 export const Type = ({children, color}) => (
   <span

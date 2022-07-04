@@ -41,7 +41,12 @@ import TabItem from '@theme/TabItem';
         "state": "CA",
         "url": "http://hooli.com",
         "vat_rate": 12.5,
-        "zipcode": "91364"
+        "zipcode": "91364",
+        "billing_configuration": {
+          "payment_provider": "stripe",
+          "provider_customer_id": "cus_12345",
+          "sync": true
+        }
       }
     }'
   ```
@@ -52,7 +57,7 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import Customer
+  from lago_python_client.models import Customer, BillingConfiguration
 
   client = Client(api_key='__YOUR_API_KEY__')
 
@@ -71,7 +76,12 @@ import TabItem from '@theme/TabItem';
     state="CA",
     url="http://hooli.com",
     vat_rate=12.5,
-    zipcode="91364"
+    zipcode="91364",
+    billing_configuration=BillingConfiguration(
+      payment_provider="stripe",
+      provider_customer_id="cus_12345",
+      sync=true
+    )
   )
 
   client.customers().create(customer)
@@ -84,6 +94,7 @@ import TabItem from '@theme/TabItem';
   ```javascript
   import Client from 'lago-nodejs-client'
   import Customer from 'lago-nodejs-client/customer'
+  import BillingConfiguration from 'lago-nodejs-client/billing_configuration'
 
   let client = new Client('__API_KEY__')
 
@@ -102,7 +113,12 @@ import TabItem from '@theme/TabItem';
     None,  // state
     None,  // url
     None,  // vatRate
-    None  // zipcode
+    None,  // zipcode
+    new BillingConfiguration(
+      "stripe",
+      "cus_12345",
+      true
+    )
   )
   await client.createCustomer(customer);
   ```
@@ -130,7 +146,12 @@ import TabItem from '@theme/TabItem';
     state: "CA",
     url: "http://hooli.com",
     vat_rate: 12.5,
-    zipcode: "91364"
+    zipcode: "91364",
+    billing_configuration: {
+      payment_provider: "stripe",
+      provider_customer_id: "cus_12345",
+      sync: true
+    }
   )
   ```
 
@@ -156,7 +177,12 @@ import TabItem from '@theme/TabItem';
     "state": "CA",
     "url": "http://hooli.com",
     "vat_rate": 12.5,
-    "zipcode": "91364"
+    "zipcode": "91364",
+    "billing_configuration": {
+      "payment_provider": "stripe",
+      "provider_customer_id": "cus_12345",
+      "sync": true
+    }
   }
 }
 ```
@@ -181,7 +207,15 @@ If the customer already exists, the call will work as an update
 | url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom URL of the customer |
 | vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom VAT applied to the customer.<br></br> It will override the one defined at organization level |
 | zipcode | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Zipcode of the customer's billing address |
+| billing_configuration | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider specific configuration used to bill the customer |
 
+### Billing configuration
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| payment_provider | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider used to bill the customer.<br/>Only accepted value: `stripe`
+| provider_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer ID on the payment provider.<br/>If not provided, Lago can optionally create the provider customer
+| sync | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to true is you want to create the provider customer synchronously with the customer creation.<br/>Apply only when provider_customer_id is null and payment provider is configured to create customer.<br/>Default value: `false`
 
 ## Responses
 
