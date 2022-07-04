@@ -67,6 +67,7 @@ Lago uses the following environment variables to configure the components of the
 | LAGO_ENCRYPTION_PRIMARY_KEY | | Encryption primary key used to secure sensitive values stored in the database |
 | LAGO_ENCRYPTION_DETERMINISTIC_KEY | | Encryption deterministic key used to secure sensitive values stored in the database |
 | LAGO_ENCRYPTION_KEY_DERIVATION_SALT | | Encryption key salt used to secure sensitive values stored in the database |
+| LAGO_WEBHOOK_ATTEMPTS | 3 | Number of failed attempt before stopping to deliver a webhook |
 
 :::caution
 We recommend that you change `POSTGRES_PASSWORD`, `SECRET_KEY_BASE`, `LAGO_RSA_PRIVATE_KEY`, `LAGO_ENCRYPTION_PRIMARY_KEY`, `LAGO_ENCRYPTION_DETERMINISTIC_KEY` and `LAGO_ENCRYPTION_KEY_DERIVATION_SALT` to improve the security of your Lago instance:
