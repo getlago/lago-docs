@@ -16,6 +16,14 @@
         <content type="html"><![CDATA[<p>Lago now offers native integration with Stripe, including (but not limited to):</p><ul><li>Ability to create Lago customers in Stripe automatically and retrieve their customer ID;</li><li>Ability to define Stripe as the default payment provider for a customer;</li><li>Ability to generate payment intents automatically;</li><li>Ability to update the status of an invoice depending on the payment status; and</li><li>Ability to receive a webhook when a payment fails.</li></ul><p>To learn more about this integration, please <a href="/docs/guide/stripe-integration">consult our guide</a>.</p>]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Weekly plan interval]]></title>
+        <id>/weekly-interval</id>
+        <link href="https://getlago.com/changelog/weekly-interval"/>
+        <updated>2022-07-04T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[When setting up a plan, you can select the weekly interval to define a weekly billing period.]]></summary>
+        <content type="html"><![CDATA[<p>When setting up a plan, you can select the weekly interval to define a weekly billing period.</p><p>The plan interval applies to the subscription and charges, which means that:</p><ul><li>For plans that must be paid in advance, the subscription fee is invoiced at the beginning of the week;</li><li>For plans that are paid in arrears, the subscription fee is invoiced at the end of the week; and</li><li>Usage is calculated at the end of each week.</li></ul><p>The week starts on Sunday and ends on Saturday. If the customer's subscription starts in the middle of the week, the fees will be applied on a pro-rata basis.</p>]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Invoice monthly charges for a plan paid yearly]]></title>
         <id>/billable-metric-monthly-for-plan-yearly</id>
         <link href="https://getlago.com/changelog/billable-metric-monthly-for-plan-yearly"/>
