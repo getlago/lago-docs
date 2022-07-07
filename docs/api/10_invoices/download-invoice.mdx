@@ -2,6 +2,9 @@
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Download an Invoice
 
 ## Route
@@ -9,3 +12,91 @@ sidebar_position: 2
 ```curl title="POST"
 /api/v1/invoices/:id/download
 ```
+
+## Logic
+
+- If the invoice has already been generated, you will receive in the response the `invoice` object with the `file_url` where you can download your pdf file.
+- If the invoice has never been generated, this endpoint will returns an empty `200` response, you will receive a `invoice.generated` webhook when the PDF file is ready.
+  You can check the webhook documentation to know more about this.
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+
+  * The `invoice` file has already been generated: Returns an [applied add-on](./applied-add-on-object) object.
+  * The `invoice` file has not been generated, returns an empty response.
+
+
+  </TabItem>
+
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `invoice` is not found.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+</Tabs>
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
