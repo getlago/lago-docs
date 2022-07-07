@@ -34,11 +34,22 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import Event
 
   client = Client(api_key='__YOUR_API_KEY__')
 
   customer_usage = client.customers().current_usage(customer_id='customer_id')
+  ```
+
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import Client from 'lago-nodejs-client'
+
+  let client = new Client('__API_KEY__')
+
+  let customerUsage = await client.customerCurrentUsage('customer_id')
   ```
 
   </TabItem>
