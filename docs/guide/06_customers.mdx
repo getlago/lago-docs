@@ -100,6 +100,14 @@ Lago automatically generates an invoice for all your customers at the end of eac
 
 Click on the following link to [know more about invoicing with Lago](./invoicing/overview).
 
+## Customer Slug
+
+The customer slug is a unique identifier for a customer that will be used to build an invoice number.
+This slug respect this format: 
+- `LAG-1234-001`
+- `LAG` is the first 3 letters of the customer's organization
+- `1234` is the last 4 characters of the customer's organization's id
+- `001` is the `sequential_id` of the customer scoped on the organization
 
 export const Required = ({children, color}) => (
   <span
