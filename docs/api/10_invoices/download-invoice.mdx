@@ -19,6 +19,53 @@ import TabItem from '@theme/TabItem';
 - If the invoice has never been generated, this endpoint will returns an empty `200` response, you will receive a `invoice.generated` webhook when the PDF file is ready.
   You can check the webhook documentation to know more about this.
 
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  INVOICE_ID="__YOU_INVOICE_ID__"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/$INVOICE_ID/download" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json'
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+  from lago_python_client.models import AppliedAddOn
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  applied_add_on = AppliedAddOn(
+    customer_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    add_on_code="code",
+    amount_cents=123,
+    amount_currency="EUR"
+  )
+
+  client.applied_add_ons().create(applied_add_on)
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.invoices.download('5eb02857-a71e-4ea2-bcf9-57d8885990ba') // Invoice ID
+  ```
+  </TabItem>
+</Tabs>
+
 ## Responses
 
 <Tabs>
