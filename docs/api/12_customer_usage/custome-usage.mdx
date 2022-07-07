@@ -1,0 +1,97 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Get customer current usage
+
+## Route
+
+```curl title="GET"
+/api/v1/customers/:customer_id/current_usage
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+  CUSTOMER_ID="__CUSTOMER_ID__"
+
+  curl --location --request GET "$LAGO_URL/api/v1/customers/$CUSTOMER_ID/current_usage"
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json'
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+| Attributes | Type | Description |
+| ---------- | ---- | ----------- |
+| customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+
+  Returns a [customer usage](./customer-usage-object) object.
+
+  </TabItem>
+    <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+  <TabItem value="404" label="HTTP 404" default>
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found"
+  }
+  ```
+
+  The provided `customer_id` does not match an existing customer.
+
+  </TabItem>
+  <TabItem value="422" label="HTTP 422">
+
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message",
+    "error_details": {
+      "field": ["message"]
+    }
+  }
+  ```
+
+  Possible error messages:
+  - `no_active_subscription`: Customer does not have an active subscription
+
+
+  </TabItem>
+</Tabs>

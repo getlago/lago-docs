@@ -1,0 +1,115 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# The customer usage object
+
+This object represents the charge usage of a customer of your business on the current billing period.<br/>
+It lets you monitor the customer usage
+
+## Schema
+
+```json
+{
+  "customer_usage": {
+    "from_date": "2022-07-01",
+    "to_date": "2022-07-31",
+    "issuing_date": "2022-08-01",
+    "amount_cents": 123,
+    "amount_currency": "EUR",
+    "total_amount_cents": 123,
+    "total_amount_currency": "EUR",
+    "vat_amount_cents": 0,
+    "vat_amount_currency": "EUR",
+    "charges_usage": [
+      {
+        "units": "1.0",
+        "amount_cents": 123,
+        "amount_currency": "EUR",
+        "charge": {
+          "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+          "charge_model": "graduated"
+        },
+        "billable_metric": {
+          "lago_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+          "name": "Usage metric",
+          "code": "usage_metric",
+          "aggregation_type": "sum"
+        }
+      }
+    ]
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **from_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Lower bound of the billing period |
+| **to_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Upper bound of the billing period |
+| **issuing_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Date of creation of the invoice |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents, VAT (tax) excluded|
+| **amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
+| **total_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Should be the sum of the amount and the VAT amount |
+| **total_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount |
+| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents |
+| **vat_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
+| **charges_usage** &nbsp &nbsp <Type>JSON</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Array of [charge usage](#charge-usage-object) objects |
+
+## Charge Usage object
+
+| Attributes | Description |
+| -----------| ----------- |
+| **units** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Number of units consumed by the customer |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents, VAT (tax) excluded|
+| **amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
+| **charge** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Related [charge](#charge) object |
+| **billable_metric** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Related [billable metric](#billable-metric-object) object |
+
+## Charge object
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | ID of the charge in lago application |
+| **charge_model** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Model of pricing applied by the charge.<br/>See [charge documentation](/docs/guide/plans/charges#the-charge-models) for possible values |
+
+
+## Billable Metric object
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | ID of the billable metric in lago application |
+| **name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Name of the billable metric |
+| **code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code of the billable metric |
+| **aggregation_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Aggregation type of the billable metric<br/>See [billable metric documentation](/docs/guide/billable-metrics/aggregation-types) for possible values |
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
