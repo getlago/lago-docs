@@ -7,8 +7,8 @@ import TabItem from '@theme/TabItem';
 
 # The customer usage object
 
-This object represents the charge usage of a customer of your business on the current billing period.<br/>
-It lets you monitor the customer usage
+This object represents the usage-based charges associated with one of your customers for the current billing period.<br/>
+It allows you to monitor customer usage throughout the period.
 
 ## Schema
 
@@ -72,7 +72,7 @@ It lets you monitor the customer usage
 
 | Attributes | Description |
 | -----------| ----------- |
-| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | ID of the charge in lago application |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | ID of the charge in the Lago application |
 | **charge_model** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Model of pricing applied by the charge.<br/>See [charge documentation](/docs/guide/plans/charges#the-charge-models) for possible values |
 
 
@@ -80,7 +80,7 @@ It lets you monitor the customer usage
 
 | Attributes | Description |
 | -----------| ----------- |
-| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | ID of the billable metric in lago application |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | ID of the billable metric in the Lago application |
 | **name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Name of the billable metric |
 | **code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code of the billable metric |
 | **aggregation_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Aggregation type of the billable metric<br/>See [billable metric documentation](/docs/guide/billable-metrics/aggregation-types) for possible values |
