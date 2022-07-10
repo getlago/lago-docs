@@ -1,0 +1,63 @@
+---
+sidebar_position: 1
+---
+
+# The billable metric object
+
+This object represents a billable metric.<br></br>
+
+## Schema
+
+```json
+{
+  "billable_metric": {
+    "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+    "name": "bm_name",
+    "code": "bm_code",
+    "description": "description",
+    "aggregation_type": "sum_agg",
+    "field_name": "amount_sum",
+    "created_at": "2022-04-29T08:59:51Z"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the billable metric in Lago application. |
+| **name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Billable metric name. |
+| **code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the billable metric. |
+| **description** &nbsp &nbsp <Type>String</Type> | Description. |
+| **aggregation_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Aggregation type that is used in event calculation. <br></br> <details><summary>**Possible values**</summary><div>- `count_agg`<br></br>- `sum_agg`<br></br>- `max_agg`<br></br>- `unique_count_agg`<div></div></div></details> |
+| **field_name** &nbsp &nbsp <Type>String</Type> | Field name used in events. |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of billable metric creation. |
+
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
