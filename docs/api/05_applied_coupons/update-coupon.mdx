@@ -1,16 +1,16 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Update Billable metric
+# Update coupon
 
 ## Route
 
 ```curl title="PUT"
-/api/v1/billable_metrics/:code
+/api/v1/coupons/:code
 ```
 
 ## Usage
@@ -22,16 +22,17 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request PUT "$LAGO_URL/api/v1/billable_metrics/:code" \
+  curl --location --request PUT "$LAGO_URL/api/v1/coupons/:code" \
     --header "Authorization: Bearer $API_KEY" \
     --header 'Content-Type: application/json' \
     --data-raw '{
-      "billable_metric": {
-        "name": "bm_name",
-        "code": "bm_code",
-        "description": "description",
-        "aggregation_type": "sum_agg",
-        "field_name": "amount_sum"
+      "coupon": {
+        "name": "coupon_name",
+        "code": "coupon_code",
+        "amount_cents": 5000,
+        "amount_currency": "USD",
+        "expiration": "time_limit",
+        "expiration_duration": 10
       }
     }'
   ```
@@ -41,18 +42,12 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import BillableMetric
+  from lago_python_client.models import Coupon
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  billable_metric = BillableMetric(
-    name='name',
-    code='code_first',
-    description='desc',
-    aggregation_type='sum_agg',
-    field_name='amount_sum'
-  )
-  client.billable_metrics().update(billable_metric, 'code')
+  update_params = Coupon(name='new name')
+  client.coupons().update(update_params, 'code')
   ```
   </TabItem>
 
@@ -63,27 +58,19 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.billable_metrics.update({
-      name: 'BM1',
-      code: 'code_bm',
-      description: 'description',
-      aggregation_type: 'sum_agg',
-      field_name: 'amount_sum',
-  }, 'code')
+  update_params = {name: 'new name'}
+  client.coupons.update(update_params, 'code_bm')
   ```
   </TabItem>
 
   <TabItem value="javascript" label="Node.js">
 
   ```javascript
-  import BillableMetric from 'lago-nodejs-client/billable_metric'
+  import Coupon from 'lago-nodejs-client/coupon'
 
   let client = new Client('__API_KEY__')
 
-  let billableMetric = new BillableMetric({name: 'name1', code: 'code1', aggregationType: 'sum_agg',
-    fieldName: 'field_name'
-  })
-  await client.updateBillableMetric(billableMetric, 'code');
+  await client.updateCoupon(new Coupon({name: 'new name', code: 'new_code'}), 'code');
   ```
   </TabItem>
 </Tabs>
@@ -92,30 +79,32 @@ import TabItem from '@theme/TabItem';
 
 ```json
 {
-  "billable_metric": {
-    "name": "bm_name",
-    "code": "bm_code",
-    "description": "description",
-    "aggregation_type": "sum_agg",
-    "field_name": "amount_sum"
+  "coupon": {
+    "name": "coupon_name",
+    "code": "coupon_code",
+    "amount_cents": 5000,
+    "amount_currency": "USD",
+    "expiration": "time_limit",
+    "expiration_duration": 10
   }
 }
 ```
 
 | Attributes | Type | Description |
 |--|--|--|
-| name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Billable metric name. |
-| code | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Code identifying the billable metric.<br></br>It won't be updated if billable metric is attached to any subscriptions |
-| description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Description of the billable metric |
-| aggregation_type | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Aggregation type that is used in event calulations.<br></br>It can be `count_agg`, `sum_agg`, `max_agg` or `unique_count_agg`.<br></br>It won't be updated if billable metric is attached to any subscriptions |
-| field_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field name used in events.<br></br>It won't be updated if billable metric is attached to any subscriptions |
+| name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Coupon name |
+| code | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Code identifying the coupon<br></br>It won't be updated if coupon is attached to any subscriptions |
+| amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Amount of the coupon<br></br>It won't be updated if coupon is attached to any subscriptions |
+| amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Currency of the amount<br></br>It won't be updated if coupon is attached to any subscriptions |
+| expiration | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Expiration type.<br></br>It can be `time_limit` or `no_expiration`<br></br>It won't be updated if coupon is attached to any subscriptions |
+| expiration_duration | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Coupon duration<br></br>It won't be updated if coupon is attached to any subscriptions |
 ## Responses
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  The billable metric was successfully updated
+  The coupon was successfully updated
 
-  Returns an [billable metric](./billable-metric-object) object.
+  Returns a [coupon](./coupon-object) object.
   </TabItem>
 
   <TabItem value="400" label="HTTP 400">
@@ -127,7 +116,7 @@ import TabItem from '@theme/TabItem';
   }
   ```
 
-  The `billable_metric` json root is not present in the request body.
+  The `coupon` json root is not present in the request body.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -158,7 +147,7 @@ import TabItem from '@theme/TabItem';
   }
   ```
 
-  The `billable_metric` was not found by the code.
+  The `coupon` was not found by the code.
   </TabItem>
 
   <TabItem value="422" label="HTTP 422">
