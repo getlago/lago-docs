@@ -5,12 +5,12 @@ sidebar_position: 6
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Destroy coupon
+# Destroy Add-on
 
 ## Route
 
 ```curl title="DELETE"
-/api/v1/coupons/:code
+/api/v1/add_ons/:code
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request DELETE "$LAGO_URL/api/v1/coupons/:code" \
+  curl --location --request DELETE "$LAGO_URL/api/v1/add_ons/:code" \
     --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
@@ -34,7 +34,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.coupons().destroy('code')
+  client.add_ons().destroy('code')
   ```
   </TabItem>
 
@@ -45,7 +45,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.coupons.destroy('code')
+  client.add_ons.destroy('code')
   ```
   </TabItem>
 
@@ -54,7 +54,7 @@ import TabItem from '@theme/TabItem';
   ```javascript
   let client = new Client('__API_KEY__')
 
-  await client.destroyCoupon('code');
+  await client.destroyAddOn('code');
   ```
   </TabItem>
 </Tabs>
@@ -63,9 +63,9 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  The coupon was successfully destroyed
+  The add-on was successfully destroyed
 
-  Returns a [coupon](./coupon-object) object.
+  Returns an [add-on](./add-on-object) object.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -96,20 +96,7 @@ import TabItem from '@theme/TabItem';
   }
   ```
 
-  The `coupon` was not found by the code.
-  </TabItem>
-
-  <TabItem value="403" label="HTTP 403">
-
-  ```json
-  {
-    "status": 403,
-    "error": "Forbidden",
-    "message": "Coupon is attached to an active customer."
-  }
-  ```
-
-  Coupon that is attached to an active customer cannot be destroyed.
+  The `add_on` was not found by the code.
   </TabItem>
 
   <TabItem value="422" label="HTTP 422">
