@@ -72,7 +72,7 @@ import TabItem from '@theme/TabItem';
     webhook_url: 'https://webhook_url.com',
     vat_rate: 10
   }
-  client.organizations.update(update_params, 'code_bm')
+  client.organizations.update(update_params)
   ```
   </TabItem>
 
@@ -117,14 +117,14 @@ import TabItem from '@theme/TabItem';
 | webhook_url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Webhook URL. |
 | vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | VAT rate. |
 | country | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Country alpha-2 code |
-| address_line1 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Address line 1. |
-| address_line2 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Address line 2. |
-| state | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | State. |
-| zipcode | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Zipcode. |
-| email | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Email. |
-| city | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | City. |
-| legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal name. |
-| legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal number. |
+| address_line1 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Address first line. |
+| address_line2 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Address second line. |
+| state | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization state. |
+| zipcode | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization zipcode. |
+| email | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Business email. |
+| city | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization city. |
+| legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization legal name. |
+| legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization legal number. |
 | invoice_footer | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom invoice footer. |
 ## Responses
 
