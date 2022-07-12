@@ -1,0 +1,94 @@
+{
+  "index_name": "lago-docs",
+  "start_urls": [
+    "https://doc.getlago.com/docs/guide/intro",
+    "https://doc.getlago.com/docs/guide/self-hosting/docker",
+    "https://doc.getlago.com/docs/guide/lago-cloud",
+    "https://doc.getlago.com/docs/guide/billable-metrics/overview",
+    "https://doc.getlago.com/docs/guide/billable-metrics/aggregation-types",
+    "https://doc.getlago.com/docs/guide/billable-metrics/aggregation-examples",
+    "https://doc.getlago.com/docs/guide/plans/overview",
+    "https://doc.getlago.com/docs/guide/plans/plan-model",
+    "https://doc.getlago.com/docs/guide/plans/charges",
+    "https://doc.getlago.com/docs/guide/plans/subscription",
+    "https://doc.getlago.com/docs/guide/plans/upgrades-downgrades",
+    "https://doc.getlago.com/docs/guide/customers",
+    "https://doc.getlago.com/docs/guide/coupons",
+    "https://doc.getlago.com/docs/guide/addons",
+    "https://doc.getlago.com/docs/guide/events/ingesting_events",
+    "https://doc.getlago.com/docs/guide/events/debugger",
+    "https://doc.getlago.com/docs/guide/invoicing/overview",
+    "https://doc.getlago.com/docs/guide/invoicing/taxes",
+    "https://doc.getlago.com/docs/guide/invoicing/fees",
+    "https://doc.getlago.com/docs/guide/invoicing/payments",
+    "https://doc.getlago.com/docs/guide/testing-integration",
+    "https://doc.getlago.com/docs/guide/stripe-integration",
+
+    "https://doc.getlago.com/docs/api/intro",
+    "https://doc.getlago.com/docs/api/customers/customer-object",
+    "https://doc.getlago.com/docs/api/customers/create-update-customer",
+    "https://doc.getlago.com/docs/api/subscriptions/subscription-object",
+    "https://doc.getlago.com/docs/api/subscriptions/create-subscription",
+    "https://doc.getlago.com/docs/api/subscriptions/terminate-subscription",
+    "https://doc.getlago.com/docs/api/events",
+    "https://doc.getlago.com/docs/api/applied_coupons/applied-coupon-object",
+    "https://doc.getlago.com/docs/api/applied_coupons/apply-coupon",
+    "https://doc.getlago.com/docs/api/applied_add_ons/applied-add-on-object",
+    "https://doc.getlago.com/docs/api/applied_add_ons/apply-add-on",
+    "https://doc.getlago.com/docs/api/invoices/invoice-object",
+    "https://doc.getlago.com/docs/api/invoices/update-invoice-status",
+    "https://doc.getlago.com/docs/api/webhooks/message-signature",
+    "https://doc.getlago.com/docs/api/webhooks/invoice-created",
+    "https://doc.getlago.com/docs/api/webhooks/invoice-addon-added",
+    "https://doc.getlago.com/docs/api/webhooks/invoice-payment-failure",
+    "https://doc.getlago.com/docs/api/webhooks/event-error",
+    "https://doc.getlago.com/docs/api/webhooks/customer-payment-provider-created",
+    "https://doc.getlago.com/docs/api/webhooks/customer-payment-provider-error",
+
+    "https://doc.getlago.com/changelog"
+  ],
+  "sitemap_urls": [
+    "https://doc.getlago.com/sitemap.xml"
+  ],
+  "sitemap_alternate_links": true,
+  "stop_urls": [
+    "/tests"
+  ],
+  "selectors": {
+    "lvl0": {
+      "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
+      "type": "xpath",
+      "global": true,
+      "default_value": "Documentation"
+    },
+    "lvl1": "header h1",
+    "lvl2": "article h2",
+    "lvl3": "article h3",
+    "lvl4": "article h4",
+    "lvl5": "article h5, article td:first-child",
+    "lvl6": "article h6",
+    "text": "article p, article li, article td:last-child"
+  },
+  "strip_chars": " .,;:#",
+  "custom_settings": {
+    "separatorsToIndex": "_",
+    "attributesForFaceting": [
+      "language",
+      "version",
+      "type",
+      "docusaurus_tag"
+    ],
+    "attributesToRetrieve": [
+      "hierarchy",
+      "content",
+      "anchor",
+      "url",
+      "url_without_anchor",
+      "type"
+    ]
+  },
+  "conversation_id": [
+    "833762294"
+  ],
+  "nb_hits": 46250
+}
