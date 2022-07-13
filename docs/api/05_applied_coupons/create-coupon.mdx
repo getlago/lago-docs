@@ -1,0 +1,215 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Create Coupon
+
+## Route
+
+```curl title="POST"
+/api/v1/coupons
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/coupons" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "coupon": {
+        "name": "coupon_name",
+        "code": "coupon_code",
+        "amount_cents": 5000,
+        "amount_currency": "USD",
+        "expiration": "time_limit",
+        "expiration_duration": 10
+      }
+    }'
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+  from lago_python_client.models import Coupon
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  coupon = Coupon(
+    name='name',
+    code='code_first',
+    amount_cents=1000,
+    amount_currency='EUR',
+    expiration='time_limit',
+    expiration_duration=10
+  )
+  client.coupons().create(coupon)
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  coupon = {
+    name: 'coupon name',
+    code: 'code',
+    expiration: 'time_limit',
+    expiration_duration: 10,
+    amount_cents: 100,
+    amount_currency: 'EUR',
+  }
+
+  client.coupons.create(coupon)
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import Coupon from 'lago-nodejs-client/coupon'
+
+  let client = new Client('__API_KEY__')
+
+  let coupon = new Coupon({name: 'name1', code: 'code1', expiration: 'time_limit',
+      amountCents: 10000, amountCurrency: 'USD'
+  })
+  await client.createCoupon(coupon);
+  ```
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "coupon": {
+    "name": "coupon_name",
+    "code": "coupon_code",
+    "amount_cents": 5000,
+    "amount_currency": "USD",
+    "expiration": "time_limit",
+    "expiration_duration": 10
+  }
+}
+```
+
+| Attributes | Type | Description |
+|--|--|--|
+| name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Coupon name |
+| code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the coupon |
+| amount_cents | Integer &nbsp &nbsp &nbsp<Required>**Required**</Required> | Amount of the coupon |
+| amount_currency | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Currency of the amount |
+| expiration | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Expiration type.<br></br>It can be `time_limit` or `no_expiration` |
+| expiration_duration | Integer &nbsp &nbsp &nbsp<Required>**Required (optional only for `no_expiration` type)**</Required> | Coupon duration. |
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The coupon was created
+
+  Returns a [coupon](./coupon-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `coupon` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message"
+  }
+  ```
+
+  **Possible error messages:**
+  * `Validation error on the record`
+
+
+  </TabItem>
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

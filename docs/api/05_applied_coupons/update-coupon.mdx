@@ -1,0 +1,209 @@
+---
+sidebar_position: 5
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Update coupon
+
+## Route
+
+```curl title="PUT"
+/api/v1/coupons/:code
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request PUT "$LAGO_URL/api/v1/coupons/:code" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "coupon": {
+        "name": "coupon_name",
+        "code": "coupon_code",
+        "amount_cents": 5000,
+        "amount_currency": "USD",
+        "expiration": "time_limit",
+        "expiration_duration": 10
+      }
+    }'
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+  from lago_python_client.models import Coupon
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  update_params = Coupon(name='new name')
+  client.coupons().update(update_params, 'code')
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  update_params = {name: 'new name'}
+  client.coupons.update(update_params, 'code_bm')
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import Coupon from 'lago-nodejs-client/coupon'
+
+  let client = new Client('__API_KEY__')
+
+  await client.updateCoupon(new Coupon({name: 'new name', code: 'new_code'}), 'code');
+  ```
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "coupon": {
+    "name": "coupon_name",
+    "code": "coupon_code",
+    "amount_cents": 5000,
+    "amount_currency": "USD",
+    "expiration": "time_limit",
+    "expiration_duration": 10
+  }
+}
+```
+
+| Attributes | Type | Description |
+|--|--|--|
+| name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Coupon name |
+| code | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Code identifying the coupon<br></br>It won't be updated if coupon is attached to any subscriptions |
+| amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Amount of the coupon<br></br>It won't be updated if coupon is attached to any subscriptions |
+| amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Currency of the amount<br></br>It won't be updated if coupon is attached to any subscriptions |
+| expiration | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Expiration type.<br></br>It can be `time_limit` or `no_expiration`<br></br>It won't be updated if coupon is attached to any subscriptions |
+| expiration_duration | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Coupon duration<br></br>It won't be updated if coupon is attached to any subscriptions |
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The coupon was successfully updated
+
+  Returns a [coupon](./coupon-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `coupon` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found"
+  }
+  ```
+
+  The `coupon` was not found by the code.
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message"
+  }
+  ```
+
+  **Possible error messages:**
+  * `Validation error on the record`
+
+
+  </TabItem>
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

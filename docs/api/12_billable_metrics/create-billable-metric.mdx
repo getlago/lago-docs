@@ -1,0 +1,208 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Create Billable metric
+
+## Route
+
+```curl title="POST"
+/api/v1/billable_metrics
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/billable_metrics" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "billable_metric": {
+        "name": "bm_name",
+        "code": "bm_code",
+        "description": "description",
+        "aggregation_type": "sum_agg",
+        "field_name": "amount_sum"
+      }
+    }'
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+  from lago_python_client.models import BillableMetric
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  billable_metric = BillableMetric(
+    name='name',
+    code='code_first',
+    description='desc',
+    aggregation_type='sum_agg',
+    field_name='amount_sum'
+  )
+  client.billable_metrics().create(billable_metric)
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.billable_metrics.create({
+      name: 'BM1',
+      code: 'code_bm',
+      description: 'description',
+      aggregation_type: 'sum_agg',
+      field_name: 'amount_sum',
+  })
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import BillableMetric from 'lago-nodejs-client/billable_metric'
+
+  let client = new Client('__API_KEY__')
+
+  let billableMetric = new BillableMetric({name: 'name1', code: 'code1', aggregationType: 'sum_agg',
+    fieldName: 'field_name'
+  })
+  await client.createBillableMetric(billableMetric);
+  ```
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "billable_metric": {
+    "name": "bm_name",
+    "code": "bm_code",
+    "description": "description",
+    "aggregation_type": "sum_agg",
+    "field_name": "amount_sum"
+  }
+}
+```
+
+| Attributes | Type | Description |
+|--|--|--|
+| name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Billable metric name |
+| code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the billable metric |
+| description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Description of the billable metric |
+| aggregation_type | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Aggregation type that is used in event calculations.<br></br>It can be `count_agg`, `sum_agg`, `max_agg` or `unique_count_agg` |
+| field_name | String &nbsp &nbsp &nbsp<Required>**Required (optional only for `count_agg` aggregation type)**</Required> | Field name used in events. |
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The billable metric was created
+
+  Returns a [billable metric](./billable-metric-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `billable_metric` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message"
+  }
+  ```
+
+  **Possible error messages:**
+  * `Validation error on the record`
+
+
+  </TabItem>
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
