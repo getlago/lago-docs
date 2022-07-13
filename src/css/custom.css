@@ -177,3 +177,8 @@ table {
 [class^="sidebar_node_modules"] {
   max-height: 100%!important;
 }
+
+[class^="sidebar_njMd"] {
+  max-height: 100%!important;
+}
+
