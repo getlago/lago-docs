@@ -175,5 +175,5 @@ table {
 }
 
 [class^="sidebar_node_modules"] {
-  max-height: auto!important;
+  max-height: 100%!important;
 }
