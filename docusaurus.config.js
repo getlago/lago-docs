@@ -35,6 +35,7 @@ const config = {
           blogTitle: 'Changelog - New features',
           blogDescription: 'Find here all the new features released by Lago.',
           postsPerPage: 'ALL',
+          blogSidebarCount: 20,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
