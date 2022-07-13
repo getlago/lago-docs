@@ -30,10 +30,11 @@ It is used to ensure the message is Coming from Lago and that the message has no
 
 To verify the signature, you must decode the signature and compare the result with the body of the webhook.
 
+### 1. Retrieve the public key
+
 <Tabs groupId="prog-language">
   <TabItem value="python" label="Python">
 
-  * **Retrieve the public key:**
   ```python
   from lago_python_client import Client
 
@@ -41,30 +42,10 @@ To verify the signature, you must decode the signature and compare the result wi
   webhooks_public_key = client.webhooks().public_key()
   ```
 
-  :::tip
-  You should persist the public key on you side to prevent querying it for each webhook
-  :::
-
-  * **Decode and validate the signature:**
-  ```python
-  import jwt
-
-  decoded_signature = jwt.decode(
-    request.headers.get('X-Lago-Signature'),
-    webhooks_public_key,
-    algorithms=['RS256'],
-    issuer="https://api.getlago.com"
-  )
-
-  decoded_signature['data'] == request.body
-  ```
-
-
   </TabItem>
 
   <TabItem value="javascript" label="Node.js">
 
-  * **Retrieve the public key:**
   ```javascript
   import Client from 'lago-nodejs-client'
 
@@ -72,30 +53,10 @@ To verify the signature, you must decode the signature and compare the result wi
   let webhooksPublicKey = client.webhookPublicKey()
   ```
 
-  :::tip
-  You should persist the public key on you side to prevent querying it for each webhook
-  :::
-
-  * **Decode and validate the signature:**
-  ```javascript
-  import jwt from 'jsonwebtoken';
-
-  let token = request.header('X-Lago-Signature')
-
-  jwt.verify(token, webhooksPublicKey, {
-    algorithms: ['RS256'],
-    issuer: 'https://api.getlago.com' },
-    function (err, payload) {
-      payload === request.body
-  });
-  ```
-
-
 </TabItem>
 
   <TabItem value="ruby" label="Ruby" default>
 
-  * **Retrieve the public key:**
   ```ruby
   require 'net/http'
 
@@ -115,11 +76,62 @@ To verify the signature, you must decode the signature and compare the result wi
   webhooks_public_key = response.body
   ```
 
-  :::tip
-  You should persist the public key on you side to prevent querying it for each webhook
-  :::
+  </TabItem>
+</Tabs>
 
-  * **Decode and validate the signature:**
+
+:::tip
+
+You should persist the public key on you side to prevent querying it for each webhook
+  
+:::
+
+
+
+
+
+
+
+### 2. Decode and validate the signature
+
+<Tabs groupId="prog-language">
+  <TabItem value="python" label="Python">
+
+  ```python
+  import jwt
+
+  decoded_signature = jwt.decode(
+    request.headers.get('X-Lago-Signature'),
+    webhooks_public_key,
+    algorithms=['RS256'],
+    issuer="https://api.getlago.com"
+  )
+
+  decoded_signature['data'] == request.body
+  ```
+
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import jwt from 'jsonwebtoken';
+
+  let token = request.header('X-Lago-Signature')
+
+  jwt.verify(token, webhooksPublicKey, {
+    algorithms: ['RS256'],
+    issuer: 'https://api.getlago.com' },
+    function (err, payload) {
+      payload === request.body
+  });
+  ```
+
+
+</TabItem>
+
+  <TabItem value="ruby" label="Ruby" default>
+
   ```ruby
   require 'openssl'
   require 'jwt'
@@ -137,7 +149,6 @@ To verify the signature, you must decode the signature and compare the result wi
 
   decoded_signature['data'] == request.body
   ```
-
 
   </TabItem>
 </Tabs>
