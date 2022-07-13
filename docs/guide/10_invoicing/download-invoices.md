@@ -3,7 +3,7 @@ sidebar_position: 4
 ---
 
 # Download invoices
-When a new invoice is created, Lago will send a [webhook](../../api/webhooks/invoice-created) to notify you and also generate a PDF file that you can download and send to your customer.
+When a new invoice is created, Lago will send a [webhook](../../api/webhooks/messages) to notify you and also generate a PDF file that you can download and send to your customer.
 
 To download an invoice through the user interface:
 1. Click **"Customers"** in the side menu;
