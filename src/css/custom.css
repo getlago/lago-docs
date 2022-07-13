@@ -173,3 +173,7 @@ table {
 .details_BAp3 {
   margin-top: 26px!important;
 }
+
+[class^="sidebar_node_modules"] {
+  max-height: auto!important;
+}
