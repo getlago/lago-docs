@@ -12,6 +12,8 @@ To download an invoice through the user interface:
 4. Click the **ellipsis icon** on the right of the invoice; and
 5. Click **"Download invoice"** to open the file in a new tab.
 
+You can also download invoices via API ([learn more](../../api/invoices/download-invoice)).
+
 ## How to modify the invoice template
 You can modify some of the elements that are included in the PDF invoice, such as information about the organization, its logo and the footer.
 
