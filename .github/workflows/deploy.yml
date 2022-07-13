@@ -9,6 +9,9 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
+      APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3

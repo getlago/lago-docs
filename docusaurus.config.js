@@ -82,6 +82,16 @@ const config = {
           {to: 'https://calendly.com/lago-team/20min-meeting-with-lago-team', label: 'Book a demo', position: 'right'},
         ],
       },
+      algolia: {
+        apiKey: '0c7bcce970ddc7eec5750f1dd0c039c6',
+        indexName: 'lago-docs',
+        appId: 'PGTV8J052Y',
+  
+        // Optional: see doc section bellow
+        // contextualSearch: true,
+  
+        //... other Algolia params
+      },
       footer: {
         style: 'dark',
         links: [
