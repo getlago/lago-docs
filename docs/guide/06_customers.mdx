@@ -95,13 +95,22 @@ In Lago, all ingested events must hold a `customer_id`, as shown in the followin
 ```
 Events represents the data delivered to Lago application that are aggregated into billable metrics. At the end of each billable period, Lago automatically aggregates those events into a billable metric with priced units that have been consumed by a customer. By clicking the following link, you can [know more about the aggregation types](./billable-metrics/aggregation-types).
 
+## Displaying customer current usage
+After assigning a plan to a customer and start ingesting usage-based events, it is often useful to know what is the **current usage** of this specific customer during the ongoing billable period.
+This current usage displays: 
+- The total amount of usage that will be billed in the next invoice;
+- The breakdown per usage-based charges (number of units consumed and amount to be billed).
+
+To access this feature, select a specific customer and access the `Usage` tab.
+
+On top of this, you can fetch via the API the current usage of a specific customer.
+
 ## Invoicing a customer
 Lago automatically generates an invoice for all your customers at the end of each billing period.
 
 Click on the following link to [know more about invoicing with Lago](./invoicing/overview).
 
 ## Customer Slug
-
 The customer slug is a unique identifier for a customer that will be used to build an invoice number.
 This slug respect this format: 
 - `LAG-1234-001`
