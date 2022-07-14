@@ -7,11 +7,11 @@ import TabItem from '@theme/TabItem';
 
 
 # Welcome to Lago
-Lago is an open-source Stripe Billing alternative.
+Lago is an open-source alternative to Stripe Billing.
 
-This library will allow you to build an entire billing logic from scratch, even the most complex one. Lago is a real-time event-based library made for usage-based billing, subscription-based billing, and all the nuances of pricing in between.
+This library will allow you to build an entire billing system from scratch. Lago is a real-time, event-based solution made for usage-based billing, subscription-based billing, and all the nuances of pricing in between.
 
-You can decide to use Lago in its **[self-hosted version](./self-hosting/docker)** or in its **cloud version (fully hosted by Lago)**, currently available on a per request basis. Request access to Lago Cloud [here](https://pktz41848np.typeform.com/to/t4boMDXm).
+You can use the **[self-hosted version](./self-hosting/docker)** to deploy Lago on your existing infrastructure or **[request access to Lago Cloud](https://calendly.com/lago-team/20min-meeting-with-lago-team?month=2022-07)** to start using our solution immediately.
 
 ## Four-step billing workflow
 
@@ -32,7 +32,4 @@ The aggregation process consists in converting events into [billable metrics](./
 Creating [plans](./plans/overview) allows you to define how much your customers should pay for using your product. You can then combine plans and billable metrics to implement any billing model (i.e. subscription-based, usage-based, or hybrid). Billable metrics may be priced differently depending on the associated plan.
 
 ### 4. Invoicing
-An [invoice](./invoicing/overview) is generated for each customer at the end of the billing period, as defined in the corresponding plan. Invoices include fees, taxes and customer information.
-
-## Next steps
-Before you can start defining usage metrics and pricing plans, you must [deploy Lago locally](./self-hosting/docker).
+Lago automatically generates [invoices](./invoicing/overview) for each customer according to the plan model: the subscription fee can be billed at the beginning or at the end of the billing period while usage-based charges are always calculated at the end of the billing period. Invoices include fees, taxes and customer information.
