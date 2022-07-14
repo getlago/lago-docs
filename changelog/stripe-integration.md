@@ -10,4 +10,4 @@ Lago now offers native integration with Stripe, including (but not limited to):
 - Ability to update the status of an invoice depending on the payment status; and
 - Ability to receive a webhook when a payment fails.
 
-To learn more about this integration, please [consult our guide](../docs/guide/stripe-integration).
+To learn more about this integration, please [consult our guide](../docs/guide/payments/stripe-integration).
