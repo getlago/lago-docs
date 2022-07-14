@@ -10,7 +10,7 @@ To modify an active subscription through the user interface:
 4. Select the new plan you want to assign to the customer; and
 5. Click **"Change plan"** to save.
 
-You can also terminate a subscription and create a new one via the API ([learn more](../../api/03_subscriptions/terminate-subscription.mdx)).
+You can also terminate a subscription and create a new one via the API ([learn more](../../api/subscriptions/terminate-subscription)).
 
 ## Overview
 When modifying a subscription, Lago will assess whether the change is an upgrade or a downgrade. The result is determined by the monthly value of the plans (i.e. the base amount as defined in each plan model, calculated on a monthly basis, and excluding charges).

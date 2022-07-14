@@ -29,7 +29,7 @@ To apply a coupon to a customer:
 3. Select a coupon; and
 4. Click **"Apply coupon"** to confirm.
 
-You can also apply coupons via the API ([learn more](../api/applied_coupons/apply-coupon)).
+You can also apply coupons via the API ([learn more](../api/coupons/apply-coupon)).
 
 ### Validity and application periods
 The validity period defines how much time you have to apply a coupon to a customer before it expires. If the validity period is **"Forever"**, you can apply the coupon at any time. If the validity period is **"Multiple days"**, you must apply the coupon to a customer before the end of the period, otherwise it will be lost.

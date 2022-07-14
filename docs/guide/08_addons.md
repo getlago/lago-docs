@@ -31,7 +31,7 @@ To apply an add-on to a customer:
 3. Select an add-on from the list; and
 4. Click **"Apply add-on"** to confirm.
 
-Obviously, you can also apply add-ons via the API ([learn more](../api/applied_add_ons/apply-add-on)).
+Obviously, you can also apply add-ons via the API ([learn more](../api/add_ons/apply-add-on)).
 
 ### Application scope
 You can apply the same add-on to a customer **as many times as you want**. Add-ons are one-off fees that are invoiced immediately.
