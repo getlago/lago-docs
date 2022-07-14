@@ -1,0 +1,77 @@
+---
+sidebar_position: 1
+---
+
+# Organization object
+
+This object represents an organization.<br></br>
+
+## Schema
+
+```json
+{
+  "organization": {
+    "name": "Name1",
+    "created_at": "2022-05-02T13:04:09Z",
+    "webhook_url": "https://test-example.example",
+    "vat_rate": 15.0,
+    "country": "CZ",
+    "address_line1": "address1",
+    "address_line2": null,
+    "state": "state1",
+    "zipcode": "10000",
+    "email": "org@email.com",
+    "city": "city125",
+    "legal_name": null,
+    "legal_number": null,
+    "invoice_footer": "footer custom"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Billable metric name. |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of organization creation. |
+| **webhook_url** &nbsp &nbsp <Type>String</Type> | Webhook URL. |
+| **vat_rate** &nbsp &nbsp <Type>Float</Type> | VAT rate used in fees. |
+| **country** &nbsp &nbsp <Type>String</Type> | Valid country alpha-2 code. |
+| **address_line1** &nbsp &nbsp <Type>String</Type> | Address first line. |
+| **address_line2** &nbsp &nbsp <Type>String</Type> | Address second line. |
+| **state** &nbsp &nbsp <Type>String</Type> | Organization state. |
+| **zipcode** &nbsp &nbsp <Type>String</Type> | Organization zipcode. |
+| **email** &nbsp &nbsp <Type>String</Type> | Business email. |
+| **city** &nbsp &nbsp <Type>String</Type> | Organization city. |
+| **legal_name** &nbsp &nbsp <Type>String</Type> | Organization legal name. |
+| **legal_number** &nbsp &nbsp <Type>String</Type> | Organization legal number. |
+| **invoice_footer** &nbsp &nbsp <Type>String</Type> | Custom footer used in invoices. |
+
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

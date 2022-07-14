@@ -1,0 +1,139 @@
+---
+sidebar_position: 8
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Get all invoices
+
+## Route
+
+```curl title="GET"
+/api/v1/invoices?per_page=2&page=1
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request GET "$LAGO_URL/api/v1/invoices?per_page=2&page=1" \
+    --header "Authorization: Bearer $API_KEY"
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  client.invoices().find_all({'per_page': 2, 'page': 1})
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.invoices.get_all({ per_page: 2, page: 3 })
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  let client = new Client('__API_KEY__')
+
+  await client.findAllInvoices({per_page: 2, page: 3});
+  ```
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+| Attributes | Type | Description |
+|--|--|--|
+| per_page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Number of records per page. |
+| page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Page number |
+| issuing_date_from | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Filter results by FROM date.<br></br>Format example: `2022-02-15` |
+| issuing_date_to | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Filter results by TO date.<br></br>Format example: `2022-02-15` |
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  Invoices were successfully found
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
