@@ -1,28 +1,21 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Fees
-If a charge is related to how much you price the usage of a billable metric, a fee is when this charge is invoiced and ready to be paid.
+A fee is a line item in an invoice. There are two types of fees:
+- **Subscription fees** that correspond to the base amount of the plan; and
+- **Charge fees** that correspond to usage-based charges (i.e. the costs associated with each billable metric).
 
-As Lago is usage-based and related to consumption, each billable metric that has been consumed by your customers will appear as a fee item in your invoices.
+Information about fees includes (but is not limited to):
+- Type;
+- Amount;
+- Currency; and
+- Taxes.
 
-## Types of fees
-You can have 2 types of fees:
-- **`subscription` fees:** link to the base amount of the plan.
-- **`charge` fees:** link to the billable metrics used for usage-based billing.
+The fee object is embedded in the invoice object, as illustrated below.
 
-**Also, all fees hold:**
-- The price in `amount_cents`
-- The `amount_currency`
-- The `vat_amount_cents`
-- The `vat_amount_currency`
-
-## Fee structure
-The fee object is embedded in the invoice object triggered when a billing period has been completed.
-
-```json title="Highlighting the fee object in the invoice one"
-
+```json title="Fee object as shown in the invoice object"
 {
   "webhook_type": "invoice.created",
   "object_type": "invoice",
@@ -86,5 +79,4 @@ The fee object is embedded in the invoice object triggered when a billing period
     // highlight-end
   }
 }
-
 ```
