@@ -31,9 +31,11 @@ If you upgrade the subscription during the trial period of the initial plan, the
 :::
 
 ## Impact on invoicing
-When a subscription terminates, Lago automatically generates a final invoice including charges and/or the outstanding subscription fee (only if the plan had to be paid in arrears). It may also generate an invoice for the new subscription if the new plan has to be paid in advance.
+When a subscription terminates **as part of a downgrade**, Lago automatically generates a final invoice including charges and/or the outstanding subscription fee (only if the plan had to be paid in arrears). It may also generate an invoice for the new subscription if the new plan has to be paid in advance.
 
-Invoices are calculated on a pro rata basis according to the number of days.
+When a subscription terminates **as part of an upgrade**, Lago automatically generates a final invoice including the outstanding subscription fee (only if the plan had to be paid in arrears) and may also generate an invoice for the new subscription if the new plan has to be paid in advance. Regarding charges, if the new plan includes the same type of charges as the old one, the current usage is transferred to the new plan.
+
+Subscription fees are calculated on a pro rata basis according to the number of days.
 
 Consider the following example:
 
