@@ -28,7 +28,7 @@ source .env
 docker-compose up
 ```
 
-You can now open your browser and go to [http://localhost](http://localhost) to connect to the application. Lago's API is exposed at [http://localhost:3000](http://localhost:3000).
+You can now open your browser and go to [http://localhost](http://localhost) to connect to the application. Lago's API is exposed at [http://localhost:3000](http://localhost:3000). You can find your API Key in the application under `Developers > API Keys`.
 
 ## Configuration
 
