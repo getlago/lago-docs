@@ -3,19 +3,20 @@ sidebar_position: 2
 ---
 
 # Plan Model
-The plan model is crucial to define **how and how much a Customer is charged** by choosing a Plan. It is also defining the **frequency of invoicing** to your customers.
+The plan model defines **when** and **how much** a customer is charged.
 
-## The Plan interval
-The `interval` defines when the Plan is charged and when the invoicing is triggered. Also, other [Charges (price per-usage for your Billable metrics)](./charges) follow the Plan interval to be resumed to 0 and invoiced to a customer.
+## Plan interval
+The plan interval corresponds to the billing period and defines when invoices are generated. In most cases, the [charges](charges) are also calculated according to the plan interval.
 
-**You have 2 options to define the Plan `interval`:**
-1. **Monthly**: Plans and Charges are billed every month
-2. **Yearly**: Plans and Charges are billed every year
+There are several plan intervals:
+1. **Weekly**: subscription fees and charges are billed on a weekly basis;
+2. **Monthly**: subscription fees and charges are billed on a monthly basis; and
+3. **Yearly**: subscription fees are billed on a yearly basis and charges can be billed monthly or annually.
 
 ## The base charge amount and its currency
-You need to define a **base amount** for each Plan. This amount is what the Customer will pay by subscribing to the Plan regardless the usage-based consumption.
+You need to define a **base amount** for each plan (i.e. the subscription fee). This amount is what the customer will pay by subscribing to the plan regardless of their consumption.
 
-This base charge `amount` is recurring, and billed at the end of each billing [interval](#the-plan-interval).
+This base charge `amount` is recurring, and billed at the end of each billing interval.
 
 ## Pay in advance or in arrears
 With Lago, you can define if the base charge of the Plan is paid **in advance** or **in arrears**. 
@@ -39,7 +40,7 @@ A trial period can only be applied to the first subscribed Plan. In case of an u
 ## Pro-ratas based on subscription date
 Obviously, we know that your customers don't necessarily sign up for a Plan at the very begining of each month (or each year). This is why Lago automatically applies a pro-rata for the first and the last subscription period of a Plan.
 
-**Here is an example**
+Here is an example:
 A `Customer X` signs up for the Plan `Start` (base amount of 10€, with no trial period) on April 15, 2022. 
 - If the Plan is defined to be `paid in arrears`, this Customer will be charged 5€ for the first month at the end of the period (May 1, 2022).
 - If the Plan is defined to be `paid in advance`, this Customer is charged 5€ straight away for the first month (April 15, 2022).
