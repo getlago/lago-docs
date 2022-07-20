@@ -1,0 +1,134 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Lago documentation Blog",
+    "home_page_url": "https://getlago.com/changelog",
+    "description": "Lago documentation Blog",
+    "items": [
+        {
+            "id": "/new-api-endpoints",
+            "content_html": "<p>We like our users when they use our nice and clean UI, but we also love when they use our API. One of the usecase could be to use Lago as a white-labeled solution.</p><p>Here is the full list of endpoints we have just released:</p><p><strong>Billable metrics</strong></p><ul><li>Create a billable metric <code>POST /api/v1/billable_metrics</code></li><li>Update a billable metric <code>PUT /api/v1/billable_metrics/:code</code></li><li>Destroy a billable metric <code>DELETE /api/v1/billable_metrics/:code</code></li><li>Fetch a specific billable metric <code>GET /api/v1/billable_metrics/:code</code></li><li>Fetch all billable metrics <code>GET /api/v1/billable_metrics?per_page=2&amp;page=1</code></li></ul><p><strong>Plans</strong></p><ul><li>Create a plan <code>POST /api/v1/plans</code></li><li>Update a plan <code>PUT /api/v1/plans/:code</code></li><li>Destroy a plan <code>DELETE /api/v1/plans/:code</code></li><li>Fetch a specific plan <code>GET /api/v1/plans/:code</code></li><li>Fetch all plans <code>GET /api/v1/plans?per_page=2&amp;page=1</code></li></ul><p><strong>Coupons</strong></p><ul><li>Create a coupon <code>POST /api/v1/coupons</code></li><li>Update a coupon <code>PUT /api/v1/coupons/:code</code></li><li>Destroy a coupon <code>DELETE /api/v1/coupons/:code</code></li><li>Fetch a specific coupon <code>GET /api/v1/coupons/:code</code></li><li>Fetch all coupons <code>GET /api/v1/coupons?per_page=2&amp;page=1</code></li></ul><p><strong>Add-ons</strong></p><ul><li>Create a add_on <code>POST /api/v1/add_ons</code></li><li>Update a add_on <code>PUT /api/v1/add_ons/:code</code></li><li>Destroy a add_on <code>DELETE /api/v1/add_ons/:code</code></li><li>Fetch a specific add_on <code>GET /api/v1/add_ons/:code</code></li><li>Fetch all add_ons <code>GET /api/v1/add_ons?per_page=2&amp;page=1</code></li></ul><p><strong>Current usage</strong></p><ul><li>Get the current usage of a specific customer <code>GET /api/v1/customers/:customer_id/current_usage</code></li></ul><p><strong>Organization</strong></p><ul><li>Update the information of your organization <code>PUT /api/v1/organizations</code></li></ul>",
+            "url": "https://getlago.com/changelog/new-api-endpoints",
+            "title": "Released new API endpoints",
+            "summary": "We like our users when they use our nice and clean UI, but we also love when they use our API. One of the usecase could be to use Lago as a white-labeled solution.",
+            "date_modified": "2022-07-13T18:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/app-version",
+            "content_html": "<p>It is now possible to check the version of the Lago application you are using.</p><p>Click the name of your organization in the top-left corner of the user interface to see the app version currently in use.</p><p><img loading=\"lazy\" alt=\"App version as displayed in the user interface\" src=\"/assets/images/app-version-8bb67a00ed0f74ca573d5ff1e3be4baa.png\" width=\"1086\" height=\"622\" class=\"img_ev3q\"></p>",
+            "url": "https://getlago.com/changelog/app-version",
+            "title": "App version",
+            "summary": "It is now possible to check the version of the Lago application you are using.",
+            "date_modified": "2022-07-13T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/current-usage",
+            "content_html": "<p><img loading=\"lazy\" alt=\"Current Usage\" src=\"/assets/images/current-usage-577fa187125126be7dc8309cb1decbc2.png\" width=\"2366\" height=\"1020\" class=\"img_ev3q\"></p><p>Good news for those who follow closely the consumption of their customers. You can now track the current billing usage of your customers either from the UI or from the API.</p><p><strong>To access this Usage tab:</strong></p><ol><li>Access your list of <strong>customers</strong>;</li><li>Select a specific customer that is <strong>already linked to a subscription</strong>;</li><li>Access the <strong>usage</strong> tab; and</li><li>Get a complete view of <strong>usage-based consumption</strong> that is going to be billed on the next invoice.</li></ol><p>On top of that, you can fetch the current usage of a customer directly from the API. To do so, you can access the following endpoint <code>GET /api/v1/customers/:customer_id/current_usage</code></p>",
+            "url": "https://getlago.com/changelog/current-usage",
+            "title": "Customer current usage",
+            "summary": "Current Usage",
+            "date_modified": "2022-07-13T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/download-invoices",
+            "content_html": "<p>Lago will generate a PDF file for each new invoice.</p><p>You can download invoices via the user interface or the API and can also modify some of the elements included in the invoice template.</p><p>Full documentation <a href=\"/docs/guide/invoicing/download-invoices\">available here</a>.</p>",
+            "url": "https://getlago.com/changelog/download-invoices",
+            "title": "PDF invoices",
+            "summary": "Lago will generate a PDF file for each new invoice.",
+            "date_modified": "2022-07-13T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/stripe-integration",
+            "content_html": "<p>Lago now offers native integration with Stripe, including (but not limited to):</p><ul><li>Ability to create Lago customers in Stripe automatically and retrieve their customer ID;</li><li>Ability to define Stripe as the default payment provider for a customer;</li><li>Ability to generate payment intents automatically;</li><li>Ability to update the status of an invoice depending on the payment status; and</li><li>Ability to receive a webhook when a payment fails.</li></ul><p>To learn more about this integration, please <a href=\"/docs/guide/payments/stripe-integration\">consult our guide</a>.</p>",
+            "url": "https://getlago.com/changelog/stripe-integration",
+            "title": "Integration with Stripe Payments",
+            "summary": "Lago now offers native integration with Stripe, including (but not limited to):",
+            "date_modified": "2022-07-04T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/weekly-interval",
+            "content_html": "<p>When setting up a plan, you can select the weekly interval to define a weekly billing period.</p><p>The plan interval applies to the subscription and charges, which means that:</p><ul><li>For plans that must be paid in advance, the subscription fee is invoiced at the beginning of the week;</li><li>For plans that are paid in arrears, the subscription fee is invoiced at the end of the week; and</li><li>Usage is calculated at the end of each week.</li></ul><p>The week starts on Sunday and ends on Saturday. If the customer's subscription starts in the middle of the week, the fees will be applied on a pro-rata basis.</p>",
+            "url": "https://getlago.com/changelog/weekly-interval",
+            "title": "Weekly plan interval",
+            "summary": "When setting up a plan, you can select the weekly interval to define a weekly billing period.",
+            "date_modified": "2022-07-04T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/billable-metric-monthly-for-plan-yearly",
+            "content_html": "<p>Before the release of this feature, usaged-based features (charges) were following the plan period. If the plan period was invoiced yearly, the charges were invoiced yearly.</p><p>It's now possible to <strong>invoice billable metrics on a montly basis</strong> for a plan billed yearly. The base amount of the plan will be invoice yearly (in-arrears or in-advance), but your usage based features will be invoiced on a monthly basis.</p><p><strong>To do so:</strong></p><ol><li>Access a <strong>Plan</strong>;</li><li>Define a plan <strong>yearly</strong>;</li><li>Price <strong>additional charges</strong> from your billable metrics; and</li><li>Turn <code>on</code> the toggle for <strong>applying charges monthly</strong>.</li></ol><p>By switching on, <strong>all the charges</strong> will be invoiced monthly even if the plan is yearly.</p><div class=\"theme-admonition theme-admonition-tip alert alert--success admonition_LlT9\"><div class=\"admonitionHeading_tbUL\"><span class=\"admonitionIcon_kALy\"><svg viewBox=\"0 0 12 16\"><path fill-rule=\"evenodd\" d=\"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z\"></path></svg></span>tip</div><div class=\"admonitionContent_S0QG\"><p>The last invoice is gathering both the subscription and the usage-based charges</p></div></div><p><img loading=\"lazy\" alt=\"charges invoiced monthly\" src=\"/assets/images/charges-monthly-a2b67994b71b0178fa073e9bae0a574f.png\" width=\"1386\" height=\"162\" class=\"img_ev3q\"></p>",
+            "url": "https://getlago.com/changelog/billable-metric-monthly-for-plan-yearly",
+            "title": "Invoice monthly charges for a plan paid yearly",
+            "summary": "Before the release of this feature, usaged-based features (charges) were following the plan period. If the plan period was invoiced yearly, the charges were invoiced yearly.",
+            "date_modified": "2022-06-13T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/percentage-charge-model",
+            "content_html": "<p>Inside the <strong>Plans</strong>, by creating a charge, you can now select the <strong>percentage charge model</strong>.</p><p>This feature is pretty useful for industries willing to take a <code>% + fixed fee</code> out of a usage-based features (for banking or charity industry, for instance). These fees are applied on the <em>units to be charged</em> (e.g. the aggregation result of your billable metric).</p><p>The fixed charge can either be applied per <strong>each single unit</strong> or for <strong>all units</strong>.</p><p><img loading=\"lazy\" alt=\"Percentage charge\" src=\"/assets/images/percentage-charge-model-1765031606a0f56c4510321a24c7664c.png\" width=\"1278\" height=\"1060\" class=\"img_ev3q\"></p>",
+            "url": "https://getlago.com/changelog/percentage-charge-model",
+            "title": "Percentage charge model",
+            "summary": "Inside the Plans, by creating a charge, you can now select the percentage charge model.",
+            "date_modified": "2022-06-13T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/event-debugger",
+            "content_html": "<p>You are now able to view all the ingested events sent from your application to Lago.\nWe called this feature <code>debugger</code> because it makes the event ingestion easier and more understandable.</p><ol><li>Access the <code>Developer</code> sidebar item;</li><li>Click the <code>Debugger</code> tab; and</li><li>Take a look at the latest events ingested</li></ol><div class=\"theme-admonition theme-admonition-tip alert alert--success admonition_LlT9\"><div class=\"admonitionHeading_tbUL\"><span class=\"admonitionIcon_kALy\"><svg viewBox=\"0 0 12 16\"><path fill-rule=\"evenodd\" d=\"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z\"></path></svg></span>tip</div><div class=\"admonitionContent_S0QG\"><p>If an event you sent is not shown in the UI, it means that it has not been ingested by Lago</p></div></div><p>This debugger is also helpul to warn you for 2 specific cases:</p><ol><li><strong>Warning 1</strong> - The event code is not related to an existing billable metric</li><li><strong>Warning 2</strong> - The property sent does not match the aggregation property defined in your billable metric</li></ol><p><img loading=\"lazy\" alt=\"Debugger\" src=\"/assets/images/events-debugger-6bcbcf7e46f1bd4bb8a9b6e6964bba69.png\" width=\"2402\" height=\"1296\" class=\"img_ev3q\"></p>",
+            "url": "https://getlago.com/changelog/event-debugger",
+            "title": "Event debugger",
+            "summary": "You are now able to view all the ingested events sent from your application to Lago.",
+            "date_modified": "2022-06-10T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/ftr-addons",
+            "content_html": "<p>Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.</p><p>Full documentation <a href=\"/docs/guide/addons\">available here</a>.</p>",
+            "url": "https://getlago.com/changelog/ftr-addons",
+            "title": "Add-ons",
+            "summary": "Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.",
+            "date_modified": "2022-06-06T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/template-algolia",
+            "content_html": "<p>We've added a new template to our collection: <a href=\"https://www.getlago.com/resources/templates/algolia\" target=\"_blank\" rel=\"noopener noreferrer\">click here</a> to learn how to replicate Algolia's pay-as-you-go pricing.</p><p>It's a great starting point for companies whose pricing fully depends on usage, such as cloud service providers and API companies.</p><p>With Lago, you can adapt this template to your products and services, using some of our most popular features, including the <a href=\"/docs/guide/billable-metrics/aggregation-types#2-sum\">'sum' aggregation type</a> and the <a href=\"/docs/guide/plans/charges#the-package-charge-model\">package charge model</a>.</p>",
+            "url": "https://getlago.com/changelog/template-algolia",
+            "title": "Pay-as-you-go template",
+            "summary": "We've added a new template to our collection: click here to learn how to replicate Algolia's pay-as-you-go pricing.",
+            "date_modified": "2022-06-03T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/ftr-coupons",
+            "content_html": "<p>Introducing coupons, a new feature that allows you to offer discounts to your customers.</p><p>Full documentation <a href=\"/docs/guide/coupons\">available here</a>.</p>",
+            "url": "https://getlago.com/changelog/ftr-coupons",
+            "title": "Coupons",
+            "summary": "Introducing coupons, a new feature that allows you to offer discounts to your customers.",
+            "date_modified": "2022-06-02T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/subscription-changes",
+            "content_html": "<p>You can now modify the subscription assigned to a customer through the user interface.</p><p>To learn how to upgrade or downgrade a subscription and how it affects billing, please refer to the documentation.</p>",
+            "url": "https://getlago.com/changelog/subscription-changes",
+            "title": "Subscription changes",
+            "summary": "You can now modify the subscription assigned to a customer through the user interface.",
+            "date_modified": "2022-05-24T10:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/package-pricing",
+            "content_html": "<p>It is now possible to apply a <a href=\"/docs/guide/plans/charges#the-package-charge-model\">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>",
+            "url": "https://getlago.com/changelog/package-pricing",
+            "title": "Package pricing for charges",
+            "summary": "It is now possible to apply a package pricing model to a charge. To do so:",
+            "date_modified": "2022-05-18T10:00:00.000Z",
+            "tags": []
+        }
+    ]
+}

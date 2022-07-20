@@ -7,6 +7,7 @@
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
     <icon>https://getlago.com/img/lago.ico</icon>
+    <rights>Copyright © 2022 Lago.</rights>
     <entry>
         <title type="html"><![CDATA[Released new API endpoints]]></title>
         <id>/new-api-endpoints</id>
