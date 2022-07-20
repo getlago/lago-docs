@@ -36,6 +36,10 @@ const config = {
           blogDescription: 'Find here all the new features released by Lago.',
           postsPerPage: 'ALL',
           blogSidebarCount: 20,
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Lago.`,
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
