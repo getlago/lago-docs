@@ -167,16 +167,16 @@ import TabItem from '@theme/TabItem';
 | Attributes | Type | Description |
 |--|--|--|
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Plan name |
-| code | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Code identifying the Plan<br></br>It won't be updated if coupon is attached to any subscriptions |
-| interval | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Interval used for subscription billing.<br></br>It can be `yearly`, `,monthly` or `weekly`<br></br>It won't be updated if coupon is attached to any subscriptions |
+| code | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Code identifying the Plan<br></br>Cannot be updated if the plan is linked to a subscription |
+| interval | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Interval used for subscription billing.<br></br>It can be `yearly`, `monthly` or `weekly`<br></br>Cannot be updated if the plan is linked to a subscription |
 | description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Description of the plan |
-| amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Amount of the plan<br></br>It won't be updated if coupon is attached to any subscriptions |
-| amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Currency of the amount<br></br>It won't be updated if coupon is attached to any subscriptions |
-| trial_period | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Number of free days<br></br>It won't be updated if coupon is attached to any subscriptions |
-| pay_in_advance | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if payment in advance or in arrear will be used<br></br>It won't be updated if coupon is attached to any subscriptions |
-| bill_charges_monthly | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Monthly billing will be applied on yearly plan if this field is set to `true`<br></br>It won't be updated if coupon is attached to any subscriptions |
+| amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Amount of the plan<br></br>Cannot be updated if the plan is linked to a subscription |
+| amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Currency of the amount<br></br>Cannot be updated if the plan is linked to a subscription |
+| trial_period | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Number of free days<br></br>Cannot be updated if the plan is linked to a subscription |
+| pay_in_advance | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if payment in advance or in arrear will be used<br></br>Cannot be updated if the plan is linked to a subscription |
+| bill_charges_monthly | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Monthly billing will be applied on yearly plan if this field is set to `true`<br></br>Cannot be updated if the plan is linked to a subscription |
 
-### Charge attributes - Charges cannot be updated if plan is attached to any subscriptions
+### Charge attributes - Charges cannot be updated if the plan is linked to a subscription
 | Attributes | Type | Description |
 |--|--|--|
 | id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Charge unique id in Lago application |
