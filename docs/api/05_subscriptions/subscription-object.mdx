@@ -23,6 +23,8 @@ The subscription will then define how a the related customer will be invoiced ba
     "plan_code": "new_code",
     "started_at": "2022-04-29T08:59:51Z",
     "status": "active",
+    "name": "display name",
+    "unique_id": "unique_id",
     "terminated_at": null
   }
 }
@@ -37,6 +39,8 @@ The subscription will then define how a the related customer will be invoiced ba
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime  in UTC*</Comment> | Creation date of the subscription |
 | **plan_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Code identifying the plan.<br></br>It matches the `code` property of one of the plans |
 | **started_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Start date of the subscription. It could be null if the subscription is `pending` of `canceled` |
+| **name** &nbsp &nbsp <Type>String</Type> | Subscription display name in Lago application |
+| **unique_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | External unique identifer of the subscription. It should be unique in customer's active subscription scope |
 | **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Status of the subscription. <br></br> <details><summary>**Possible values**</summary><div>- `pending`: a previous subscription has been downgraded, the current one is waiting for its automatic activation at the end of the billing period.<br></br>- `active`: the subscription is currently applied to the customer.<br></br>- `terminated`: the subscription is not active anymore<br></br>- `canceled`: the subscription has been stopped before its activation. It could happen when two consecutive downgrade have been applied to a customer or when a subscription with a pending one is terminaded.<div></div></div></details> |
 | **terminated_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Termination date of the subscription. It's not null when the subscription is `terminated` |
 

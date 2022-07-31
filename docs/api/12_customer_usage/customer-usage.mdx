@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Route
 
 ```curl title="GET"
-/api/v1/customers/:customer_id/current_usage
+/api/v1/customers/:customer_id/current_usage?subscription_id=id
 ```
 
 ## Usage
@@ -22,8 +22,9 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
   CUSTOMER_ID="__CUSTOMER_ID__"
+  SUBSCRIPTION_ID="__SUBSCRIPTION_ID__"
 
-  curl --location --request GET "$LAGO_URL/api/v1/customers/$CUSTOMER_ID/current_usage"
+  curl --location --request GET "$LAGO_URL/api/v1/customers/$CUSTOMER_ID/current_usage?subscription_id=$SUBSCRIPTION_ID"
     --header "Authorization: Bearer $API_KEY" \
     --header 'Content-Type: application/json'
   ```
@@ -37,7 +38,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  customer_usage = client.customers().current_usage(customer_id='customer_id')
+  customer_usage = client.customers().current_usage('customer_id', 'subscription_id')
   ```
 
   </TabItem>
@@ -49,7 +50,7 @@ import TabItem from '@theme/TabItem';
 
   let client = new Client('__API_KEY__')
 
-  let customerUsage = await client.customerCurrentUsage('customer_id')
+  let customerUsage = await client.customerCurrentUsage('customer_id', 'subscription_id')
   ```
 
   </TabItem>
@@ -60,7 +61,7 @@ import TabItem from '@theme/TabItem';
   require 'lago-ruby-client'
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
-  customer_usage = client.customer.current_usage('customer_id')
+  customer_usage = client.customer.current_usage('customer_id', 'subscription_id')
   ```
 
   </TabItem>
