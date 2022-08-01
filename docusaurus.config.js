@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Lago documentation',
-  tagline: 'Open-Source Stripe Billing Alternative',
+  tagline: 'Open Source Billing API for Product-Led SaaS',
   url: 'https://getlago.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
