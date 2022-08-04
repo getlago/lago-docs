@@ -87,6 +87,36 @@ import TabItem from '@theme/TabItem';
   await client.applyAddOn(appliedAddOn);
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      addOnInput := &lago.ApplyAddOnInput{
+        CustomerID:     "__YOUR_CUSTOMER_ID__",
+	   		AddOnCode:      "__YOUR_ADDON_CODE__",
+	   		AmountCents:    1000,
+	   		AmountCurrency: lago.EUR,
+      }
+
+      appliedAddOn, err := lagoClient.AddOn().ApplyToCustomer(addOnInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // plan is *lago.AppliedAddOn
+      fmt.Println(appliedAddOn)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

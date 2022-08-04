@@ -73,6 +73,32 @@ import TabItem from '@theme/TabItem';
   await client.downloadInvoice('id');
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      invoice, err := lagoClient.Invoice().Download("__YOUR_INVOICE_ID__")
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // invoice is *lago.Invoice
+      fmt.Println(invoice)
+
+      // If the invoice has to be generated, the response is empty
+      // And you will get a webhook `invoice.generated`
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Responses

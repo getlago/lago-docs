@@ -131,6 +131,38 @@ import TabItem from '@theme/TabItem';
   await client.createPlan(plan);
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      planInput := &lago.PlanInput{
+        Name:           "Plan Go",
+	   		Code:           "plan_go",
+	   		Interval:       lago.PlanMonthly,
+	   		PayInAdvance:   true,
+	   		AmountCents:    1500,
+	   		AmountCurrency: lago.EUR,
+      }
+
+      plan, err := lagoClient.Plan().Create(planInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // plan is *lago.Plan
+      fmt.Println(plan)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

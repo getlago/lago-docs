@@ -57,6 +57,34 @@ import TabItem from '@theme/TabItem';
   await client.findAllCoupons({per_page: 2, page: 3});
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      couponListInput := &lago.CouponListInput{
+        PerPage: 1,
+        Page: 1,
+      }
+
+      couponResult, err := lagoClient.Coupon().GetList(couponListInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // couponResult is *lago.CouponResult
+      fmt.Println(couponResult)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

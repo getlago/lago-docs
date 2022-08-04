@@ -89,6 +89,33 @@ import TabItem from '@theme/TabItem';
   }))
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      organizationInput := &lago.OrganizationInput{
+        LegalName: "Legal Name",
+      }
+
+      organization, err := lagoClient.Organization().Update(organizationInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // organization is *lago.Organization
+      fmt.Println(organization)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

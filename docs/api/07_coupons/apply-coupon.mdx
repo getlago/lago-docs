@@ -87,6 +87,34 @@ import TabItem from '@theme/TabItem';
   await client.applyCoupon(appliedCoupon);
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      applyCouponInput := &lago.ApplyCouponInput{
+        CustomerID: "__YOUR_CUSTOMER_ID__",
+	   		CouponCode: "__YOUR_COUPON_CODE__",
+      }
+
+      appliedCoupon, err := lagoClient.Coupon().ApplyToCustomer(applyCouponInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // appliedCoupon is *lago.AppliedCoupon
+      fmt.Println(appliedCoupon)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

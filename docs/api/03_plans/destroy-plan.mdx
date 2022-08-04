@@ -57,6 +57,29 @@ import TabItem from '@theme/TabItem';
   await client.destroyPlan('code');
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      plan, err := lagoClient.Plan().Delete("__YOUR_PLAN_CODE__")
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // plan is *lago.Plan
+      fmt.Println(plan)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Responses

@@ -84,4 +84,22 @@ You must retrieve your API key from your account.
   let client = new Client('__YOUR_API_KEY__')
   ```
   </TabItem>
+  <TabItem value="go" label="Go">
+
+  **Install package**
+  ```bash
+    go get github.com/getlago/lago-go-client/v1
+  ```
+
+  **Usage**
+
+  ```go
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOU_API_KEY__")
+    }
+  ```
+  </TabItem>
 </Tabs>

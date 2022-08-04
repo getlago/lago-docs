@@ -114,6 +114,29 @@ import TabItem from '@theme/TabItem';
 
 
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      addOn, err := lagoClient.AddOn().Delete("__YOUR_ADDON_CODE__")
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // plan is *lago.AddOn
+      fmt.Println(addOn)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 

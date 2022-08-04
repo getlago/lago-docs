@@ -57,6 +57,36 @@ import TabItem from '@theme/TabItem';
   await client.findAllInvoices({per_page: 2, page: 3});
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      invoiceListInput := &lago.InvoiceListInput{
+        PerPage: 1,
+        Page: 1,
+        IssuingDateFrom: "2022-01-01",
+        IssuingDateTo: "2022-01-01",
+      }
+
+      invoiceResult, err := lagoClient.Invoice().GetList(invoiceListInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // invoiceResult is *lago.InvoiceResult
+      fmt.Println(invoiceResult)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

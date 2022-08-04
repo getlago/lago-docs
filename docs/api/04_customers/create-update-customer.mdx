@@ -156,6 +156,57 @@ import TabItem from '@theme/TabItem';
   ```
 
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+      
+      customerInput := &lago.CustomerInput{
+        CustomerID:   "__YOUR_CUSTOMER_ID__",
+	   		Name:         "Customer",
+	   		Email:        "customer@getlago.com",
+        AddressLine1: "Address Line 1",
+        AddressLine2: "Address Line 2",
+        City:         "Paris",
+        Country:      "France",
+        State:        "Paris",
+        Zipcode:      "75001",
+        LegalName:    "GetLago",
+        LegalNumber:  "123456",
+        Phone:        "+330100000000",
+        URL:          "https://getlago.com",
+        VatRate:      20.0,
+        BillingConfiguration: &BillingConfigurationInput{
+          PaymentProvider: lago.PaymentProviderStripe,
+          ProviderCustomerID: "__STRIPE_CUSTOMER_ID__",
+        }
+      }
+
+      customer, err := lagoClient.Customer().Create(customerInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+
+      // You can use the same input to update the customer
+      customer, err := lagoClient.Customer().Update(customerInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // customer is *lago.Customer
+      fmt.Println(customer)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

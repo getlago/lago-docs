@@ -86,6 +86,37 @@ import TabItem from '@theme/TabItem';
   await client.updateBillableMetric(billableMetric, 'code');
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client/v1"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      bmInput := &lago.BillableMetricInput{
+        Name:            "First Billable Metric",
+        Code:            "first_bm",
+        Description:     "My First Billable Metric"
+        AggregationType: lago.CountAggregation,
+        FieldName:       "sum",
+      }
+
+      billableMetric, err := lagoClient.BillableMetric().Update(bmInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // billableMetric is *lago.BillableMetric
+      fmt.Println(billableMetric)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments
