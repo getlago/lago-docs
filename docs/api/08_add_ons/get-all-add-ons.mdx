@@ -57,6 +57,34 @@ import TabItem from '@theme/TabItem';
   await client.findAllAddOns({per_page: 2, page: 3});
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      addOnListInput := &lago.AddOnListInput{
+        PerPage: 1,
+        Page: 1,
+      }
+
+      addOnResult, err := lagoClient.AddOn().GetList(addOnListInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // addOnResult is *lago.AddOnResult
+      fmt.Println(addOnResult)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments
@@ -89,34 +117,6 @@ import TabItem from '@theme/TabItem';
   * The `Authorization` header does not contain the API key
   * The Api key is invalid or expired
 
-
-  </TabItem>
-
-  <TabItem value="go" label="Go">
-
-  ```go
-    import "fmt"
-    import "github.com/getlago/lago-go-client"
-
-    func main() {
-      lagoClient := lago.New().
-        SetApiKey("__YOUR_API_KEY__")
-
-      addOnListInput := &lago.AddOnListInput{
-        PerPage: 1,
-        Page: 1,
-      }
-
-      addOnResult, err := lagoClient.AddOn().GetList(addOnListInput)
-      if err != nil {
-        // Error is *lago.Error
-        panic(err)
-      }
-        
-      // plan is *lago.AddOnResult
-      fmt.Println(addOnResult)
-    }
-  ```
 
   </TabItem>
 </Tabs>

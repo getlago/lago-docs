@@ -57,6 +57,29 @@ import TabItem from '@theme/TabItem';
   await client.findAddOn('code');
   ```
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      addOn, err := lagoClient.AddOn().Get("__YOUR_ADDON_CODE__")
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // addOn is *lago.AddOn
+      fmt.Println(addOn)
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Responses
@@ -98,30 +121,6 @@ import TabItem from '@theme/TabItem';
 
   The `add-on` was not found by the code.
   </TabItem>
-
-  <TabItem value="go" label="Go">
-
-  ```go
-    import "fmt"
-    import "github.com/getlago/lago-go-client"
-
-    func main() {
-      lagoClient := lago.New().
-        SetApiKey("__YOUR_API_KEY__")
-
-      addOn, err := lagoClient.AddOn().Get("__YOUR_ADDON_CODE__")
-      if err != nil {
-        // Error is *lago.Error
-        panic(err)
-      }
-        
-      // plan is *lago.AddOn
-      fmt.Println(addOn)
-    }
-  ```
-
-  </TabItem>
-
 </Tabs>
 
 

@@ -104,6 +104,36 @@ api/v1/events
   ```
 
   </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+      
+      eventInput := &lago.EventInput{
+        CustomerID:    "vincent_12345",
+	   		TransactionID: "transac1234",
+	   		Code:          "toutito",
+	   		Timestamp:     time.Now().Unix(),
+	   		Properties: map[string]string{
+	   			"nbusers": "12",
+	   		},
+      }
+
+      err := lagoClient.Event().Create(eventInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+    }
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments
