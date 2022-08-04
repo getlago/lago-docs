@@ -88,13 +88,13 @@ You must retrieve your API key from your account.
 
   **Install package**
   ```bash
-    go get github.com/getlago/lago-go-client/v1
+    go get github.com/getlago/lago-go-client@v0.1.0-alpha.1
   ```
 
   **Usage**
 
   ```go
-    import "github.com/getlago/lago-go-client/v1"
+    import "github.com/getlago/lago-go-client"
 
     func main() {
       lagoClient := lago.New().
