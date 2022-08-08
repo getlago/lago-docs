@@ -47,7 +47,7 @@ import TabItem from '@theme/TabItem';
   subscription = Subscription(
     customer_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
     plan_code="code",
-    unique_id"="id",
+    unique_id="id",
     name="display name"
   )
 
@@ -64,10 +64,10 @@ import TabItem from '@theme/TabItem';
   let client = new Client('__API_KEY__')
 
   let subscription = new Subscription({
-      customerId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
-      planCode: "code",
-      uniqueId: "id",
-      name: "display name"
+    customerId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    planCode: "code",
+    uniqueId: "id",
+    name: "display name"
   })
   await client.createSubscription(subscription);
   ```
@@ -110,7 +110,7 @@ import TabItem from '@theme/TabItem';
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // subscription is *lago.Subscription
       fmt.Println(subscription)
     }
@@ -138,7 +138,7 @@ import TabItem from '@theme/TabItem';
 | -----------| -----| ----------- |
 | customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
 | plan_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the plan.<br></br>It must match the `code` property of one of the plans. |
-| unique_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | External identifier for subscription.<br></br>It has to be unique per customer's active subscription scope. |
+| unique_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | External identifier for subscription.<br></br>It has to be unique per customer's active subscription scope.<br></br>If not given, the `customer_id` value will be used. |
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Subscription display name. |
 | subscription_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Current subscription ID. It is used only for upgrade/downgrade. |
 
