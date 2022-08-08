@@ -1,19 +1,19 @@
 ---
-sidebar_position: 6
+sidebar_position: 2
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Events
+# Batch Events
 
-Events represents the data delivered to lago application that will then be aggregated into billable metrics.
-The following endpoint explains how to **send an event for a customer.**
+Batch events represents the data delivered to lago application that will then be aggregated into billable metrics.
+The following endpoint explains how to **send events for multiple subscriptions for one customer.**
 
 ## Route
 
 ```curl title="POST"
-api/v1/events
+api/v1/events/batch
 ```
 
 ## Usage
@@ -25,13 +25,13 @@ api/v1/events
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request POST "$LAGO_URL/api/v1/events" \
+  curl --location --request POST "$LAGO_URL/api/v1/events/batch" \
   --header "Authorization: Bearer $API_KEY" \
   --header 'Content-Type: application/json' \
   --data-raw '{
         "event": { 
             "transaction_id": "__UNIQUE_ID__",
-            "customer_id": "__CUSTOMER_ID__",
+            "subscription_ids": ["id1", "id2"],
             "code": "__EVENT_CODE__", 
             "timestamp": $(date +%s), 
             "properties": { 
@@ -47,19 +47,19 @@ api/v1/events
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import Event
+  from lago_python_client.models import BatchEvent
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  event = Event(
-    customer_id="__UNIQUE_ID__",
+  event = BatchEvent(
+    subscription_ids=["id1", "id2"],
     transaction_id="__UNIQUE_ID__",
     code="code",
     timestamp=1650893379,
     properties={"custom_field": "custom"}
   )
 
-  client.events().create(event)
+  client.events().batch_create(event)
   ```
 
   </TabItem>
@@ -71,13 +71,13 @@ api/v1/events
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.events.create(
+  client.events.batch_create(
     transaction_id: "__UNIQUE_ID__",
-    customer_id:  "__CUSTOMER_ID__",
+    subscription_ids: ["id1", "id2"],
     code:  "code",
     timestamp: Time.now.to_i,
     properties: {
-        custom_field: 12
+      custom_field: 12
     }
   )
   ```
@@ -88,49 +88,19 @@ api/v1/events
 
   ```javascript
   import Client from 'lago-nodejs-client'
-  import Event from 'lago-nodejs-client/event'
+  import Event from 'lago-nodejs-client/batch_event'
 
   let client = new Client('__API_KEY__')
 
-  let event = new Event(
-    "__UNIQUE_TRANSACTION_ID__",  // transactionId
-    "5eb02857-a71e-4ea2-bcf9-57d8885990ba", // customerId
-    "code",  // code
-    1650893379, // timestamp
-    {customField: "custom"} // properties
-  )
+  let event = new BatchEvent({
+    transactionId: "__UNIQUE_TRANSACTION_ID__",
+    subscriptionIds: ["id1", "id2"],
+    code: "code",
+    timestamp: 1650893379,
+    properties: {customField: "custom"}
+  })
 
-  await client.createEvent(event);
-  ```
-
-  </TabItem>
-
-  <TabItem value="go" label="Go">
-
-  ```go
-    import "fmt"
-    import "github.com/getlago/lago-go-client"
-
-    func main() {
-      lagoClient := lago.New().
-        SetApiKey("__YOUR_API_KEY__")
-      
-      eventInput := &lago.EventInput{
-        CustomerID:    "vincent_12345",
-	   		TransactionID: "transac1234",
-	   		Code:          "toutito",
-	   		Timestamp:     time.Now().Unix(),
-	   		Properties: map[string]string{
-	   			"nbusers": "12",
-	   		},
-      }
-
-      err := lagoClient.Event().Create(eventInput)
-      if err != nil {
-        // Error is *lago.Error
-        panic(err)
-      }
-    }
+  await client.createBatchEvent(event);
   ```
 
   </TabItem>
@@ -143,6 +113,7 @@ api/v1/events
   "event": {
     "transaction_id": "__UNIQUE_ID__",
     "customer_id": "__CUSTOMER_ID__",
+    "subscription_ids": ["id1", "id2"],
     "code": "__EVENT_CODE__",
     "timestamp": 1650893379,
     "properties": {
@@ -155,7 +126,8 @@ api/v1/events
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
 | **transaction_id** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique ID identifying the event. <br></br>As it will be used for idempotency, it should be a unique identifier |
-| **customer_id** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
+| **subscription_ids** | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | Array of subscription ids that belongs to one customer |
+| **customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer unique identifier in your application |
 | **code** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the type of the event.<br></br> It should match the `code` property of one of your active billable metrics, otherwise it will be ignored |
 | **timestamp** | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*Default: event reception timestamp*</Comment> | Unix timestamp of the event occurence in UTC.<br></br> If not provided, the API will set the event reception time |
 | **properties** | JSON &nbsp &nbsp &nbsp<Variable>**Variable**</Variable> | Extra data to use for the event aggregation.<br></br>When mandatory, it should contains the `field_name` configured at billable metric level as `key` and any value as field `value`.<br></br><details><summary>**Aggregation type:**</summary><div>- `COUNT`: **optional**<br></br>- `MAX`: **required**. value must be an integer<br></br>- `SUM`: **required**. value must be an integer<br></br>- `COUNT UNIQUE`: **required**. value could have any datatype<div></div></div></details> |
