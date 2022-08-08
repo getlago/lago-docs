@@ -3,6 +3,7 @@
   "start_urls": [
     "https://doc.getlago.com/docs/guide/intro",
     "https://doc.getlago.com/docs/guide/self-hosting/docker",
+    "https://doc.getlago.com/docs/guide/self-hosting/tracking",
     "https://doc.getlago.com/docs/guide/lago-cloud",
     "https://doc.getlago.com/docs/guide/billable-metrics/overview",
     "https://doc.getlago.com/docs/guide/billable-metrics/aggregation-types",
