@@ -24,9 +24,9 @@ import TabItem from '@theme/TabItem';
   CUSTOMER_ID="__CUSTOMER_ID__"
   SUBSCRIPTION_ID="__SUBSCRIPTION_ID__"
 
-  curl --location --request GET "$LAGO_URL/api/v1/customers/$CUSTOMER_ID/current_usage?subscription_id=$SUBSCRIPTION_ID"
-    --header "Authorization: Bearer $API_KEY" \
-    --header 'Content-Type: application/json'
+ curl --location --request GET "$LAGO_URL/api/v1/customers/$CUSTOMER_ID/current_usage?subscription_id=$SUBSCRIPTION_ID" \
+  --header "Authorization: Bearer $API_KEY" \
+  --header 'Content-Type: application/json'
   ```
 
   </TabItem>
