@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-07-13T18:00:00.000Z</updated>
+    <updated>2022-08-04T10:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
     <icon>https://getlago.com/img/lago.ico</icon>
     <rights>Copyright © 2022 Lago.</rights>
+    <entry>
+        <title type="html"><![CDATA[Go client]]></title>
+        <id>/go-client</id>
+        <link href="https://getlago.com/changelog/go-client"/>
+        <updated>2022-08-04T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We have added a new API client to make it easier for Go users to set up their billing system with Lago.]]></summary>
+        <content type="html"><![CDATA[<p>We have added a new API client to make it easier for Go users to set up their billing system with Lago.</p><p><a href="/docs/api/intro">Click here to see the documentation</a></p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Released new API endpoints]]></title>
         <id>/new-api-endpoints</id>

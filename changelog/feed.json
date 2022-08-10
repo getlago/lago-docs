@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/go-client",
+            "content_html": "<p>We have added a new API client to make it easier for Go users to set up their billing system with Lago.</p><p><a href=\"/docs/api/intro\">Click here to see the documentation</a></p>",
+            "url": "https://getlago.com/changelog/go-client",
+            "title": "Go client",
+            "summary": "We have added a new API client to make it easier for Go users to set up their billing system with Lago.",
+            "date_modified": "2022-08-04T10:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/new-api-endpoints",
             "content_html": "<p>We like our users when they use our nice and clean UI, but we also love when they use our API. One of the usecase could be to use Lago as a white-labeled solution.</p><p>Here is the full list of endpoints we have just released:</p><p><strong>Billable metrics</strong></p><ul><li>Create a billable metric <code>POST /api/v1/billable_metrics</code></li><li>Update a billable metric <code>PUT /api/v1/billable_metrics/:code</code></li><li>Destroy a billable metric <code>DELETE /api/v1/billable_metrics/:code</code></li><li>Fetch a specific billable metric <code>GET /api/v1/billable_metrics/:code</code></li><li>Fetch all billable metrics <code>GET /api/v1/billable_metrics?per_page=2&amp;page=1</code></li></ul><p><strong>Plans</strong></p><ul><li>Create a plan <code>POST /api/v1/plans</code></li><li>Update a plan <code>PUT /api/v1/plans/:code</code></li><li>Destroy a plan <code>DELETE /api/v1/plans/:code</code></li><li>Fetch a specific plan <code>GET /api/v1/plans/:code</code></li><li>Fetch all plans <code>GET /api/v1/plans?per_page=2&amp;page=1</code></li></ul><p><strong>Coupons</strong></p><ul><li>Create a coupon <code>POST /api/v1/coupons</code></li><li>Update a coupon <code>PUT /api/v1/coupons/:code</code></li><li>Destroy a coupon <code>DELETE /api/v1/coupons/:code</code></li><li>Fetch a specific coupon <code>GET /api/v1/coupons/:code</code></li><li>Fetch all coupons <code>GET /api/v1/coupons?per_page=2&amp;page=1</code></li></ul><p><strong>Add-ons</strong></p><ul><li>Create a add_on <code>POST /api/v1/add_ons</code></li><li>Update a add_on <code>PUT /api/v1/add_ons/:code</code></li><li>Destroy a add_on <code>DELETE /api/v1/add_ons/:code</code></li><li>Fetch a specific add_on <code>GET /api/v1/add_ons/:code</code></li><li>Fetch all add_ons <code>GET /api/v1/add_ons?per_page=2&amp;page=1</code></li></ul><p><strong>Current usage</strong></p><ul><li>Get the current usage of a specific customer <code>GET /api/v1/customers/:customer_id/current_usage</code></li></ul><p><strong>Organization</strong></p><ul><li>Update the information of your organization <code>PUT /api/v1/organizations</code></li></ul>",
             "url": "https://getlago.com/changelog/new-api-endpoints",
