@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/multiple-plans",
+            "content_html": "<p>It is now possible to assign multiple plans to a customer (e.g. if your customer needs to create several workspaces on your platform, you can link a plan to each workspace).</p><p>To help differentiate each plan, you can add display names that will appear in the user interface and on invoices.</p><p>Kindly note that:</p><ol><li>All plans must be denominated in the same currency; and</li><li>You must now specify the <code>subscription_id</code> for each event or create batch events.</li></ol><p><a href=\"/docs/guide/plans/subscription#multiple-plans\">Click here to see the documentation</a></p>",
+            "url": "https://getlago.com/changelog/multiple-plans",
+            "title": "Multiple plans",
+            "summary": "It is now possible to assign multiple plans to a customer (e.g. if your customer needs to create several workspaces on your platform, you can link a plan to each workspace).",
+            "date_modified": "2022-08-08T11:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/tracking",
             "content_html": "<p>To help us better understand your needs, we have added a tracking module to the self-hosted version of Lago.</p><p>Data analytics will help us improve the quality of our product and performance of the API.</p><p>As the privacy of our users is of paramount importance, we will not collect any personal information about your customers or the amount of your invoices, and you can opt out at any time.</p><p><a href=\"/docs/guide/self-hosting/tracking\">Learn more</a></p>",
             "url": "https://getlago.com/changelog/tracking",
