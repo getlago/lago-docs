@@ -138,9 +138,9 @@ import TabItem from '@theme/TabItem';
 | -----------| -----| ----------- |
 | customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
 | plan_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the plan.<br></br>It must match the `code` property of one of the plans. |
-| unique_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | External identifier for subscription.<br></br>It has to be unique per customer's active subscription scope.<br></br>If not given, the `customer_id` value will be used. |
+| unique_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique external identifier of the subscription. Used as an idempotency key. Can also be used for upgrades/downgrades. Default value if not provided: `customer_id`. |
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Subscription display name. |
-| subscription_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Current subscription ID. It is used only for upgrade/downgrade. |
+| subscription_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Current subscription ID. Only used for upgrades/downgrades. |
 
 
 :::info
