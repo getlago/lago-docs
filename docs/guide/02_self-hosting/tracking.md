@@ -37,7 +37,7 @@ This event flow enables Lago to understand the full activation flow, from the re
 
 ## Examples of collected payloads
 
-### billale_metric_created
+### billable_metric_created
 ```js
 Analytics.track(
   user_id: 'membership/f37a6b2e-1e79-4710-b0e2-9e451b532461',
