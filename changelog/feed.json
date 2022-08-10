@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/tracking",
+            "content_html": "<p>To help us better understand your needs, we have added a tracking module to the self-hosted version of Lago.</p><p>Data analytics will help us improve the quality of our product and performance of the API.</p><p>As the privacy of our users is of paramount importance, we will not collect any personal information about your customers or the amount of your invoices, and you can opt out at any time.</p><p><a href=\"/docs/guide/self-hosting/tracking\">Learn more</a></p>",
+            "url": "https://getlago.com/changelog/tracking",
+            "title": "Tracking & Analytics",
+            "summary": "To help us better understand your needs, we have added a tracking module to the self-hosted version of Lago.",
+            "date_modified": "2022-08-08T10:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/go-client",
             "content_html": "<p>We have added a new API client to make it easier for Go users to set up their billing system with Lago.</p><p><a href=\"/docs/api/intro\">Click here to see the documentation</a></p>",
             "url": "https://getlago.com/changelog/go-client",
