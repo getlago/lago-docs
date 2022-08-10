@@ -4,15 +4,19 @@ sidebar_position: 2
 
 # Tracking & Analytics
 
-## Why does Lago need metrics
+## Why does Lago need data?
 We decided to open-source the billing API we would have dreamt to use. As a consequence of building a self hosted product, we are not able to easily collect any usage metrics or insights to help us build a better product. This analytic help us understand crucial behaviors and ship better quality to serve your needs.
 
 We decided to track, by default, so basic behaviors and metrics that are important to understand the usage of Lago. We have built a minimum required tracking plan to minimize the security impact of collecting those events. All the metrics collected are listed in a further section. We make this as transparent as possible, and we don't track sensitive information (amounts or personal information).
 
 The metrics are collected through the server side Ruby source from [Segment.com](https://segment.com/docs/connections/sources/catalog/libraries/server/ruby/).
 
-## Opting-out
-As detailed previously, we ask you to keep as much as possible those tracked metrics, unless you have a specific reason to opt-out. Keeping the metrics enabled is the easiest way for Lago to get feedback based on the product usage.
+:::info
+Lago will not collect any personal information about your customers or the amount of your invoices.
+:::
+
+## Opting out
+As detailed previously, we ask you to keep as much as possible those tracked metrics, unless you have a specific reason to opt out. Keeping the metrics enabled is the easiest way for Lago to get feedback based on product usage.
 
 In the case you need to remove it, we've created a very easy process to opt out. In the environment variables, by passing the field `LAGO_DISABLE_SEGMENT` to `true`, you prevent the entire tracking logic to run in your application.
 
@@ -31,8 +35,7 @@ This event flow enables Lago to understand the full activation flow, from the re
 - `invoice_created`: when a new invoice is emitted for a specific customer
 - `payment_status_changed`: when the payment status of an invoice changes
 
-
-## Examples of payload collected
+## Examples of collected payloads
 
 ### billale_metric_created
 ```js
@@ -51,6 +54,23 @@ Analytics.track(
   }
 )
 ```
+
+### customer_created
+```js
+Analytics.track(
+  user_id: 'membership/4ad5b91f-2a42-4a58-9786-6c07fa03a3d4',
+  event: 'customer_created',
+  properties: {
+    created_at: DateTime.iso8601('2022-08-10T09:34:37.479Z'),
+    customer_id: '29a17eed-021c-485e-b3fa-93d27db31c95',
+    hosting_type: 'cloud',
+    organization_id: '0d173830-9017-4f57-9d11-e3e83b3e38fe',
+    payment_provider: 'stripe',
+    version: DateTime.iso8601('2022-08-09T00:00:00.000Z')
+  }
+)
+```
+
 ### invoice_created
 ```js
 Analytics.track(
@@ -65,8 +85,3 @@ Analytics.track(
   }
 )
 ```
-
-It's useful to mention that Lago will never track the amount of an invoice billed to one of your customers.
-
-
-
