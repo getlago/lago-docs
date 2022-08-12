@@ -81,6 +81,7 @@ Lago uses the following environment variables to configure the components of the
 | LAGO_AWS_S3_SECRET_ACCESS_KEY | | AWS Secret Access Key that has access to S3 |
 | LAGO_AWS_S3_REGION | | AWS S3 Region |
 | LAGO_AWS_S3_BUCKET | | AWS S3 Bucket name |
+| LAGO_AWS_S3_ENDPOINT | | S3 compatible storage endpoint. Should be set only if you are using another storage provider than AWS S3 |
 | LAGO_PDF_URL | http://pdf:3000 | PDF Service URL on your infrastructure |
 | LAGO_DISABLE_SIGNUP | | Disable Sign up when running Lago in self-hosted |
 
@@ -111,7 +112,7 @@ You can also use your own database or Redis server. To do so, remove the `db` an
 
 ### SSL Support
 
-Lago Front application can be configured to support SSL certificates. 
+Lago Front application can be configured to support SSL certificates.
 You have two options to achieve this:
 
 - by using a self-signed certificate
