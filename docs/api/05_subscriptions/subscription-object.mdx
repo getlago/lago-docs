@@ -25,6 +25,8 @@ The subscription will then define how a the related customer will be invoiced ba
     "status": "active",
     "name": "display name",
     "unique_id": "unique_id",
+    "billing_time": "anniversary",
+    "subscription_date": "2022-04-29",
     "terminated_at": null
   }
 }
@@ -34,14 +36,16 @@ The subscription will then define how a the related customer will be invoiced ba
 | -----------| ----------- |
 | **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the subscription in Lago application |
 | **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
+| **billing_time** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Billing time of the subscription. <br></br> <details><summary>**Possible values**</summary><div>- `anniversary`: Subscription will be billed on each week/month/year anniversary, depending on the plan reccurence<br></br>- `calendar`: Subscription at the end of week/month/year. The first subscription billing will be at pro-rata if it is not created at the beginning of the week/month/year</div></details> |
 | **customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **subscription_date** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Anniversary date of the initial subscription. It is used a the based date to bill subscription with anniversary billing time. |
 | **canceled_at** &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Cancelation date of the subscription. It's not null when the subscription is `canceled` |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime  in UTC*</Comment> | Creation date of the subscription |
 | **plan_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Code identifying the plan.<br></br>It matches the `code` property of one of the plans |
 | **started_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Start date of the subscription. It could be null if the subscription is `pending` of `canceled` |
 | **name** &nbsp &nbsp <Type>String</Type> | Subscription display name in Lago application |
 | **unique_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique external identifier of the subscription. Used as an idempotency key. Corresponds to the `customer_id` for subscriptions created before August 8th, 2022. |
-| **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Status of the subscription. <br></br> <details><summary>**Possible values**</summary><div>- `pending`: a previous subscription has been downgraded, the current one is waiting for its automatic activation at the end of the billing period.<br></br>- `active`: the subscription is currently applied to the customer.<br></br>- `terminated`: the subscription is not active anymore<br></br>- `canceled`: the subscription has been stopped before its activation. It could happen when two consecutive downgrade have been applied to a customer or when a subscription with a pending one is terminaded.<div></div></div></details> |
+| **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Status of the subscription. <br></br> <details><summary>**Possible values**</summary><div>- `pending`: a previous subscription has been downgraded, the current one is waiting for its automatic activation at the end of the billing period.<br></br>- `active`: the subscription is currently applied to the customer.<br></br>- `terminated`: the subscription is not active anymore<br></br>- `canceled`: the subscription has been stopped before its activation. It could happen when two consecutive downgrade have been applied to a customer or when a subscription with a pending one is terminaded.</div></details> |
 | **terminated_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Termination date of the subscription. It's not null when the subscription is `terminated` |
 
 

@@ -30,7 +30,8 @@ import TabItem from '@theme/TabItem';
         "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
         "plan_code": "code",
         "unique_id": "id",
-        "name": "display name"
+        "name": "display name",
+        "billing_time": "anniversary"
       }
     }'
   ```
@@ -48,7 +49,8 @@ import TabItem from '@theme/TabItem';
     customer_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
     plan_code="code",
     unique_id="id",
-    name="display name"
+    name="display name",
+    billing_time="anniversary"
   )
 
   client.subscriptions().create(subscription)
@@ -67,8 +69,10 @@ import TabItem from '@theme/TabItem';
     customerId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
     planCode: "code",
     uniqueId: "id",
-    name: "display name"
+    name: "display name",
+    billingTime: "anniversary"
   })
+
   await client.createSubscription(subscription);
   ```
 
@@ -85,7 +89,8 @@ import TabItem from '@theme/TabItem';
     customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     plan_code: "code",
     unique_id: "id",
-    name: "display name"
+    name: "display name",
+    billing_time: "anniversary"
   )
   ```
   </TabItem>
@@ -101,8 +106,9 @@ import TabItem from '@theme/TabItem';
         SetApiKey("__YOUR_API_KEY__")
 
       subscriptionInput := &lago.SubscriptionInput{
-        CustomerID: "__YOUR_CUSTOMER_ID__",
-	   		PlanCode:   "__YOUR_PLAN_CODE__",
+        CustomerID:   "__YOUR_CUSTOMER_ID__",
+        PlanCode:     "__YOUR_PLAN_CODE__",
+        BillingTime: lago.Anniversary,
       }
 
       subscription, err := lagoClient.Subscription().Create(subscriptionInput)
@@ -129,7 +135,8 @@ import TabItem from '@theme/TabItem';
     "plan_code": "new_code",
     "unique_id": "id",
     "name": "name",
-    "subscription_id": "sub id"
+    "subscription_id": "sub id",
+    "billing_time": "anniversary"
   }
 }
 ```
@@ -141,6 +148,7 @@ import TabItem from '@theme/TabItem';
 | unique_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique external identifier of the subscription. Used as an idempotency key. Can also be used for upgrades/downgrades. Default value if not provided: `customer_id`. |
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Subscription display name. |
 | subscription_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Current subscription ID. Only used for upgrades/downgrades. |
+| billing_time | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Billing time of the subscription.<br></br>It can be `anniversary` or `calendar`<br></br>If not provided, it will default to `calendar` |
 
 
 :::info
