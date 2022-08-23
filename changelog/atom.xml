@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-08-08T11:00:00.000Z</updated>
+    <updated>2022-08-23T10:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
     <icon>https://getlago.com/img/lago.ico</icon>
     <rights>Copyright © 2022 Lago.</rights>
+    <entry>
+        <title type="html"><![CDATA[Free units for the percentage charge model]]></title>
+        <id>/free-units-percentage-model</id>
+        <link href="https://getlago.com/changelog/free-units-percentage-model"/>
+        <updated>2022-08-23T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We have released an enhanced version of the percentage charge model, including:]]></summary>
+        <content type="html"><![CDATA[<p>We have released an enhanced version of the percentage charge model, including:</p><ul><li>Ability to define free units based on the number of events (e.g. first 3 events are free); and</li><li>Ability to define free units based on the total amount (e.g. first $500 are free).</li></ul><p>Please refer to the <a href="/docs/guide/plans/charges#percentage-charge-model">documentation</a> for more information.</p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Multiple plans]]></title>
         <id>/multiple-plans</id>

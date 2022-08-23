@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/free-units-percentage-model",
+            "content_html": "<p>We have released an enhanced version of the percentage charge model, including:</p><ul><li>Ability to define free units based on the number of events (e.g. first 3 events are free); and</li><li>Ability to define free units based on the total amount (e.g. first $500 are free).</li></ul><p>Please refer to the <a href=\"/docs/guide/plans/charges#percentage-charge-model\">documentation</a> for more information.</p>",
+            "url": "https://getlago.com/changelog/free-units-percentage-model",
+            "title": "Free units for the percentage charge model",
+            "summary": "We have released an enhanced version of the percentage charge model, including:",
+            "date_modified": "2022-08-23T10:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/multiple-plans",
             "content_html": "<p>It is now possible to assign multiple plans to a customer (e.g. if your customer needs to create several workspaces on your platform, you can link a plan to each workspace).</p><p>To help differentiate each plan, you can add display names that will appear in the user interface and on invoices.</p><p>Kindly note that:</p><ol><li>All plans must be denominated in the same currency; and</li><li>You must now specify the <code>subscription_id</code> for each event or create batch events.</li></ol><p><a href=\"/docs/guide/plans/subscription#multiple-plans\">Click here to see the documentation</a></p>",
             "url": "https://getlago.com/changelog/multiple-plans",
