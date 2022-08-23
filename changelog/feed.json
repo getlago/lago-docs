@@ -96,10 +96,10 @@
         },
         {
             "id": "/percentage-charge-model",
-            "content_html": "<p>Inside the <strong>Plans</strong>, by creating a charge, you can now select the <strong>percentage charge model</strong>.</p><p>This feature is pretty useful for industries willing to take a <code>% + fixed fee</code> out of a usage-based features (for banking or charity industry, for instance). These fees are applied on the <em>units to be charged</em> (e.g. the aggregation result of your billable metric).</p><p>The fixed charge can either be applied per <strong>each single unit</strong> or for <strong>all units</strong>.</p><p><img loading=\"lazy\" alt=\"Percentage charge\" src=\"/assets/images/percentage-charge-model-1765031606a0f56c4510321a24c7664c.png\" width=\"1278\" height=\"1060\" class=\"img_ev3q\"></p>",
+            "content_html": "<p>Inside the <strong>plan</strong>, when creating a charge, you can now select the <strong>percentage charge model</strong>.</p><p>This feature is useful for industries willing to take a <code>% + fixed fee</code> out of a usage-based features (for banking or charity industry, for instance). These fees are applied on the <em>units to be charged</em> (e.g. the aggregation result of your billable metric).</p>",
             "url": "https://getlago.com/changelog/percentage-charge-model",
             "title": "Percentage charge model",
-            "summary": "Inside the Plans, by creating a charge, you can now select the percentage charge model.",
+            "summary": "Inside the plan, when creating a charge, you can now select the percentage charge model.",
             "date_modified": "2022-06-13T10:00:00.000Z",
             "tags": []
         },
