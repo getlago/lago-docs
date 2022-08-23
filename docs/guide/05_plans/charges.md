@@ -3,64 +3,69 @@ sidebar_position: 3
 ---
 
 # Charges
-In addition to the price of a Plan, your Customers could pay for per-usage features. For instance, they could pay for API calls, storage, computes...
-
-**This additional charges are related to the Billable metrics you already defined**. If you don't know how Billable metrics work for "pay-as-you-go" features, please visit [this section of the documentation](../billable-metrics/overview). Obviously, this additional charges related to your Billable metrics can be priced differently regarding the Plans they belong to.
+In addition to the price of the plan, you can charge your customers for usage. For instance, you can create charges based on the number of API calls, the number of active users, transactions, compute time, etc. These additional charges relate to the [billable metrics](../billable-metrics/overview) defined previously.
 
 ## Overview of charges
-You can add Charges to a Plan by calling an existing Billable metric (you will need to define how you want to price this addtional Charge).
+You can add charges to a plan by calling an existing billable metric. These "pay-as-you-go" features can be linked to several plans.
 
-These additional charges are often "pay-as-you-go" features and can be called in multiple Plans with a different price.
-
-:::caution
-- These additional charges are always paid `in arrears` because they are linked to an actual consumption
-- These additional charges **are priced with the same currency** than the Plan's currency
-- The additional charges **are not subject to the trial period**. The trial period is only for the Plan base amount
+:::info
+- Charges are always paid in arrears as they are based on usage;
+- Charges are denominated in the same currency as the plan; and
+- The trial period does not apply to charges. The trial period only applies to the base amount of the plan.
 :::
 
-You have several charge model options to price these additional charges (following below).
+There are several price models available for charges (see below).
 
-## Number of decimals for charges
-Lago lets you create charges with 5 decimals as a maximum (example: $0.00012). It gives you the flexibility to charge features with a high granularity, especially if you are running a cloud company. 
+## Number of decimals
+Lago allows you create charges with up to five decimals (e.g. $0.00012).
 
-It's useful to mention that all charges are invoiced in `amount_cents`. Thus, Lago automatically rounds the price to be charged (example: USD 1102 `amount_cents` = $11.02).
+Please note that charges are invoiced in `amount_cents`. Therefore, Lago automatically rounds prices (e.g. USD 1102 `amount_cents` = $11.02).
 
-## The charge models
+## Charge models
 
-### The Standard charge model
-Select a **standard charge model** if you charge the same price for each unit consumed. This charge model can be applied only for additional charges triggered by your [Billable metrics](../billable-metrics/overview).
+### Standard charge model
+Select the standard charge model if you want to charge the **same price for each unit** consumed.
 
-For instance, let's imagine you are an API company charging $0.05 for each API call (your defined Billable metric). By selecting a standard charge model, each API call will be charged the same amount. If a customer does 1000 API calls during a billing period, the total amount invoiced will be $50 ($0.05 x 1000 API calls).
+Imagine that your API company charges $0.05 per API call (i.e. your billable metric). By selecting the standard charge model, you will define a fixed unit price. If a customer makes 1,000 API calls during the billing period, the total invoice amount will be $0.05 x 1,000 API calls = $50.
 
-### The Graduated charge model
-Select a **graduated charge model** if you want to **apply a different price per unit** following a pricing scale. This charge model is very useful when you need to apply a discount regarding how much units of your product are being consumed by a customer. In addition to this price per unit, you can decide to apply a **flat fee** to an entire tier.
+### Graduated charge model
+Select the graduated charge model if you want to define **several price tiers**. This charge model allows you to apply a discount depending on the number of units consumed. You can also apply a **flat fee** to an entire tier.
 
-Let's take back the example of an API company. You might charge $1.00 per unit for the first 100 units (100 first API calls). Then $0.50 per unit for the next 100. Eventually $0.10 for all the units above. Take more concrete look at this example in the below image.
+Let's take back the example of the API company. You could charge $1 per unit for the first 100 units (first 100 API calls), then $0.50 per unit for the next 100 calls and finally, $0.10 for any additional unit.
 
-In any case, the Lago UI will guide you (by providing you an exact quote) if you need to apply a graduated logic to a specific charge (just have a look at the purple tooltip in the image below).
+Please refer to the tooltip in the user interface for more information.
 
-![Graduated example explained](../../../static/img/graduated-charge-pricing-model.png)
+![Configuration of the graduated charge model](../../../static/img/graduated-charge-pricing-model.png)
 
-### The Package charge model
-Select a **package charge model** if you want to apply a price to a range of units. This charge model is useful when you want to apply the same price to a set of units. You also have the option to offer free units.
+### Package charge model
+Select the package charge model if you want to apply a **fixed price to a range of units**. You also have the ability to offer free units.
 
-Let's take back the example of our API company. You might want to price $5.00 per 100 units and offer the first 100 units. In this instance, 201 units would cost $10.00: $0.00 (100 first units) + $5.00 (next 100 units) + $5.00 (one additional unit).
+Let's take back the example of our API company. You may want to charge $5 per 100 units and offer the first 100 units. In this example, 201 units would cost $0 (first 100 units) + $5 (next 100 units) + $5 (last unit) = $10.
 
-![Package example explained](../../../static/img/package-pricing-charge-model.png)
+![Configuration of the package charge model](../../../static/img/package-pricing-charge-model.png)
 
-### The Percentage charge model
-Select the **percentage charge model** if you want to apply a percentage and a fixed charge to a usage-based feature (for banking or charity industries, for instance).
+### Percentage charge model
+Select the percentage charge model if you want to apply a **percentage and a fixed fee on transactions** (e.g. bank transfers, ATM withdrawals, etc.).
 
-The percentage and the fixed charged defined in the UI are applied to the number of units to be charged returned by the consumption of your [billable metric](../billable-metrics/aggregation-examples#differences-between-the-aggregation-types).
+This charge model is generally used with billable metrics that allow users to calculate the total amount of transactions (e.g. `sum` aggregation type and `amount` defined as the event property - [learn more](../billable-metrics/aggregation-types#2-sum)).
 
-For the **fixed charge**, you have 2 different options:
-1. Apply the fixed charge per **each unit**; or
-2. Apply the fixed charge for **all units**.
+You can define several parameters for the percentage charge model, including:
+- **Percentage rate**: charge rate that applies to the total amount (e.g. 1.2% on transactions);
+- **Fixed fee (optional)**: fee that applies to each event ingested during the billing period (e.g. $0.10 per transaction);
+- **Free units (events - optional)**: number of events that are not subject to the fixed fee; and
+- **Free units (total amount - optional)**: amount that is not subject to the charge rate.
 
-Let's take the example of a payment provider company willing to take 2% + $0.1 out of each payment.
-If the monthly sum of payment `amount` is 20000 (units to be charged), the result is:
-- 2% of 20000 = 400
-- $0.10 * 20000 = 2000
-- Total = $2400
+When free units are defined for both the total amount and number of events, Lago performs checks each time a new event is ingested to determine whether the free units still apply. In the illustration below for instance, the first 3 events or $500 are free.
 
-![Percentage charge](../../../static/img/percentage-charge-model.png)
+![Configuration of the percentage charge model](../../../static/img/percentage-model.png)
+
+Consider the following list of events:
+
+| Event         | Amount | Total number of events         | Total amount     | Result     |
+| ------------- | ------ | ------------------------------ | ---------------- | ---------- |
+| Transaction 1 | $200   | 1 free event (out of 3)        | $200 ($500 free) | No charges |
+| Transaction 2 | $100   | 2 free events (out of 3)       | $300 ($500 free) | No charges |
+| Transaction 3 | $100   | 3 free events (out of 3)       | $400 ($500 free) | No charges |
+| Transaction 4 | $50    | 4 events (free units exceeded) | $450 ($500 free) | Charge     |
+
+Therefore, for the fourth transaction, the charge will be $0.10 x 1 event + 1.2% of $50 = $0.70.
