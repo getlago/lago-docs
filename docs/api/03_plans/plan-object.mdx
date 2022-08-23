@@ -104,6 +104,59 @@ This object represents a plan.<br></br>
 | **charge_model** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Charge model used in event calculations. <br></br> <details><summary>**Possible values**</summary><div>- `standard`<br></br>- `graduated`<br></br>- `package`<br></br>- `percentage`<div></div></div></details> |
 | **properties** &nbsp &nbsp <Type>JSON</Type> | Extra data. This field will depend on selected charge_model |
 
+#### Standard charge model
+| Attributes | Description |
+| -----------| ----------- |
+| **amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Price of one aggregated unit |
+
+#### Graduated charge model
+
+- Model:
+
+| Attributes | Description |
+| -----------| ----------- |
+| **Array of ranges** | Graduated ranges, sorted from bottom to top boundaries |
+
+- Ranges:
+
+| Attributes | Description |
+| -----------| ----------- |
+| **from_value** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Lower value of the range.<br></br>- Must be `0` or previous range `to_value + 1` |
+| **to_value** &nbsp &nbsp <Type>Integer</Type> | Top value of the range.<br></br>- Must be higher than the range from_value.<br></br>- Must be null on last range. |
+| **per_unit_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated units between the boundaries |
+| **flat_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Flat amount to add to the result if the range is reached |
+
+#### Package charge model
+| Attributes | Description |
+| -----------| ----------- |
+| **amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Price of one package |
+| **package_size** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Number of aggregated units per package. |
+| **free_units** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Number of aggregated units to exclude before applying the charge model. |
+
+#### Percentage charge model
+| Attributes | Description |
+| -----------| ----------- |
+| **rate** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Charge rate that applies to the total amount |
+| **fixed_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Fee that applies to each event ingested during the billing period |
+| **free_units_per_events** &nbsp &nbsp <Type>Integer</Type> | Number of events that are not subject to the fixed fee |
+| **free_units_per_total_aggregation** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Amount that is not subject to the charge rate |
+
+#### Volume charge model
+
+- Model:
+
+| Attributes | Description |
+| -----------| ----------- |
+| **ranges** &nbsp &nbsp <Type>Array of ranges</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Volume ranges, sorted from bottom to top boundaries |
+
+- Ranges:
+
+| Attributes | Description |
+| -----------| ----------- |
+| **from_value** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Lower value of the range.<br></br>- Must be `0` or `previous range to_value + 1` |
+| **to_value** &nbsp &nbsp <Type>Integer</Type> | Top value of the range.<br></br>- Must be higher than the range from_value.<br></br>- Must be null on last range. |
+| **per_unit_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated units |
+| **flat_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Flat amount to add to the result if the range is reached |
 
 export const Type = ({children, color}) => (
   <span
