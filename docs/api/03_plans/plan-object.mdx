@@ -10,30 +10,73 @@ This object represents a plan.<br></br>
 
 ```json
 {
-  "plan": {
-    "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
-    "name": "test1",
-    "created_at": "2022-07-01T14:47:14Z",
-    "code": "plan_code",
-    "interval": "weekly",
-    "description": "hello_this_is_desc",
-    "amount_cents": 900,
-    "amount_currency": "EUR",
-    "trial_period": 3.0,
-    "pay_in_advance": true,
-    "bill_charges_monthly": null,
-    "charges": [
-      {
-        "lago_id": "51c1e851-5be6-4343-a0ee-39a81d8b4ee1",
-        "lago_billable_metric_id": "a6947936-628f-4945-8857-db6858ee7941",
-        "created_at": "2022-07-01T14:47:14Z",
-        "charge_model": "standard",
-        "properties": {
-          "amount": "0.22"
-        }
-      }
-    ]
-  }
+   "plan":{
+      "lago_id":"6bcba20e-cbc8-4975-a47b-2055eef34b22",
+      "name":"Basic",
+      "created_at":"2022-08-24T14:58:59Z",
+      "code":"basic",
+      "interval":"yearly",
+      "description":"This is a basic plan description",
+      "amount_cents":90000,
+      "amount_currency":"USD",
+      "trial_period":3.0,
+      "pay_in_advance":true,
+      "bill_charges_monthly":true,
+      "charges":[
+         {
+            "lago_id":"27f12d13-4ae0-437b-b822-8771bcd62e3a",
+            "lago_billable_metric_id":"b09ce382-ce87-4da4-89f2-78b2060689fc",
+            "created_at":"2022-08-24T14:58:59Z",
+            "charge_model":"standard",
+            "properties":{
+               "amount":"0.10"
+            }
+         },
+         {
+            "lago_id":"e530f658-c06a-44bb-a413-1fbe3796adb4",
+            "lago_billable_metric_id":"b09ce382-ce87-4da4-89f2-78b2060689fc",
+            "created_at":"2022-08-24T14:58:59Z",
+            "charge_model":"graduated",
+            "properties":[
+               {
+                  "to_value":10,
+                  "from_value":0,
+                  "flat_amount":"0",
+                  "per_unit_amount":"10"
+               },
+               {
+                  "to_value":null,
+                  "from_value":11,
+                  "flat_amount":"0",
+                  "per_unit_amount":"5"
+               }
+            ]
+         },
+         {
+            "lago_id":"108051fc-c71b-47b4-bd86-47436ea6b639",
+            "lago_billable_metric_id":"b09ce382-ce87-4da4-89f2-78b2060689fc",
+            "created_at":"2022-08-24T14:58:59Z",
+            "charge_model":"package",
+            "properties":{
+               "amount":"100",
+               "free_units":10000,
+               "package_size":1000
+            }
+         },
+         {
+            "lago_id":"88b878e2-4ba4-4f37-98c9-ca8522a9e574",
+            "lago_billable_metric_id":"b09ce382-ce87-4da4-89f2-78b2060689fc",
+            "created_at":"2022-08-24T14:58:59Z",
+            "charge_model":"percentage",
+            "properties":{
+               "rate":"0.5",
+               "fixed_amount":"1",
+               "free_units_per_events":3,
+               "free_units_per_total_aggregation":null
+            }
+         }
+      ]
+   }
 }
 ```
 ### Plan attributes
