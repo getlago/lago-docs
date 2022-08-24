@@ -7,11 +7,11 @@ import TabItem from '@theme/TabItem';
 
 
 # Welcome to Lago
-Lago is an Open Source Billing API for Product-Led SaaS. It's the best alternative to Chargebee, Recurly or Stripe Billing, and even go a step beyond dealing with complex billing logics. Lago is the perfect match for usage-based, subscription-based, and all the nuances of pricing in between.
+Lago is an **open-source billing API for product-led SaaS**. It's the best alternative to Chargebee, Recurly or Stripe Billing for companies that need to handle complex billing logics.
 
 This library will allow you to build an entire billing system from scratch. Lago is a real-time, event-based solution made for usage-based billing, subscription-based billing, and all the nuances of pricing in between.
 
-You can use the **[self-hosted version](./self-hosting/docker)** to deploy Lago on your existing infrastructure or **[request access to Lago Cloud](https://calendly.com/lago-team/20min-meeting-with-lago-team?month=2022-07)** to start using our solution immediately.
+You can use the [self-hosted version](./self-hosting/docker) to deploy Lago on your existing infrastructure or [request access to Lago Cloud](https://calendly.com/lago-team/20min-meeting-with-lago-team?month=2022-07) to start using our solution immediately.
 
 ## Four-step billing workflow
 

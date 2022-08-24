@@ -61,7 +61,7 @@ const config = {
         logo: {
           alt: 'Lago',
           src: 'img/logo.svg',
-          href: '/docs/guide/intro',
+          href: '/docs/guide/intro/welcome',
           target: '_self'
         },
         items: [
@@ -111,7 +111,7 @@ const config = {
             items: [
               {
                 label: 'Guide',
-                to: '/docs/guide/intro'
+                to: '/docs/guide/intro/welcome'
               },
               {
                 label: 'API Reference',
@@ -124,7 +124,7 @@ const config = {
             items: [
               {
                 label: 'Slack',
-                href: 'https://lago-community.slack.com/',
+                href: 'https://www.getlago.com/slack',
               },
               {
                 label: 'Twitter',
