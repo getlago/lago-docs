@@ -276,7 +276,8 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/basic" \
 | pay_in_advance | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if payment in advance or in arrear will be used<br></br>Cannot be updated if the plan is linked to a subscription |
 | bill_charges_monthly | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Monthly billing will be applied on yearly plan if this field is set to `true`<br></br>Cannot be updated if the plan is linked to a subscription |
 
-### Charge attributes - Charges cannot be updated if the plan is linked to a subscription
+### Charge attributes
+Charges cannot be updated if the plan is linked to a subscription
 | Attributes | Type | Description |
 |--|--|--|
 | id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Charge unique id in Lago application |
