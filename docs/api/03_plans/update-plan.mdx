@@ -22,32 +22,68 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request PUT "$LAGO_URL/api/v1/plans/:code" \
-  --header "Authorization: Bearer $API_KEY" \
-  --header 'Content-Type: application/json' \
+curl --location --request PUT "$LAGO_URL/api/v1/plans/basic" \
+--header "Authorization: Bearer $API_KEY" \
+--header 'Content-Type: application/json' \
   --data-raw '{
     "plan": {
-      "name": "test1",
-      "code": "plan_code",
-      "interval": "weekly",
-      "description": "hello_this_is_desc",
-      "amount_cents": 900,
-      "amount_currency": "EUR",
-      "trial_period": 3.0,
+      "name": "Basic",
+      "code": "basic",
+      "interval": "yearly",
+      "description": "This is a basic plan description",
+      "amount_cents": 100000,
+      "amount_currency": "USD",
+      "trial_period": 5.0,
       "pay_in_advance": true,
-      "bill_charges_monthly": null,
+      "bill_charges_monthly": true,
       "charges": [
         {
-          "id": "a6947936-628f-4945-8857-db6858ee7712",
-          "billable_metric_id": "a6947936-628f-4945-8857-db6858ee7941",
+          "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "standard",
           "properties": {
-            "amount": "0.22"
+            "amount": "0.20"
+          }
+        },
+        {
+        "billable_metric_id": "__BILLABLE_METRIC_ID__",
+        "charge_model": "graduated",
+        "properties": [
+          {
+            "to_value": 10,
+            "from_value": 0,
+            "flat_amount": "0",
+            "per_unit_amount": "0.010"
+          },
+          {
+            "to_value": null,
+            "from_value": 11,
+            "flat_amount": "0",
+            "per_unit_amount": "0.05"
+          }
+        ]
+      },
+      {
+        "billable_metric_id": "__BILLABLE_METRIC_ID__",
+        "charge_model": "package",
+        "properties": {
+          "amount": "90",
+          "free_units": 9000,
+          "package_size": 1000
+          }
+      },
+      {
+        "billable_metric_id": "__BILLABLE_METRIC_ID__",
+        "charge_model": "percentage",
+        "properties": {
+          "rate": "0.5",
+          "fixed_amount": "1.5",
+          "free_units_per_events": 2,
+          "free_units_per_total_aggregation": null
           }
         }
       ]
     }
-  }'
+}'
   ```
   </TabItem>
 
@@ -169,22 +205,58 @@ import TabItem from '@theme/TabItem';
 ```json
 {
    "plan": {
-    "name": "test1",
-    "code": "plan_code",
-    "interval": "weekly",
-    "description": "hello_this_is_desc",
-    "amount_cents": 900,
-    "amount_currency": "EUR",
-    "trial_period": 3.0,
+    "name": "Basic",
+    "code": "basic",
+    "interval": "yearly",
+    "description": "This is a basic plan description",
+    "amount_cents": 100000,
+    "amount_currency": "USD",
+    "trial_period": 5.0,
     "pay_in_advance": true,
-    "bill_charges_monthly": null,
+    "bill_charges_monthly": true,
     "charges": [
       {
-        "id": "a6947936-628f-4945-8857-db6858ee7712",
-        "billable_metric_id": "a6947936-628f-4945-8857-db6858ee7941",
+        "billable_metric_id": "__BILLABLE_METRIC_ID__",
         "charge_model": "standard",
         "properties": {
-          "amount": "0.22"
+          "amount": "0.20"
+        }
+      },
+      {
+      "billable_metric_id": "__BILLABLE_METRIC_ID__",
+      "charge_model": "graduated",
+      "properties": [
+        {
+          "to_value": 10,
+          "from_value": 0,
+          "flat_amount": "0",
+          "per_unit_amount": "0.010"
+        },
+        {
+          "to_value": null,
+          "from_value": 11,
+          "flat_amount": "0",
+          "per_unit_amount": "0.05"
+        }
+      ]
+    },
+    {
+      "billable_metric_id": "__BILLABLE_METRIC_ID__",
+      "charge_model": "package",
+      "properties": {
+        "amount": "90",
+        "free_units": 9000,
+        "package_size": 1000
+        }
+    },
+    {
+      "billable_metric_id": "__BILLABLE_METRIC_ID__",
+      "charge_model": "percentage",
+      "properties": {
+        "rate": "0.5",
+        "fixed_amount": "1.5",
+        "free_units_per_events": 2,
+        "free_units_per_total_aggregation": null
         }
       }
     ]
