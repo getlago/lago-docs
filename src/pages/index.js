@@ -5,6 +5,6 @@ import  { Redirect } from 'react-router-dom'
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Redirect to='/docs/guide/intro'  />
+    <Redirect to='/docs/guide/intro/welcome'  />
   );
 }
