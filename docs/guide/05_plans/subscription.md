@@ -9,7 +9,8 @@ To assign a plan to a customer through the user interface:
 1. Access the **"Customers"** section via the side menu;
 2. Select a customer from the list;
 3. In the **"Overview"** tab, click **"Add a plan"** on the right;
-4. Select a plan and give a name to the subscription (name that will be displayed on the invoices - optional); and
+4. Select a plan and give a name to the subscription (name that will be displayed on the invoices - optional);
+5. Choose whether the subscription should be renewed at the beginning of the period or on its anniversary date (see [below](subscription#billing-cycles)); and
 5. Click **"Add plan"** to confirm.
 
 When a subscription is active, Lago will automatically generate invoices for the customer according to the [plan model](./plan-model). It will also start monitoring the customer's consumption, which means that you can start pushing [events](../../api/events/create-event) related to this subscription.
@@ -30,6 +31,20 @@ Consider the following example:
 >
 >22 days x $50 / 31 days = $35.48
 
+![Illustration of the anniversary date logic](../../../static/img/calendar-date.png)
+
+However, you can choose to use the **anniversary date** of the subscription to define a custom billing period.
+
+For example:
+
+>Your customer signs up for the Premium plan on August 10th.
+>
+>If you choose to align the billing cycle with the anniversary date of the subscription, the customer will be billed every 10th of the month.
+>
+>The first billing period will run from 10th August to 9th September.
+
+![Illustration of the anniversary date logic](../../../static/img/anniversary-date.png)
+
 ## Multiple plans
 You may create several subscriptions for a customer by assigning them multiple plans. This can be particularly useful if your application allows customers to create different projects or workspaces (e.g. Free plan for Workspace 1, Free plan for Workspace 2, Premium plan for Workspace 3, etc.).
 
@@ -49,6 +64,8 @@ When multiple subscriptions are linked to a customer, Lago will automatically co
 | Plan B (monthly) | $60     | $60     | $60     | $60     | (...) | $60      |
 | Plan C (yearly)  | $500    | -       | -       | -       | (...) | $500     |
 | Total invoice    | $600    | $100    | $100    | $100    | (...) | $600     |
+
+It is possible to link to the same customer subscriptions that are based on different billing cycles (e.g. a subscription based on calendar dates and another based on the anniversary date).
 
 In addition to this, please note that **coupons apply to all subscriptions**.
 
