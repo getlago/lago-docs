@@ -407,11 +407,11 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 
       planInput := &lago.PlanInput{
         Name:           "Plan Go",
-	   		Code:           "plan_go",
-	   		Interval:       lago.PlanMonthly,
-	   		PayInAdvance:   true,
-	   		AmountCents:    1500,
-	   		AmountCurrency: lago.EUR,
+        Code:           "plan_go",
+        Interval:       lago.PlanMonthly,
+        PayInAdvance:   true,
+        AmountCents:    1500,
+        AmountCurrency: lago.EUR,
       }
 
       plan, err := lagoClient.Plan().Create(planInput)

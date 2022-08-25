@@ -427,11 +427,11 @@ standard_charge = Charge(
 
       planInput := &lago.PlanInput{
         Name:           "Plan Go",
-	   		Code:           "plan_go",
-	   		Interval:       lago.PlanMonthly,
-	   		PayInAdvance:   true,
-	   		AmountCents:    1500,
-	   		AmountCurrency: lago.EUR,
+        Code:           "plan_go",
+        Interval:       lago.PlanMonthly,
+        PayInAdvance:   true,
+        AmountCents:    1500,
+        AmountCurrency: lago.EUR,
       }
 
       planResult, err := lagoClient.Plan().Update(planInput)
