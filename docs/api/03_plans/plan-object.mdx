@@ -123,7 +123,7 @@ This object represents a plan.<br></br>
 | **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifier of the charge in Lago application. |
 | **lago_billable_metric_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifier of the related billable metric in Lago application. |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of charge creation. |
-| **charge_model** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Charge model used in event calculations. <br></br> <details><summary>**Possible values**</summary><div>- `standard`<br></br>- `graduated`<br></br>- `package`<br></br>- `percentage`<div></div></div></details> |
+| **charge_model** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Charge model used in event calculations. <br></br> <details><summary>**Possible values**</summary><div>- `standard`<br></br>- `graduated`<br></br>- `package`<br></br>- `percentage`<br></br>- `volume`<div></div></div></details> |
 | **properties** &nbsp &nbsp <Type>JSON</Type> | Extra data. This field will depend on selected charge_model |
 
 #### Standard charge model
