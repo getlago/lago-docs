@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/anniversary-date",
+            "content_html": "<p>When assigning a plan to a customer, you can now choose whether the subscription should be renewed at the beginning of the period or on its anniversary date.</p><p>For instance, if a monthly plan is assigned to a customer on August 10th and you choose to align the billing cycle with the anniversary date of the subscription, the customer will be billed every 10th of the month.</p><p>With <a href=\"/docs/api/subscriptions/create-subscription#arguments\">the API</a>, you can use the <code>billing_time</code> attribute to choose your preferred option. If not provided, Lago will base the subscription on calendar periods.</p><p><a href=\"/docs/guide/plans/subscription\">Learn more</a></p>",
+            "url": "https://getlago.com/changelog/anniversary-date",
+            "title": "Anniversary dates for subscriptions",
+            "summary": "When assigning a plan to a customer, you can now choose whether the subscription should be renewed at the beginning of the period or on its anniversary date.",
+            "date_modified": "2022-08-23T11:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/free-units-percentage-model",
             "content_html": "<p>We have released an enhanced version of the percentage charge model, including:</p><ul><li>Ability to define free units based on the number of events (e.g. first 3 events are free); and</li><li>Ability to define free units based on the total amount (e.g. first $500 are free).</li></ul><p>Please refer to the <a href=\"/docs/guide/plans/charges#percentage-charge-model\">documentation</a> for more information.</p>",
             "url": "https://getlago.com/changelog/free-units-percentage-model",

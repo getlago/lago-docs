@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-08-23T10:00:00.000Z</updated>
+    <updated>2022-08-23T11:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
     <icon>https://getlago.com/img/lago.ico</icon>
     <rights>Copyright © 2022 Lago.</rights>
+    <entry>
+        <title type="html"><![CDATA[Anniversary dates for subscriptions]]></title>
+        <id>/anniversary-date</id>
+        <link href="https://getlago.com/changelog/anniversary-date"/>
+        <updated>2022-08-23T11:00:00.000Z</updated>
+        <summary type="html"><![CDATA[When assigning a plan to a customer, you can now choose whether the subscription should be renewed at the beginning of the period or on its anniversary date.]]></summary>
+        <content type="html"><![CDATA[<p>When assigning a plan to a customer, you can now choose whether the subscription should be renewed at the beginning of the period or on its anniversary date.</p><p>For instance, if a monthly plan is assigned to a customer on August 10th and you choose to align the billing cycle with the anniversary date of the subscription, the customer will be billed every 10th of the month.</p><p>With <a href="/docs/api/subscriptions/create-subscription#arguments">the API</a>, you can use the <code>billing_time</code> attribute to choose your preferred option. If not provided, Lago will base the subscription on calendar periods.</p><p><a href="/docs/guide/plans/subscription">Learn more</a></p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Free units for the percentage charge model]]></title>
         <id>/free-units-percentage-model</id>
