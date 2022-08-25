@@ -41,7 +41,7 @@ For example:
 >
 >If you choose to align the billing cycle with the anniversary date of the subscription, the customer will be billed every 10th of the month.
 >
->The first billing period will run from 10th August to 9th September.
+>The first billing period will run from August 10th to September 9th.
 
 ![Illustration of the anniversary date logic](../../../static/img/anniversary-date.png)
 
