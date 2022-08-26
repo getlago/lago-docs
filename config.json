@@ -1,7 +1,7 @@
 {
   "index_name": "lago-docs",
   "start_urls": [
-    "https://doc.getlago.com/docs/guide/intro",
+    "https://doc.getlago.com/docs/guide/intro/welcome",
     "https://doc.getlago.com/docs/guide/self-hosting/docker",
     "https://doc.getlago.com/docs/guide/self-hosting/tracking",
     "https://doc.getlago.com/docs/guide/lago-cloud",
@@ -49,7 +49,7 @@
     "https://doc.getlago.com/docs/api/subscriptions/terminate-subscription",
 
     "https://doc.getlago.com/docs/api/events",
-    
+
     "https://doc.getlago.com/docs/api/coupons/coupon-object",
     "https://doc.getlago.com/docs/api/coupons/create-coupon",
     "https://doc.getlago.com/docs/api/coupons/update-coupon",
