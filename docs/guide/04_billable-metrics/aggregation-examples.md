@@ -14,7 +14,7 @@ You decided to charge the `Tracked Pages`. **This is your Billable metric.** Her
 ```json title="Event received n°1"
 {
     "transaction_id": "1111-1111-1111-1111",
-    "customer_id": "1",
+    "external_customer_id": "1",
     "timestamp": "2022-03-16T00:00:00Z",
     "code": "tracked_pages",
     "properties": {
@@ -27,7 +27,7 @@ You decided to charge the `Tracked Pages`. **This is your Billable metric.** Her
 ```json title="Event received n°2"
 {
     "transaction_id": "2222-2222-2222-2222",
-    "customer_id": "1",
+    "external_customer_id": "1",
     "timestamp": "2022-03-17T00:00:00Z",
     "code": "tracked_pages",
     "properties": {

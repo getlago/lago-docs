@@ -27,7 +27,7 @@ import TabItem from '@theme/TabItem';
     --header 'Content-Type: application/json' \
     --data-raw '{
       "subscription": {
-        "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+        "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
         "plan_code": "code",
         "unique_id": "id",
         "name": "display name",
@@ -46,7 +46,7 @@ import TabItem from '@theme/TabItem';
   client = Client(api_key='__YOUR_API_KEY__')
 
   subscription = Subscription(
-    customer_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    external_customer_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
     plan_code="code",
     unique_id="id",
     name="display name",
@@ -66,7 +66,7 @@ import TabItem from '@theme/TabItem';
   let client = new Client('__API_KEY__')
 
   let subscription = new Subscription({
-    customerId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    externalCustomerId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
     planCode: "code",
     uniqueId: "id",
     name: "display name",
@@ -86,7 +86,7 @@ import TabItem from '@theme/TabItem';
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
   client.subscriptions.create(
-    customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    external_customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     plan_code: "code",
     unique_id: "id",
     name: "display name",
@@ -106,7 +106,7 @@ import TabItem from '@theme/TabItem';
         SetApiKey("__YOUR_API_KEY__")
 
       subscriptionInput := &lago.SubscriptionInput{
-        CustomerID:   "__YOUR_CUSTOMER_ID__",
+        ExternalCustomerID:   "__YOUR_CUSTOMER_ID__",
         PlanCode:     "__YOUR_PLAN_CODE__",
         BillingTime: lago.Anniversary,
       }
@@ -131,7 +131,7 @@ import TabItem from '@theme/TabItem';
 ```json
 {
   "subscription": {
-    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     "plan_code": "new_code",
     "unique_id": "id",
     "name": "name",
@@ -143,9 +143,9 @@ import TabItem from '@theme/TabItem';
 
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
-| customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
+| external_customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
 | plan_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the plan.<br></br>It must match the `code` property of one of the plans. |
-| unique_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique external identifier of the subscription. Used as an idempotency key. Can also be used for upgrades/downgrades. Default value if not provided: `customer_id`. |
+| unique_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique external identifier of the subscription. Used as an idempotency key. Can also be used for upgrades/downgrades. Default value if not provided: `external_customer_id`. |
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Subscription display name. |
 | subscription_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Current subscription ID. Only used for upgrades/downgrades. |
 | billing_time | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Billing time of the subscription.<br></br>It can be `anniversary` or `calendar`<br></br>If not provided, it will default to `calendar` |

@@ -34,7 +34,7 @@ The fee object is embedded in the invoice object, as illustrated below.
     "total_amount_currency": "EUR",
     "customer": {
       "lago_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
-      "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+      "external_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
       "address_line1": "5230 Penfield Ave",
       "address_line2": null,
       "city": "Woodland Hills",
@@ -54,7 +54,7 @@ The fee object is embedded in the invoice object, as illustrated below.
     "subscription": {
       "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
       "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
-      "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+      "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
       "canceled_at": "2022-04-29T08:59:51Z",
       "created_at": "2022-04-29T08:59:51Z",
       "plan_code": "new_code",

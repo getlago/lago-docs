@@ -29,15 +29,15 @@ api/v1/events/batch
   --header "Authorization: Bearer $API_KEY" \
   --header 'Content-Type: application/json' \
   --data-raw '{
-        "event": { 
+        "event": {
             "transaction_id": "__UNIQUE_ID__",
             "subscription_ids": ["id1", "id2"],
-            "code": "__EVENT_CODE__", 
-            "timestamp": $(date +%s), 
-            "properties": { 
-              "custom_field": 12 
+            "code": "__EVENT_CODE__",
+            "timestamp": $(date +%s),
+            "properties": {
+              "custom_field": 12
             }
-        } 
+        }
     }'
   ```
 
@@ -112,7 +112,7 @@ api/v1/events/batch
 {
   "event": {
     "transaction_id": "__UNIQUE_ID__",
-    "customer_id": "__CUSTOMER_ID__",
+    "external_customer_id": "__YOUR_CUSTOMER_ID__",
     "subscription_ids": ["id1", "id2"],
     "code": "__EVENT_CODE__",
     "timestamp": 1650893379,
@@ -127,7 +127,7 @@ api/v1/events/batch
 | -----------| -----| ----------- |
 | **transaction_id** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique ID identifying the event. <br></br>As it will be used for idempotency, it should be a unique identifier |
 | **subscription_ids** | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | Array of subscription ids that belongs to one customer |
-| **customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer unique identifier in your application |
+| **external_customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer unique identifier in your application |
 | **code** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the type of the event.<br></br> It should match the `code` property of one of your active billable metrics, otherwise it will be ignored |
 | **timestamp** | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*Default: event reception timestamp*</Comment> | Unix timestamp of the event occurence in UTC.<br></br> If not provided, the API will set the event reception time |
 | **properties** | JSON &nbsp &nbsp &nbsp<Variable>**Variable**</Variable> | Extra data to use for the event aggregation.<br></br>When mandatory, it should contains the `field_name` configured at billable metric level as `key` and any value as field `value`.<br></br><details><summary>**Aggregation type:**</summary><div>- `COUNT`: **optional**<br></br>- `MAX`: **required**. value must be an integer<br></br>- `SUM`: **required**. value must be an integer<br></br>- `COUNT UNIQUE`: **required**. value could have any datatype<div></div></div></details> |

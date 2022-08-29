@@ -9,11 +9,11 @@ You can create or update a customer both from the API or the user interface. The
 
 ### Mandatory fields
 To create a customer, 2 mandatory information are required:
-- A `customer_id` <Required>(Required)</Required>: usual good practice is to send the unique id from your backend;
+- An `external_id` <Required>(Required)</Required>: usual good practice is to send the unique id from your backend;
 - A customer `name` <Required>(Required)</Required>: name of the customer.
 
 :::caution
-You cannot change the `customer_id` of a customer with an active subscription (active plan assigned to this customer).
+You cannot change the `external_id` of a customer with an active subscription (active plan assigned to this customer).
 :::
 
 ### Additional fields
@@ -40,7 +40,7 @@ These additional fields can be added later on by updating a customer.
 ```json title="Customer's information example"
 {
   "customer": {
-    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "external_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     "address_line1": "5230 Penfield Ave",
     "address_line2": null,
     "city": "Woodland Hills",
@@ -60,7 +60,7 @@ These additional fields can be added later on by updating a customer.
 ```
 
 ## Update a customer
-You can update a customer anytime you need by using the same endpoint. To do so, you just need to pass in the payload the `customer_id` of the customer you want to update.
+You can update a customer anytime you need by using the same endpoint. To do so, you just need to pass in the payload the `external_id` of the customer you want to update.
 
 ## Delete a customer
 You can delete a customer **only if this customer does not have an active subscription** (active plan assigned to this customer).
@@ -78,13 +78,13 @@ Before sending event to a customer as usage measurement, **you must define [bill
 
 By sending an event to a customer, you are assigning a usage-based consumption from your application.
 
-In Lago, all ingested events must hold a `customer_id`, as shown in the following example:
+In Lago, all ingested events must hold an `external_customer_id`, as shown in the following example:
 
 ```json title="Event example"
 {
   "event": {
     "transaction_id": "__UNIQUE_ID__", // unique id of the event
-    "customer_id": "__CUSTOMER_ID__", // customer_id of your customer
+    "external_customer_id": "__CUSTOMER_ID__", // id of your customer
     "code": "__EVENT_CODE__", // code of the targeted billable metric
     "timestamp": 1650893379,
     "properties": {
@@ -97,13 +97,13 @@ Events represents the data delivered to Lago application that are aggregated int
 
 ## Displaying customer current usage
 After assigning a plan to a customer and start ingesting usage-based events, it is often useful to know what is the **current usage** of this specific customer during the ongoing billable period.
-This current usage displays: 
+This current usage displays:
 - The total amount of usage that will be billed in the next invoice;
 - The breakdown per usage-based charges (number of units consumed and amount to be billed).
 
 To access this feature, select a specific customer and access the `Usage` tab.
 
-On top of this, you can fetch via the API the current usage of a specific customer using the following endpoint `GET /api/v1/customers/:customer_id/current_usage`.
+On top of this, you can fetch via the API the current usage of a specific customer using the following endpoint `GET /api/v1/customers/:external_customer_id/current_usage`.
 
 ## Invoicing a customer
 Lago automatically generates an invoice for all your customers at the end of each billing period.
@@ -112,7 +112,7 @@ Click on the following link to [know more about invoicing with Lago](./invoicing
 
 ## Customer Slug
 The customer slug is a unique identifier for a customer that will be used to build an invoice number.
-This slug respect this format: 
+This slug respect this format:
 - `LAG-1234-001`
 - `LAG` is the first 3 letters of the customer's organization
 - `1234` is the last 4 characters of the customer's organization's id
