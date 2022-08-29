@@ -29,7 +29,7 @@ import TabItem from '@theme/TabItem';
       "subscription": {
         "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
         "plan_code": "code",
-        "unique_id": "id",
+        "external_id": "id",
         "name": "display name",
         "billing_time": "anniversary"
       }
@@ -48,7 +48,7 @@ import TabItem from '@theme/TabItem';
   subscription = Subscription(
     external_customer_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
     plan_code="code",
-    unique_id="id",
+    external_id="id",
     name="display name",
     billing_time="anniversary"
   )
@@ -68,7 +68,7 @@ import TabItem from '@theme/TabItem';
   let subscription = new Subscription({
     externalCustomerId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
     planCode: "code",
-    uniqueId: "id",
+    externalId: "id",
     name: "display name",
     billingTime: "anniversary"
   })
@@ -88,7 +88,7 @@ import TabItem from '@theme/TabItem';
   client.subscriptions.create(
     external_customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     plan_code: "code",
-    unique_id: "id",
+    external_id: "id",
     name: "display name",
     billing_time: "anniversary"
   )
@@ -133,9 +133,8 @@ import TabItem from '@theme/TabItem';
   "subscription": {
     "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     "plan_code": "new_code",
-    "unique_id": "id",
     "name": "name",
-    "subscription_id": "sub id",
+    "external_id": "sub id",
     "billing_time": "anniversary"
   }
 }
@@ -145,9 +144,8 @@ import TabItem from '@theme/TabItem';
 | -----------| -----| ----------- |
 | external_customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
 | plan_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the plan.<br></br>It must match the `code` property of one of the plans. |
-| unique_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique external identifier of the subscription. Used as an idempotency key. Can also be used for upgrades/downgrades. Default value if not provided: `external_customer_id`. |
+| external_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique external identifier of the subscription. Used as an idempotency key. Can also be used for upgrades/downgrades. Default value if not provided: `external_customer_id`. |
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Subscription display name. |
-| subscription_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Current subscription ID. Only used for upgrades/downgrades. |
 | billing_time | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Billing time of the subscription.<br></br>It can be `anniversary` or `calendar`<br></br>If not provided, it will default to `calendar` |
 
 

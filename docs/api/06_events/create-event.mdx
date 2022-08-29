@@ -32,7 +32,7 @@ api/v1/events
         "event": {
             "transaction_id": "__UNIQUE_ID__",
             "external_customer_id": "__YOUR_CUSTOMER_ID__",
-            "subscription_id": "__SUBSCRIPTION_ID__",
+            "external_subscription_id": "__YOUR_SUBSCRIPTION_ID__",
             "code": "__EVENT_CODE__",
             "timestamp": $(date +%s),
             "properties": {
@@ -55,7 +55,7 @@ api/v1/events
   event = Event(
     transaction_id="__UNIQUE_ID__",
     external_customer_id="__UNIQUE_ID__",
-    subscription_id="__UNIQUE_ID__",
+    external_subscription_id="__UNIQUE_ID__",
     code="code",
     timestamp=1650893379,
     properties={"custom_field": "custom"}
@@ -76,7 +76,7 @@ api/v1/events
   client.events.create(
     transaction_id: "__UNIQUE_ID__",
     external_customer_id: "__CUSTOMER_ID__",
-    subscription_id: "__SUBSCRIPTION_ID__",
+    external_subscription_id: "__SUBSCRIPTION_ID__",
     code: "code",
     timestamp: Time.now.to_i,
     properties: {
@@ -98,7 +98,7 @@ api/v1/events
   let event = new Event({
     transactionId: "__UNIQUE_TRANSACTION_ID__",
     externalCustomerId: "__UNIQUE_CUSTOMER_ID__",
-    subscriptionId: "__UNIQUE_SUBSCRIPTION_ID__",
+    externalSubscriptionId: "__UNIQUE_SUBSCRIPTION_ID__",
     code: "code",
     timestamp: 1650893379,
     properties: {customField: "custom"}
@@ -122,7 +122,7 @@ api/v1/events
       eventInput := &lago.EventInput{
         TransactionID: "transac_1234",
         ExternalCustomerID: "vincent_12345",
-        SubscriptionID: "1dbe81ce-b092-401c-a00b-314292e17a98",
+        ExternalSubscriptionID: "1dbe81ce-b092-401c-a00b-314292e17a98",
         Code:          "code",
         Timestamp:     time.Now().Unix(),
         Properties: map[string]string{
@@ -148,7 +148,7 @@ api/v1/events
   "event": {
     "transaction_id": "__UNIQUE_ID__",
     "external_customer_id": "__CUSTOMER_ID__",
-    "subscription_id": "__SUBSCRIPTION_ID__",
+    "external_subscription_id": "__SUBSCRIPTION_ID__",
     "code": "__EVENT_CODE__",
     "timestamp": 1650893379,
     "properties": {
@@ -161,8 +161,8 @@ api/v1/events
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
 | **transaction_id** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique ID identifying the event. <br></br>As it will be used for idempotency, it should be a unique identifier |
-| **subscription_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique subscription ID in Lago's application.<br></br>`subscription_id` is required if the customer has multiple subscriptions or if `external_customer_id` is not provided (in case there's only one subscription) |
-| **external_customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer unique identifier in your application.<br></br>If `subscription_id` is not given, `external_customer_id` is required if there is only one subscription attached to customer. For multiple subscriptions per customer this attribute is not enough |
+| **external_subscription_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique subscription ID in Lago's application.<br></br>`external_subscription_id` is required if the customer has multiple subscriptions or if `external_customer_id` is not provided (in case there's only one subscription) |
+| **external_customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer unique identifier in your application.<br></br>If `external_subscription_id` is not given, `external_customer_id` is required if there is only one subscription attached to customer. For multiple subscriptions per customer this attribute is not enough |
 | **code** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the type of the event.<br></br> It should match the `code` property of one of your active billable metrics, otherwise it will be ignored |
 | **timestamp** | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*Default: event reception timestamp*</Comment> | Unix timestamp of the event occurence in UTC.<br></br> If not provided, the API will set the event reception time |
 | **properties** | JSON &nbsp &nbsp &nbsp<Variable>**Variable**</Variable> | Extra data to use for the event aggregation.<br></br>When mandatory, it should contains the `field_name` configured at billable metric level as `key` and any value as field `value`.<br></br><details><summary>**Aggregation type:**</summary><div>- `COUNT`: **optional**<br></br>- `MAX`: **required**. value must be an integer<br></br>- `SUM`: **required**. value must be an integer<br></br>- `COUNT UNIQUE`: **required**. value could have any datatype<div></div></div></details> |

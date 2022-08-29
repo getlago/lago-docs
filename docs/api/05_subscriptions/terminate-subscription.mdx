@@ -21,9 +21,9 @@ import TabItem from '@theme/TabItem';
   ```bash
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
-  SUBSCRIPTION_ID="__SUBSCRIPTION_ID__"
+  EXTERNAL_ID="__YOUR_SUBSCRIPTION_ID__"
 
-  curl --location --request DELETE "$LAGO_URL/api/v1/subscriptions/$SUBSCRIPTION_ID" \
+  curl --location --request DELETE "$LAGO_URL/api/v1/subscriptions/$EXTERNAL_ID" \
     --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.subscriptions().destroy('subscription_id')
+  client.subscriptions().destroy('external_id')
   ```
   </TabItem>
 
@@ -91,12 +91,12 @@ import TabItem from '@theme/TabItem';
 Should be sent as request parameters
 
 ```
-subscription_id: 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba
+external_id: 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba
 ```
 
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
-| subscription_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Subscription unique identifier in Lago application |
+| external_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Subscription unique identifier in your application |
 
 
 ## Response

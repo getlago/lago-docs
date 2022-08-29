@@ -31,7 +31,7 @@ api/v1/events/batch
   --data-raw '{
         "event": {
             "transaction_id": "__UNIQUE_ID__",
-            "subscription_ids": ["id1", "id2"],
+            "external_subscription_ids": ["id1", "id2"],
             "code": "__EVENT_CODE__",
             "timestamp": $(date +%s),
             "properties": {
@@ -52,7 +52,7 @@ api/v1/events/batch
   client = Client(api_key='__YOUR_API_KEY__')
 
   event = BatchEvent(
-    subscription_ids=["id1", "id2"],
+    external_subscription_ids=["id1", "id2"],
     transaction_id="__UNIQUE_ID__",
     code="code",
     timestamp=1650893379,
@@ -73,7 +73,7 @@ api/v1/events/batch
 
   client.events.batch_create(
     transaction_id: "__UNIQUE_ID__",
-    subscription_ids: ["id1", "id2"],
+    external_subscription_ids: ["id1", "id2"],
     code:  "code",
     timestamp: Time.now.to_i,
     properties: {
@@ -94,7 +94,7 @@ api/v1/events/batch
 
   let event = new BatchEvent({
     transactionId: "__UNIQUE_TRANSACTION_ID__",
-    subscriptionIds: ["id1", "id2"],
+    externalSubscriptionIds: ["id1", "id2"],
     code: "code",
     timestamp: 1650893379,
     properties: {customField: "custom"}
@@ -113,7 +113,7 @@ api/v1/events/batch
   "event": {
     "transaction_id": "__UNIQUE_ID__",
     "external_customer_id": "__YOUR_CUSTOMER_ID__",
-    "subscription_ids": ["id1", "id2"],
+    "external_subscription_ids": ["id1", "id2"],
     "code": "__EVENT_CODE__",
     "timestamp": 1650893379,
     "properties": {
@@ -126,7 +126,7 @@ api/v1/events/batch
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
 | **transaction_id** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique ID identifying the event. <br></br>As it will be used for idempotency, it should be a unique identifier |
-| **subscription_ids** | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | Array of subscription ids that belongs to one customer |
+| **external_subscription_ids** | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | Array of subscription ids that belongs to one customer |
 | **external_customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer unique identifier in your application |
 | **code** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the type of the event.<br></br> It should match the `code` property of one of your active billable metrics, otherwise it will be ignored |
 | **timestamp** | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*Default: event reception timestamp*</Comment> | Unix timestamp of the event occurence in UTC.<br></br> If not provided, the API will set the event reception time |

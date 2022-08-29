@@ -55,7 +55,7 @@ You may create several subscriptions for a customer by assigning them multiple p
 :::caution
 There are some rules to keep in mind when assigning multiple plans to a customer:
 1. All plans must be denominated in the same currency; and
-2. You must specify the `subscription_id` for each event or create [batch events](../../api/events/create-batch-event).
+2. You must specify the `external_subscription_id` for each event or create [batch events](../../api/events/create-batch-event).
 :::
 
 We recommend that you give each subscription a name when assigning multiple plans to a customer. The subscription names will make it easier to differentiate each plan and will also be displayed on the invoices.
