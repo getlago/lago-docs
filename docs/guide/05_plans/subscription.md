@@ -16,6 +16,8 @@ To assign a plan to a customer through the user interface:
 When a subscription is active, Lago will automatically generate invoices for the customer according to the [plan model](./plan-model). It will also start monitoring the customer's consumption, which means that you can start pushing [events](../../api/events/create-event) related to this subscription.
 
 ## Billing cycles
+
+### Calendar billing period
 By default, subscriptions are based on **calendar periods**. Therefore, if you assign a monthly plan to a customer on July 14th:
 - The first invoice will be generated for the period July 14th to July 31st;
 - The next invoice will be generated for the period August 1st to August 31st; and
@@ -32,6 +34,8 @@ Consider the following example:
 >22 days x $50 / 31 days = $35.48
 
 ![Illustration of the anniversary date logic](../../../static/img/calendar-date.png)
+
+### Anniversary Date billing period
 
 However, you can choose to use the **anniversary date** of the subscription to define a custom billing period.
 
