@@ -45,40 +45,60 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
           }
         },
         {
-        "billable_metric_id": "__BILLABLE_METRIC_ID__",
-        "charge_model": "graduated",
-        "properties": [
-          {
-            "to_value": 10,
-            "from_value": 0,
-            "flat_amount": "0",
-            "per_unit_amount": "0.00010"
-          },
-          {
-            "to_value": null,
-            "from_value": 11,
-            "flat_amount": "0",
-            "per_unit_amount": "0.0005"
+          "billable_metric_id": "__BILLABLE_METRIC_ID__",
+          "charge_model": "graduated",
+          "properties": [
+            {
+              "to_value": 10,
+              "from_value": 0,
+              "flat_amount": "0",
+              "per_unit_amount": "0.001"
+            },
+            {
+              "to_value": null,
+              "from_value": 11,
+              "flat_amount": "0",
+              "per_unit_amount": "0.0005"
+            }
+          ]
+        },
+        {
+          "billable_metric_id": "__BILLABLE_METRIC_ID__",
+          "charge_model": "package",
+          "properties": {
+            "amount": "100",
+            "free_units": 10000,
+            "package_size": 1000
           }
-        ]
-      },
-      {
-        "billable_metric_id": "__BILLABLE_METRIC_ID__",
-        "charge_model": "package",
-        "properties": {
-          "amount": "100",
-          "free_units": 10000,
-          "package_size": 1000
+        },
+        {
+          "billable_metric_id": "__BILLABLE_METRIC_ID__",
+          "charge_model": "percentage",
+          "properties": {
+            "rate": "0.5",
+            "fixed_amount": "1",
+            "free_units_per_events": 3,
+            "free_units_per_total_aggregation": null
           }
-      },
-      {
-        "billable_metric_id": "__BILLABLE_METRIC_ID__",
-        "charge_model": "percentage",
-        "properties": {
-          "rate": "0.5",
-          "fixed_amount": "1",
-          "free_units_per_events": 3,
-          "free_units_per_total_aggregation": null
+        },
+        {
+          "billable_metric_id": "__BILLABLE_METRIC_ID__",
+          "charge_model": "volume",
+          "properties": {
+            "ranges": [
+              {
+                "to_value": 10,
+                "from_value": 0,
+                "flat_amount": "0",
+                "per_unit_amount": "0.00010"
+              },
+              {
+                "to_value": null,
+                "from_value": 11,
+                "flat_amount": "0",
+                "per_unit_amount": "0.0005"
+              }
+            ]
           }
         }
       ]
@@ -95,14 +115,82 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  charge = Charge(
+  standard_charge = Charge(
     billable_metric_id='id',
     charge_model='standard',
     properties={
       'amount': '0.22'
     }
   )
-  charges = Charges(__root__=[charge])
+
+  graduated_charge = Charge(
+    billable_metric_id='id,
+    charge_model='graduated',
+    properties=[
+      {
+        'to_value': 10,
+        'from_value': 0,
+        'flat_amount': '0',
+        'per_unit_amount': '0.00010'
+      },
+      {
+        'to_value': None,
+        'from_value': 11,
+        'flat_amount': "0",
+        'per_unit_amount': '0.0005'
+      }
+    ]
+  )
+
+  package_charge = Charge(
+    billable_metric_id='id,
+    charge_model='package',
+    properties={
+      'amount': '100',
+      'free_units': 10000,
+      'package_size': 1000
+    }
+  )
+
+  percentage_charge = Charge(
+    billable_metric_id='id,
+    charge_model='percentage',
+    properties={
+      'rate': '0.5',
+      'fixed_amount': '1',
+      'free_units_per_events': 3,
+      'free_units_per_total_aggregation': None
+    }
+  )
+
+  volume_charge = Charge(
+    billable_metric_id='id,
+    charge_model='volume',
+    properties={
+      'ranges': [
+        {
+          'to_value': 10,
+          'from_value': 0,
+          'flat_amount': '0',
+          'per_unit_amount': '0.00010'
+        },
+        {
+          'to_value': None,
+          'from_value': 11,
+          'flat_amount': '0',
+          'per_unit_amount': '0.0005'
+        }
+      ]
+    }
+  )
+
+  charges = Charges(__root__=[
+    standard_charge,
+    graduated_charge,
+    package_charge,
+    percentage_charge,
+    volume_charge
+  ])
 
   plan = Plan(
     name='name',
@@ -138,7 +226,64 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
         billable_metric_id: 'id',
         charge_model: 'standard',
         properties: {
-          amount: 0.22
+          amount: '0.10'
+        }
+      },
+      {
+        billable_metric_id: 'id',
+        charge_model: 'graduated',
+        properties: [
+          {
+            to_value: 10,
+            from_value: 0,
+            flat_amount: '0',
+            per_unit_amount: '0.00010'
+          },
+          {
+            to_value: nil,
+            from_value: 11,
+            flat_amount: '0',
+            per_unit_amount: '0.0005'
+          }
+        ]
+      },
+      {
+        billable_metric_id: 'id',
+        charge_model: 'package',
+        properties: {
+          amount: '100',
+          free_units: 10000,
+          package_size: 1000
+        }
+      },
+      {
+        billable_metric_id: 'id',
+        charge_model: 'percentage',
+        properties: {
+          rate: '0.5',
+          fixed_amount: '1',
+          free_units_per_events: 3,
+          free_units_per_total_aggregation: nil
+        }
+      },
+      {
+        billable_metric_id: 'id',
+        charge_model: 'volume',
+        properties: {
+          ranges: [
+            {
+              to_value: 10,
+              from_value: 0,
+              flat_amount: '0',
+              per_unit_amount: '0.00010'
+            },
+            {
+              to_value: nil,
+              from_value: 11,
+              flat_amount: '0',
+              per_unit_amount: '0.0005'
+            }
+          ]
         }
       }
     ]
@@ -156,11 +301,95 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 
   let client = new Client('__API_KEY__')
 
-  let charge = new Charge({billableMetricId: 'billable_metric_id', chargeModel: 'standard'})
-  let charges = [charge]
-  let plan = new Plan({name: 'name1', code: 'code1', interval: 'weekly', amountCents: 1000,
-    amountCurrency: 'USD', payInAdvance: true, trialPeriod: 2, description: 'decs',
-    billChargesMonthly: false, charges: charges
+  let standardCharge = new Charge({
+    billableMetricId: 'id',
+    chargeModel: 'standard',
+    properties: {
+      amount: '0.10'
+    }
+  })
+
+  let graduatedCharge = new Charge({
+    billableMetricId: 'id',
+    chargeModel: 'graduated',
+    properties: [
+      {
+        to_value: 10,
+        from_value: 0,
+        flat_amount: '0',
+        per_unit_amount: '0.00010'
+      },
+      {
+        to_value: nil,
+        from_value: 11,
+        flat_amount: '0',
+        per_unit_amount: '0.0005'
+      }
+    ]
+  })
+
+  let packageCharge = new Charge({
+    billableMetricId: 'id',
+    chargeModel: 'package',
+    properties: {
+      amount: '100',
+      free_units: 10000,
+      package_size: 1000
+    }
+  })
+
+  let percentageCharge = new Charge({
+    billableMetricId: 'id',
+    chargeModel: 'percentage',
+    properties: {
+      rate: '0.5',
+      fixed_amount: '1',
+      free_units_per_events: 3,
+      free_units_per_total_aggregation: nil
+    }
+  })
+
+  let volumeCharge = new Charge({
+    billableMetricId: 'id',
+    chargeModel: 'volume',
+    properties: {
+      ranges: [
+        {
+          to_value: 10,
+          from_value: 0,
+          flat_amount: '0',
+          per_unit_amount: '0.00010'
+        },
+        {
+          to_value: nil,
+          from_value: 11,
+          flat_amount: '0',
+          per_unit_amount: '0.0005'
+        }
+      ]
+    }
+  })
+
+  let charges = [
+    standardCharge,
+    packageCharge,
+    graduatedCharge,
+    percentageCharge,
+    volumeCharge,
+  ]
+
+  let plan = new Plan(
+    {
+      name: 'name1',
+      code: 'code1',
+      interval: 'weekly',
+      amountCents: 1000,
+      amountCurrency: 'USD',
+      payInAdvance: true,
+      trialPeriod: 2,
+      description: 'decs',
+      billChargesMonthly: false,
+      charges: charges,
   })
   await client.createPlan(plan);
   ```
@@ -178,11 +407,11 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 
       planInput := &lago.PlanInput{
         Name:           "Plan Go",
-	   		Code:           "plan_go",
-	   		Interval:       lago.PlanMonthly,
-	   		PayInAdvance:   true,
-	   		AmountCents:    1500,
-	   		AmountCurrency: lago.EUR,
+        Code:           "plan_go",
+        Interval:       lago.PlanMonthly,
+        PayInAdvance:   true,
+        AmountCents:    1500,
+        AmountCurrency: lago.EUR,
       }
 
       plan, err := lagoClient.Plan().Create(planInput)
@@ -190,7 +419,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // plan is *lago.Plan
       fmt.Println(plan)
     }
@@ -204,24 +433,24 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 ```json
 {
   "plan": {
-      "name": "Basic",
-      "code": "basic",
-      "interval": "yearly",
-      "description": "This is a basic plan description",
-      "amount_cents": 90000,
-      "amount_currency": "USD",
-      "trial_period": 3.0,
-      "pay_in_advance": true,
-      "bill_charges_monthly": true,
-      "charges": [
-        {
-          "billable_metric_id": "__BILLABLE_METRIC_ID__",
-          "charge_model": "standard",
-          "properties": {
-            "amount": "0.10"
-          }
-        },
-        {
+    "name": "Basic",
+    "code": "basic",
+    "interval": "yearly",
+    "description": "This is a basic plan description",
+    "amount_cents": 90000,
+    "amount_currency": "USD",
+    "trial_period": 3.0,
+    "pay_in_advance": true,
+    "bill_charges_monthly": true,
+    "charges": [
+      {
+        "billable_metric_id": "__BILLABLE_METRIC_ID__",
+        "charge_model": "standard",
+        "properties": {
+          "amount": "0.10"
+        }
+      },
+      {
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
         "charge_model": "graduated",
         "properties": [
@@ -229,13 +458,13 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
             "to_value": 10,
             "from_value": 0,
             "flat_amount": "0",
-            "per_unit_amount": "10"
+            "per_unit_amount": "0.00010"
           },
           {
             "to_value": null,
             "from_value": 11,
             "flat_amount": "0",
-            "per_unit_amount": "5"
+            "per_unit_amount": "0.0005"
           }
         ]
       },
@@ -246,7 +475,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
           "amount": "100",
           "free_units": 10000,
           "package_size": 1000
-          }
+        }
       },
       {
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
@@ -256,11 +485,31 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
           "fixed_amount": "1",
           "free_units_per_events": 3,
           "free_units_per_total_aggregation": null
-          }
         }
-      ]
-    }
+      },
+      {
+        "billable_metric_id": "__BILLABLE_METRIC_ID__",
+        "charge_model": "volume",
+        "properties": {
+          "ranges": [
+            {
+              "to_value": 10,
+              "from_value": 0,
+              "flat_amount": "0",
+              "per_unit_amount": "0.00010"
+            },
+            {
+              "to_value": null,
+              "from_value": 11,
+              "flat_amount": "0",
+              "per_unit_amount": "0.0005"
+            }
+          ]
+        }
+      }
+    ]
   }
+}
 ```
 ### Plan attributes
 | Attributes | Type | Description |
@@ -279,8 +528,62 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 | Attributes | Type | Description |
 |--|--|--|
 | billable_metric_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Billable metric id in lago application |
-| charge_model | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Charge model used in event calculations.<br></br>It can be `standard`, `graduated`, `package` or `percentage` |
+| charge_model | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Charge model used in event calculations.<br></br>It can be `standard`, `graduated`, `package`, `percentage` or `volume` |
 | properties | JSON &nbsp &nbsp &nbsp<Required>**Required**</Required> | Extra data to use for the event calculations.<br></br> |
+
+#### Standard charge model
+| Attributes | Type | Description |
+|--|--|--|
+| amount | String <br></br><Required>**Required**</Required><br></br><Comment>*Decimal*</Comment> | Price of one aggregated unit |
+
+#### Graduated charge model
+
+- Model:
+
+| Attributes | Type | Description |
+|--|--|--|
+| - | Array<br></br><Required>**Required**</Required> | Graduated ranges, sorted from bottom to top boundaries |
+
+- Ranges:
+
+| Attributes | Type | Description |
+|--|--|--|
+| from_value | Integer <br></br><Required>**Required**</Required> | Lower value of the range.<br></br>- Must be `0` or previous range `to_value + 1` |
+| to_value | Integer | Top value of the range.<br></br>- Must be higher than the range from_value.<br></br>- Must be null on last range |
+| per_unit_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated unit between the boundaries |
+| flat_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Flat amount to add to the result if the range is reached |
+
+#### Package charge model
+| Attributes | Type | Description |
+|--|--|--|
+| amount | String <br></br><Required>**Required**</Required><br></br><Comment>*Decimal value*</Comment> | Price of one package |
+| package_size | Integer <br></br><Required>**Required**</Required> | Number of aggregated units per package |
+| free_units | Integer <br></br><Required>**Required**</Required> | Number of aggregated units to exclude before applying the charge model |
+
+#### Percentage charge model
+| Attributes | Type | Description |
+|--|--|--|
+| rate | String <br></br><Required>**Required**</Required><br></br><Comment>*Decimal value*</Comment> | Charge rate that applies to the total amount |
+| fixed_amount | String <br></br><Comment>*Decimal value*</Comment> | Fee that applies to each event ingested during the billing period |
+| free_units_per_events | Integer | Number of events that are not subject to the fixed fee |
+| free_units_per_total_aggregation | String <br></br><Comment>*Decimal value*</Comment> | Amount that is not subject to the charge rate |
+
+#### Volume charge model
+
+- Model:
+
+| Attributes | Type | Description |
+|--|--|--|
+| ranges | Array<br></br><Required>**Required**</Required> | Volume ranges, sorted from bottom to top boundaries |
+
+- Ranges:
+
+| Attributes | Type | Description |
+|--|--|--|
+| from_value | Integer <br></br><Required>**Required**</Required> | Lower value of the range.<br></br>- Must be `0` or previous range `to_value + 1` |
+| to_value | Integer | Top value of the range.<br></br>- Must be higher than the range from_value.<br></br>- Must be null on last range |
+| per_unit_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated unit |
+| flat_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Flat amount to add to the result if the range is reached |
 
 ## Responses
 
