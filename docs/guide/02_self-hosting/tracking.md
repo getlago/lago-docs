@@ -7,12 +7,12 @@ sidebar_position: 2
 ## Why does Lago need data?
 We decided to open-source the billing API we would have dreamt to use. As a consequence of building a self hosted product, we are not able to easily collect any usage metrics or insights to help us build a better product. This analytic help us understand crucial behaviors and ship better quality to serve your needs.
 
-We decided to track, by default, so basic behaviors and metrics that are important to understand the usage of Lago. We have built a minimum required tracking plan to minimize the security impact of collecting those events. All the metrics collected are listed in a further section. We make this as transparent as possible, and we don't track sensitive information (amounts or personal information).
+We decided to track, by default, so basic behaviors and metrics that are important to understand the usage of Lago. We have built a minimum required tracking plan to minimize the security impact of collecting those events. All the metrics collected are listed in a further section. We make this as transparent as possible, and we don't track financial information (amounts of invoices, for instace).
 
 The metrics are collected through the server side Ruby source from [Segment.com](https://segment.com/docs/connections/sources/catalog/libraries/server/ruby/).
 
 :::info
-Lago will not collect any personal information about your customers or the amount of your invoices.
+Lago will not collect any financial information about your customers or your invoices.
 :::
 
 ## Opting out
