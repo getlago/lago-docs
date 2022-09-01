@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/volume-charge-model",
+            "content_html": "<p>The new volume charge model allows you to create a tiered pricing structure and then calculate a unit price that applies to all units depending on total volume.</p><p>It is similar to the graduated charge model, except that only one price tier applies at the end of the billing period.</p><p>Please refer to <a href=\"/docs/guide/plans/charges#volume-charge-model\">the guide</a> and <a href=\"/docs/api/plans/create-plan\">API documentation</a> for more information.</p>",
+            "url": "https://getlago.com/changelog/volume-charge-model",
+            "title": "Volume charge model",
+            "summary": "The new volume charge model allows you to create a tiered pricing structure and then calculate a unit price that applies to all units depending on total volume.",
+            "date_modified": "2022-08-31T10:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/anniversary-date",
             "content_html": "<p>When assigning a plan to a customer, you can now choose whether the subscription should be renewed at the beginning of the period or on its anniversary date.</p><p>For instance, if a monthly plan is assigned to a customer on August 10th and you choose to align the billing cycle with the anniversary date of the subscription, the customer will be billed every 10th of the month.</p><p>With <a href=\"/docs/api/subscriptions/create-subscription#arguments\">the API</a>, you can use the <code>billing_time</code> attribute to choose your preferred option. If not provided, Lago will base the subscription on calendar periods.</p><p><a href=\"/docs/guide/plans/subscription\">Learn more</a></p>",
             "url": "https://getlago.com/changelog/anniversary-date",
