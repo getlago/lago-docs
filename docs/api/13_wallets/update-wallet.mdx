@@ -91,7 +91,7 @@ import TabItem from '@theme/TabItem';
         ExpirationDate:  "2022-07-07"
       }
 
-      wallet, err := lagoClient.Wallet().Update(walletInput)
+      wallet, err := lagoClient.Wallet().Update(walletInput, "__ID__")
       if err != nil {
         // Error is *lago.Error
         panic(err)
