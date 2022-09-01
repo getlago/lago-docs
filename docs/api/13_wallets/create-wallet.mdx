@@ -1,0 +1,245 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Create wallet
+
+## Route
+
+```curl title="POST"
+/api/v1/wallets
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/wallets" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "wallet": {
+        "name": "wallet_name",
+        "rate_amount": "1.5",
+        "paid_credits": "20.0",
+        "granted_credits": "10.0",
+        "expiration_date": "2022-07-07",
+        "external_customer_id": "12345"
+      }
+    }'
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+  from lago_python_client.models import Wallet
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  wallet = Wallet(
+    name='wallet_name',
+    rate_amount='1.5',
+    paid_credits='20.0',
+    granted_credits='10.0',
+    expiration_date='2022-07-07',
+    external_customer_id='12345'
+  )
+  client.wallets().create(wallet)
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.wallets.create({
+      name: 'wallet_name',
+      rate_amount: '1.5',
+      paid_credits: '20.0',
+      granted_credits: '10.0',
+      expiration_date: '2022-07-07',
+      external_customer_id: '12345'
+  })
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import Wallet from 'lago-nodejs-client/wallet'
+
+  let client = new Client('__API_KEY__')
+
+  let wallet = new Wallet({name: 'wallet_name', rate_amount: '1.5', paid_credits: '20.0',
+    granted_credits: '10.0', expiration_date: '2022-07-07', external_customer_id: '12345'
+  })
+  await client.createWallet(wallet);
+  ```
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      walletInput := &lago.WalletInput{
+        Name:               "Wallet Name",
+        RateAmount:         "1.5",
+        PaidCredits:        "20.0"
+        GrantedCredits:     "10.0",
+        ExpirationDate:     "2022-07-07",
+        ExternalCustomerId: "12345",
+      }
+
+      wallet, err := lagoClient.Wallet().Create(walletInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // wallet is *lago.Wallet
+      fmt.Println(wallet)
+    }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "wallet": {
+    "name": "wallet_name",
+    "rate_amount": "1.5",
+    "paid_credits": "20.0",
+    "granted_credits": "10.0",
+    "expiration_date": "2022-07-07",
+    "external_customer_id": "12345"
+  }
+}
+```
+
+| Attributes | Type | Description |
+|--|--|--|
+| name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Wallet name |
+| rate_amount | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Rate between credits and the amount in given currency |
+| paid_credits | String &nbsp &nbsp &nbsp<Optional>**Optional (This field is required only if there is no granted credits)**</Optional> | Paid credits. |
+| granted_credits | String &nbsp &nbsp &nbsp<Optional>**Optional (This field is required only if there is no paid credits)**</Optional> | Granted (free) credits. |
+| expiration_date | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Date that determines when the wallet is expiring. |
+| external_customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | External customer ID. |
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The wallet was created
+
+  Returns a [wallet](./wallet-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `wallet` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message"
+  }
+  ```
+
+  **Possible error messages:**
+  * `Validation error on the record`
+
+
+  </TabItem>
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

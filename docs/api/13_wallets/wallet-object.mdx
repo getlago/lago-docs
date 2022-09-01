@@ -1,0 +1,79 @@
+---
+sidebar_position: 1
+---
+
+# Wallet object
+
+This object represents a wallet.<br></br>
+
+## Schema
+
+```json
+{
+  "wallet": {
+    "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+    "lago_customer_id": "12345",
+    "external_customer_id": "12345678",
+    "status": "active",
+    "currency": "EUR",
+    "name": "name",
+    "rate_amount": 1.5,
+    "credits_balance": 10,
+    "balance": 10,
+    "consumed_credits": 2,
+    "created_at": "2022-04-29T08:59:51Z",
+    "expiration_date": null,
+    "last_balance_sync_at": "2022-04-29T08:59:51Z",
+    "last_consumed_credit_at": "2022-04-29T08:59:51Z"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifier of the wallet in Lago application. |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Internal Lago customer ID. |
+| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | External Lago customer ID. |
+| **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Status. <br></br> <details><summary>**Possible values**</summary><div>- `active`<br></br>- `terminated`<div></div></div></details> |
+| **currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency. |
+| **name** &nbsp &nbsp <Type>String</Type> | Wallet name. |
+| **rate_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Rate used for conversion between credits and amount in given currency. |
+| **credits_balance** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Balance in credits. |
+| **balance** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Balance in specified currency. |
+| **consumed_credits** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Credits consumed. |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of wallet creation. |
+| **expiration_date** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of wallet expiration. |
+| **last_balance_sync_at** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of last wallet top-up. |
+| **last_consumed_credit_at** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of last wallet consumption. |
+| **terminated_at** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of wallet termination. |
+
+
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
