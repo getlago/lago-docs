@@ -1,0 +1,167 @@
+---
+sidebar_position: 6
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Get all Wallets
+
+## Route
+
+```curl title="GET"
+/api/v1/wallets?external_customer_id&per_page=2&page=1
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request GET "$LAGO_URL/api/v1/wallets?external_customer_id&per_page=2&page=1" \
+    --header "Authorization: Bearer $API_KEY"
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  client.wallets().find_all({'external_customer_id': 12345, 'per_page': 2, 'page': 1})
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.wallets.get_all({ external_customer_id: 12345, per_page: 2, page: 3 })
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  let client = new Client('__API_KEY__')
+
+  await client.findAllWallets({external_customer_id: 12345, per_page: 2, page: 3});
+  ```
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      walletListInput := &lago.WalletListInput{
+        PerPage: 10,
+        Page: 1,
+        ExternalCustomerId: 12345
+      }
+
+      walletResult, err := lagoClient.Wallet().GetList(walletListInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // wallet is *lago.WalletResult
+      fmt.Println(walletResult)
+    }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+| Attributes | Type | Description |
+|--|--|--|
+| per_page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Number of records per page. |
+| page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Page number |
+| external_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | External customer ID |
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  Wallets were successfully found
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

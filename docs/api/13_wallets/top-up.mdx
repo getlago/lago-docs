@@ -1,0 +1,227 @@
+---
+sidebar_position: 7
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Top-up wallet
+
+## Route
+
+```curl title="POST"
+/api/v1/wallet_transactions
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/wallet_transactions" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "wallet": {
+        "wallet_id": "12345",
+        "paid_credits": "20.0",
+        "granted_credits": "10.0"
+      }
+    }'
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+  from lago_python_client.models import WalletTransaction
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  transaction = WalletTransaction(
+    wallet_id='12345',
+    paid_credits='20.0',
+    granted_credits='10.0'
+  )
+  client.wallet_transactions().create(transaction)
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.wallet_transactions.create({
+      wallet_id: '12345',
+      paid_credits: '20.0',
+      granted_credits: '10.0'
+  })
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import WalletTransaction from 'lago-nodejs-client/wallet_transaction'
+
+  let client = new Client('__API_KEY__')
+
+  let transaction = new WalletTransaction({wallet_id: '12345', paid_credits: '20.0',
+    granted_credits: '10.0'
+  })
+  await client.createWalletTransaction(transaction);
+  ```
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      walletTransactionInput := &lago.WalletTransactionInput{
+        WalletId:           "12345",
+        PaidCredits:        "20.0"
+        GrantedCredits:     "10.0",
+      }
+
+      transactions, err := lagoClient.WalletTransaction().Create(walletTransactionInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+        
+      // wallet is *lago.Wallet
+      fmt.Println(transactions)
+    }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "wallet_transaction": {
+    "wallet_id": "12345",
+    "paid_credits": "20.0",
+    "granted_credits": "10.0"
+  }
+}
+```
+
+| Attributes | Type | Description |
+|--|--|--|
+| wallet_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Wallet ID |
+| paid_credits | String &nbsp &nbsp &nbsp<Optional>**Optional (This field is required only if there is no granted credits)**</Optional> | Paid credits. |
+| granted_credits | String &nbsp &nbsp &nbsp<Optional>**Optional (This field is required only if there is no paid credits)**</Optional> | Granted (free) credits. |
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The wallet transactions were created
+
+  Returns a [wallet_transaction](./wallet-transaction-object) List.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `wallet_transaction` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "message"
+  }
+  ```
+
+  **Possible error messages:**
+  * `Validation error on the record`
+
+
+  </TabItem>
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
