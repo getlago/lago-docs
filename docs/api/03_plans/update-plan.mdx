@@ -577,7 +577,7 @@ Charges cannot be updated if the plan is linked to a subscription
 |--|--|--|
 | from_value | Integer <br></br><Required>**Required**</Required> | Lower value of the range.<br></br>- Must be `0` or previous range `to_value + 1` |
 | to_value | Integer | Top value of the range.<br></br>- Must be higher than the range from_value.<br></br>- Must be null on last range |
-| per_unit_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated units between the boundaries |
+| per_unit_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated unit between the boundaries |
 | flat_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Flat amount to add to the result if the range is reached |
 
 #### Package charge model
@@ -609,7 +609,7 @@ Charges cannot be updated if the plan is linked to a subscription
 |--|--|--|
 | from_value | Integer <br></br><Required>**Required**</Required> | Lower value of the range.<br></br>- Must be `0` or previous range `to_value + 1` |
 | to_value | Integer | Top value of the range.<br></br>- Must be higher than the range from_value.<br></br>- Must be null on last range |
-| per_unit_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated units |
+| per_unit_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated unit |
 | flat_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Flat amount to add to the result if the range is reached |
 
 ## Responses

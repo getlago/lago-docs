@@ -145,7 +145,7 @@ This object represents a plan.<br></br>
 | -----------| ----------- |
 | **from_value** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Lower value of the range.<br></br>- Must be `0` or previous range `to_value + 1` |
 | **to_value** &nbsp &nbsp <Type>Integer</Type> | Top value of the range.<br></br>- Must be higher than the range from_value.<br></br>- Must be null on last range. |
-| **per_unit_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated units between the boundaries |
+| **per_unit_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated unit between the boundaries |
 | **flat_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Flat amount to add to the result if the range is reached |
 
 #### Package charge model
@@ -177,7 +177,7 @@ This object represents a plan.<br></br>
 | -----------| ----------- |
 | **from_value** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Lower value of the range.<br></br>- Must be `0` or `previous range to_value + 1` |
 | **to_value** &nbsp &nbsp <Type>Integer</Type> | Top value of the range.<br></br>- Must be higher than the range from_value.<br></br>- Must be null on last range. |
-| **per_unit_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated units |
+| **per_unit_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated unit |
 | **flat_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*Decimal value*</Comment> | Flat amount to add to the result if the range is reached |
 
 export const Type = ({children, color}) => (
