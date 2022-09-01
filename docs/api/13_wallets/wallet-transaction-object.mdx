@@ -1,0 +1,66 @@
+---
+sidebar_position: 8
+---
+
+# Wallet transaction object
+
+This object represents a wallet transaction object.<br></br>
+
+## Schema
+
+```json
+{
+  "wallet_transaction": {
+    "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac1111",
+    "lago_wallet_id": "12345",
+    "status": "settled",
+    "transaction_type": "inbound",
+    "amount": 10,
+    "credit_amount": 10,
+    "settled_at": "2022-04-29T08:59:51Z",
+    "created_at": "2022-04-29T08:59:51Z"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifier of the wallet transaction in Lago application. |
+| **lago_wallet_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Internal Lago wallet ID. |
+| **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Status. <br></br> <details><summary>**Possible values**</summary><div>- `pending`<br></br>- `settled`<div></div></div></details> |
+| **transaction_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Transaction type. <br></br> <details><summary>**Possible values**</summary><div>- `inbound (increasing balance)`<br></br>- `outbound (decreasing balance)`<div></div></div></details> |
+| **credit_amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Credits amount. |
+| **amount** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount based on rate and currency. |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of wallet transaction creation. |
+| **settled_at** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of wallet transaction settling. |
+
+
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
