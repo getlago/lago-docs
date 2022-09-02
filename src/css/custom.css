@@ -174,3 +174,12 @@ table {
   margin-top: 26px!important;
 }
 
+@media (min-width: 997px){
+
+  div[class^='sidebar_node_modules'] {
+    height: auto!important;
+    max-height: none;
+  }
+
+}
+
