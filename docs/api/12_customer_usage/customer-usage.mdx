@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Route
 
 ```curl title="GET"
-/api/v1/customers/:customer_id/current_usage?subscription_id=id
+/api/v1/customers/:external_customer_id/current_usage?external_subscription_id=id
 ```
 
 ## Usage
@@ -21,10 +21,10 @@ import TabItem from '@theme/TabItem';
   ```bash
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
-  CUSTOMER_ID="__CUSTOMER_ID__"
-  SUBSCRIPTION_ID="__SUBSCRIPTION_ID__"
+  EXTERNAL_CUSTOMER_ID="__EXTERNAL_CUSTOMER_ID__"
+  EXTERNAL_SUBSCRIPTION_ID="__EXTERNAL_SUBSCRIPTION_ID__"
 
- curl --location --request GET "$LAGO_URL/api/v1/customers/$CUSTOMER_ID/current_usage?subscription_id=$SUBSCRIPTION_ID" \
+ curl --location --request GET "$LAGO_URL/api/v1/customers/$EXTERNAL_CUSTOMER_ID/current_usage?external_subscription_id=$EXTERNAL_SUBSCRIPTION_ID" \
   --header "Authorization: Bearer $API_KEY" \
   --header 'Content-Type: application/json'
   ```
@@ -38,7 +38,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  customer_usage = client.customers().current_usage('customer_id', 'subscription_id')
+  customer_usage = client.customers().current_usage('external_customer_id', 'external_subscription_id')
   ```
 
   </TabItem>
@@ -50,7 +50,7 @@ import TabItem from '@theme/TabItem';
 
   let client = new Client('__API_KEY__')
 
-  let customerUsage = await client.customerCurrentUsage('customer_id', 'subscription_id')
+  let customerUsage = await client.customerCurrentUsage('external_customer_id', 'external_subscription_id')
   ```
 
   </TabItem>
@@ -61,7 +61,7 @@ import TabItem from '@theme/TabItem';
   require 'lago-ruby-client'
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
-  customer_usage = client.customer.current_usage('customer_id', 'subscription_id')
+  customer_usage = client.customer.current_usage('external_customer_id', 'external_subscription_id')
   ```
 
   </TabItem>
@@ -81,7 +81,7 @@ import TabItem from '@theme/TabItem';
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // customerUsage is *lago.CustomerUsage
       fmt.Println(customerUsage)
     }
@@ -94,7 +94,7 @@ import TabItem from '@theme/TabItem';
 
 | Attributes | Type | Description |
 | ---------- | ---- | ----------- |
-| customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
+| external_customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
 
 ## Responses
 
@@ -131,7 +131,7 @@ import TabItem from '@theme/TabItem';
   }
   ```
 
-  The provided `customer_id` does not match an existing customer.
+  The provided `external_customer_id` does not match an existing customer.
 
   </TabItem>
   <TabItem value="422" label="HTTP 422">

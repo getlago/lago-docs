@@ -27,7 +27,7 @@ import TabItem from '@theme/TabItem';
     --header 'Content-Type: application/json' \
     --data-raw '{
       "applied_add_on": {
-        "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+        "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
         "add_on_code": "code",
         "amount_cents": 123,
         "amount_currency": "EUR"
@@ -45,7 +45,7 @@ import TabItem from '@theme/TabItem';
   client = Client(api_key='__YOUR_API_KEY__')
 
   applied_add_on = AppliedAddOn(
-    customer_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    external_customer_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
     add_on_code="code",
     amount_cents=123,
     amount_currency="EUR"
@@ -63,7 +63,7 @@ import TabItem from '@theme/TabItem';
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
   client.applied_add_ons.create(
-    customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    external_customer_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     add_on_code: "code",
     amount_cents: 123,
     amount_currency: "EUR"
@@ -79,7 +79,7 @@ import TabItem from '@theme/TabItem';
   let client = new Client('__API_KEY__')
 
   let appliedAddOn = new AppliedAddOn(
-      "5eb02857-a71e-4ea2-bcf9-57d8885990ba",  // customerId
+      "5eb02857-a71e-4ea2-bcf9-57d8885990ba",  // externalCustomerId
       "code"  // addOnCode
       123,  // amountCents
       "EUR"  // amountCurrency
@@ -99,7 +99,7 @@ import TabItem from '@theme/TabItem';
         SetApiKey("__YOUR_API_KEY__")
 
       addOnInput := &lago.ApplyAddOnInput{
-        CustomerID:     "__YOUR_CUSTOMER_ID__",
+        ExternalCustomerID:     "__YOUR_CUSTOMER_ID__",
 	   		AddOnCode:      "__YOUR_ADDON_CODE__",
 	   		AmountCents:    1000,
 	   		AmountCurrency: lago.EUR,
@@ -110,7 +110,7 @@ import TabItem from '@theme/TabItem';
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // appliedAddOn is *lago.AppliedAddOn
       fmt.Println(appliedAddOn)
     }
@@ -124,7 +124,7 @@ import TabItem from '@theme/TabItem';
 ```json
 {
   "applied_add_on": {
-    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     "add_on_code": "code",
     "amount_cents": 123,
     "amount_currency": "EUR"
@@ -134,7 +134,7 @@ import TabItem from '@theme/TabItem';
 
 | Attributes | Type | Description |
 |--|--|--|
-| customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
+| external_customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
 | add_on_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the add-on.<br></br>It must match the `code` property of the add-on |
 | amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Amount to apply to the customer.<br></br>If defined, it overrides the amount_cents property of the add-on |
 | amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Currency of the amount to apply to the customer.<br></br>If defined, it overrides the amount_currency property of the add-on.<br></br>It must match the currency of the customer's plan. |
@@ -216,7 +216,7 @@ This object represents an add-on assigned to a customer of your business.<br></b
     "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
     "lago_add_on_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
     "add_on_code": "add-on-code",
-    "customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
     "amount_cents": 123,
     "amount_currency": "EUR",
@@ -230,7 +230,7 @@ This object represents an add-on assigned to a customer of your business.<br></b
 | **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the applied add-on in Lago application. |
 | **lago_add_on_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the add-on in Lago application. |
 | **add_on_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the add-on. |
-| **customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application. |
+| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application. |
 | **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application. |
 | **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents. |
 | **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount. |

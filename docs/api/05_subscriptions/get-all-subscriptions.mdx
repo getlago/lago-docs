@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Route
 
 ```curl title="GET"
-/api/v1/subscriptions?customer_id=id
+/api/v1/subscriptions?external_customer_id=id
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request GET "$LAGO_URL/api/v1/subscriptions?customer_id=123" \
+  curl --location --request GET "$LAGO_URL/api/v1/subscriptions?external_customer_id=123" \
     --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
@@ -34,7 +34,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.subscriptions().find_all({'customer_id': '123'})
+  client.subscriptions().find_all({'external_customer_id': '123'})
   ```
   </TabItem>
 
@@ -45,7 +45,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.subscriptions.get_all({ customer_id: '123'})
+  client.subscriptions.get_all({ external_customer_id: '123'})
   ```
   </TabItem>
 
@@ -54,7 +54,7 @@ import TabItem from '@theme/TabItem';
   ```javascript
   let client = new Client('__API_KEY__')
 
-  await client.findAllSubscriptions({customer_id: '123'});
+  await client.findAllSubscriptions({external_customer_id: '123'});
   ```
   </TabItem>
 </Tabs>
@@ -63,7 +63,7 @@ import TabItem from '@theme/TabItem';
 
 | Attributes | Type | Description |
 |--|--|--|
-| customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique identifer of the customer in your application. |
+| external_customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique identifer of the customer in your application. |
 
 ## Responses
 
