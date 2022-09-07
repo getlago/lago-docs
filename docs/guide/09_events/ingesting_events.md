@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 # Ingesting Events
-This guide explains how Lago ingests usage-based events coming from you product.
+This guide explains how Lago ingests usage-based events coming from your application.
 
 ## Define a Billable metric
 **Usage events are designed to target very specific [Billable metrics](../billable-metrics/overview) created from the UI**. If you don't understand the concept of Billable metrics, we recommend you to read it first.
