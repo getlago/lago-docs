@@ -4,11 +4,19 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Thu, 01 Sep 2022 10:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Sep 2022 11:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2022 Lago.</copyright>
+        <item>
+            <title><![CDATA[API changes - External IDs]]></title>
+            <link>https://getlago.com/changelog/external-ids</link>
+            <guid>/external-ids</guid>
+            <pubDate>Wed, 07 Sep 2022 11:00:00 GMT</pubDate>
+            <description><![CDATA[We are introducing changes to the API that will make it easier to manage subscriptions:]]></description>
+            <content:encoded><![CDATA[<p>We are introducing changes to the API that will make it easier to manage subscriptions:</p><ul><li>For the <a href="/docs/api/subscriptions/create-subscription">creation of new subscriptions</a>, <code>subscription_id</code> and <code>unique_id</code> will be removed and replaced with <code>external_id</code> (required); and</li><li>For all other endpoints, <code>subscription_id</code> will be replaced with <code>external_subscription_id</code>.</li></ul><p>This will allow you to operate via the API using your own identifiers and save you the trouble for storing our IDs.</p><p>In addition to this, for consistency purposes:</p><ul><li>For the <a href="/docs/api/customers/create-update-customer">creation of new customers</a>, <code>customer_id</code> will be replaced with <code>external_id</code>; and</li><li>For all other endpoints, <code>customer_id</code> will be replaced with <code>external_customer_id</code>.</li></ul><p>These changes will come into effect on <strong>September 8, 2022</strong>.</p><p>Please <a href="https://www.getlago.com/slack" target="_blank" rel="noopener noreferrer">get in touch</a> with our team if you have any questions.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Prepaid credits]]></title>
             <link>https://getlago.com/changelog/prepaid-credits</link>
