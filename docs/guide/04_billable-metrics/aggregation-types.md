@@ -32,6 +32,9 @@ Here is the full list of **persistent aggregation types** currently supported of
 - **Add**: this `operation_type` adds that item to the units to be charged at the end of the period. You don't need to send the event every billing period to charge your customers. The charge for this item is pro-rated for the first period.
 - **Remove**: this `operation_type` removes that item to the units to be charged at the end of the period. It will not be taken into account for the next billing periods. The charge for this item is pro-rated for the last period.
 
+On the image below, let's take back the example of a fair per-seats pricing.
+![Persistent Billable Metric](../../../static/img/persistent-billable-metric.png)
+
 :::tip
 **Lago automatically created a pro-rated charge based on the number of days consumed by an item during a billing period.** An item that is added is persisted and charged period over period.
 :::
