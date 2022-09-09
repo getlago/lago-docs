@@ -62,7 +62,7 @@ api/v1/events
     external_subscription_id="__UNIQUE_ID__",
     code="code",
     timestamp=1650893379,
-    properties={"custom_field": "custom"}
+    properties={"custom_field": "custom", "operation_type": "add"}
   )
 
   client.events().create(event)
@@ -84,7 +84,8 @@ api/v1/events
     code: "code",
     timestamp: Time.now.to_i,
     properties: {
-        custom_field: 12
+        custom_field: 12,
+        operation_type: "add"
     }
   )
   ```
@@ -105,7 +106,7 @@ api/v1/events
     externalSubscriptionId: "__UNIQUE_SUBSCRIPTION_ID__",
     code: "code",
     timestamp: 1650893379,
-    properties: {customField: "custom"}
+    properties: {customField: "custom", operationType: "add"}
   })
 
   await client.createEvent(event);
@@ -131,6 +132,7 @@ api/v1/events
         Timestamp:     time.Now().Unix(),
         Properties: map[string]string{
 	   			"nbusers": "12",
+          "operation_type": "add",
 	   		},
       }
 
