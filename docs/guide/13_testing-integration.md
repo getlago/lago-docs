@@ -55,7 +55,7 @@ A success toast will be displayed and the new subscription will appear in the cu
 You can also start a subscription through the API, as described in the [documentation](../api/subscriptions/create-subscription).
 
 ## 5. Send usage-based events
-Events sent from your backend to Lago will be automatically aggregated according to the predefined billable metrics. To start sending usage-based events, please refer to the [API documentation](../api/events/create-event).
+Events sent from your backend to Lago will be automatically aggregated according to the predefined billable metrics. To start sending usage-based events, please refer to the [API documentation](../api/events/metered-event).
 
 ## 6. Invoice your customers
 At the end of the billing period, Lago will automatically generate an invoice for each customer. Invoices will be sent to your application using webhooks. To define the URL to which the webhooks will be sent:
