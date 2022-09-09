@@ -1,19 +1,21 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Batch Events
+# Metered events
 
-Batch events represents the data delivered to lago application that will then be aggregated into billable metrics.
-The following endpoint explains how to **send events for multiple subscriptions for one customer.**
+Events represents the data delivered to lago application that will then be aggregated into billable metrics. By sending **a metered event**, **it's not persisted through the next billable periods**. At the end of each period, the total **units to be charged** is resumed to 0.
+Metered events are available for all billable metrics having the following aggregation type: `COUNT`, `SUM`, `MAX` and `COUNT_UNIQUE`. 
+
+The following endpoint explains how to send a metered event for a customer.
 
 ## Route
 
 ```curl title="POST"
-api/v1/events/batch
+api/v1/events
 ```
 
 ## Usage
@@ -25,13 +27,14 @@ api/v1/events/batch
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request POST "$LAGO_URL/api/v1/events/batch" \
+  curl --location --request POST "$LAGO_URL/api/v1/events" \
   --header "Authorization: Bearer $API_KEY" \
   --header 'Content-Type: application/json' \
   --data-raw '{
         "event": {
             "transaction_id": "__UNIQUE_ID__",
-            "external_subscription_ids": ["id1", "id2"],
+            "external_customer_id": "__YOUR_CUSTOMER_ID__",
+            "external_subscription_id": "__YOUR_SUBSCRIPTION_ID__",
             "code": "__EVENT_CODE__",
             "timestamp": $(date +%s),
             "properties": {
@@ -47,19 +50,20 @@ api/v1/events/batch
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import BatchEvent
+  from lago_python_client.models import Event
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  event = BatchEvent(
-    external_subscription_ids=["id1", "id2"],
+  event = Event(
     transaction_id="__UNIQUE_ID__",
+    external_customer_id="__UNIQUE_ID__",
+    external_subscription_id="__UNIQUE_ID__",
     code="code",
     timestamp=1650893379,
     properties={"custom_field": "custom"}
   )
 
-  client.events().batch_create(event)
+  client.events().create(event)
   ```
 
   </TabItem>
@@ -71,13 +75,14 @@ api/v1/events/batch
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.events.batch_create(
+  client.events.create(
     transaction_id: "__UNIQUE_ID__",
-    external_subscription_ids: ["id1", "id2"],
-    code:  "code",
+    external_customer_id: "__CUSTOMER_ID__",
+    external_subscription_id: "__SUBSCRIPTION_ID__",
+    code: "code",
     timestamp: Time.now.to_i,
     properties: {
-      custom_field: 12
+        custom_field: 12
     }
   )
   ```
@@ -88,19 +93,51 @@ api/v1/events/batch
 
   ```javascript
   import Client from 'lago-nodejs-client'
-  import Event from 'lago-nodejs-client/batch_event'
+  import Event from 'lago-nodejs-client/event'
 
   let client = new Client('__API_KEY__')
 
-  let event = new BatchEvent({
+  let event = new Event({
     transactionId: "__UNIQUE_TRANSACTION_ID__",
-    externalSubscriptionIds: ["id1", "id2"],
+    externalCustomerId: "__UNIQUE_CUSTOMER_ID__",
+    externalSubscriptionId: "__UNIQUE_SUBSCRIPTION_ID__",
     code: "code",
     timestamp: 1650893379,
     properties: {customField: "custom"}
   })
 
-  await client.createBatchEvent(event);
+  await client.createEvent(event);
+  ```
+
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      eventInput := &lago.EventInput{
+        TransactionID: "transac_1234",
+        ExternalCustomerID: "vincent_12345",
+        ExternalSubscriptionID: "1dbe81ce-b092-401c-a00b-314292e17a98",
+        Code:          "code",
+        Timestamp:     time.Now().Unix(),
+        Properties: map[string]string{
+	   			"nbusers": "12",
+	   		},
+      }
+
+      err := lagoClient.Event().Create(eventInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+    }
   ```
 
   </TabItem>
@@ -112,8 +149,8 @@ api/v1/events/batch
 {
   "event": {
     "transaction_id": "__UNIQUE_ID__",
-    "external_customer_id": "__YOUR_CUSTOMER_ID__",
-    "external_subscription_ids": ["id1", "id2"],
+    "external_customer_id": "__CUSTOMER_ID__",
+    "external_subscription_id": "__SUBSCRIPTION_ID__",
     "code": "__EVENT_CODE__",
     "timestamp": 1650893379,
     "properties": {
@@ -126,20 +163,11 @@ api/v1/events/batch
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
 | **transaction_id** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique ID identifying the event. <br></br>As it will be used for idempotency, it should be a unique identifier |
-| **external_subscription_ids** | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | Array of subscription IDs associated with the customer |
-| **external_customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer unique identifier in your application |
+| **external_subscription_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique subscription ID in your application.<br></br>`external_subscription_id` is required if the customer has multiple subscriptions or if `external_customer_id` is not provided (in case there's only one subscription) |
+| **external_customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique customer ID in your application.<br></br>If `external_subscription_id` is not given, `external_customer_id` is required if there is only one subscription attached to customer. For multiple subscriptions per customer this attribute is not enough |
 | **code** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the type of the event.<br></br> It should match the `code` property of one of your active billable metrics, otherwise it will be ignored |
 | **timestamp** | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*Default: event reception timestamp*</Comment> | Unix timestamp of the event occurence in UTC.<br></br> If not provided, the API will set the event reception time |
-| **properties** | JSON &nbsp &nbsp &nbsp<Variable>**Variable**</Variable> | Extra data to use for the event aggregation.<br></br>When mandatory, it should contains the `field_name` configured at billable metric level as `key` and any value as field `value`.<br></br><details><summary>**Aggregation type:**</summary><div>- `COUNT`: **optional**<br></br>- `MAX`: **required**. value must be an integer<br></br>- `SUM`: **required**. value must be an integer<br></br>- `COUNT UNIQUE`: **required**. value could have any datatype<br></br>- `RECURRING COUNT`: **required**. value must be the unique identifier of the persisted object.<div></div></div></details> |
-
-### Recurring count aggregation
-
-Content of the event `properties` field:
-
-| Attributes | Types | Description |
-|--|--|--|
-| *field_name* **(*)** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | **(*)** Key must be the `field_name` configured at billable metric level and be the unique identifier of the object to persist. |
-| **operation_type** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Type of operation to perform on the persisted object. <details><summary>**Possible values**</summary><div>- `add`: Add or unsuspend a persisted object.<br></br>- `remove`: Remove or suspend a persisted object.</div></details> |
+| **properties** | JSON &nbsp &nbsp &nbsp<Variable>**Variable**</Variable> | Extra data to use for the event aggregation.<br></br>When mandatory, it should contains the `field_name` configured at billable metric level as `key` and any value as field `value`.<br></br><details><summary>**Aggregation type:**</summary><div>- `COUNT`: **optional**<br></br>- `MAX`: **required**. value must be an integer<br></br>- `SUM`: **required**. value must be an integer<br></br>- `COUNT UNIQUE`: **required**. value could have any datatype<div></div></div></details> |
 
 ## Responses
 

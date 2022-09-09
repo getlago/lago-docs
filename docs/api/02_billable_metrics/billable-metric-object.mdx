@@ -28,7 +28,7 @@ This object represents a billable metric.<br></br>
 | **name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Billable metric name. |
 | **code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the billable metric. |
 | **description** &nbsp &nbsp <Type>String</Type> | Billable metric description. |
-| **aggregation_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Aggregation type that is used in event calculation. <br></br> <details><summary>**Possible values**</summary><div>- `count_agg`<br></br>- `sum_agg`<br></br>- `max_agg`<br></br>- `unique_count_agg`<div></div></div></details> |
+| **aggregation_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Aggregation type that is used in event calculation. <br></br> <details><summary>**Possible values**</summary><div>- `count_agg` (metered)<br></br>- `sum_agg` (metered)<br></br>- `max_agg` (metered)<br></br>- `unique_count_agg` (metered)<br></br>- `recurring_count_agg` (persistent)<div></div></div></details> |
 | **field_name** &nbsp &nbsp <Type>String</Type> | Field name used in events. |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of billable metric creation. |
 
