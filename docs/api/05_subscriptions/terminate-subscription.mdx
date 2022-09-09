@@ -142,20 +142,17 @@ external_id: 5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba
 
   </TabItem>
 
-  <TabItem value="422" label="HTTP 422">
+  <TabItem value="404" label="HTTP 404">
 
   ```json
   {
-    "status": 422,
-    "error": "Unprocessable entity",
-    "message": "message"
-    }
+    "status": 404,
+    "error": "Not Found",
+    "code": "subscription_not_found"
   }
   ```
 
-**Possible error messages:**
-- `not_found`: The provided customer was not found or does not have a subscription.
-
+  The `subscription` was not found.
 
   </TabItem>
 </Tabs>
