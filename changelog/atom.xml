@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2022-09-07T11:00:00.000Z</updated>
+    <updated>2022-09-08T10:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
     <icon>https://getlago.com/img/lago.ico</icon>
     <rights>Copyright © 2022 Lago.</rights>
+    <entry>
+        <title type="html"><![CDATA[Recurring count]]></title>
+        <id>/recurring-count</id>
+        <link href="https://getlago.com/changelog/recurring-count"/>
+        <updated>2022-09-08T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Companies with fair and transparent pricing models are often praised by customers. If you are considering implementing seat-based pricing for instance, the reccuring_count aggregation is exactly what you need.]]></summary>
+        <content type="html"><![CDATA[<p>Companies with fair and transparent pricing models are often praised by customers. If you are considering implementing seat-based pricing for instance, the <code>reccuring_count</code> aggregation is exactly what you need.</p><p>This new aggregation type allows you to push events for persistent units.</p><p>Consider the following example:</p><blockquote><p>Your customer is on a monthly plan and adds a new user to their account on September 15th, so you generate an event that corresponds to one billing unit.</p><p>At the end of September, Lago will automatically create a prorated charge for this user, based on the number of days of activity (i.e. from September 15th to September 30th).</p><p>This billing unit will remain valid until you generate another event to remove it. For instance, if your customer deletes the user on October 22nd, Lago will create another prorated charge for the period October 1st to October 22nd.</p></blockquote><p>Consult <a href="/docs/guide/billable-metrics/aggregation-types#persistent-aggregation-types">our guide</a> to learn more about persistent units.</p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[API changes - External IDs]]></title>
         <id>/external-ids</id>
