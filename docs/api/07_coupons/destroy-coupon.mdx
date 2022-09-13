@@ -73,7 +73,7 @@ import TabItem from '@theme/TabItem';
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // coupon is *lago.Coupon
       fmt.Println(coupon)
     }
@@ -122,13 +122,13 @@ import TabItem from '@theme/TabItem';
   The `coupon` was not found by the code.
   </TabItem>
 
-  <TabItem value="403" label="HTTP 403">
+  <TabItem value="405" label="HTTP 405">
 
   ```json
   {
-    "status": 403,
-    "error": "Forbidden",
-    "message": "Coupon is attached to an active customer."
+    "status": 405,
+    "error": "Method Not Allowed",
+    "code": "attached_to_an_active_customer"
   }
   ```
 
