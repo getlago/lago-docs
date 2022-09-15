@@ -629,12 +629,13 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 
   ```json
   {
-      "status": 404,
-      "error": "Not Found"
+    "status": 404,
+    "error": "Not Found",
+    "code": "billable_metrics_not_found"
   }
   ```
 
-  The billable metric was not found by the id.
+  One or more of the billable metrics were not found.
   </TabItem>
 
   <TabItem value="422" label="HTTP 422">

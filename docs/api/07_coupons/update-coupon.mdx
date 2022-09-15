@@ -98,7 +98,7 @@ import TabItem from '@theme/TabItem';
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // coupon is *lago.Coupon
       fmt.Println(coupon)
     }
@@ -175,11 +175,12 @@ import TabItem from '@theme/TabItem';
   ```json
   {
     "status": 404,
-    "error": "Not Found"
+    "error": "Not Found",
+    "code": "coupon_not_found"
   }
   ```
 
-  The `coupon` was not found by the code.
+  The `coupon` was not found.
   </TabItem>
 
   <TabItem value="422" label="HTTP 422">

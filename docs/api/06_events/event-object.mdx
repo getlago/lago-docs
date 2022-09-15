@@ -1,0 +1,74 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Event object
+
+Events represents the data delivered to lago application that will then be aggregated into billable metrics.
+
+## Schema
+
+```json
+{
+  "event": {
+    "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+    "transaction_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "external_customer_id": "ext_1234",
+    "code": "billable_metric_code",
+    "timestamp": "2022-04-29T08:59:51Z",
+    "properties": {
+      "custom_field": 12345,
+      "operation_type": "add",
+    },
+    "lago_subscription_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+    "external_subscription_id": "ext_1234",
+    "created_at": "2022-04-29T08:59:51Z"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the event in Lago application |
+| **transaction_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the event in your application |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
+| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the type of the event. <br></br>It matches the `code` property of one of your active billable metrics |
+| **timestamp** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime  in UTC*</Comment> | Event occurence datetime in UTC |
+| **properties** &nbsp &nbsp <Type>JSON</Type> | Extra data to used for the event aggregation. |
+| **lago_subscription_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the subscription in Lago application |
+| **external_subscription_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the subscription in Lago application |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime  in UTC*</Comment> | Creation date of the event |
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

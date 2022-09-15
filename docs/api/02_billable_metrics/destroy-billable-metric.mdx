@@ -73,7 +73,7 @@ import TabItem from '@theme/TabItem';
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // billableMetric is *lago.BillableMetric
       fmt.Println(billableMetric)
     }
@@ -115,11 +115,12 @@ import TabItem from '@theme/TabItem';
   ```json
   {
     "status": 404,
-    "error": "Not Found"
+    "error": "Not Found",
+    "code": "billable_metric_not_found"
   }
   ```
 
-  The `billable_metric` was not found by the code.
+  The `billable_metric` was not found.
   </TabItem>
 
   <TabItem value="403" label="HTTP 403">
