@@ -30,8 +30,7 @@ The subscription will then define how a the related customer will be invoiced ba
     "terminated_at": null,
     "previous_plan_code": null,
     "next_plan_code": null,
-    "previous_external_id": null,
-    "next_external_id": null
+    "downgrade_plan_date": null
   }
 }
 ```
@@ -53,8 +52,7 @@ The subscription will then define how a the related customer will be invoiced ba
 | **terminated_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Termination date of the subscription. It's not null when the subscription is `terminated` |
 | **previous_plan_code** &nbsp &nbsp <Type>String</Type> | Code identifying the previous plan. |
 | **next_plan_code** &nbsp &nbsp <Type>String</Type> | Code identifying the next plan, in case of downgrade. |
-| **previous_external_id** &nbsp &nbsp <Type>String</Type> | Unique external identifier of the previous subscription. |
-| **next_external_id** &nbsp &nbsp <Type>String</Type> | Unique external identifier of the next subscription, in case of downgrade. |
+| **downgrade_plan_date** &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 8601 date*</Comment> | Date when the plan will be downgraded. |
 
 export const Type = ({children, color}) => (
   <span
