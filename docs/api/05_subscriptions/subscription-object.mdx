@@ -27,7 +27,9 @@ The subscription will then define how a the related customer will be invoiced ba
     "external_id": "external_id",
     "billing_time": "anniversary",
     "subscription_date": "2022-04-29",
-    "terminated_at": null
+    "terminated_at": null,
+    "previous_plan_code": null,
+    "next_plan_code": null
   }
 }
 ```
@@ -47,8 +49,8 @@ The subscription will then define how a the related customer will be invoiced ba
 | **external_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique external identifier of the subscription. Used as an idempotency key. Corresponds to the `external_customer_id` for subscriptions created before August 8th, 2022. |
 | **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Status of the subscription. <br></br> <details><summary>**Possible values**</summary><div>- `pending`: a previous subscription has been downgraded, the current one is waiting for its automatic activation at the end of the billing period.<br></br>- `active`: the subscription is currently applied to the customer.<br></br>- `terminated`: the subscription is not active anymore<br></br>- `canceled`: the subscription has been stopped before its activation. It could happen when two consecutive downgrade have been applied to a customer or when a subscription with a pending one is terminaded.</div></details> |
 | **terminated_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Termination date of the subscription. It's not null when the subscription is `terminated` |
-
-
+| **previous_plan_code** &nbsp &nbsp <Type>String</Type> | Code identifying the previous plan. |
+| **next_plan_code** &nbsp &nbsp <Type>String</Type> | Code identifying the next plan, in case of downgrade. |
 
 export const Type = ({children, color}) => (
   <span
