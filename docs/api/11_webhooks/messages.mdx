@@ -11,7 +11,7 @@ Here is the exhaustive list of webhook messages triggered by Lago.
 
 <Tabs groupId="prog-language">
   <TabItem value="invoice.created" label="Invoice created" default>
-    Sent when a new invoice has been generated for a customer.
+    Sent when a new invoice has been emitted for a customer.
 
 It will allow your application to perform the billing.
 
@@ -33,6 +33,7 @@ It will allow your application to perform the billing.
     "vat_amount_currency": "EUR",
     "total_amount_cents": 120,
     "total_amount_currency": "EUR",
+    "file_url": "https://getlago.com/invoice/file",
     "customer": {
       "lago_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
       "sequential_id": 1,
@@ -54,18 +55,20 @@ It will allow your application to perform the billing.
       "vat_rate": 20.0,
       "zipcode": "91364"
     },
-    "subscription": {
-      "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
-      "external_id": "susbcription_external_id",
-      "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
-      "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-      "canceled_at": "2022-04-29T08:59:51Z",
-      "created_at": "2022-04-29T08:59:51Z",
-      "plan_code": "new_code",
-      "started_at": "2022-04-29T08:59:51Z",
-      "status": "active",
-      "terminated_at": null
-    },
+    "subscriptions": [
+        {
+        "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+        "external_id": "susbcription_external_id",
+        "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+        "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+        "canceled_at": "2022-04-29T08:59:51Z",
+        "created_at": "2022-04-29T08:59:51Z",
+        "plan_code": "new_code",
+        "started_at": "2022-04-29T08:59:51Z",
+        "status": "active",
+        "terminated_at": null
+      }
+    ],
     "fees": [
       {
         "item": {
@@ -100,7 +103,41 @@ It will allow your application to perform the billing.
 | -----------| ----------- |
 | **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
 
-  </TabItem>
+</TabItem>
+
+<TabItem value="invoice.generated" label="Invoice generated" default>
+  Sent when a the PDF invoice has been generated for a customer invoice.
+
+It will allow your application to retrieve the invoice PDF.
+
+```json
+{
+  "webhook_type": "invoice.generated",
+  "object_type": "invoice",
+  "invoice": {
+    "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "sequential_id": 2,
+    "number": "LAG-1234-001-002",
+    "from_date": "2022-04-01",
+    "to_date": "2022-04-30",
+    "charges_from_date": "2022-04-01",
+    "issuing_date": "",
+    "amount_cents": 100,
+    "amount_currency": "EUR",
+    "vat_amount_cents": 20,
+    "vat_amount_currency": "EUR",
+    "total_amount_cents": 120,
+    "total_amount_currency": "EUR",
+    "file_url": "https://getlago.com/invoice/file",
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
+
+</TabItem>
 
 <TabItem value="invoice.add-on-added" label="Addon added">
 Sent when an add-on has been applied to customer. This invoice is created straightaway after assigning the add-on to a customer.
