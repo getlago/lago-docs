@@ -13,7 +13,7 @@ Here is the exhaustive list of webhook messages triggered by Lago.
   <TabItem value="invoice.created" label="Invoice created" default>
     Sent when a new invoice has been emitted for a customer.
 
-It will allow your application to perform the billing.
+This will allow your application to proceed with the billing.
 
 ```json
 {
@@ -106,9 +106,9 @@ It will allow your application to perform the billing.
 </TabItem>
 
 <TabItem value="invoice.generated" label="Invoice generated" default>
-  Sent when a the PDF invoice has been generated for a customer invoice.
+  Sent when the PDF file has been generated for a customer invoice.
 
-It will allow your application to retrieve the invoice PDF.
+This will allow your application to retrieve the PDF invoice.
 
 ```json
 {
@@ -140,7 +140,7 @@ It will allow your application to retrieve the invoice PDF.
 </TabItem>
 
 <TabItem value="invoice.add-on-added" label="Addon added">
-Sent when an add-on has been applied to customer. This invoice is created straightaway after assigning the add-on to a customer.
+Sent when an add-on has been applied to customer. The invoice is created immediately after the add-on is assigned to a customer.
 
 You can use this information to generate a PDF invoice or collect the payment.
 
@@ -218,9 +218,9 @@ You can use this information to generate a PDF invoice or collect the payment.
 </TabItem>
 
 <TabItem value="invoice.payment_failure" label="Payment failure">
-    Sent when an error occurs when processing an invoice forwarded to a payment provider.
+    Sent when there is an error related to the payment process.
 
-It usually happen when the invoiced customer does not have a payment method defied on the payment provider's application.
+Usually occurs when no valid payment method is defined for the customer in the payment service provider's application.
 
 ```json
 {
@@ -253,7 +253,7 @@ It usually happen when the invoiced customer does not have a payment method defi
 
 <TabItem value="event.error" label="Event error">
 
-This webhook type is sent when there is an error during an event creation.
+This webhook is sent when there is an error related to the creation of an event.
 
 
 ```json
@@ -275,9 +275,9 @@ This webhook type is sent when there is an error during an event creation.
 </TabItem>
 
 <TabItem value="payment_provider_created" label="Payment provider created">
-This webhook is sent when a customer is succeffuly created on a payment provider.
+This webhook is sent when a customer is successfully created in the payment provider's application.
 
-It allows you to retrieve the customer id on the provider application and then to attach a payment method to the customer.
+This allows you to retrieve the identifier assigned to the customer by the payment service provider.
 
 ```json
 {
@@ -316,9 +316,9 @@ It allows you to retrieve the customer id on the provider application and then t
 </TabItem>
 
 <TabItem value="payment_provider_error" label="Payment provider error">
-This webhook type is sent when there is an error with customer creation on a payment provider. It usually happen when something is wrong with the customer data.
+This webhook is sent when there is an error related to the creation of a customer in the payment provider's application.
 
-Your application should take care of fixing the issue on the customer data.
+You should review the customer's data.
 
 ```json
 {
