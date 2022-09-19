@@ -194,20 +194,44 @@ If the customer is not found, it will be created with blank metadata
 
   </TabItem>
 
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "customer_not_found"
+  }
+  ```
+
+  **Possible error codes:**
+  * `customer_not_found`: The external customer id does not match an existing customer.
+  * `plan_not_found`: The plan code does not match an existing plan.
+
+
+  </TabItem>
+
   <TabItem value="422" label="HTTP 422">
 
   ```json
   {
     "status": 422,
     "error": "Unprocessable entity",
-    "message": "message"
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
     }
   }
   ```
 
-  **Possible error messages:**
-  * `plan does not exists`: The plan code does not match an exisiting plan.
+  **Possible errors:**
 
+  | Field | Code | Description |
+  |--|--|--|
+  | `billing_time` | `value_is_invalid` | Provided `billing_time` does not match an accepted value |
+  | `currency` | `currencies_does_not_match` | The plan currency differs from the customer currency |
+  | `external_id` | `value_already_exists` | The external id is already assigned to an active subscription |
+  | `external_id` | `value_is_mandatory` | No external id was provided in the request payload |
 
   </TabItem>
 </Tabs>
