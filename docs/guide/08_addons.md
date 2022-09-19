@@ -55,7 +55,7 @@ You **cannot** edit or delete an add-on if it has been applied to a customer.
 :::
 
 ## Invoicing
-As mentioned previously, an **add-on is invoiced straigh away**. You are able to find an assigned add-on through webhook with `webhook_type = invoice.add_on_added`.
+As mentioned previously, an **add-on is invoiced straight away**. You are able to find an assigned add-on through webhook with `webhook_type = invoice.add_on_added`.
 
 When assiging an add-on to a customer, an invoice is generated immediately. Please note that:
 1. Add-ons are subject to taxes, as defined in the customer view;
