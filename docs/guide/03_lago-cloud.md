@@ -11,4 +11,4 @@ With a cloud account:
 2. You can start building your billing system immediately; and
 3. You benefit from automatic updates.
 
-[Request access to Lago Cloud](https://calendly.com/lago-team/20min-meeting-with-lago-team) to get started.
+[Request access to Lago Cloud](https://pktz41848np.typeform.com/to/pUqoNimg) to get started.
