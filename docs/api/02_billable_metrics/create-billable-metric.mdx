@@ -110,7 +110,7 @@ import TabItem from '@theme/TabItem';
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // billableMetric is *lago.BillableMetric
       fmt.Println(billableMetric)
     }
@@ -186,13 +186,22 @@ import TabItem from '@theme/TabItem';
   {
     "status": 422,
     "error": "Unprocessable entity",
-    "message": "message"
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
   }
   ```
 
-  **Possible error messages:**
-  * `Validation error on the record`
+  **Possible errors:**
 
+  | Field | Code | Description |
+  |--|--|--|
+  | `name` | `value_is_mandatory` | `name` value is missing |
+  | `code` | `value_is_mandatory` | `code` value is missing |
+  | `code` | `value_already_exist` | `code` value is already used on an other billable metric |
+  | `field_name` | `value_is_mandatory` | `field_name` value is missing |
+  | `aggregation_type` | `value_is_invalid` | Provided `aggregation_type` value is invalid |
 
   </TabItem>
 </Tabs>
