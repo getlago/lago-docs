@@ -109,7 +109,7 @@ import TabItem from '@theme/TabItem';
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // organization is *lago.Organization
       fmt.Println(organization)
     }
@@ -200,12 +200,24 @@ import TabItem from '@theme/TabItem';
   {
     "status": 422,
     "error": "Unprocessable entity",
-    "message": "message"
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
   }
   ```
 
-  **Possible error messages:**
-  * `Validation error on the record`
+  **Possible errors:**
+
+  | field | error | description |
+  |--|--|--|
+  | `webhook_url` | `url_is_invalid` | `bebhook_url` format is invalid |
+  | `vat_rate` | `value_is_out_of_range` | `vat_rate` is not between 0 and 100 |
+  | `country` | `not_a_valid_country_code` | Provided country is invalid |
+  | `invoice_footer` | `value_is_too_long` | Footer length is too long |
+  | `email` | `invalid_email_format` | Email format is invalid |
+  | `logo` | `invalid_size` | File size is too big |
+  | `logo` | `invalid_content_type` | Content type is invalid |
 
 
   </TabItem>
