@@ -102,7 +102,7 @@ import TabItem from '@theme/TabItem';
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // wallet is *lago.Wallet
       fmt.Println(transactions)
     }
@@ -174,13 +174,21 @@ import TabItem from '@theme/TabItem';
   {
     "status": 422,
     "error": "Unprocessable entity",
-    "message": "message"
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
   }
   ```
 
-  **Possible error messages:**
-  * `Validation error on the record`
+  **Possible errors:**
 
+  | field | error | description |
+  |--|--|--|
+  | `wallet_id` | `wallet_not_found` | Wallet was not found |
+  | `wallet_id` | `wallet_is_terminated` | Wallet is terminated |
+  | `paid_credits` | `invalid_paid_credits` | `paid_credits` is not a valid amount |
+  | `granted_credits` | `invalid_granted_credits` | `granted_credits` is not a valid amount |
 
   </TabItem>
 </Tabs>
