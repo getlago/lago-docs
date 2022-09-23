@@ -315,22 +315,21 @@ If the customer already exists, the call will work as an update
   {
     "status": 422,
     "error": "Unprocessable entity",
-    "message": "message",
+    "code": "validation_errors",
     "error_details": {
-      "field": ["message"]
+      "field": ["error"]
     }
   }
   ```
 
-  Possible error messages:
-  - `Validation error on the record`: The `error_details` field contains the details of the errors
+  **Possible errors:**
 
   | field | error | description |
   |--|--|--|
   | `external_id` | `value_is_mandatory` | external_id is missing |
   | `country` | `not_a_valid_country_code` | Provided country value is not an ISO 3166 country code |
   | `vat_rate` | `value_is_out_of_range` | Provided VAT rate is invalid.<br/>It must be a positive integer or floating number between 0 and 100. |
-
+  | `payment_provider` | `value_is_invalid` | Provided payment provider is invalid |
 
   </TabItem>
 </Tabs>
