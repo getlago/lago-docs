@@ -272,6 +272,22 @@ This webhook is sent when there is an error related to the creation of an event.
   }
 }
 ```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | HTTP status of the error. Possible statuses are `404` or `422` |
+| **error** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | HTTP error code. Possible errors are `Not found` or `Unprocessable entity` |
+| **message** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Error code. See next list for the description of each error code. |
+| **input_params** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | JSON provided at event creation |
+
+| Code | Description |
+|--|--|
+| **billable_metric_not_found** &nbsp &nbsp <Type>404</Type> | No billable metric matches the given code |
+| **customer_not_found** &nbsp &nbsp <Type>404</Type> | No customer matches the external id |
+| **subscription_not_found** &nbsp &nbsp <Type>404</Type> | No subscription matches the given external subscription id |
+| **invalid_argument** &nbsp &nbsp <Type>422</Type> | No subscription matches the given external subscription id |
+| **invalid_recurring_resource** &nbsp &nbsp <Type>422</Type> | Provided recurring resource for persisted event is invalid |
+
 </TabItem>
 
 <TabItem value="payment_provider_created" label="Payment provider created">

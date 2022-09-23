@@ -179,6 +179,23 @@ import TabItem from '@theme/TabItem';
 
   </TabItem>
 
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "customer_not_found"
+  }
+  ```
+
+  **Possible error codes:**
+  * `customer_not_found`: The external customer id does not match an existing customer.
+  * `add_on_not_found`: The add-on code does not match an existing add-on.
+
+
+  </TabItem>
+
   <TabItem value="422" label="HTTP 422">
 
   ```json
@@ -190,8 +207,6 @@ import TabItem from '@theme/TabItem';
   ```
 
   **Possible error messages:**
-  * `unable_to_find_customer`: The customer id does not match an existing customer.
-  * `add_on_does_not_exist`: The add-on code does not match an existing add-on.
   * `no_active_subscription`: The customer does not have an active subscription.
   * `currencies_does_not_match`: Provided currency does not match the currency of the customer's plan.
   * `Validation error on the record`: The `error_details` field contains the details of the errors:
@@ -296,6 +311,3 @@ export const NotNullable = ({children, color}) => (
     {children}
   </span>
 );
-
-
-
