@@ -182,12 +182,18 @@ import TabItem from '@theme/TabItem';
   {
     "status": 422,
     "error": "Unprocessable entity",
-    "message": "message"
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
   }
   ```
 
-  **Possible error messages:**
-  * `invalid_status`: The status in the request does not exist or is invalid.
+  **Possible errors:**
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `status` | `value_is_invalid` | Provided `status` does not match an accepted value |
 
 
   </TabItem>
