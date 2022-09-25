@@ -28,7 +28,15 @@ source .env
 docker-compose up
 ```
 
-You can now open your browser and go to [http://localhost](http://localhost) to connect to the application. Lago's API is exposed at [http://localhost:3000](http://localhost:3000).
+You can now open your browser and go to [http://localhost](http://localhost) to connect to the application. Just after [signing up](./docker#signing-up), Lago's API is exposed at [http://localhost:3000](http://localhost:3000).
+
+## Signing up
+It's mandatory to create your organization by signing up to Lago. This organization is the core object of your biller as it's used to invoice your customers.
+1. Write down your `organization name`;
+2. Use the main billing `email` of your company; and
+3. Define the admin `password` for this email.
+
+You will be able to **invite other email addresses within the application**. If you already have an account, you can also log in. Once you are able to access the app, you can retrieve your API key.
 
 ## Find your API Key
 Your API Key can be found directly in the UI:
