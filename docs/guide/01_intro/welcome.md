@@ -11,7 +11,7 @@ Lago is an **open-source billing API for product-led SaaS**. It's the best alter
 
 This library will allow you to build an entire billing system from scratch. Lago is a real-time, event-based solution made for usage-based billing, subscription-based billing, and all the nuances of pricing in between.
 
-You can use the [self-hosted version](../self-hosting/docker) to deploy Lago on your existing infrastructure or [request access to Lago Cloud](https://calendly.com/lago-team/20min-meeting-with-lago-team?month=2022-07) to start using our solution immediately.
+You can use the [self-hosted version](../self-hosting/docker) to deploy Lago on your existing infrastructure or [request access to Lago Cloud](https://pktz41848np.typeform.com/to/pUqoNimg) to start using our solution immediately.
 
 ## Four-step billing workflow
 
