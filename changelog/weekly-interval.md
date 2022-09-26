@@ -10,4 +10,4 @@ The plan interval applies to the subscription and charges, which means that:
 - For plans that are paid in arrears, the subscription fee is invoiced at the end of the week; and
 - Usage is calculated at the end of each week.
 
-The week starts on Sunday and ends on Saturday. If the customer's subscription starts in the middle of the week, the fees will be applied on a pro-rata basis.
+The week starts on Monday and ends on Sunday. If the customer's subscription starts in the middle of the week, the fees will be applied on a pro-rata basis.
