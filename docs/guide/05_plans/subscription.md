@@ -9,9 +9,10 @@ To assign a plan to a customer through the user interface:
 1. Access the **"Customers"** section via the side menu;
 2. Select a customer from the list;
 3. In the **"Overview"** tab, click **"Add a plan"** on the right;
-4. Select a plan and give a name to the subscription (name that will be displayed on the invoices - optional);
-5. Choose whether the subscription should be renewed at the beginning of the period or on its anniversary date (see [below](subscription#billing-cycles)); and
-5. Click **"Add plan"** to confirm.
+4. Select a plan (that you can overwrite if needed - [see below](#overwriting-a-plan));
+5. Give a name to the subscription (name that will be displayed on the invoice - optional);
+6. Choose whether the subscription should be renewed at the beginning of the period or on its anniversary date (see [below](subscription#billing-cycles)); and
+7. Click **"Add plan"** to confirm.
 
 When a subscription is active, Lago will automatically generate invoices for the customer according to the [plan model](./plan-model). It will also start monitoring the customer's consumption, which means that you can start pushing [events](../../api/events/metered-event) related to this subscription.
 
@@ -76,3 +77,19 @@ In addition to this, please note that **coupons apply to all subscriptions**.
 Below is an example of a consolidated invoice:
 
 ![Example of consolidated invoice](../../../static/img/consolidated-invoice.png)
+
+## Overwriting a plan
+You can use an existing plan as a template to create a new plan for your customer.
+
+When assigning a plan to a customer via the user interface:
+1. Select an existing plan;
+2. Click **"Overwrite"**, next to the plan name;
+3. Choose a name and a code for the new plan;
+4. Modify the plan model and charges according to your needs; and
+5. Click **"Duplicate plan"** to confirm.
+
+To start a subscription, the currency of the new plan must match the currency associated with the customer.
+
+:::info
+Overwriting a plan has no impact on the original plan or existing subscriptions.
+:::
