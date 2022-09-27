@@ -6,8 +6,8 @@ sidebar_position: 5
 To modify an active subscription through the user interface:
 1. Go to the **"Customers"** section;
 2. Select a customer from the list;
-3. Click **"Change plan"**;
-4. Select the new plan you want to assign to the customer; and
+3. Click **"Upgrade/downgrade plan"**;
+4. Select the new plan you want to assign to the customer (you can also [overwrite an existing plan](subscription#overwriting-a-plan)); and
 5. Click **"Change plan"** to save.
 
 You can also terminate a subscription and create a new one via the API ([learn more](../../api/subscriptions/terminate-subscription)).
