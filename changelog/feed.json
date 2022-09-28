@@ -5,6 +5,24 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/overwrite-plans",
+            "content_html": "<p>If after a negotiation phase, you need to create a custom plan for an important customer, you can use the 'overwrite' feature, available through the user interface.</p><p>This feature allows you to create a new plan from an existing one, in order to adjust the plan model and charges according to your business needs.</p><p>Overwriting a plan has no impact on the original plan or existing subscriptions.</p><p><a href=\"/docs/guide/plans/subscription#overwriting-a-plan\">Learn more</a></p>",
+            "url": "https://getlago.com/changelog/overwrite-plans",
+            "title": "Overwrite plans",
+            "summary": "If after a negotiation phase, you need to create a custom plan for an important customer, you can use the 'overwrite' feature, available through the user interface.",
+            "date_modified": "2022-09-23T11:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/invite-members",
+            "content_html": "<p>You can now invite your teammates to join your Lago account.</p><p>To add a new member via the user interface:</p><ol><li>Go to the <strong>\"Settings\"</strong> section of the app;</li><li>Open the <strong>\"Members\"</strong> tab;</li><li>Click <strong>\"Invite a member\"</strong> on the right;</li><li>Enter the email address of your teammate;</li><li>Click <strong>\"Generate invitation link\"</strong> to confirm; and</li><li>Copy the invitation link to share it with your teammate.</li></ol><p>Invitation links have no expiration date. When your teammate clicks the link, they can choose their password and then access the account.</p><p>You can remove a member by clicking the <strong>bin icon</strong> on the right of the list of members.</p><div class=\"theme-admonition theme-admonition-info alert alert--info admonition_LlT9\"><div class=\"admonitionHeading_tbUL\"><span class=\"admonitionIcon_kALy\"><svg viewBox=\"0 0 14 16\"><path fill-rule=\"evenodd\" d=\"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z\"></path></svg></span>info</div><div class=\"admonitionContent_S0QG\"><p>All members have the same role and permissions.</p></div></div>",
+            "url": "https://getlago.com/changelog/invite-members",
+            "title": "Invite members",
+            "summary": "You can now invite your teammates to join your Lago account.",
+            "date_modified": "2022-09-23T10:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/recurring-count",
             "content_html": "<p>Companies with fair and transparent pricing models are often praised by customers. If you are considering implementing seat-based pricing for instance, the <code>reccuring_count</code> aggregation is exactly what you need.</p><p>This new aggregation type allows you to push events for persistent units.</p><p>Consider the following example:</p><blockquote><p>Your customer is on a monthly plan and adds a new user to their account on September 15th, so you generate an event that corresponds to one billing unit.</p><p>At the end of September, Lago will automatically create a prorated charge for this user, based on the number of days of activity (i.e. from September 15th to September 30th).</p><p>This billing unit will remain valid until you generate another event to remove it. For instance, if your customer deletes the user on October 22nd, Lago will create another prorated charge for the period October 1st to October 22nd.</p></blockquote><p>Consult <a href=\"/docs/guide/billable-metrics/aggregation-types#persistent-aggregation-types\">our guide</a> to learn more about persistent units.</p>",
             "url": "https://getlago.com/changelog/recurring-count",
