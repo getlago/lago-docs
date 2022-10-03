@@ -151,7 +151,7 @@ import TabItem from '@theme/TabItem';
 | amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Currency of the amount to apply to the customer.<br></br>If defined, it overrides the amount_currency property of the coupon.<br></br>It must match the currency of the customer's plan. |
 | percentage_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Rate to apply with the coupon.<br></br>If defined, it overrides the percentage_rate property of the coupon |
 | frequency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Frequency type.<br></br>It can be `once` or `recurring`.<br></br>If defined, it overrides the frequency property of the coupon |
-| frequency_duration | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | This field determines number of billing periods to which the coupon is applied.<br></br>If defined, it overrides the frequency_duration property of the coupon |
+| frequency_duration | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | This field determines the number of billing periods to which the coupon applies.<br></br>If defined, it overrides the frequency_duration property of the coupon |
 
 ## Responses
 
@@ -272,7 +272,7 @@ For now, it lets you assign a one-off coupon to a customer. This coupon can have
 | **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount. |
 | **percentage_rate** &nbsp &nbsp <Type>Float</Type> | Percentage rate of the coupon. |
 | **frequency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Frequency type. <br></br> <details><summary>**Possible values**</summary><div>- `once`<br></br>- `recurring`<div></div></div></details> |
-| **frequency_duration** &nbsp &nbsp <Type>Integer</Type> | It determines number of billing periods to which the coupon is applied |
+| **frequency_duration** &nbsp &nbsp <Type>Integer</Type> | It determines the number of billing periods to which the coupon applies |
 | **expiration_date** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 date*</Comment> | Date after which the coupon will stop to apply to customer's invoices. |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of assignation of the coupon to the customer. |
 | **terminated_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of total consumption of the coupon amount or date of manual deletion of the coupon from customer's coupons. |

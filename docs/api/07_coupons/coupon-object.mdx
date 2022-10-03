@@ -35,11 +35,11 @@ This object represents a coupon.<br></br>
 | **amount_cents** &nbsp &nbsp <Type>Integer</Type> | Amount in cents. |
 | **amount_currency** &nbsp &nbsp <Type>String</Type> | Currency of the amount. |
 | **expiration** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Expiration type. <br></br> <details><summary>**Possible values**</summary><div>- `time_limit`<br></br>- `no_expiration`<div></div></div></details> |
-| **expiration_date** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of the coupon expiration. |
+| **expiration_date** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Expiration date of the coupon. |
 | **coupon_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Coupon type. <br></br> <details><summary>**Possible values**</summary><div>- `fixed_amount`<br></br>- `percentage`<div></div></div></details> |
 | **percentage_rate** &nbsp &nbsp <Type>Float</Type> | Percentage rate of the coupon. |
 | **frequency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Frequency type. <br></br> <details><summary>**Possible values**</summary><div>- `once`<br></br>- `recurring`<div></div></div></details> |
-| **frequency_duration** &nbsp &nbsp <Type>Integer</Type> | It determines number of billing periods to which the coupon is applied |
+| **frequency_duration** &nbsp &nbsp <Type>Integer</Type> | It determines the number of billing periods to which the coupon applies |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of coupon creation. |
 
 
