@@ -32,6 +32,7 @@ import TabItem from '@theme/TabItem';
         "address_line2": null,
         "city": "Woodland Hills",
         "country": "US",
+        "currency": "EUR",
         "email": "dinesh@piedpiper.test",
         "legal_name": "Coleman-Blair",
         "legal_number": "49-008-2965",
@@ -66,6 +67,7 @@ import TabItem from '@theme/TabItem';
     address_line1="5230 Penfield Ave",
     address_line2=None,
     city="Woodland Hills",
+    currency="EUR",
     country="US",
     email="test@example.com",
     legal_name="Coleman-Blair",
@@ -104,6 +106,7 @@ import TabItem from '@theme/TabItem';
     None,  // addressLine2
     None,  // city
     None,  // country
+    "EUR", // currency
     "test@example.com",  // email
     None,  // legalName
     None,  // legalNumber
@@ -137,6 +140,7 @@ import TabItem from '@theme/TabItem';
     address_line2: nil,
     city: "Woodland Hills",
     country: "US",
+    currency: "EUR",
     email: "dinesh@piedpiper.test",
     legal_name: "Coleman-Blair",
     legal_number: "49-008-2965",
@@ -175,6 +179,7 @@ import TabItem from '@theme/TabItem';
         AddressLine2: "Address Line 2",
         City:         "Paris",
         Country:      "France",
+        Currency:     "EUR",
         State:        "Paris",
         Zipcode:      "75001",
         LegalName:    "GetLago",
@@ -219,6 +224,7 @@ import TabItem from '@theme/TabItem';
     "address_line2": null,
     "city": "Woodland Hills",
     "country": "US",
+    "currency": "EUR",
     "email": "dinesh@piedpiper.test",
     "legal_name": "Coleman-Blair",
     "legal_number": "49-008-2965",
@@ -248,6 +254,7 @@ If the customer already exists, the call will work as an update
 | address_line2 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Second line of the billing address |
 | city | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | City of the customer's billing address |
 | country | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*ISO 3166 alpha 2 Country code.*</Comment>| Country code of the customer's billing address |
+| currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Currency of customer |
 | email | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Email of the customer |
 | legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal company name of the customer |
 | legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal company number of the customer |
@@ -315,20 +322,21 @@ If the customer already exists, the call will work as an update
   {
     "status": 422,
     "error": "Unprocessable entity",
-    "message": "message",
+    "code": "validation_errors",
     "error_details": {
       "field": ["message"]
     }
   }
   ```
 
-  Possible error messages:
-  - `Validation error on the record`: The `error_details` field contains the details of the errors
+  **Possible errors:**
 
   | field | error | description |
   |--|--|--|
   | `external_id` | `value_is_mandatory` | external_id is missing |
   | `country` | `not_a_valid_country_code` | Provided country value is not an ISO 3166 country code |
+  | `currency` | `value_is_invalid` | Provided currency is not an accepted currency |
+  | `currency` | `currencies_does_not_match` | Provided currency cannot be assigned to the customer as he already has a subscription, an add_on, a coupon or a wallet in an other currency. |
   | `vat_rate` | `value_is_out_of_range` | Provided VAT rate is invalid.<br/>It must be a positive integer or floating number between 0 and 100. |
 
 
