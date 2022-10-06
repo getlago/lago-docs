@@ -1,16 +1,17 @@
 ---
-sidebar_position: 7
+sidebar_position: 4
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Get a specific invoice
+
+# Get all credit notes
 
 ## Route
 
 ```curl title="GET"
-/api/v1/invoices/:id
+/api/v1/credit_notes?per_page=2&page=1
 ```
 
 ## Usage
@@ -22,7 +23,7 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request GET "$LAGO_URL/api/v1/invoices/:id" \
+  curl --location --request GET "$LAGO_URL/api/v1/credit_notes?per_page=2&page=1" \
     --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
@@ -34,7 +35,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.invoices().find('id')
+  client.credit_notes().find_all({'per_page': 2, 'page': 1})
   ```
   </TabItem>
 
@@ -45,7 +46,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.invoices.get('id')
+  client.credit_notes.get_all({ per_page: 2, page: 3 })
   ```
   </TabItem>
 
@@ -54,7 +55,7 @@ import TabItem from '@theme/TabItem';
   ```javascript
   let client = new Client('__API_KEY__')
 
-  await client.findInvoice('id');
+  await client.findAllCreditNotes({per_page: 2, page: 3});
   ```
   </TabItem>
 
@@ -65,30 +66,43 @@ import TabItem from '@theme/TabItem';
     import "github.com/getlago/lago-go-client"
 
     func main() {
-      lagoClient := lago.New().
-        SetApiKey("__YOUR_API_KEY__")
+      lagoClient := lago.New().SetApiKey("__YOUR_API_KEY__")
 
-      invoice, err := lagoClient.Invoice().Get("__YOUR_INVOICE_ID__")
+      creditNoteListInput := &lago.CreditNoteListInput{
+        PerPage: 1,
+        Page: 1,
+        ExternalCustomerID: "cus_1234",
+      }
+
+      creditNoteResult, err := lagoClient.CreditNote().GetList(creditNoteListInput)
       if err != nil {
         // Error is *lago.Error
         panic(err)
       }
 
-      // invoice is *lago.Invoice
-      fmt.Println(invoice)
+      // creditNoteResult is *lago.CreditNoteResult
+      fmt.Println(creditNoteResult)
     }
   ```
 
   </TabItem>
 </Tabs>
 
+## Arguments
+
+| Attributes | Type | Description |
+|--|--|--|
+| per_page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Number of records per page. |
+| page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Page number |
+| external_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Filter results by Customer unique identifier in your application |
+
 ## Responses
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  The invoice was successfully found
+  Credit Notes were successfully found
 
-  Returns an [invoice](./invoice-object) object.
+  Returns a list of [credit note](./credit-note-object) objects.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -110,21 +124,8 @@ import TabItem from '@theme/TabItem';
 
   </TabItem>
 
-  <TabItem value="404" label="HTTP 404">
-
-  ```json
-  {
-    "status": 404,
-    "error": "Not Found",
-    "code": "invoice_not_found"
-  }
-  ```
-
-  The `invoice` was not found.
-  </TabItem>
 
 </Tabs>
-
 
 
 export const Required = ({children, color}) => (
@@ -150,16 +151,6 @@ export const Optional = ({children, color}) => (
 export const Comment = ({children, color}) => (
   <span
     style={{
-      fontSize: "12px"
-    }}>
-    {children}
-  </span>
-);
-
-export const PostEndpoint = ({children, color}) => (
-  <span
-    style={{
-      color: "#008559",
       fontSize: "12px"
     }}>
     {children}
