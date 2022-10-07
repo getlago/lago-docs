@@ -8,10 +8,6 @@ Since usage-based charges are calculated at the end of the billing period, you o
 Prepaid credits increase predictability as they allow you to collect payments in advance and then monitor the evolution of the balance of your customer's wallets.
 
 ## Create wallets
-:::caution
-The customer must have an **active subscription** in order to have a wallet.
-:::
-
 To create a wallet for one of your customers through the user interface:
 1. Access the **"Customers"** section via the side menu;
 2. Select a customer from the list;
@@ -21,6 +17,10 @@ To create a wallet for one of your customers through the user interface:
 6. Enter the number of credits to be purchased and/or granted for free;
 7. Set the [expiration date](#expiration-date-and-termination) (optional); and
 8. Click **"Add wallet & credits"** to confirm.
+
+:::info
+If the currency of the customer is already defined, the currency of the wallet must be the same.
+:::
 
 ![Creation of a wallet via the user interface](../../static/img/new-wallet.png)
 
