@@ -690,7 +690,7 @@ Charges cannot be updated if the plan is linked to a subscription
   |--|--|--|
   | `name` | `value_is_mandatory` | `name` value is missing |
   | `code` | `value_is_mandatory` | `code` value is missing |
-  | `code` | `value_already_exist` | `code` value is already used on an other plan |
+  | `code` | `value_already_exists` | `code` value is already used for another plan |
   | `amount_currency` | `value_is_invalid` | Provided currency value is invalid |
 
   - On charge attributes:
@@ -705,8 +705,8 @@ Charges cannot be updated if the plan is linked to a subscription
   | Field | Code | Description |
   |--|--|--|
   | `properties` | `missing_graduated_range` | Range values are missing |
-  | `properties` | `invalid_graduated_ranges` | One of the range attributes are invalid |
-  | `properties` | `invalid_amount` | One of the `per_unit_amount` or `flat_amount` values are invalid |
+  | `properties` | `invalid_graduated_ranges` | One of the range attributes is invalid |
+  | `properties` | `invalid_amount` | Value provided for `per_unit_amount` or `flat_amount` is invalid |
 
     - Package charge model:
 
@@ -730,8 +730,8 @@ Charges cannot be updated if the plan is linked to a subscription
   | Field | Code | Description |
   |--|--|--|
   | `properties` | `missing_ranges` | Range values are missing |
-  | `properties` | `invalid_ranges` | One of the range attributes are invalid |
-  | `properties` | `invalid_amount` | One of the `per_unit_amount` or `flat_amount` values are invalid |
+  | `properties` | `invalid_ranges` | One of the range attributes is invalid |
+  | `properties` | `invalid_amount` | Value provided for `per_unit_amount` or `flat_amount` is invalid |
 
 
   </TabItem>
