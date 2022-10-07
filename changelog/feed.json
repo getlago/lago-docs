@@ -5,15 +5,6 @@
     "description": "Lago documentation Blog",
     "items": [
         {
-            "id": "/coupons-v2",
-            "content_html": "<p>We have improved the coupon model to offer more flexibility.</p><p>Changes include (but are not limited to):</p><ol><li>Ability to define the value of a coupon as a fixed amount or percentage;</li><li>Ability to create recurring coupons that apply over several billing periods; and</li><li>Ability to set an expiration date (i.e. date after which the coupon can no longer be redeemed).</li></ol><p><a href=\"/docs/guide/coupons\">Learn more</a></p>",
-            "url": "https://getlago.com/changelog/coupons-v2",
-            "title": "Enhanced coupon model",
-            "summary": "We have improved the coupon model to offer more flexibility.",
-            "date_modified": "2022-10-07T10:00:00.000Z",
-            "tags": []
-        },
-        {
             "id": "/customer-currency",
             "content_html": "<p>It is now possible to define the currency at <a href=\"/docs/api/customers/customer-object\">customer</a> level.</p><p>The currency associated with each customer was previously defined by the currency of the plan assigned to the customer. This logic prevented users from assigning a coupon or an add-on to a customer before creating a subscription.</p><p>When creating a new customer via the user interface or the API, you can now select the currency associated with the customer. If the currency is not defined at customer level, it will be determined by the first object assigned to the customer (i.e. currency of the plan, add-on, coupon, or wallet).</p><div class=\"theme-admonition theme-admonition-caution alert alert--warning admonition_LlT9\"><div class=\"admonitionHeading_tbUL\"><span class=\"admonitionIcon_kALy\"><svg viewBox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z\"></path></svg></span>caution</div><div class=\"admonitionContent_S0QG\"><p>Once an object has been assigned to the customer (i.e. plan, add-on, coupon, or wallet), the currency associated with the customer cannot be changed.</p></div></div>",
             "url": "https://getlago.com/changelog/customer-currency",

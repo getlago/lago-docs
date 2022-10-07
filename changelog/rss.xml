@@ -4,19 +4,11 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Fri, 07 Oct 2022 10:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 06 Oct 2022 11:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2022 Lago.</copyright>
-        <item>
-            <title><![CDATA[Enhanced coupon model]]></title>
-            <link>https://getlago.com/changelog/coupons-v2</link>
-            <guid>/coupons-v2</guid>
-            <pubDate>Fri, 07 Oct 2022 10:00:00 GMT</pubDate>
-            <description><![CDATA[We have improved the coupon model to offer more flexibility.]]></description>
-            <content:encoded><![CDATA[<p>We have improved the coupon model to offer more flexibility.</p><p>Changes include (but are not limited to):</p><ol><li>Ability to define the value of a coupon as a fixed amount or percentage;</li><li>Ability to create recurring coupons that apply over several billing periods; and</li><li>Ability to set an expiration date (i.e. date after which the coupon can no longer be redeemed).</li></ol><p><a href="/docs/guide/coupons">Learn more</a></p>]]></content:encoded>
-        </item>
         <item>
             <title><![CDATA[Customer currency]]></title>
             <link>https://getlago.com/changelog/customer-currency</link>
