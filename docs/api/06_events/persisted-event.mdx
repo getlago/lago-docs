@@ -227,14 +227,21 @@ api/v1/events
   {
     "status": 422,
     "error": "Unprocessable entity",
-    "message": "missing_mandatory_param",
-    "error_details": [
-        "transaction_id"
-    ]
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
   }
   ```
 
-  Required arguments are missing.
+  **Possible errors:**
+
+  | field | error | description |
+  |--|--|--|
+  | `base` | `missing_external_identifier` | None of `external_subscription_id` or `external_customer_id` arguments were provided |
+  | `transaction_id` | `value_is_mandatory` | `transaction_id` value is missing |
+  | `code` | `value_is_mandatory` | `code` value is missing |
+  | `external_subscription_id` | `value_is_mandatory` | `external_subscription_id` is missing |
 
 
   </TabItem>

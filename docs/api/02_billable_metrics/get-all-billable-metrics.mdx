@@ -78,7 +78,7 @@ import TabItem from '@theme/TabItem';
         // Error is *lago.Error
         panic(err)
       }
-        
+
       // billableMetric is *lago.BillableMetricResult
       fmt.Println(billableMetricResult)
     }
@@ -99,6 +99,8 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
   Billable metrics were successfully found
+
+  Returns a list of [billable metric](./billable-metric-object) objects.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">

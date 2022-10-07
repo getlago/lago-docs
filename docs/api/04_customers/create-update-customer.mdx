@@ -324,7 +324,7 @@ If the customer already exists, the call will work as an update
     "error": "Unprocessable entity",
     "code": "validation_errors",
     "error_details": {
-      "field": ["message"]
+      "field": ["error"]
     }
   }
   ```
@@ -338,7 +338,7 @@ If the customer already exists, the call will work as an update
   | `currency` | `value_is_invalid` | Provided currency is not an accepted currency |
   | `currency` | `currencies_does_not_match` | Provided currency cannot be assigned to the customer as he already has a subscription, an add_on, a coupon or a wallet in an other currency. |
   | `vat_rate` | `value_is_out_of_range` | Provided VAT rate is invalid.<br/>It must be a positive integer or floating number between 0 and 100. |
-
+  | `payment_provider` | `value_is_invalid` | Provided payment provider is invalid |
 
   </TabItem>
 </Tabs>

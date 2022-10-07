@@ -644,12 +644,63 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
   {
     "status": 422,
     "error": "Unprocessable entity",
-    "message": "message"
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
   }
   ```
 
-  **Possible error messages:**
-  * `Validation error on the record`
+  **Possible errors:**
+
+  - On plan attributes:
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `name` | `value_is_mandatory` | `name` value is missing |
+  | `code` | `value_is_mandatory` | `code` value is missing |
+  | `code` | `value_already_exists` | `code` value is already used for another plan |
+  | `amount_currency` | `value_is_invalid` | Provided currency value is invalid |
+
+  - On charge attributes:
+    - Standard charge model:
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `properties` | `invalid_amount` | `amount` value is invalid |
+
+    - Graduated charge model:
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `properties` | `missing_graduated_range` | Range values are missing |
+  | `properties` | `invalid_graduated_ranges` | One of the range attributes is invalid |
+  | `properties` | `invalid_amount` | The value provided for `per_unit_amount` or `flat_amount` is invalid |
+
+    - Package charge model:
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `properties` | `invalid_package_size` | `package_size` value is invalid |
+  | `properties` | `invalid_free_units` | `free_units` value is invalid |
+  | `properties` | `invalid_amount` | `amount` value is invalid |
+
+    - Percentage charge model:
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `properties` | `invalid_rate` | `rate` value is invalid |
+  | `properties` | `invalid_fixed_amount` | `fixed_amount` value is invalid |
+  | `properties` | `invalid_free_units_per_events` | `free_units_per_events` value is invalid |
+  | `properties` | `invalid_free_units_per_total_aggregation` | `free_units_per_total_aggregation` value is invalid |
+
+    - Volume charge model:
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `properties` | `missing_ranges` | Range values are missing |
+  | `properties` | `invalid_ranges` | One of the range attributes is invalid |
+  | `properties` | `invalid_amount` | Value provided for `per_unit_amount` or `flat_amount` is invalid |
 
 
   </TabItem>

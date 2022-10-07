@@ -185,12 +185,21 @@ import TabItem from '@theme/TabItem';
   {
     "status": 422,
     "error": "Unprocessable entity",
-    "message": "message"
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
   }
   ```
 
-  **Possible error messages:**
-  * `Validation error on the record`
+  **Possible errors:**
+
+  | field | error | description |
+  |--|--|--|
+  | `name` | `value_is_mandatory` | `name` is missing |
+  | `code` | `value_already_exists` | `code` value is already used for another add-on |
+  | `amount_cents` | `value_is_out_of_range` | `amount_cents` value is not a positive integer |
+  | `amount_currency` | `value_is_invalid` | Provided currency value is invalid |
 
 
   </TabItem>
