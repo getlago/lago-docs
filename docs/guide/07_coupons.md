@@ -14,8 +14,10 @@ To create a coupon through the user interface:
 1. Access the **"Coupons"** section via the side menu;
 2. Click **"Add a coupon"**;
 3. Choose a name and a code for your coupon;
-4. Define its value and period of validity; and
-5. Click **"Add coupon"** to confirm.
+4. Select the type of coupon (i.e. fixed amount or percentage);
+5. Define its value and frequency (i.e. is applied once or several times);
+6. Choose whether or not to set an expiration date (i.e. date after which the coupon can no longer be redeemed); and
+7. Click **"Add coupon"** to confirm.
 
 ## Apply coupons
 Here is what you should know about coupons:
@@ -31,26 +33,17 @@ To apply a coupon to a customer:
 
 You can also apply coupons via the API ([learn more](../api/coupons/apply-coupon)).
 
-### Validity and application periods
-The validity period defines how much time you have to apply a coupon to a customer before it expires. If the validity period is **"Forever"**, you can apply the coupon at any time. If the validity period is **"Multiple days"**, you must apply the coupon to a customer before the end of the period, otherwise it will be lost.
+:::info
+A coupon applied to a customer continues to apply beyond the expiration date.
+:::
 
-Once a coupon has been applied to a customer, its application periods depends on the customer's subscription. A coupon that has been applied to a customer continues to apply after the end of its validity period.
-
->Example:
->
->On June 16th, you create a $20 coupon that is valid for 10 days.
->
->On June 25th, you decide to apply the coupon to a customer whose subscription is based on a $10 monthly plan that is paid in arrears.
->
->Therefore, the coupon will be applied to both invoices generated at the end of June and at the end of July. Their total amount will be $0.
-
-### Application scope
-**Coupons are deducted from the total amount of the following invoice(s)**, including the *subscription* (plan amount) and the *charge* fees (used for usage-based billing). In case of a coupon's value greater than an invoice, the remaining amount of discount will be applied to the following invoices, until the coupon is totally consumed or removed from a customer.
+## Application scope
+**Coupons are deducted from the total amount of the following invoice(s)**, including subscription fees and charges. In case of a coupon's value greater than an invoice, the remaining amount of discount will be applied to the following invoices, until the coupon is totally consumed or removed from a customer.
 
 As mentioned previously, the value of the coupon is deducted from the amount of the invoice before tax.
 
 :::info
-**Coupons cannot be applied to Add-ons** or any other one-off fees
+Coupons do not apply to add-ons or any other one-off charges.
 :::
 
 ## Edit, terminate and delete coupons
@@ -60,7 +53,7 @@ In the coupon view, you can click the **ellipsis icon** to see all available act
 3. **Delete**: allows you to delete the coupon and remove it from the list (this action cannot be undone).
 
 :::info
-You cannot modify the value and validity period of a coupon, or delete it, if it is currently applied to a customer.
+You cannot modify the code, value and frequency of a coupon, or delete it, if it has already been applied to a customer.
 :::
 
 ## Remove coupons
