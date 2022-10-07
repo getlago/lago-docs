@@ -31,8 +31,11 @@ import TabItem from '@theme/TabItem';
         "code": "coupon_code",
         "amount_cents": 5000,
         "amount_currency": "USD",
+        "coupon_type": "fixed_amount",
+        "frequency": "recurring",
+        "frequency_duration": 3,
         "expiration": "time_limit",
-        "expiration_duration": 10
+        "expiration_date": "2022-08-08"
       }
     }'
   ```
@@ -51,8 +54,11 @@ import TabItem from '@theme/TabItem';
     code='code_first',
     amount_cents=1000,
     amount_currency='EUR',
+    coupon_type='fixed_amount',
+    frequency='recurring',
+    frequency_duration=3
     expiration='time_limit',
-    expiration_duration=10
+    expiration_date='2022-08-08'
   )
   client.coupons().create(coupon)
   ```
@@ -69,9 +75,12 @@ import TabItem from '@theme/TabItem';
     name: 'coupon name',
     code: 'code',
     expiration: 'time_limit',
-    expiration_duration: 10,
+    expiration_date: '2022-08-08',
     amount_cents: 100,
     amount_currency: 'EUR',
+    coupon_type: 'fixed_amount',
+    frequency: 'recurring',
+    frequency_duration: 3
   }
 
   client.coupons.create(coupon)
@@ -85,8 +94,16 @@ import TabItem from '@theme/TabItem';
 
   let client = new Client('__API_KEY__')
 
-  let coupon = new Coupon({name: 'name1', code: 'code1', expiration: 'time_limit',
-      amountCents: 10000, amountCurrency: 'USD'
+  let coupon = new Coupon({
+      name: 'name1',
+      code: 'code1',
+      expiration: 'time_limit',
+      expirationDate: '2022-08-08',
+      amountCents: 10000,
+      amountCurrency: 'USD',
+      couponType: 'fixed_amount',
+      frequency: 'recurring',
+      frequencyDuration: 3
   })
   await client.createCoupon(coupon);
   ```
@@ -103,12 +120,15 @@ import TabItem from '@theme/TabItem';
         SetApiKey("__YOUR_API_KEY__")
 
       couponInput := &lago.CouponInput{
-        Name:               "Coupon",
+            Name:               "Coupon",
 	   		Code:               "coupon",
 	   		AmountCents:        1500,
 	   		AmountCurrency:     lago.EUR,
 	   		Expiration:         lago.CouponExpirationTimeLimit,
-	   		ExpirationDuration: 100,
+            ExpirationDate:     '2022-08-08',
+            CouponType:         lago.CouponTypeFixedAmount
+            Frequency:          lago.CouponFrequencyRecurring
+            FrequencyDuration:  3
       }
 
       coupon, err := lagoClient.Coupon().Create(couponInput)
@@ -135,7 +155,10 @@ import TabItem from '@theme/TabItem';
     "amount_cents": 5000,
     "amount_currency": "USD",
     "expiration": "time_limit",
-    "expiration_duration": 10
+    "expiration_date": "2022-08-08",
+    "coupon_type": "fixed_amount",
+    "frequency": "recurring",
+    "frequency_duration": 3
   }
 }
 ```
@@ -144,10 +167,13 @@ import TabItem from '@theme/TabItem';
 |--|--|--|
 | name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Coupon name |
 | code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the coupon |
-| amount_cents | Integer &nbsp &nbsp &nbsp<Required>**Required**</Required> | Amount of the coupon |
-| amount_currency | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Currency of the amount |
+| amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Amount of the coupon |
+| amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Currency of the amount |
 | expiration | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Expiration type.<br></br>It can be `time_limit` or `no_expiration` |
-| expiration_duration | Integer &nbsp &nbsp &nbsp<Required>**Required (optional only for `no_expiration` type)**</Required> | Coupon duration. |
+| expiration_date | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `time_limit` type)**</Optional> | Expiration date of the coupon. |
+| frequency | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Frequency type.<br></br>It can be `once` or `recurring` |
+| frequency_duration | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `recurring` frequency type)**</Optional> | This field determines the number of billing periods to which the coupon applies. |
+| percentage_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional (required only for `percentage` coupon type)**</Optional> | Rate of the coupon. |
 ## Responses
 
 <Tabs>
