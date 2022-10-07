@@ -19,9 +19,8 @@ To create a coupon through the user interface:
 
 ## Apply coupons
 Here is what you should know about coupons:
-1. You can only apply a coupon to a customer if this customer has an active [subscription](../guide/plans/subscription);
-2. The currency of the coupon must match the currency of the subscription; and
-3. A customer can only benefit from one coupon at a time.
+- If the currency of the customer is already defined, the currency of the coupon must be the same; and
+- A customer can only benefit from one coupon at a time.
 
 To apply a coupon to a customer:
 1. Select a customer from the list;

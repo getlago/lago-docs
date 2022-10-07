@@ -21,9 +21,8 @@ To create an add-on through the user interface:
 
 ## Assign an add-on to a customer
 Here is what you should know about add-ons:
-1. You can only apply an add-on to a customer if this customer has an active [subscription](../guide/plans/subscription);
-2. The currency of the add-on must match the currency of the subscription; and
-3. You can apply an add-on to a customer ad libitum.
+- If the currency of the customer is already defined, the currency of the add-on must be the same; and
+- You can apply an add-on to a customer as many times as you want.
 
 To apply an add-on to a customer:
 1. Select a customer from the list;
@@ -34,7 +33,7 @@ To apply an add-on to a customer:
 Obviously, you can also apply add-ons via the API ([learn more](../api/add_ons/apply-add-on)).
 
 ### Application scope
-You can apply the same add-on to a customer **as many times as you want**. Add-ons are one-off fees that are invoiced immediately.
+Add-ons are one-off fees that are invoiced immediately. You can apply the same add-on to a customer **as many times as you want**.
 
 When assigning an add-on to a customer, you can **change the amount and currency**.
 
@@ -58,5 +57,5 @@ You **cannot** edit or delete an add-on if it has been applied to a customer.
 As mentioned previously, an **add-on is invoiced straight away**. You are able to find an assigned add-on through webhook with `webhook_type = invoice.add_on_added`.
 
 When assiging an add-on to a customer, an invoice is generated immediately. Please note that:
-1. Add-ons are subject to taxes, as defined in the customer view;
+1. Add-ons are subject to taxes, as defined in the customer view; and
 2. Coupons cannot be deducted from the amount of the add-on.
