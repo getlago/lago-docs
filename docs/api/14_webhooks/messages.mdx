@@ -138,6 +138,67 @@ This will allow your application to retrieve the PDF invoice.
 
 
 <details className="custom-toggle">
+<summary><b>Credit Note Generated</b></summary>
+Sent when the PDF file has been generated for a customer credit note.
+
+This will allow your application to retrieve the PDF credit note.
+
+```json
+{
+  "webhook_type": "credit_note.generated",
+  "object_type": "credit_note",
+  "credit_note": {
+    "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "sequential_id": 2,
+    "number": "LAG-1234-CN2",
+    "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "invoice_number": "LAG-1234",
+    "status": "available",
+    "reason": "overpaid",
+    "amount_cents": 100,
+    "amount_currency": "EUR",
+    "remaining_amount_cents": 100,
+    "remaining_amount_currency": "EUR",
+    "created_at": "2022-10-06 09:52:00",
+    "updated_at": "2022-10-06 09:52:00",
+    "file_url": "https://getlago.com/credit_note/file",
+    "customer": {
+      "lago_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+      "sequential_id": "001",
+      "slug": "LAG-1234-001",
+      "external_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+      "address_line1": "5230 Penfield Ave",
+      "address_line2": null,
+      "city": "Woodland Hills",
+      "country": "US",
+      "created_at": "2022-04-29T08:59:51Z",
+      "email": "dinesh@piedpiper.test",
+      "legal_name": "Coleman-Blair",
+      "legal_number": "49-008-2965",
+      "logo_url": "http://hooli.com/logo.png",
+      "name": "Gavin Belson",
+      "phone": "1-171-883-3711 x245",
+      "state": "CA",
+      "url": "http://hooli.com",
+      "vat_rate": 12.5,
+      "zipcode": "91364",
+      "currency": "EUR",
+      "billing_configuration": {
+        "payment_provider": "stripe",
+        "provider_customer_id": "cus_12345"
+      }
+    }
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **credit_note** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Credit note object](../credit_notes/credit-note-object) |
+</details>
+
+
+<details className="custom-toggle">
 <summary><b>Add-on added</b></summary>
 Sent when an add-on has been applied to customer. The invoice is created immediately after the add-on is assigned to a customer.
 

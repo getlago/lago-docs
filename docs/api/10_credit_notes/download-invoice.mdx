@@ -1,23 +1,24 @@
 ---
-sidebar_position: 3
+sidebase_position: 3
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Download an Invoice
+# Download a Credit Note PDF
 
 ## Route
 
 ```curl title="POST"
-/api/v1/invoices/:id/download
+/api/v1/credit_notes/:id/download
 ```
 
 ## Logic
 
-- If the invoice has already been generated, you will receive in the response the `invoice` object with the `file_url` where you can download your pdf file.
-- If the invoice has never been generated, this endpoint will returns an empty `200` response, you will receive a `invoice.generated` webhook when the PDF file is ready.
+- If the credit note PDF has already been generated, you will receive in the response the [credit note](./credit-note-object) with the `file_url` where you can download your pdf file.
+- If the credit note PDF has never been generated, this endpoint will returns an empty `200` response, you will receive a `credit_note.generated` webhook when the PDF file is ready.
   You can check the webhook documentation to know more about this.
+
 
 ## Usage
 
@@ -26,10 +27,10 @@ import TabItem from '@theme/TabItem';
 
   ```bash
   LAGO_URL="https://api.getlago.com"
-  INVOICE_ID="__YOU_INVOICE_ID__"
+  CREDIT_NOTE_ID="__YOU_CREDIT_NOTE_ID__"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request POST "$LAGO_URL/api/v1/invoices/$INVOICE_ID/download" \
+  curl --location --request POST "$LAGO_URL/api/v1/credit_notes/$CREDIT_NOTE_ID/download" \
     --header "Authorization: Bearer $API_KEY" \
     --header 'Content-Type: application/json'
   ```
@@ -42,7 +43,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  invoice = client.invoices().download('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
+  invoice = client.credit_notes().download('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Credit Note ID
   ```
   </TabItem>
 
@@ -53,7 +54,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.invoices.download('5eb02857-a71e-4ea2-bcf9-57d8885990ba') // Invoice ID
+  client.credit_notes.download('5eb02857-a71e-4ea2-bcf9-57d8885990ba') // Credit Note ID
   ```
   </TabItem>
 
@@ -62,7 +63,7 @@ import TabItem from '@theme/TabItem';
   ```javascript
   let client = new Client('__API_KEY__')
 
-  await client.downloadInvoice('id');
+  await client.downloadCreditNote('id');
   ```
   </TabItem>
 
@@ -73,20 +74,19 @@ import TabItem from '@theme/TabItem';
     import "github.com/getlago/lago-go-client"
 
     func main() {
-      lagoClient := lago.New().
-        SetApiKey("__YOUR_API_KEY__")
+      lagoClient := lago.New().SetApiKey("__YOUR_API_KEY__")
 
-      invoice, err := lagoClient.Invoice().Download("__YOUR_INVOICE_ID__")
+      credit_note, err := lagoClient.CreditNote().Download("__YOUR_CREDIT_NOTE_ID__")
       if err != nil {
         // Error is *lago.Error
         panic(err)
       }
 
-      // invoice is *lago.Invoice
-      fmt.Println(invoice)
+      // credit_note is *lago.CreditNote
+      fmt.Println(credit_note)
 
-      // If the invoice has to be generated, the response is empty
-      // And you will get a webhook `invoice.generated`
+      // If the credit note has to be generated, the response is empty
+      // And you will get a webhook `credit_note.generated`
     }
   ```
 
@@ -98,8 +98,8 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
 
-  * The `invoice` file has already been generated.
-  * The `invoice` file has not been generated, returns an empty response.
+  * The `credit_note` file has already been generated.
+  * The `credit_note` file has not been generated, returns an empty response.
 
 
   </TabItem>
@@ -129,11 +129,11 @@ import TabItem from '@theme/TabItem';
   {
     "status": 404,
     "error": "Bad Request",
-    "code": "invoice_not_found"
+    "code": "credit_note_not_found"
   }
   ```
 
-  The `invoice` is not found.
+  The `credit_note` is not found.
   </TabItem>
 </Tabs>
 
