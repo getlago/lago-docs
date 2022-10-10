@@ -31,6 +31,7 @@ import TabItem from '@theme/TabItem';
         "plan_code": "code",
         "external_id": "id",
         "name": "display name",
+        "subscription_date": "2022-08-08",
         "billing_time": "anniversary"
       }
     }'
@@ -50,6 +51,7 @@ import TabItem from '@theme/TabItem';
     plan_code="code",
     external_id="id",
     name="display name",
+    subscription_date="2022-08-08",
     billing_time="anniversary"
   )
 
@@ -70,6 +72,7 @@ import TabItem from '@theme/TabItem';
     planCode: "code",
     externalId: "id",
     name: "display name",
+    subscriptionDate: "2022-08-08",
     billingTime: "anniversary"
   })
 
@@ -90,6 +93,7 @@ import TabItem from '@theme/TabItem';
     plan_code: "code",
     external_id: "id",
     name: "display name",
+    subscription_date: "2022-08-08",
     billing_time: "anniversary"
   )
   ```
@@ -108,6 +112,7 @@ import TabItem from '@theme/TabItem';
       subscriptionInput := &lago.SubscriptionInput{
         ExternalCustomerID:   "__YOUR_CUSTOMER_ID__",
         PlanCode:     "__YOUR_PLAN_CODE__",
+        SubscriptionDate:     "2022-08-08",
         BillingTime: lago.Anniversary,
       }
 
@@ -135,6 +140,7 @@ import TabItem from '@theme/TabItem';
     "plan_code": "new_code",
     "name": "name",
     "external_id": "sub id",
+    "subscription_date": "2022-08-08",
     "billing_time": "anniversary"
   }
 }
@@ -146,6 +152,7 @@ import TabItem from '@theme/TabItem';
 | plan_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the plan.<br></br>It must match the `code` property of one of the plans. |
 | external_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique external identifier of the subscription. Used as an idempotency key. |
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Subscription display name. |
+| subscription_date | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Used for creating subscription that started in the past or will start in the future. |
 | billing_time | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Billing time of the subscription.<br></br>It can be `anniversary` or `calendar`<br></br>If not provided, it will default to `calendar` |
 
 
