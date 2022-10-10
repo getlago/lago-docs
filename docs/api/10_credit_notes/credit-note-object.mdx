@@ -16,12 +16,14 @@ This object represents a credit note emited to re-credit a customer for a fee or
     "number": "LAG-1234-CN2",
     "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     "invoice_number": "LAG-1234",
-    "status": "available",
     "reason": "overpaid",
-    "amount_cents": 100,
-    "amount_currency": "EUR",
-    "remaining_amount_cents": 100,
-    "remaining_amount_currency": "EUR",
+    "credit_status": "available",
+    "total_amount_cents": 100,
+    "total_amount_currency": "EUR",
+    "credit_amount_cents": 100,
+    "credit_amount_currency": "EUR",
+    "balance_amount_cents": 100,
+    "balance_amount_currency": "EUR",
     "created_at": "2022-10-06 09:52:00",
     "updated_at": "2022-10-06 09:52:00",
     "file_url": "https://getlago.com/credit_note/file",
@@ -57,12 +59,14 @@ This object represents a credit note emited to re-credit a customer for a fee or
 | **number** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Credit note unique number |
 | **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the invoice in Lago application |
 | **invoice_number** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Invoice unique number |
-| **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Status of the credit note<br></br> <details><summary>**Possible values**</summary><div>- `available`: An amount remain available for future usage.<br></br>- `consumed`: The amount is fully consumed. Remaining amount is 0<div></div></div></details> |
 | **reason** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Issuing reason of the credit note<br></br> <details><summary>**Possible values**</summary><div>- `overpaid`: A subscritpion fee for an plan payed `in_advance` was terminated or upgraded before the end of the billing period<div></div></div></details> |
-| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents |
-| **amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
-| **remaining_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Remaining amount in cents |
-| **remaining_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the remaining amount |
+| **credit_status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Status of the credit part of the credit note<br></br> <details><summary>**Possible values**</summary><div>- `available`: An amount remain available for future usage.<br></br>- `consumed`: The amount is fully consumed. Remaining amount is 0<div></div></div></details> |
+| **total_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Total amount in cents |
+| **total_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount |
+| **credit_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Credit amount in cents |
+| **credit_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the credit amount |
+| **balance_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Remaining credit amount in cents |
+| **balance_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the balance amount |
 | **created_at** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime*</Comment> | Date and time of creation of the credit note in UTC |
 | **updated_at** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime*</Comment> | Date and time of last update of the credit note in UTC |
 | **file_url** &nbsp &nbsp <Type>String</Type>&nbsp&nbsp | File url of the credit note PDF |
