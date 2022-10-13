@@ -85,7 +85,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "volume",
           "properties": {
-            "ranges": [
+            "volume_ranges": [
               {
                 "to_value": 10,
                 "from_value": 0,
@@ -167,7 +167,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
     billable_metric_id='id,
     charge_model='volume',
     properties={
-      'ranges': [
+      'volume_ranges': [
         {
           'to_value': 10,
           'from_value': 0,
@@ -270,7 +270,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
         billable_metric_id: 'id',
         charge_model: 'volume',
         properties: {
-          ranges: [
+          volume_ranges: [
             {
               to_value: 10,
               from_value: 0,
@@ -353,7 +353,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
     billableMetricId: 'id',
     chargeModel: 'volume',
     properties: {
-      ranges: [
+      volume_ranges: [
         {
           to_value: 10,
           from_value: 0,
@@ -491,7 +491,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
         "charge_model": "volume",
         "properties": {
-          "ranges": [
+          "volume_ranges": [
             {
               "to_value": 10,
               "from_value": 0,
@@ -542,9 +542,9 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 
 | Attributes | Type | Description |
 |--|--|--|
-| - | Array<br></br><Required>**Required**</Required> | Graduated ranges, sorted from bottom to top boundaries |
+| graduated_ranges | Array<br></br><Required>**Required**</Required> | Graduated ranges, sorted from bottom to top boundaries |
 
-- Ranges:
+- Graduated Ranges:
 
 | Attributes | Type | Description |
 |--|--|--|
@@ -574,9 +574,9 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 
 | Attributes | Type | Description |
 |--|--|--|
-| ranges | Array<br></br><Required>**Required**</Required> | Volume ranges, sorted from bottom to top boundaries |
+| volume_ranges | Array<br></br><Required>**Required**</Required> | Volume ranges, sorted from bottom to top boundaries |
 
-- Ranges:
+- Volume Ranges:
 
 | Attributes | Type | Description |
 |--|--|--|
@@ -673,7 +673,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 
   | Field | Code | Description |
   |--|--|--|
-  | `properties` | `missing_graduated_range` | Range values are missing |
+  | `properties` | `missing_graduated_ranges` | Range values are missing |
   | `properties` | `invalid_graduated_ranges` | One of the range attributes is invalid |
   | `properties` | `invalid_amount` | The value provided for `per_unit_amount` or `flat_amount` is invalid |
 
@@ -698,8 +698,8 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 
   | Field | Code | Description |
   |--|--|--|
-  | `properties` | `missing_ranges` | Range values are missing |
-  | `properties` | `invalid_ranges` | One of the range attributes is invalid |
+  | `properties` | `missing_volume_ranges` | Range values are missing |
+  | `properties` | `invalid_volume_ranges` | One of the range attributes is invalid |
   | `properties` | `invalid_amount` | Value provided for `per_unit_amount` or `flat_amount` is invalid |
 
 

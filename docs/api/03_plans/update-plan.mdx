@@ -90,7 +90,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "volume",
           "properties": {
-            "ranges": [
+            "volume_ranges": [
               {
                 "to_value": 10,
                 "from_value": 0,
@@ -177,7 +177,7 @@ standard_charge = Charge(
     billable_metric_id='id,
     charge_model='volume',
     properties={
-      'ranges': [
+      'volume_ranges': [
         {
           'to_value': 10,
           'from_value': 0,
@@ -285,7 +285,7 @@ standard_charge = Charge(
         billable_metric_id: 'id',
         charge_model: 'volume',
         properties: {
-          ranges: [
+          volume_ranges: [
             {
               to_value: 10,
               from_value: 0,
@@ -374,7 +374,7 @@ standard_charge = Charge(
     billableMetricId: 'id',
     chargeModel: 'volume',
     properties: {
-      ranges: [
+      volume_ranges: [
         {
           to_value: 10,
           from_value: 0,
@@ -516,7 +516,7 @@ standard_charge = Charge(
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
         "charge_model": "volume",
         "properties": {
-          "ranges": [
+          "volume_ranges": [
             {
               "to_value": 10,
               "from_value": 0,
@@ -569,9 +569,9 @@ Charges cannot be updated if the plan is linked to a subscription
 
 | Attributes | Type | Description |
 |--|--|--|
-| - | Array<br></br><Required>**Required**</Required> | Graduated ranges, sorted from bottom to top boundaries |
+| graduated_ranges | Array<br></br><Required>**Required**</Required> | Graduated ranges, sorted from bottom to top boundaries |
 
-- Ranges:
+- Graduated Ranges:
 
 | Attributes | Type | Description |
 |--|--|--|
@@ -601,9 +601,9 @@ Charges cannot be updated if the plan is linked to a subscription
 
 | Attributes | Type | Description |
 |--|--|--|
-| ranges | Array<br></br><Required>**Required**</Required> | Volume ranges, sorted from bottom to top boundaries |
+| volume_ranges | Array<br></br><Required>**Required**</Required> | Volume ranges, sorted from bottom to top boundaries |
 
-- Ranges:
+- Volume Ranges:
 
 | Attributes | Type | Description |
 |--|--|--|
@@ -704,7 +704,7 @@ Charges cannot be updated if the plan is linked to a subscription
 
   | Field | Code | Description |
   |--|--|--|
-  | `properties` | `missing_graduated_range` | Range values are missing |
+  | `properties` | `missing_graduated_ranges` | Range values are missing |
   | `properties` | `invalid_graduated_ranges` | One of the range attributes is invalid |
   | `properties` | `invalid_amount` | Value provided for `per_unit_amount` or `flat_amount` is invalid |
 
@@ -729,8 +729,8 @@ Charges cannot be updated if the plan is linked to a subscription
 
   | Field | Code | Description |
   |--|--|--|
-  | `properties` | `missing_ranges` | Range values are missing |
-  | `properties` | `invalid_ranges` | One of the range attributes is invalid |
+  | `properties` | `missing_volume_ranges` | Range values are missing |
+  | `properties` | `invalid_volume_ranges` | One of the range attributes is invalid |
   | `properties` | `invalid_amount` | Value provided for `per_unit_amount` or `flat_amount` is invalid |
 
 
