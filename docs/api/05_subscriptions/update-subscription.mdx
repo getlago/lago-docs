@@ -27,7 +27,8 @@ import TabItem from '@theme/TabItem';
     --header 'Content-Type: application/json' \
     --data-raw '{
       "subscription": {
-        "name": "subscription_name"
+        "name": "subscription_name",
+        "subscription_date": "2022-08-08"
       }
     }'
   ```
@@ -41,7 +42,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  update_params = Subscription(name='new name')
+  update_params = Subscription(name='new name', subscription_date='2022-08-08')
   client.subscriptions().update(update_params, 'id')
   ```
   </TabItem>
@@ -53,7 +54,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  update_params = {name: 'new name'}
+  update_params = {name: 'new name', subscription_date: '2022-08-08'}
   client.subscriptions.update(update_params, 'id')
   ```
   </TabItem>
@@ -65,7 +66,7 @@ import TabItem from '@theme/TabItem';
 
   let client = new Client('__API_KEY__')
 
-  await client.updateSubscription(new Subscription({name: 'new name'}), 'id');
+  await client.updateSubscription(new Subscription({name: 'new name', subscriptionDate: '2022-08-08'}), 'id');
   ```
   </TabItem>
 </Tabs>
@@ -75,7 +76,8 @@ import TabItem from '@theme/TabItem';
 ```json
 {
   "subscription": {
-    "name": "subscription_name"
+    "name": "subscription_name",
+    "subscription-date": "2022-08-08"
   }
 }
 ```
@@ -83,6 +85,7 @@ import TabItem from '@theme/TabItem';
 | Attributes | Type | Description |
 |--|--|--|
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Subscription name |
+| subscription_date | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Used for creating subscription that started in the past or will start in the future.<br></br>This field is editable only for pending subscriptions that will start in the future.|
 ## Responses
 
 <Tabs>
