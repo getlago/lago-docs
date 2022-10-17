@@ -152,7 +152,7 @@ import TabItem from '@theme/TabItem';
 | plan_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the plan.<br></br>It must match the `code` property of one of the plans. |
 | external_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique external identifier of the subscription. Used as an idempotency key. |
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Subscription display name. |
-| subscription_date | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Used for creating subscription that started in the past or will start in the future. |
+| subscription_date | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Can be used to create a subscription that started in the past or will start in the future. Cannot be used to update the start date of a pending subscription or to schedule an upgrade/downgrade. |
 | billing_time | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Billing time of the subscription.<br></br>It can be `anniversary` or `calendar`<br></br>If not provided, it will default to `calendar` |
 
 

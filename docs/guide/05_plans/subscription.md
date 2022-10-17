@@ -11,8 +11,9 @@ To assign a plan to a customer through the user interface:
 3. In the **"Overview"** tab, click **"Add a plan"** on the right;
 4. Select a plan (that you can overwrite if needed - [see below](#overwriting-a-plan));
 5. Give a name to the subscription (name that will be displayed on the invoice - optional);
-6. Choose whether the subscription should be renewed at the beginning of the period or on its anniversary date (see [below](subscription#billing-cycles)); and
-7. Click **"Add plan"** to confirm.
+6. Set a subscription date (start date of the subscription - [see below](#subscription-date))
+7. Choose whether the subscription should be renewed at the beginning of the period or on its anniversary date (see [below](subscription#billing-cycles)); and
+8. Click **"Add plan"** to confirm.
 
 When a subscription is active, Lago will automatically generate invoices for the customer according to the [plan model](./plan-model). It will also start monitoring the customer's consumption, which means that you can start pushing [events](../../api/events/metered-event) related to this subscription.
 
@@ -36,9 +37,8 @@ Consider the following example:
 
 ![Illustration of the anniversary date logic](../../../static/img/calendar-date.png)
 
-### Anniversary Date billing period
-
-However, you can choose to use the **anniversary date** of the subscription to define a custom billing period.
+### Anniversary billing period
+Another option is to use the **anniversary date** of the subscription to define a custom billing period.
 
 For example:
 
@@ -49,6 +49,43 @@ For example:
 >The first billing period will run from August 10th to September 9th.
 
 ![Illustration of the anniversary date logic](../../../static/img/anniversary-date.png)
+
+## Subscription date
+By default, the subscription starts the day it is created. However, you can set a subscription date in the past or in the future.
+
+### Start date in the past
+If the start date of the subscription is in the past, the subscription is considered active.
+
+:::info
+Lago will not generate any invoices for past periods already completed.
+:::
+
+The invoicing process varies depending on the [plan model](/docs/guide/plans/plan-model) and [billing cycle](#billing-cycles):
+- If the plan includes a subscription fee to be paid in advance, it will be considered as **already paid for the current period**. The next invoice will include the usage-based charges for the current period and the subscription fee for the next period (see example 1 below); and
+- If the plan includes a subscription fee to be paid in arrears, it will be **included in the next invoice**, together with the usage-based charges for the current period (see example 2 below).
+
+**Example 1:** Start date in the past and subscription fee to be paid in advance
+![Illustration for start date in the past and subscription fee in advance](../../../static/img/subscription-past-advance.png)
+
+**Example 2:** Start date in the past and subscription fee to be paid in arrears
+![Illustration for start date in the past and subscription fee in advance](../../../static/img/subscription-past-arrears.png)
+
+### Start date in the future
+If the start date of the subscription is in the past, the subscription is considered pending.
+
+The invoicing process varies depending on the [plan model](/docs/guide/plans/plan-model) and [billing cycle](#billing-cycles):
+- If the plan includes a subscription fee to be paid in advance, when the subscription becomes active, Lago will automatically generate an **invoice for the subscription fee**. Usage-based charges will be included in the next invoice, generated at the end of the billing period (see example 3 below); and
+- If the plan includes a subscription fee to be paid in arrears, when the subscription becomes active, **there will be no invoice**. The subscription fee and usage-based charges will be included in the invoice generated at the end of the billing period (see example 4 below).
+
+**Example 3:** Start date in the future and subscription fee to be paid in advance
+![Illustration for start date in the future and subscription fee in advance](../../../static/img/subscription-future-advance.png)
+
+**Example 4:** Start date in the future and subscription fee to be paid in arrears
+![Illustration for start date in the future and subscription fee in arrears](../../../static/img/subscription-future-arrears.png)
+
+:::info
+It is possible to update the start date of a pending subscription via the user interface (click the **ellipsis icon**, then **"Edit subscription"**) or [via the API](../../api/subscriptions/update-subscription).
+:::
 
 ## Multiple plans
 You may create several subscriptions for a customer by assigning them multiple plans. This can be particularly useful if your application allows customers to create different projects or workspaces (e.g. Free plan for Workspace 1, Free plan for Workspace 2, Premium plan for Workspace 3, etc.).
