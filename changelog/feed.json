@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/subscription-date",
+            "content_html": "<p>It is now possible to set a start date in the past or in the future for a new subscription.</p><p>Setting a start date in the past can be useful when migrating existing customers to Lago, while setting a start date in the future can be useful for scheduling upcoming subscriptions.</p><p>For more information about the impact of the start date on the invoicing process, please refer to <a href=\"/docs/guide/plans/subscription#subscription-date\">the documentation</a>.</p>",
+            "url": "https://getlago.com/changelog/subscription-date",
+            "title": "Past and future subscription dates",
+            "summary": "It is now possible to set a start date in the past or in the future for a new subscription.",
+            "date_modified": "2022-10-13T11:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/coupons-v2",
             "content_html": "<p>We have improved the coupon model to offer more flexibility.</p><p>Changes include (but are not limited to):</p><ol><li>Ability to define the value of a coupon as a fixed amount or percentage;</li><li>Ability to create recurring coupons that apply over several billing periods; and</li><li>Ability to set an expiration date (i.e. date after which the coupon can no longer be redeemed).</li></ol><p><a href=\"/docs/guide/coupons\">Learn more</a></p>",
             "url": "https://getlago.com/changelog/coupons-v2",
