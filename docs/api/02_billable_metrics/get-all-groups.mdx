@@ -34,7 +34,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.groups().find_all({'code': 'billable_metric_code', 'per_page': 2, 'page': 1})
+  client.groups().find_all('billable_metric_code', {'per_page': 2, 'page': 1})
   ```
   </TabItem>
 
@@ -45,7 +45,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.groups.get_all({ code: 'billable_metric_code', per_page: 2, page: 3 })
+  client.groups.get_all('billable_metric_code', { per_page: 2, page: 3 })
   ```
   </TabItem>
 
@@ -54,7 +54,7 @@ import TabItem from '@theme/TabItem';
   ```javascript
   let client = new Client('__API_KEY__')
 
-  await client.findAllGroups({code: 'billable_metric_code', per_page: 2, page: 3});
+  await client.findAllGroups('billable_metric_code', {per_page: 2, page: 3});
   ```
   </TabItem>
 
@@ -117,7 +117,7 @@ import TabItem from '@theme/TabItem';
 | Attributes | Description |
 | -----------| ----------- |
 | **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifier of the group in Lago application. |
-| **key** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Group key |
+| **key** &nbsp &nbsp <Type>String</Type> | Group key, only defined if two dimensions |
 | **value** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Group value |
   </TabItem>
 
