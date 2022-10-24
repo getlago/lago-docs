@@ -81,7 +81,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "volume",
         "properties": {
-          "ranges": [
+          "volume_ranges": [
             {
               "to_value": 10,
               "from_value": 0,
@@ -137,9 +137,9 @@ This object represents a plan.<br></br>
 
 | Attributes | Description |
 | -----------| ----------- |
-| **Array of ranges** | Graduated ranges, sorted from bottom to top boundaries |
+| **graduated_ranges** &nbsp &nbsp <Type>Array of ranges</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Graduated ranges, sorted from bottom to top boundaries |
 
-- Ranges:
+- Graduated Ranges:
 
 | Attributes | Description |
 | -----------| ----------- |
@@ -169,9 +169,9 @@ This object represents a plan.<br></br>
 
 | Attributes | Description |
 | -----------| ----------- |
-| **ranges** &nbsp &nbsp <Type>Array of ranges</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Volume ranges, sorted from bottom to top boundaries |
+| **volume_ranges** &nbsp &nbsp <Type>Array of ranges</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Volume ranges, sorted from bottom to top boundaries |
 
-- Ranges:
+- Volume Ranges:
 
 | Attributes | Description |
 | -----------| ----------- |
