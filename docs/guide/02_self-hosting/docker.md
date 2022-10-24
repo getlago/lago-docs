@@ -90,7 +90,7 @@ Lago uses the following environment variables to configure the components of the
 | LAGO_AWS_S3_REGION | | AWS S3 Region |
 | LAGO_AWS_S3_BUCKET | | AWS S3 Bucket name |
 | LAGO_AWS_S3_ENDPOINT | | S3 compatible storage endpoint. Should be set only if you are using another storage provider than AWS S3 |
-| LAGO_USE_GCS | `false`| Use Google Cloud Service Cloud Storage for files storage, :warning: If you want to use GCS, you have to pass the credentials json key file to the `api` and `worker` service |
+| LAGO_USE_GCS | `false`| Use Google Cloud Service Cloud Storage for file storage, :warning: If you want to use GCS, you have to pass the credentials json key file to the `api` and `worker` service |
 | LAGO_GCS_PROJECT | | GCS Project name |
 | LAGO_GCS_BUCKET| | GCS Bucket Name |
 | LAGO_PDF_URL | http://pdf:3000 | PDF Service URL on your infrastructure |
@@ -190,17 +190,17 @@ docker-compose up front
 
 ### Storage
 
-By default, Lago use the internal storage of the container.
-You can customize it by settings different environment variables.
+By default, Lago uses the internal storage of the container.
+You can customize it by defining different environment variables.
 
-We actually support : 
+We currently support : 
   - AWS S3
   - AWS S3 Compatibles Endpoints
   - Google Cloud Service Cloud Storage
 
 #### AWS S3
 
-You have to set those variables to use AWS S3.
+You have to set these variables to use AWS S3.
 
 |Name|Description|
 |--|--|
@@ -212,7 +212,7 @@ You have to set those variables to use AWS S3.
 
 #### AWS S3 Compatible Endpoints
 
-You have to set those variables to use AWS S3 Compatible Endpoints.
+You have to set these variables to use AWS S3 Compatible Endpoints.
 
 |Name|Description|
 |--|--|
@@ -232,7 +232,7 @@ You have to set those variables to use GCS Cloud Storage.
 |`LAGO_GCS_PROJECT`|GCS Project name|
 |`LAGO_GCS_BUCKET`|GCS Bucket name|
 
-Into the `docker-compose.yml` file, you have to uncomment the lines, and pass the correct GCS credentials json file to it.
+In the `docker-compose.yml` file, you must uncomment the lines and pass the correct GCS credentials json file.
 
 ```yml
 api:
