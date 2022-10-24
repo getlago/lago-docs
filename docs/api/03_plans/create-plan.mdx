@@ -47,20 +47,22 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
         {
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "graduated",
-          "properties": [
-            {
-              "to_value": 10,
-              "from_value": 0,
-              "flat_amount": "0",
-              "per_unit_amount": "0.001"
-            },
-            {
-              "to_value": null,
-              "from_value": 11,
-              "flat_amount": "0",
-              "per_unit_amount": "0.0005"
-            }
-          ]
+          "properties": {
+            "graduated_ranges": [
+              {
+                "to_value": 10,
+                "from_value": 0,
+                "flat_amount": "0",
+                "per_unit_amount": "0.001"
+              },
+              {
+                "to_value": null,
+                "from_value": 11,
+                "flat_amount": "0",
+                "per_unit_amount": "0.0005"
+              }
+            ]
+          }
         },
         {
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
@@ -453,20 +455,22 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
       {
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
         "charge_model": "graduated",
-        "properties": [
-          {
-            "to_value": 10,
-            "from_value": 0,
-            "flat_amount": "0",
-            "per_unit_amount": "0.00010"
-          },
-          {
-            "to_value": null,
-            "from_value": 11,
-            "flat_amount": "0",
-            "per_unit_amount": "0.0005"
-          }
-        ]
+        "properties": {
+          "graduated_ranges": [
+            {
+              "to_value": 10,
+              "from_value": 0,
+              "flat_amount": "0",
+              "per_unit_amount": "0.00010"
+            },
+            {
+              "to_value": null,
+              "from_value": 11,
+              "flat_amount": "0",
+              "per_unit_amount": "0.0005"
+            }
+          ]
+        }
       },
       {
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
