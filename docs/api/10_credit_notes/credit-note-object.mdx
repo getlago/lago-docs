@@ -16,7 +16,7 @@ This object represents a credit note emited to re-credit a customer for a fee or
     "number": "LAG-1234-CN2",
     "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     "invoice_number": "LAG-1234",
-    "reason": "overpaid",
+    "reason": "other",
     "credit_status": "available",
     "refund_status": "pending",
     "total_amount_cents": 100,
@@ -60,9 +60,9 @@ This object represents a credit note emited to re-credit a customer for a fee or
 | **number** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Credit note unique number |
 | **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the invoice in Lago application |
 | **invoice_number** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Invoice unique number |
-| **reason** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Issuing reason of the credit note<br></br> <details><summary>**Possible values**</summary><div>- `overpaid`: A subscritpion fee for an plan payed `in_advance` was terminated or upgraded before the end of the billing period<div></div></div></details> |
+| **reason** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Issuing reason of the credit note<br></br> <details><summary>**Possible values**</summary><div>-`duplicated_charge`<br></br>-`product_unsatisfactory`<br></br>-`order_change`<br></br>-`order_cancellation`<br></br>-`fraudulent_charge`<br></br>-`other`<div></div></div></details> |
 | **credit_status** &nbsp &nbsp <Type>String</Type> | Status of the credit part of the credit note<br></br> <details><summary>**Possible values**</summary><div>- `available`: An amount remain available for future usage.<br></br>- `consumed`: The amount is fully consumed. Remaining amount is 0<div></div></div></details> |
-| **refund_status** &nbsp &nbsp <Type>String</Type> | Status of the refund part of the credit note<br></br> <details><summary>**Possible values**</summary><div>- `pending`: The refund is pending for its execution.<br></br>- `refunded`: The refund has been executed</div></details> |
+| **refund_status** &nbsp &nbsp <Type>String</Type> | Status of the refund part of the credit note<br></br> <details><summary>**Possible values**</summary><div>- `pending`: The refund is pending for its execution.<br></br>- `refunded`: The refund has been executed<br></br>- `failed`: The refund failed to execute</div></details> |
 | **total_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Total amount in cents |
 | **total_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount |
 | **credit_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Credit amount in cents |

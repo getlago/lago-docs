@@ -1,0 +1,351 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Create credit note
+
+## Route
+
+```curl title="POST"
+/api/v1/credit_notes
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/credit_notes" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "credit_note": {
+        "invoice_id": "__LAGO_INVOICE_ID__",
+        "reason": "duplicated_charge",
+        "items": [
+          {
+            "fee_id": "__LAGO_FEE_ID__",
+            "credit_amount_cents": 10,
+            "refund_amount_cents": 5
+          },
+          {
+            "fee_id": "__LAGO_FEE_ID__",
+            "credit_amount_cents": 5,
+            "refund_amount_cents": 10
+          }
+        ]
+      }'
+  ```
+
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client.client import Client
+  from lago_python_client.models.credit_note import Item, Items, CreditNote
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  item1 = Item(
+    fee_id="__LAGO_FEE_ID__",
+    credit_amount_cents=10,
+    refund_amount_cents=10,
+  )
+
+  item2 = Item(
+    fee="__LAGO_FEE_ID__",
+    credit_amount_cents=5,
+    refund_amount_cents=5,
+  )
+
+  credit_note = CreditNote(
+    lago_id="__LAGO_INVOICE_ID__",
+    reason="other",
+    items= Items(__root__=[item1, item2])
+  )
+
+  client.credit_notes().create(credit_note)
+  ```
+
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  credit_note = {
+    invoice_id: '__LAGO_INVOICE_ID__',
+    reason: 'duplicated_charge',
+    items: [
+      {
+        fee_id: '__LAGO_FEE_ID__',
+        credit_amount_cents: 10,
+        refund_amount_cents: 5
+      },
+      {
+        fee_id: '__LAGO_FEE_ID__',
+        credit_amount_cents: 5,
+        refund_amount_cents: 10
+      }
+    ]
+  }
+
+  client.credit_notes.create(credit_note)
+  ```
+
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import CreditNote from 'lago-nodejs-client/credit_note';
+
+  let client = new Client('__API_KEY__')
+
+  let creditNote = new CreditNote({
+    reason: 'other',
+    invoiceId: '__LAGO_INVOICE_ID__',
+    items: [
+      {
+        feeId: '__LAGO_FEE_ID__',
+        creditAmountCents: 10,
+        refundAmountCents: 5
+      },
+      {
+        feeId: '__LAGO_FEE_ID__',
+        creditAmountCents: 5,
+        refundAmountCents: 10
+      }
+    ]
+  })
+
+  await client.createCreditNote(creditNote)
+  ```
+
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+  import "fmt"
+  import "github.com/getlago/lago-go-client"
+
+  func main() {
+    lagoClient := lago.New().SetApiKey("__YOUR_API_KEY__")
+
+    creditNoteInput := &lago.CreditNoteInput{
+      LagoInvoiceID: "__LAGO_INVOICE_ID__",
+      Reason:        lago.CreditNoteReasonDuplicatedCharge,
+      Items:         []lago.CreditNoteItemInput{
+        {
+          LagoFeeID         "__LAGO_FEE_ID__",
+          CreditAmountCents 10,
+          RefundAmountCents 5,
+        },
+        {
+          LagoFeeID         "__LAGO_FEE_ID__",
+          CreditAmountCents 5,
+          RefundAmountCents 10
+        },
+      },
+    }
+
+    creditNote, err := lagoClient.CreditNote().Create(creditNoteInput)
+    if err != nil {
+      // Error is *lago.Error
+      panic(err)
+    }
+
+    fmt.Println(creditNote)
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "credit_note": {
+    "invoice_id": "__LAGO_INVOICE_ID__",
+    "reason": "duplicated_charge",
+    "items": [
+      {
+        "fee_id": "__LAGO_FEE_ID__",
+        "credit_amount_cents": 10,
+        "refund_amount_cents": 5
+      },
+      {
+        "fee_id": "__LAGO_FEE_ID__",
+        "credit_amount_cents": 5,
+        "refund_amount_cents": 10
+      }
+    ]
+  }
+}
+```
+
+### Credit note attributes
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| invoice_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Invoice id in lago application |
+| reason | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Reason of the credit note creation.<br></br>It can be `duplicated_charge`, `product_unsatisfactory`, `order_change`, `order_cancellation`, `fraudulent_charge` or `other` |
+| items | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | List of items. See bellow for items attributes. |
+
+### Credit note item attributes
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| fee_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Fee id in lago application |
+| credit_amount_cents | Integer &nbsp &nbsp &nbsp<Required>**Required**</Required> | Amount to be credited on customer balance. |
+| refund_amount_cents | Integer &nbsp &nbsp &nbsp<Required>**Required**</Required> | Amount to be refunded to customer. |
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The credit note was created
+
+  Returns a [credit note](./credit-note-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `credit_note` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "invoice_not_found"
+  }
+  ```
+
+  **Possible error codes:**
+  * `invoice_not_found`: The invoice id does not match an existing invoice.
+  * `fee_not_found`: One of the items fee id does not match an existing fee or is not attached to the invoice.
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
+  }
+  ```
+
+  **Possible errors:**
+
+  - On credit note attributes:
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `reason` | `value_is_invalid` | Provided `reason` does not match an accepted value |
+
+  - On credit note items attributes:
+
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `base` | `higher_than_remaining_fee_amount` | The sum of one of the item refund and credit amount is higher than the remaining creditable or refundable amount of the fee. |
+  | `base` | `higher_than_remaining_invoice_amount` | The sum of the items refund and credit amount is higher than the remaining creditable or refundable amount of the invoice. |
+  | `credit_amount_cents` | `higher_than_remaining_fee_amount` | The value is higher than the remaining creditable amount of the fee. |
+  | `credit_amount_cents` | `higher_than_remaining_invoice_amount` | The value is higher than the remaining creditable amount of the invoice. |
+  | `credit_amount_cents` | `value_is_out_of_range` | The value is negative. |
+  | `refund_amount_cents` | `cannot_refund_unpaid_invoice` | Invoice status does not allow a refund. |
+  | `refund_amount_cents` | `higher_than_remaining_fee_amount` | The value is higher than the remaining refundable amount of the fee. |
+  | `refund_amount_cents` | `higher_than_remaining_invoice_amount` | The value is higher than the remaining refundable amount of the invoice. |
+  | `refund_amount_cents` | `value_is_out_of_range` | The value is negative. |
+
+  </TabItem>
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
