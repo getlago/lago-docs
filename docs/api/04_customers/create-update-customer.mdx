@@ -46,6 +46,7 @@ import TabItem from '@theme/TabItem';
         "billing_configuration": {
           "payment_provider": "stripe",
           "provider_customer_id": "cus_12345",
+          "sync_with_provider": true,
           "sync": true
         }
       }
@@ -82,6 +83,7 @@ import TabItem from '@theme/TabItem';
     billing_configuration=BillingConfiguration(
       payment_provider="stripe",
       provider_customer_id="cus_12345",
+      sync_with_provider=true,
       sync=true
     )
   )
@@ -120,6 +122,7 @@ import TabItem from '@theme/TabItem';
     new BillingConfiguration(
       "stripe",
       "cus_12345",
+      true,
       true
     )
   )
@@ -154,6 +157,7 @@ import TabItem from '@theme/TabItem';
     billing_configuration: {
       payment_provider: "stripe",
       provider_customer_id: "cus_12345",
+      sync_wih_provider: true,
       sync: true
     }
   )
@@ -190,6 +194,7 @@ import TabItem from '@theme/TabItem';
         BillingConfiguration: &BillingConfigurationInput{
           PaymentProvider: lago.PaymentProviderStripe,
           ProviderCustomerID: "__STRIPE_CUSTOMER_ID__",
+          SyncWithProvider: true
         }
       }
 
@@ -238,6 +243,7 @@ import TabItem from '@theme/TabItem';
     "billing_configuration": {
       "payment_provider": "stripe",
       "provider_customer_id": "cus_12345",
+      "sync_with_provider": true,
       "sync": true
     }
   }
@@ -273,6 +279,7 @@ If the customer already exists, the call will work as an update
 | -----------| -----| ----------- |
 | payment_provider | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider used to bill the customer.<br/>Only accepted value: `stripe`, this field is required if you want to assign a `provider_customer_id`
 | provider_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer ID on the payment provider.<br/>If not provided, Lago can optionally create the provider customer
+| sync_with_provider | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field that determines whether to create customer in payment provider or not
 | sync | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to true is you want to create the provider customer synchronously with the customer creation.<br/>Apply only when provider_customer_id is null and payment provider is configured to create customer.<br/>Default value: `false`
 
 ## Responses
