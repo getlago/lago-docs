@@ -90,7 +90,7 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
-          {to: 'https://pktz41848np.typeform.com/to/pUqoNimg', label: 'Book a demo', position: 'right'},
+          {to: 'https://forms.gle/eT7zgqcvq8dgt94g7', label: 'Book a demo', position: 'right'},
         ],
       },
       algolia: {
@@ -137,7 +137,7 @@ const config = {
             items: [
               {
                 label: 'Book a demo',
-                href: 'https://pktz41848np.typeform.com/to/pUqoNimg',
+                href: 'https://forms.gle/eT7zgqcvq8dgt94g7',
               },
               {
                 label: 'GitHub',
