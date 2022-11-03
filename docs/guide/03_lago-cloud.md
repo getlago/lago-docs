@@ -11,4 +11,4 @@ With a cloud account:
 2. You can start building your billing system immediately; and
 3. You benefit from automatic updates.
 
-[Request access to Lago Cloud](https://pktz41848np.typeform.com/to/pUqoNimg) to get started.
+[Request access to Lago Cloud](https://forms.gle/eT7zgqcvq8dgt94g7) to get started.
