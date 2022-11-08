@@ -31,7 +31,11 @@ import TabItem from '@theme/TabItem';
         "code": "bm_code",
         "description": "description",
         "aggregation_type": "sum_agg",
-        "field_name": "amount_sum"
+        "field_name": "amount_sum",
+        "group": {
+          "key": "region",
+          "value": ["USA", "EUROPE"]
+        }
       }
     }'
   ```
@@ -41,16 +45,22 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import BillableMetric
+  from lago_python_client.models import BillableMetricGroup, BillableMetric
 
   client = Client(api_key='__YOUR_API_KEY__')
+
+  group = BillableMetricGroup(
+    key='country',
+    values=['france', 'italy', 'spain']
+  )
 
   billable_metric = BillableMetric(
     name='name',
     code='code_first',
     description='desc',
     aggregation_type='sum_agg',
-    field_name='amount_sum'
+    field_name='amount_sum',
+    group=group
   )
   client.billable_metrics().create(billable_metric)
   ```
@@ -64,11 +74,15 @@ import TabItem from '@theme/TabItem';
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
   client.billable_metrics.create({
-      name: 'BM1',
-      code: 'code_bm',
-      description: 'description',
-      aggregation_type: 'sum_agg',
-      field_name: 'amount_sum',
+    name: 'BM1',
+    code: 'code_bm',
+    description: 'description',
+    aggregation_type: 'sum_agg',
+    field_name: 'amount_sum',
+    group: {
+      key: 'country',
+      values: %w[france italy spain]
+    }
   })
   ```
   </TabItem>
@@ -80,8 +94,15 @@ import TabItem from '@theme/TabItem';
 
   let client = new Client('__API_KEY__')
 
-  let billableMetric = new BillableMetric({name: 'name1', code: 'code1', aggregationType: 'sum_agg',
-    fieldName: 'field_name'
+  let billableMetric = new BillableMetric({
+      name: 'name1',
+      code: 'code1',
+      aggregationType: 'sum_agg',
+      fieldName: 'field_name',
+      group: {
+        key: 'country',
+        values: ["france", "italy", "spain"]
+      }
   })
   await client.createBillableMetric(billableMetric);
   ```
@@ -103,6 +124,10 @@ import TabItem from '@theme/TabItem';
         Description:     "My First Billable Metric"
         AggregationType: lago.CountAggregation,
         FieldName:       "sum",
+        Group: map[string]interface{}{
+            "key": "country",
+            "values": [3]string{"france", "italy", "spain"},
+        },
       }
 
       billableMetric, err := lagoClient.BillableMetric().Create(bmInput)
@@ -128,7 +153,11 @@ import TabItem from '@theme/TabItem';
     "code": "bm_code",
     "description": "description",
     "aggregation_type": "sum_agg",
-    "field_name": "amount_sum"
+    "field_name": "amount_sum",
+    "group": {
+      "key": "country",
+      "values": ["france", "italy", "spain"]
+    }
   }
 }
 ```
@@ -140,6 +169,59 @@ import TabItem from '@theme/TabItem';
 | description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Description of the billable metric |
 | aggregation_type | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Aggregation type that is used in event calculations.<br></br>It can be `count_agg` (metered), `sum_agg` (metered), `max_agg` (metered), `unique_count_agg` (metered) or `recurring_count_agg` (persistent)|
 | field_name | String &nbsp &nbsp &nbsp<Required>**Required (optional only for `count_agg` aggregation type)**</Required> | Field name used in events. |
+| group | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Group (one or two dimensions) for pricing differently the billable metric |
+
+### Group - One dimension
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| key | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Name of the event's field used for grouping |
+| values | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | Array of string representing all possible values |
+
+Example:
+```json
+{
+  "group": {
+    "key": "country",
+    "values": ["france", "italy", "spain"]
+  }
+}
+```
+
+### Group - Two dimensions
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| key | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Name of the first event's field used for grouping |
+| values | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | Array of objects representing all possible values |
+
+Values:
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Value for the first dimension of the group |
+| key | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | Name of the second event's field used for grouping |
+| values | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | Array of string representing all possible values of the second dimension |
+
+Example:
+```json
+{
+  "group": {
+    "key": "cloud",
+    "values": [
+      {
+        "name": "AWS",
+        "key": "region",
+        "values": ["USA", "EUROPE"]
+      }, {
+        "name": "Google",
+        "key": "region",
+        "values": ["USA"]
+      }
+    ]
+  }
+}
+```
+
 ## Responses
 
 <Tabs>
@@ -202,6 +284,7 @@ import TabItem from '@theme/TabItem';
   | `code` | `value_already_exists` | `code` value is already used for another billable metric |
   | `field_name` | `value_is_mandatory` | `field_name` value is missing |
   | `aggregation_type` | `value_is_invalid` | Provided `aggregation_type` value is invalid |
+  | `group` | `value_is_invalid` | Format of provided JSON for `group` is invalid |
 
   </TabItem>
 </Tabs>
