@@ -38,7 +38,16 @@ It allows you to monitor customer usage throughout the period.
           "name": "Usage metric",
           "code": "usage_metric",
           "aggregation_type": "sum"
-        }
+        },
+        "groups": [
+          {
+            "lago_id": "a78f2185-1474-4a64-95bf-bcd96623fec5",
+            "key": null,
+            "value": "europe",
+            "units": "0.9",
+            "amount_cents": 1000
+          }
+        ]
       }
     ]
   }
@@ -56,7 +65,7 @@ It allows you to monitor customer usage throughout the period.
 | **total_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount |
 | **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents |
 | **vat_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
-| **charges_usage** &nbsp &nbsp <Type>JSON</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Array of [charge usage](#charge-usage-object) objects |
+| **charges_usage** &nbsp &nbsp <Type>Array</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Array of [charge usage](#charge-usage-object) objects |
 
 ## Charge Usage object
 
@@ -67,6 +76,7 @@ It allows you to monitor customer usage throughout the period.
 | **amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
 | **charge** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Related [charge](#charge) object |
 | **billable_metric** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Related [billable metric](#billable-metric-object) object |
+| **groups** &nbsp &nbsp <Type>Array</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Array of [group](#group-object) objects |
 
 ## Charge object
 
@@ -84,6 +94,16 @@ It allows you to monitor customer usage throughout the period.
 | **name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Name of the billable metric |
 | **code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code of the billable metric |
 | **aggregation_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Aggregation type of the billable metric<br/>See [billable metric documentation](/docs/guide/billable-metrics/aggregation-types) for possible values |
+
+## Group object
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | ID of the group in the Lago application |
+| **key** &nbsp &nbsp <Type>String</Type> | Group key, only defined if two dimensions |
+| **value** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Group value |
+| **units** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Number of units consumed by the customer for the group |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents for the group, VAT (tax) excluded|
 
 export const Type = ({children, color}) => (
   <span
