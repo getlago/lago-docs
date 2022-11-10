@@ -18,22 +18,28 @@ Consider the following example:
 >
 >On the configuration page of your billable metric, you can define `"key": "provider"` and `"value": ["AWS","Google","Azure"]` to create the corresponding dimension (see snippet below).
 
-```json title="Billable metric with one dimension"
+```json title="JSON snippet for one dimension"
 {
     "key": "provider",
     "values": ["AWS", "Google", "Azure"]
 }
 ```
 
+:::caution
+Values are case-sensitive. If you don't use the exact value when pushing events, they will not be taken into account. Following our example: the expected value is `"Azure"` and `"azure"` is an invalid value.
+:::
+
+![Example of a group with one dimension](../../../static/img/dimensions.png)
+
 It is also possible to define two levels for grouping events. Following our previous example:
 
->In addition to their cloud providers, your customers can select their region.
+>In addition to their cloud provider, your customers can select their region.
 >
 >Therefore, you can define `"key": "region"` to add a second dimension (see snippet below).
 >
->When creating a plan, you will then be able to add a [charge](../plans/charges) for each provider and each region.
+>When creating a plan, you will then be able to add a [charge](../plans/charges) for each region available for each provider.
 
-```json title="Billable metric with two dimensions"
+```json title="JSON snippet for two dimensions"
 {
   "key": "provider",
   "values": [
@@ -56,8 +62,8 @@ It is also possible to define two levels for grouping events. Following our prev
 }
 ```
 
-You can also create billable metrics with dimensions [via the API](../../api/billable_metrics/create-billable-metric).
+Below is a screenshot of the corresponding charge when added to a plan. The same breakdown will be shown on the invoices sent to the customers.
 
-:::caution
-Values are case-sensitive. If you don't use the exact value when pushing events, they will not be taken into account.
-:::
+![Example of a charge with two dimensions](../../../static/img/dimensions-charges.png)
+
+You can also create billable metrics with dimensions [via the API](../../api/billable_metrics/create-billable-metric).
