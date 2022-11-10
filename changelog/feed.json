@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/dimensions",
+            "content_html": "<p>When creating a new billable metric, you can define dimensions that will be used to group events according to their properties.</p><p>For example, if you want to charge your customers for compute capacity according to the cloud provider and server region, you can create a <code>compute</code> billable metric with two dimensions (<a href=\"/docs/guide/billable-metrics/dimensions\">learn more</a>).</p><p>Changes to the API include:</p><ul><li>Ability to add a <code>group</code> parameter with one or two dimensions when <a href=\"/docs/api/billable_metrics/create-billable-metric\">creating</a> or <a href=\"/docs/api/billable_metrics/update-billable-metric\">updating</a> billable metrics;</li><li>Ability to <a href=\"/docs/api/billable_metrics/get-all-groups\">retrieve the groups</a> associated with a billable metric;</li><li>Ability to add a <code>group_properties</code> parameter when <a href=\"/docs/api/plans/create-plan\">creating</a> or <a href=\"/docs/api/plans/update-plan\">updating</a> a plan;</li><li>Ability to retrieve <a href=\"/docs/api/customer_usage/customer-usage-object\">customer usage</a> by group; and</li><li>New <code>lago_group_id</code> for fees (see <a href=\"/docs/api/invoices/invoice-object\">invoice object</a>).</li></ul>",
+            "url": "https://getlago.com/changelog/dimensions",
+            "title": "Dimensions for grouping events",
+            "summary": "When creating a new billable metric, you can define dimensions that will be used to group events according to their properties.",
+            "date_modified": "2022-11-10T11:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/subscription-date",
             "content_html": "<p>It is now possible to set a start date in the past or in the future for a new subscription.</p><p>Setting a start date in the past can be useful when migrating existing customers to Lago, while setting a start date in the future can be useful for scheduling upcoming subscriptions.</p><p>For more information about the impact of the start date on the invoicing process, please refer to <a href=\"/docs/guide/plans/subscription#subscription-date\">the documentation</a>.</p>",
             "url": "https://getlago.com/changelog/subscription-date",
