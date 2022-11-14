@@ -14,6 +14,15 @@
             "tags": []
         },
         {
+            "id": "/invoice-details",
+            "content_html": "<p>To review the invoice details through the user interface:</p><ol><li>Go to the <strong>\"Customers\"</strong> section;</li><li>Select a customer to open the customer view;</li><li>Open the <strong>\"Invoices\"</strong> tab; and</li><li>Click the invoice to see its details.</li></ol><p>On the details page, you can download the invoice in PDF format and copy the invoice ID through the <strong>\"Actions\"</strong> dropdown in the upper right corner.</p><p><img loading=\"lazy\" alt=\"Invoice details in the user interface\" src=\"/assets/images/invoice-details-cb0ed4614f3491b48e476c8e4ca63396.png\" width=\"2456\" height=\"1476\" class=\"img_ev3q\"></p>",
+            "url": "https://getlago.com/changelog/invoice-details",
+            "title": "Invoice details",
+            "summary": "To review the invoice details through the user interface:",
+            "date_modified": "2022-11-10T09:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/subscription-date",
             "content_html": "<p>It is now possible to set a start date in the past or in the future for a new subscription.</p><p>Setting a start date in the past can be useful when migrating existing customers to Lago, while setting a start date in the future can be useful for scheduling upcoming subscriptions.</p><p>For more information about the impact of the start date on the invoicing process, please refer to <a href=\"/docs/guide/plans/subscription#subscription-date\">the documentation</a>.</p>",
             "url": "https://getlago.com/changelog/subscription-date",
