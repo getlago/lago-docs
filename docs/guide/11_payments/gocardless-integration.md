@@ -1,0 +1,94 @@
+---
+sidebar_position: 2
+---
+
+# GoCardless Integration
+Lago's native integration with GoCardless allows you to collect payments via direct debit.
+
+## Integration setup
+
+### Connect your GoCardless account
+To connect to GoCardless through the user interface:
+1. In the side menu, select **"Settings"**;
+2. Open the **"Integrations"** tab;
+3. Select **"GoCardless"** to be redirected to the GoCardless application;
+4. Create a GoCardless account or log in to your existing account; and
+5. Connect your account to be redirected to the Lago application.
+
+When the OAuth connection is active, you will see the screen below, with your secret key.
+
+![Active OAuth connection with GoCardless](../../../static/img/gcl-oauth.png)
+
+### Create webhook endpoints
+:::tip
+To complete this process, you will need:
+- Your Lago **organization ID**, available in the **"API keys & ID"** tab of the **"Developers"** section; and
+- Your **secret key**, available in the **"Integrations"** tab of the **"Settings"** section ([learn more](#connect-your-gocardless-account)).
+:::
+
+If you want Lago to automatically retrieve the status of the payments processed via GoCardless, you must create a webhook endpoint in GoCardless. To do so:
+1. Log in to your [GoCardless account](https://manage.gocardless.com/sign-in);
+2. Go to the **"Developers"** section;
+3. In the upper right corner, click **"Create"** and then select **"Webhook endpoint"**;
+4. Choose a name for this webhook (e.g. Lago);
+5. Enter the following URL: https://api.getlago.com/webhook/gocardless/:id (you must replace `:id` with your Lago organization ID);
+6. Enter your secret key; and
+7. Click **"Create webhook endpoint"**.
+
+![Webhook endpoint creation in GoCardless](../../../static/img/gcl-webhook.png)
+
+In addition to this, you must create a webhook endpoint in Lago to retrieve the checkout URL associated with each customer account ([learn more](#direct-debit)). To do so:
+1. Go to the **"Developers"** section of the Lago application;
+2. In the **"Webhooks"** tab, click **"Add a webhook"** on the right;
+3. Enter your webhook URL; and
+4. Click **"Add webhook"** to confirm.
+
+For more information about our webhooks, please refer to the [API documentation](../../api/webhooks/message-signature).
+
+## Customer information
+To collect payments automatically, the customer must exist in both the Lago and GoCardless databases.
+
+### New customer
+If the customer does not already exist in GoCardless, you can first create them in Lago, either via the user interface or [the API](../../api/customers/create-update-customer). When adding customer information, you must:
+1. Provide the customer's email address;
+2. Define GoCardless as the **default payment provider**;
+3. Leave the field associated with the **GoCardless customer ID** blank; and
+4. **Enable** the option to automatically create the customer in GoCardless.
+
+The customer will automatically be added to GoCardless. GoCardless will then return the customer ID, which will be stored in Lago.
+
+![Creation of a new customer with GoCardless](../../../static/img/gcl-customer-new.png)
+
+When the customer is successfully created, you will receive two [webhook messages](../../api/webhooks/messages):
+- `customer.payment_provider_created` that confirms the creation of the customer in GoCardless; and
+- `customer.checkout_url_generated` that includes the checkout URL to set up the direct debit ([learn more](#direct-debit)). 
+
+### Existing customer
+If the customer already exists in GoCardless but not in Lago, you should create the customer record, either via the user interface or [the API](../../api/customers/create-update-customer). When adding customer information, you must:
+1. Provide the customer's email address;
+2. Define GoCardless as the **default payment provider**;
+3. Provide the **GoCardless customer ID**; and
+4. **Disable** the option to automatically create the customer in GoCardless.
+
+![Migration of an existing GoCardless customer](../../../static/img/gcl-customer-migration.png)
+
+## Direct debit
+To collect payments via direct debit, a mandate must be created. To do so:
+1. Retrieve the checkout URL included in the `customer.checkout_url_generated` webhook; and
+2. Redirect your customer to the checkout page, so that they can complete the online form and approve the mandate.
+
+The mandate must be validated by GoCardless before the first payment can be processed. It can take up to six business days to validate a new mandate. For more information about payment timings, please consult the [GoCardless FAQ](https://gocardless.com/faq/merchants/direct-debit/).
+
+:::caution
+To collect payments via direct debit, the currency of the mandate must match the currency of the plan associated with the customer's subscription.
+:::
+
+![Direct debit setup with GoCardless](../../../static/img/gcl-mandate.png)
+
+Each time a new invoice with an **amount greater than zero** is generated by Lago, a payment will automatically be created. GoCardless will record the invoice ID and process the payment. Payments via direct debit are usually processed within five business days. If the payment is successful, the status of the invoice will switch from `pending` to `succeeded`.
+
+If the payment fails, the status of the invoice will switch from `pending` to `failed` and Lago will generate an `invoice.payment_failure` [webhook](../../api/webhooks/messages).
+
+:::tip
+If you have signed up for [GoCardless Success+](https://gocardless.com/solutions/success-plus/), failed payments may be automatically resubmitted, in which case Lago will automatically update the invoice status.
+:::
