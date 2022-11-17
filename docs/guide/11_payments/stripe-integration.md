@@ -13,7 +13,7 @@ To set up the integration with Stripe through the user interface:
 4. Click **"Connect to Stripe"** to confirm.
 
 :::info
-By default, customers created in Lago are not automatically created in Stripe. If you want your Lago customers to be added to Stripe, you need to activate this option manually ([learn more](#new-customer)).
+By default, customers created in Lago are not automatically created in Stripe. If you want your Lago customers to be added to Stripe, you need to activate this option ([learn more](#new-customer)).
 :::
 
 ## Customer information
