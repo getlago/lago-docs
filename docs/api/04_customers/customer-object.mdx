@@ -63,7 +63,6 @@ It lets you create a customer, but also track usage and create invoices for the 
 | **phone** &nbsp &nbsp <Type>String</Type> | Phone number of the customer |
 | **state** &nbsp &nbsp <Type>String</Type> | State of the customer's billing address |
 | **url** &nbsp &nbsp <Type>String</Type> | Custom URL of the customer |
-| **vat_rate** &nbsp &nbsp <Type>Float</Type> | Custom VAT rate applied to the customer |
 | **zipcode** &nbsp &nbsp <Type>String</Type> | Zipcode of the customer's billing address |
 
 ## Billing Configuration Object
@@ -71,7 +70,8 @@ It lets you create a customer, but also track usage and create invoices for the 
 | Attributes | Description |
 | -----------| ----------- |
 | payment_provider &nbsp &nbsp <Type>String</Type> | Payment provider used to bill the customer. <details><summary>**Possible values**</summary><div>- `stripe`: Use stripe as a payment provider.<br></br>- null: No payment providers. Only webhooks will be send to process customer billing.<div></div></div></details> |
-| provider_customer_id  &nbsp &nbsp <Type>String</Type> | Customer ID on the payment provider. |
+| provider_customer_id &nbsp &nbsp <Type>String</Type> | Customer ID on the payment provider. |
+| vat_rate &nbsp &nbsp <Type>Float</Type> | Custom VAT rate applied to the customer. |
 
 export const Type = ({children, color}) => (
   <span
