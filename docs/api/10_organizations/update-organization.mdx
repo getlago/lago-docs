@@ -29,7 +29,6 @@ import TabItem from '@theme/TabItem';
       "organization": {
         "name": "Name1",
         "webhook_url": "https://test-example.example",
-        "vat_rate": 15.0,
         "country": "CZ",
         "address_line1": "address1",
         "address_line2": null,
@@ -39,7 +38,10 @@ import TabItem from '@theme/TabItem';
         "city": "city125",
         "legal_name": null,
         "legal_number": null,
-        "invoice_footer": "footer custom"
+        "billing_configuration": {
+          "invoice_footer": "footer custom",
+          "vat_rate": 15.0
+        }
       }
     }'
   ```
@@ -49,13 +51,17 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import Organization
+  from lago_python_client.models import Organization, OrganizationBillingConfiguration
 
   client = Client(api_key='__YOUR_API_KEY__')
 
   params = Organization(
     webhook_url="https://new.url",
-    vat_rate=14.2
+    vat_rate=14.2,
+    billing_configuration=OrganizationBillingConfiguration(
+      invoice_footer="footer custom",
+      vat_rate=12.5
+    )
   )
   client.organizations().update(params)
   ```
@@ -70,7 +76,10 @@ import TabItem from '@theme/TabItem';
 
   update_params = {
     webhook_url: 'https://webhook_url.com',
-    vat_rate: 10
+    billing_configuration: {
+      invoice_footer="footer custom",
+      vat_rate: 10
+    }
   }
   client.organizations.update(update_params)
   ```
@@ -80,12 +89,16 @@ import TabItem from '@theme/TabItem';
 
   ```javascript
   import Organization from 'lago-nodejs-client/organization'
+  import OrganizationBillingConfiguration from 'lago-nodejs-client/organization_billing_configuration'
 
   let client = new Client('__API_KEY__')
 
   await client.updateOrganization(new Organization({
     webhookUrl: "https://newwebhookurl.com",
-    vatRate: 15.5
+    billingConfiguration: new OrganizationBillingConfiguration({
+      invoiceFooter: "footer custom",
+      vatRate: 15.5
+    })
   }))
   ```
   </TabItem>
@@ -102,6 +115,10 @@ import TabItem from '@theme/TabItem';
 
       organizationInput := &lago.OrganizationInput{
         LegalName: "Legal Name",
+        BillingConfiguration: &OrganizationBillingConfigurationInput{
+          InvoiceFooter: "footer custom",
+          VatRate: 20.0,
+        }
       }
 
       organization, err := lagoClient.Organization().Update(organizationInput)
@@ -124,7 +141,6 @@ import TabItem from '@theme/TabItem';
 {
   "organization": {
     "webhook_url": "https://test-example.example",
-    "vat_rate": 15.0,
     "country": "CZ",
     "address_line1": "address1",
     "address_line2": null,
@@ -134,7 +150,10 @@ import TabItem from '@theme/TabItem';
     "city": "city125",
     "legal_name": null,
     "legal_number": null,
-    "invoice_footer": "footer custom"
+    "billing_configuration": {
+      "invoice_footer": "footer custom",
+      "vat_rate": 15.0
+    }
   }
 }
 ```
@@ -142,7 +161,6 @@ import TabItem from '@theme/TabItem';
 | Attributes | Type | Description |
 |--|--|--|
 | webhook_url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Webhook URL. |
-| vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | VAT rate. |
 | country | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Country alpha-2 code |
 | address_line1 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Address first line. |
 | address_line2 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Address second line. |
@@ -152,7 +170,15 @@ import TabItem from '@theme/TabItem';
 | city | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization city. |
 | legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization legal name. |
 | legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization legal number. |
+| billing_configuration | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Invoicing an billing specific configuration. |
+
+### Billing configuration
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
 | invoice_footer | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom invoice footer. |
+| vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom VAT rate. |
+
 ## Responses
 
 <Tabs>

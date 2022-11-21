@@ -58,7 +58,7 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import Customer, BillingConfiguration
+  from lago_python_client.models import Customer, CustomerBillingConfiguration
 
   client = Client(api_key='__YOUR_API_KEY__')
 
@@ -78,7 +78,7 @@ import TabItem from '@theme/TabItem';
     state="CA",
     url="http://hooli.com",
     zipcode="91364",
-    billing_configuration=BillingConfiguration(
+    billing_configuration=CustomerBillingConfiguration(
       payment_provider="stripe",
       provider_customer_id="cus_12345",
       sync=true,
@@ -96,7 +96,7 @@ import TabItem from '@theme/TabItem';
   ```javascript
   import Client from 'lago-nodejs-client'
   import Customer from 'lago-nodejs-client/customer'
-  import BillingConfiguration from 'lago-nodejs-client/billing_configuration'
+  import CustomerBillingConfiguration from 'lago-nodejs-client/customer_billing_configuration'
 
   let client = new Client('__API_KEY__')
 
@@ -116,7 +116,7 @@ import TabItem from '@theme/TabItem';
     None,  // state
     None,  // url
     None,  // zipcode
-    new BillingConfiguration(
+    new CustomerBillingConfiguration(
       "stripe",  // paymentProvider
       "cus_12345",  // providerCustomerId
       true,  // sync
@@ -186,7 +186,7 @@ import TabItem from '@theme/TabItem';
         LegalNumber:  "123456",
         Phone:        "+330100000000",
         URL:          "https://getlago.com",
-        BillingConfiguration: &BillingConfigurationInput{
+        BillingConfiguration: &CustomerBillingConfigurationInput{
           PaymentProvider: lago.PaymentProviderStripe,
           ProviderCustomerID: "__STRIPE_CUSTOMER_ID__",
           VatRate: 20.0,
