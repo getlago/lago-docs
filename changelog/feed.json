@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/gocardless-integration",
+            "content_html": "<p>Lago now offers native integration with <a href=\"https://gocardless.com/\" target=\"_blank\" rel=\"noopener noreferrer\">GoCardless</a>, including (but not limited to):</p><ul><li>Ability to define GoCardless as the default payment provider for a customer;</li><li>Ability to automatically create Lago customers in GoCardless and retrieve their customer ID;</li><li>Ability to automatically collect payments via direct debit;</li><li>Ability to automatically update the status of an invoice depending on the payment status; and</li><li>Ability to automatically resubmit failed payments with <a href=\"https://gocardless.com/solutions/success-plus/\" target=\"_blank\" rel=\"noopener noreferrer\">GoCardless Success+</a>.</li></ul><p>To learn more about this integration, please <a href=\"/docs/guide/payments/gocardless-integration\">consult our guide</a>.</p>",
+            "url": "https://getlago.com/changelog/gocardless-integration",
+            "title": "Integration with GoCardless",
+            "summary": "Lago now offers native integration with GoCardless, including (but not limited to):",
+            "date_modified": "2022-11-18T10:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/dimensions",
             "content_html": "<p>When creating a new billable metric, you can define dimensions that will be used to group events according to their properties.</p><p>For example, if you want to charge your customers for compute capacity according to the cloud provider and server region, you can create a <code>compute</code> billable metric with two dimensions (<a href=\"/docs/guide/billable-metrics/dimensions\">learn more</a>).</p><p>Changes to the API include:</p><ul><li>Ability to add a <code>group</code> parameter with one or two dimensions when <a href=\"/docs/api/billable_metrics/create-billable-metric\">creating</a> or <a href=\"/docs/api/billable_metrics/update-billable-metric\">updating</a> billable metrics;</li><li>Ability to <a href=\"/docs/api/billable_metrics/get-all-groups\">retrieve the groups</a> associated with a billable metric;</li><li>Ability to add a <code>group_properties</code> parameter when <a href=\"/docs/api/plans/create-plan\">creating</a> or <a href=\"/docs/api/plans/update-plan\">updating</a> a plan;</li><li>Ability to retrieve <a href=\"/docs/api/customer_usage/customer-usage-object\">customer usage</a> by group; and</li><li>New <code>lago_group_id</code> for fees (see <a href=\"/docs/api/invoices/invoice-object\">invoice object</a>).</li></ul>",
             "url": "https://getlago.com/changelog/dimensions",
