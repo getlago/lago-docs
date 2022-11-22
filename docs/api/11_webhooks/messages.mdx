@@ -139,7 +139,7 @@ This will allow your application to retrieve the PDF invoice.
 
 </TabItem>
 
-<TabItem value="invoice.add-on-added" label="Addon added">
+<TabItem value="invoice.add-on-added" label="Add-on added">
 Sent when an add-on has been applied to customer. The invoice is created immediately after the add-on is assigned to a customer.
 
 You can use this information to generate a PDF invoice or collect the payment.
@@ -360,6 +360,32 @@ You should review the customer's data.
 | **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
 | **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
 
+</TabItem>
+
+<TabItem value="customer.checkout_url_generated" label="Checkout URL generated">
+Sent when a new customer is created through integration with GoCardless.
+
+Includes the URL that should be used to set up the [direct debit mandate](../../guide/payments/gocardless-integration#direct-debit).
+
+```json
+{
+  "webhook_type": "customer.checkout_url_generated",
+  "object_type": "payment_provider_customer_checkout_url",
+  "payment_provider_customer_checkout_url": {
+    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "payment_provider": "gocardless",
+    "checkout_url": "__CUSTOM_CHECKOUT_URL__"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago |
+| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **payment_provider** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Default payment provider for this customer |
+| **checkout_url** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | URL that should be used to set up the direct debit mandate |
 </TabItem>
 
 </Tabs>
