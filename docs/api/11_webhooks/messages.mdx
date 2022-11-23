@@ -6,12 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Messages
-Here is the exhaustive list of webhook messages triggered by Lago.
+Here is the list of webhook messages sent by Lago.
 
-
-<Tabs groupId="prog-language">
-  <TabItem value="invoice.created" label="Invoice created" default>
-    Sent when a new invoice has been emitted for a customer.
+<details>
+<summary><b>Invoice created</b></summary>
+Sent when a new invoice has been issued for a customer.
 
 This will allow your application to proceed with the billing.
 
@@ -102,11 +101,12 @@ This will allow your application to proceed with the billing.
 | Attributes | Description |
 | -----------| ----------- |
 | **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
+</details>
 
-</TabItem>
 
-<TabItem value="invoice.generated" label="Invoice generated" default>
-  Sent when the PDF file has been generated for a customer invoice.
+<details>
+<summary><b>PDF invoice generated</b></summary>
+Sent when the PDF file has been generated for a customer invoice.
 
 This will allow your application to retrieve the PDF invoice.
 
@@ -136,10 +136,11 @@ This will allow your application to retrieve the PDF invoice.
 | Attributes | Description |
 | -----------| ----------- |
 | **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
+</details>
 
-</TabItem>
 
-<TabItem value="invoice.add-on-added" label="Add-on added">
+<details>
+<summary><b>Add-on added</b></summary>
 Sent when an add-on has been applied to customer. The invoice is created immediately after the add-on is assigned to a customer.
 
 You can use this information to generate a PDF invoice or collect the payment.
@@ -213,84 +214,11 @@ You can use this information to generate a PDF invoice or collect the payment.
 | Attributes | Description |
 | -----------| ----------- |
 | **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
+</details>
 
 
-</TabItem>
-
-<TabItem value="invoice.payment_failure" label="Payment failure">
-    Sent when there is an error related to the payment process.
-
-Usually occurs when no valid payment method is defined for the customer in the payment service provider's application.
-
-```json
-{
-  "webhook_type": "invoice.payment_failure",
-  "object_type": "payment_provider_invoice_payment_error",
-  "payment_provider_invoice_payment_error": {
-    "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
-    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "provider_customer_id": "cus_123456",
-    "payment_provider": "stripe",
-    "provider_error": {
-      "message": "Cannot charge a customer that has no active card",
-      "error_code": "missing"
-    }
-  }
-}
-```
-
-| Attributes | Description |
-| -----------| ----------- |
-| **lago_invoice_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the invoice in Lago application |
-| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
-| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
-| **provider_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in payment provider application |
-| **payment_provider** &nbsp &nbsp <Type>String</Type> | Payment provider used to process the payment |
-| **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
-| **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
-</TabItem>
-
-<TabItem value="event.error" label="Event error">
-
-This webhook is sent when there is an error related to the creation of an event.
-
-
-```json
-{
-  "webhook_type": "event.error",
-  "object_type": "event_error",
-  "event_error": {
-    "status": 422,
-    "error": "Unprocessable entity",
-    "message": "code does not exist",
-    "input_params": {
-      "transaction_id": "__transaction_id__",
-      "external_customer_id": "customer123",
-      "code": "code123"
-    }
-  }
-}
-```
-
-| Attributes | Description |
-| -----------| ----------- |
-| **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | HTTP status of the error. Possible statuses are `404` or `422` |
-| **error** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | HTTP error code. Possible errors are `Not found` or `Unprocessable entity` |
-| **message** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Error code. See next list for the description of each error code. |
-| **input_params** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | JSON provided at event creation |
-
-| Code | Description |
-|--|--|
-| **billable_metric_not_found** &nbsp &nbsp <Type>404</Type> | No billable metric matches the given code |
-| **customer_not_found** &nbsp &nbsp <Type>404</Type> | No customer matches the external id |
-| **subscription_not_found** &nbsp &nbsp <Type>404</Type> | No subscription matches the given external subscription id |
-| **invalid_argument** &nbsp &nbsp <Type>422</Type> | No subscription matches the given external subscription id |
-| **invalid_recurring_resource** &nbsp &nbsp <Type>422</Type> | Provided recurring resource for persisted event is invalid |
-
-</TabItem>
-
-<TabItem value="payment_provider_created" label="Payment provider created">
+<details>
+<summary><b>Payment provider created</b></summary>
 This webhook is sent when a customer is successfully created in the payment provider's application.
 
 This allows you to retrieve the identifier assigned to the customer by the payment service provider.
@@ -328,10 +256,11 @@ This allows you to retrieve the identifier assigned to the customer by the payme
 | Attributes | Description |
 | -----------| ----------- |
 | **customer** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Customer object](../customers/customer-object) |
+</details>
 
-</TabItem>
 
-<TabItem value="payment_provider_error" label="Payment provider error">
+<details>
+<summary><b>Payment provider error</b></summary>
 This webhook is sent when there is an error related to the creation of a customer in the payment provider's application.
 
 You should review the customer's data.
@@ -359,10 +288,11 @@ You should review the customer's data.
 | **payment_provider** &nbsp &nbsp <Type>String</Type> | Payment provider used to process the payment |
 | **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
 | **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
+</details>
 
-</TabItem>
 
-<TabItem value="customer.checkout_url_generated" label="Checkout URL generated">
+<details>
+<summary><b>Checkout URL generated</b></summary>
 Sent when a new customer is created through integration with GoCardless.
 
 Includes the URL that should be used to set up the [direct debit mandate](../../guide/payments/gocardless-integration#direct-debit).
@@ -386,10 +316,81 @@ Includes the URL that should be used to set up the [direct debit mandate](../../
 | **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
 | **payment_provider** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Default payment provider for this customer |
 | **checkout_url** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | URL that should be used to set up the direct debit mandate |
-</TabItem>
+</details>
 
-</Tabs>
 
+<details>
+<summary><b>Payment failure</b></summary>
+Sent when there is an error related to the payment process.
+
+Usually occurs when no valid payment method is defined for the customer in the payment service provider's application.
+
+```json
+{
+  "webhook_type": "invoice.payment_failure",
+  "object_type": "payment_provider_invoice_payment_error",
+  "payment_provider_invoice_payment_error": {
+    "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "provider_customer_id": "cus_123456",
+    "payment_provider": "stripe",
+    "provider_error": {
+      "message": "Cannot charge a customer that has no active card",
+      "error_code": "missing"
+    }
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_invoice_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the invoice in Lago application |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
+| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **provider_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in payment provider application |
+| **payment_provider** &nbsp &nbsp <Type>String</Type> | Payment provider used to process the payment |
+| **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
+| **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
+</details>
+
+
+<details>
+<summary><b>Event error</b></summary>
+This webhook is sent when there is an error related to the creation of an event.
+
+```json
+{
+  "webhook_type": "event.error",
+  "object_type": "event_error",
+  "event_error": {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "message": "code does not exist",
+    "input_params": {
+      "transaction_id": "__transaction_id__",
+      "external_customer_id": "customer123",
+      "code": "code123"
+    }
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | HTTP status of the error. Possible statuses are `404` or `422` |
+| **error** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | HTTP error code. Possible errors are `Not found` or `Unprocessable entity` |
+| **message** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Error code. See next list for the description of each error code. |
+| **input_params** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | JSON provided at event creation |
+
+| Code | Description |
+|--|--|
+| **billable_metric_not_found** &nbsp &nbsp <Type>404</Type> | No billable metric matches the given code |
+| **customer_not_found** &nbsp &nbsp <Type>404</Type> | No customer matches the external id |
+| **subscription_not_found** &nbsp &nbsp <Type>404</Type> | No subscription matches the given external subscription id |
+| **invalid_argument** &nbsp &nbsp <Type>422</Type> | No subscription matches the given external subscription id |
+| **invalid_recurring_resource** &nbsp &nbsp <Type>422</Type> | Provided recurring resource for persisted event is invalid |
+</details>
 
 
 
