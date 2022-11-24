@@ -29,8 +29,8 @@ import TabItem from '@theme/TabItem';
       "credit_note": {
         "invoice_id": "__LAGO_INVOICE_ID__",
         "reason": "duplicated_charge",
-        "credit_amount_cents": 100,
-        "refund_amount_cents": 100,
+        "credit_amount_cents": 10,
+        "refund_amount_cents": 5,
         "items": [
           {
             "fee_id": "__LAGO_FEE_ID__",
@@ -67,8 +67,8 @@ import TabItem from '@theme/TabItem';
   credit_note = CreditNote(
     lago_id="__LAGO_INVOICE_ID__",
     reason="other",
-    credit_amount_cents=100,
-    refund_amount_cents=100,
+    credit_amount_cents=10,
+    refund_amount_cents=5,
     items= Items(__root__=[item1, item2])
   )
 
@@ -88,11 +88,11 @@ import TabItem from '@theme/TabItem';
     invoice_id: '__LAGO_INVOICE_ID__',
     reason: 'duplicated_charge',
     credit_amount_cents: 10,
-    refund_amount_cents: 10,
+    refund_amount_cents: 5,
     items: [
       {
         fee_id: '__LAGO_FEE_ID__',
-        amount_cents: 5
+        amount_cents: 10
       },
       {
         fee_id: '__LAGO_FEE_ID__',
