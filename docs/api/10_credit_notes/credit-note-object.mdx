@@ -38,10 +38,8 @@ This object represents a credit note emited to re-credit a customer for a fee or
     "items": [
       {
         "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-        "credit_amount_cents": 100,
-        "credit_amount_currency": "EUR",
-        "refund_amount_cents": 0,
-        "refund_amount_currency": "EUR",
+        "amount_cents": 100,
+        "amount_currency": "EUR",
         "fee":       {
           "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
           "item": {
@@ -94,10 +92,8 @@ This object represents a credit note emited to re-credit a customer for a fee or
 | Attributes | Description |
 | ---------- | ----------- |
 | **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the credit note item in Lago application |
-| **credit_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents |
-| **credit_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
-| **refund_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents |
-| **refund_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents |
+| **amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
 | **fee** &nbsp &nbsp <Type>JSON</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Array of [fee](../invoices/invoice-object#fee-object) object |
 
 export const Type = ({children, color}) => (

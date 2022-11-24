@@ -29,16 +29,16 @@ import TabItem from '@theme/TabItem';
       "credit_note": {
         "invoice_id": "__LAGO_INVOICE_ID__",
         "reason": "duplicated_charge",
+        "credit_amount_cents": 100,
+        "refund_amount_cents": 100,
         "items": [
           {
             "fee_id": "__LAGO_FEE_ID__",
-            "credit_amount_cents": 10,
-            "refund_amount_cents": 5
+            "amount_cents": 10
           },
           {
             "fee_id": "__LAGO_FEE_ID__",
-            "credit_amount_cents": 5,
-            "refund_amount_cents": 10
+            "amount_cents": 5
           }
         ]
       }'
@@ -56,19 +56,19 @@ import TabItem from '@theme/TabItem';
 
   item1 = Item(
     fee_id="__LAGO_FEE_ID__",
-    credit_amount_cents=10,
-    refund_amount_cents=10,
+    amount_cents=10
   )
 
   item2 = Item(
     fee="__LAGO_FEE_ID__",
-    credit_amount_cents=5,
-    refund_amount_cents=5,
+    amount_cents=5,
   )
 
   credit_note = CreditNote(
     lago_id="__LAGO_INVOICE_ID__",
     reason="other",
+    credit_amount_cents=100,
+    refund_amount_cents=100,
     items= Items(__root__=[item1, item2])
   )
 
@@ -87,16 +87,16 @@ import TabItem from '@theme/TabItem';
   credit_note = {
     invoice_id: '__LAGO_INVOICE_ID__',
     reason: 'duplicated_charge',
+    credit_amount_cents: 10,
+    refund_amount_cents: 10,
     items: [
       {
         fee_id: '__LAGO_FEE_ID__',
-        credit_amount_cents: 10,
-        refund_amount_cents: 5
+        amount_cents: 5
       },
       {
         fee_id: '__LAGO_FEE_ID__',
-        credit_amount_cents: 5,
-        refund_amount_cents: 10
+        amount_cents: 5
       }
     ]
   }
@@ -116,16 +116,16 @@ import TabItem from '@theme/TabItem';
   let creditNote = new CreditNote({
     reason: 'other',
     invoiceId: '__LAGO_INVOICE_ID__',
+    creditAmountCents: 10,
+    refundAmountCents: 5
     items: [
       {
         feeId: '__LAGO_FEE_ID__',
-        creditAmountCents: 10,
-        refundAmountCents: 5
+        amountCents: 10,
       },
       {
         feeId: '__LAGO_FEE_ID__',
-        creditAmountCents: 5,
-        refundAmountCents: 10
+        amountCents: 5,
       }
     ]
   })
@@ -147,16 +147,16 @@ import TabItem from '@theme/TabItem';
     creditNoteInput := &lago.CreditNoteInput{
       LagoInvoiceID: "__LAGO_INVOICE_ID__",
       Reason:        lago.CreditNoteReasonDuplicatedCharge,
+      CreditAmountCents 10,
+      RefundAmountCents 5,
       Items:         []lago.CreditNoteItemInput{
         {
           LagoFeeID         "__LAGO_FEE_ID__",
-          CreditAmountCents 10,
-          RefundAmountCents 5,
+          AmountCents 10,
         },
         {
           LagoFeeID         "__LAGO_FEE_ID__",
-          CreditAmountCents 5,
-          RefundAmountCents 10
+          AmountCents 5,
         },
       },
     }
@@ -181,16 +181,16 @@ import TabItem from '@theme/TabItem';
   "credit_note": {
     "invoice_id": "__LAGO_INVOICE_ID__",
     "reason": "duplicated_charge",
+    "credit_amount_cents": 10,
+    "refund_amount_cents": 5,
     "items": [
       {
         "fee_id": "__LAGO_FEE_ID__",
-        "credit_amount_cents": 10,
-        "refund_amount_cents": 5
+        "amount_cents": 10,
       },
       {
         "fee_id": "__LAGO_FEE_ID__",
-        "credit_amount_cents": 5,
-        "refund_amount_cents": 10
+        "amount_cents": 5
       }
     ]
   }
@@ -204,14 +204,15 @@ import TabItem from '@theme/TabItem';
 | invoice_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Invoice id in lago application |
 | reason | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Reason of the credit note creation.<br></br>It can be `duplicated_charge`, `product_unsatisfactory`, `order_change`, `order_cancellation`, `fraudulent_charge` or `other` |
 | items | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | List of items. See bellow for items attributes. |
+| credit_amount_cents | Integer &nbsp &nbsp &nbsp<Required>**Required**</Required> | Amount to be credited on customer balance. |
+| refund_amount_cents | Integer &nbsp &nbsp &nbsp<Required>**Required**</Required> | Amount to be refunded to customer. |
 
 ### Credit note item attributes
 
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
 | fee_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Fee id in lago application |
-| credit_amount_cents | Integer &nbsp &nbsp &nbsp<Required>**Required**</Required> | Amount to be credited on customer balance. |
-| refund_amount_cents | Integer &nbsp &nbsp &nbsp<Required>**Required**</Required> | Amount to be refunded to customer. |
+| amount_cents | Integer &nbsp &nbsp &nbsp<Required>**Required**</Required> | Amount to add to the credit note. |
 
 ## Responses
 
