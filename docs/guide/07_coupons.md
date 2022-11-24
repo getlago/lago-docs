@@ -20,9 +20,9 @@ To create a coupon through the user interface:
 7. Click **"Add coupon"** to confirm.
 
 ## Apply coupons
-Here is what you should know about coupons:
-- If the currency of the customer is already defined, the currency of the coupon must be the same; and
-- A customer can only benefit from one coupon at a time.
+:::caution
+If the currency of the customer is already defined, the currency of the coupon must be the same, otherwise you will not be able to apply the coupon to the customer account.
+:::
 
 To apply a coupon to a customer:
 1. Select a customer from the list;
@@ -33,13 +33,21 @@ To apply a coupon to a customer:
 You can also apply coupons via the API ([learn more](../api/coupons/apply-coupon)).
 
 :::info
-A coupon applied to a customer continues to apply beyond the expiration date.
+You can apply several coupons to a customer. A coupon applied to a customer continues to apply beyond the expiration date.
 :::
 
 ## Application scope
-**Coupons are deducted from the total amount of the following invoice(s)**, including subscription fees and charges. In case of a coupon's value greater than an invoice, the remaining amount of discount will be applied to the following invoices, until the coupon is totally consumed or removed from a customer.
+**Coupons are deducted from the total amount of the following invoice(s)**, including subscription fees and charges. As mentioned previously, the value of the coupon is deducted from the amount of the invoice before tax.
 
-As mentioned previously, the value of the coupon is deducted from the amount of the invoice before tax.
+For coupons whose value is a fixed amount:
+- When the coupon only applies once and its value is higher than the invoice amount, the remaining unused amount will be applied to the following invoices, until the coupon is totally consumed or removed; and
+- When the coupon is recurring and its value is higher than the invoice amount, any remaining unused amount will be lost, even if it is the last application period.
+
+When several coupons are applied to the customer account, they will be deducted according to the date on which they were applied: **the coupon that was applied first will be deducted first**.
+
+You can see the remaining value / number of remaining periods for each coupon in the **"Overview"** tab of the customer view.
+
+![Customer account with several coupons](../../static/img/coupons-remaining.png)
 
 :::info
 Coupons do not apply to add-ons or any other one-off charges.
