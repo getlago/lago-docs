@@ -4,11 +4,19 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Fri, 18 Nov 2022 10:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 21 Nov 2022 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2022 Lago.</copyright>
+        <item>
+            <title><![CDATA[Apply several coupons]]></title>
+            <link>https://getlago.com/changelog/coupons-v3</link>
+            <guid>/coupons-v3</guid>
+            <pubDate>Mon, 21 Nov 2022 10:00:00 GMT</pubDate>
+            <description><![CDATA[You can now apply several coupons to a customer account.]]></description>
+            <content:encoded><![CDATA[<p>You can now apply several coupons to a customer account.</p><p>When several coupons are applied to a customer, they will be deducted according to the date on which they were applied: the coupon that was applied first will be deducted first.</p><p>The remaining value / number of remaining periods for each coupon will be visible in the <strong>"Overview"</strong> tab of the customer view.</p><p>You can also use <code>GET /api/v1/applied_coupons</code> to retrieve all coupons applied to a customer.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Integration with GoCardless]]></title>
             <link>https://getlago.com/changelog/gocardless-integration</link>

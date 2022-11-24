@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/coupons-v3",
+            "content_html": "<p>You can now apply several coupons to a customer account.</p><p>When several coupons are applied to a customer, they will be deducted according to the date on which they were applied: the coupon that was applied first will be deducted first.</p><p>The remaining value / number of remaining periods for each coupon will be visible in the <strong>\"Overview\"</strong> tab of the customer view.</p><p>You can also use <code>GET /api/v1/applied_coupons</code> to retrieve all coupons applied to a customer.</p>",
+            "url": "https://getlago.com/changelog/coupons-v3",
+            "title": "Apply several coupons",
+            "summary": "You can now apply several coupons to a customer account.",
+            "date_modified": "2022-11-21T10:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/gocardless-integration",
             "content_html": "<p>Lago now offers native integration with <a href=\"https://gocardless.com/\" target=\"_blank\" rel=\"noopener noreferrer\">GoCardless</a>, including (but not limited to):</p><ul><li>Ability to define GoCardless as the default payment provider for a customer;</li><li>Ability to automatically create Lago customers in GoCardless and retrieve their customer ID;</li><li>Ability to automatically collect payments via direct debit;</li><li>Ability to automatically update the status of an invoice depending on the payment status; and</li><li>Ability to automatically resubmit failed payments with <a href=\"https://gocardless.com/solutions/success-plus/\" target=\"_blank\" rel=\"noopener noreferrer\">GoCardless Success+</a>.</li></ul><p>To learn more about this integration, please <a href=\"/docs/guide/payments/gocardless-integration\">consult our guide</a>.</p>",
             "url": "https://getlago.com/changelog/gocardless-integration",
