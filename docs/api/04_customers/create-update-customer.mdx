@@ -278,7 +278,7 @@ If the customer already exists, the call will work as an update
 | -----------| -----| ----------- |
 | payment_provider | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider used to bill the customer.<br/>Only accepted value: `stripe`, this field is required if you want to assign a `provider_customer_id`
 | provider_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer ID on the payment provider.<br/>If not provided, Lago can optionally create the provider customer
-| sync_with_provider | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field that determines whether to create customer in payment provider or not
+| sync_with_provider | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` if you want to create the customer record in the provider's system. Only applies when `provider_customer_id` is `null` and `sync_with_provider` is set to `true`. Default value: `false`
 | sync | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to true is you want to create the provider customer synchronously with the customer creation.<br/>Apply only when provider_customer_id is null and payment provider is configured to create customer.<br/>Default value: `false`
 | vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom VAT applied to the customer.<br></br> It will override the one defined at organization level |
 
