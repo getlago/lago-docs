@@ -49,10 +49,6 @@ For more information about our webhooks, please refer to the [API documentation]
 To collect payments automatically, the customer must exist in both the Lago and GoCardless databases.
 
 ### New customer
-:::info
-You must have a **GoCardless Pro** or **GoCardless Custom** account to be able to create new customers through the integration. If you have another type of account, you must first create the customer and direct debit mandate in GoCardless, and then follow [these instructions](#existing-customer).
-:::
-
 If the customer does not already exist in GoCardless, you can first create them in Lago, either via the user interface or [the API](../../api/customers/create-update-customer). When adding customer information, you must:
 1. Provide the customer's email address;
 2. Define GoCardless as the **default payment provider**;
