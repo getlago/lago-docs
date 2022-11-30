@@ -2,12 +2,14 @@
   "index_name": "lago-docs",
   "start_urls": [
     "https://doc.getlago.com/docs/guide/intro/welcome",
+    "https://doc.getlago.com/docs/guide/intro/billing-nightmare",
     "https://doc.getlago.com/docs/guide/self-hosting/docker",
     "https://doc.getlago.com/docs/guide/self-hosting/tracking",
     "https://doc.getlago.com/docs/guide/lago-cloud",
     "https://doc.getlago.com/docs/guide/billable-metrics/overview",
     "https://doc.getlago.com/docs/guide/billable-metrics/aggregation-types",
     "https://doc.getlago.com/docs/guide/billable-metrics/aggregation-examples",
+    "https://doc.getlago.com/docs/guide/billable-metrics/dimensions",
     "https://doc.getlago.com/docs/guide/plans/overview",
     "https://doc.getlago.com/docs/guide/plans/plan-model",
     "https://doc.getlago.com/docs/guide/plans/charges",
@@ -23,8 +25,13 @@
     "https://doc.getlago.com/docs/guide/invoicing/taxes",
     "https://doc.getlago.com/docs/guide/invoicing/download-invoices",
     "https://doc.getlago.com/docs/guide/payments/overview",
+    "https://doc.getlago.com/docs/guide/payments/gocardless-integration",
     "https://doc.getlago.com/docs/guide/payments/stripe-integration",
+    "https://doc.getlago.com/docs/guide/prepaid_credits",
     "https://doc.getlago.com/docs/guide/testing-integration",
+    "https://doc.getlago.com/docs/guide/alerting-system/overview",
+    "https://doc.getlago.com/docs/guide/alerting-system/invoice-alerting",
+    "https://doc.getlago.com/docs/guide/alerting-system/current-usage-alerting",
 
     "https://doc.getlago.com/docs/api/intro",
     "https://doc.getlago.com/docs/api/billable_metrics/billable-metric-object",
@@ -33,6 +40,7 @@
     "https://doc.getlago.com/docs/api/billable_metrics/destroy-billable-metric",
     "https://doc.getlago.com/docs/api/billable_metrics/get-billable-metric",
     "https://doc.getlago.com/docs/api/billable_metrics/get-all-billable-metrics",
+    "https://doc.getlago.com/docs/api/billable_metrics/get-all-groups",
 
     "https://doc.getlago.com/docs/api/plans/plan-object",
     "https://doc.getlago.com/docs/api/plans/create-plan",
@@ -43,12 +51,20 @@
 
     "https://doc.getlago.com/docs/api/customers/customer-object",
     "https://doc.getlago.com/docs/api/customers/create-update-customer",
+    "https://doc.getlago.com/docs/api/customers/get-customer",
+    "https://doc.getlago.com/docs/api/customers/get-all-customers",
 
     "https://doc.getlago.com/docs/api/subscriptions/subscription-object",
     "https://doc.getlago.com/docs/api/subscriptions/create-subscription",
     "https://doc.getlago.com/docs/api/subscriptions/terminate-subscription",
+    "https://doc.getlago.com/docs/api/subscriptions/update-subscription",
+    "https://doc.getlago.com/docs/api/subscriptions/get-all-subscriptions",
 
     "https://doc.getlago.com/docs/api/events",
+    "https://doc.getlago.com/docs/api/events/metered-event",
+    "https://doc.getlago.com/docs/api/events/persisted-event",
+    "https://doc.getlago.com/docs/api/events/create-batch-event",
+    "https://doc.getlago.com/docs/api/events/get-event",
 
     "https://doc.getlago.com/docs/api/coupons/coupon-object",
     "https://doc.getlago.com/docs/api/coupons/create-coupon",
@@ -57,6 +73,7 @@
     "https://doc.getlago.com/docs/api/coupons/get-coupon",
     "https://doc.getlago.com/docs/api/coupons/get-all-coupons",
     "https://doc.getlago.com/docs/api/coupons/apply-coupon",
+    "https://doc.getlago.com/docs/api/coupons/get-all-applied-coupons",
 
     "https://doc.getlago.com/docs/api/add_ons/add-on-object",
     "https://doc.getlago.com/docs/api/add_ons/create-add-on",
@@ -77,6 +94,18 @@
 
     "https://doc.getlago.com/docs/api/webhooks/message-signature",
     "https://doc.getlago.com/docs/api/webhooks/messages",
+
+    "https://doc.getlago.com/docs/api/customer_usage/customer-usage-object",
+    "https://doc.getlago.com/docs/api/customer_usage/customer-usage",
+
+    "https://doc.getlago.com/docs/api/wallets/wallet-object",
+    "https://doc.getlago.com/docs/api/wallets/create-wallet",
+    "https://doc.getlago.com/docs/api/wallets/update-wallet",
+    "https://doc.getlago.com/docs/api/wallets/destroy-wallet",
+    "https://doc.getlago.com/docs/api/wallets/get-wallet",
+    "https://doc.getlago.com/docs/api/wallets/get-all-wallets",
+    "https://doc.getlago.com/docs/api/wallets/top-up",
+    "https://doc.getlago.com/docs/api/wallets/wallet-transaction-object",
 
     "https://doc.getlago.com/changelog"
   ],
