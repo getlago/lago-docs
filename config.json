@@ -85,7 +85,7 @@
 
     "https://doc.getlago.com/docs/api/invoices/invoice-object",
     "https://doc.getlago.com/docs/api/invoices/download-invoice",
-    "https://doc.getlago.com/docs/api/invoices/update-invoice-status",
+    "https://doc.getlago.com/docs/api/invoices/update-payment-status",
     "https://doc.getlago.com/docs/api/invoices/get-invoice",
     "https://doc.getlago.com/docs/api/invoices/get-all-invoices",
 
