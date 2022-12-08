@@ -71,7 +71,7 @@ The invoicing process varies depending on the [plan model](/docs/guide/plans/pla
 ![Illustration for start date in the past and subscription fee in advance](../../../static/img/subscription-past-arrears.png)
 
 ### Start date in the future
-If the start date of the subscription is in the past, the subscription is considered pending.
+If the start date of the subscription is in the future, the subscription is considered pending.
 
 The invoicing process varies depending on the [plan model](/docs/guide/plans/plan-model) and [billing cycle](#billing-cycles):
 - If the plan includes a subscription fee to be paid in advance, when the subscription becomes active, Lago will automatically generate an **invoice for the subscription fee**. Usage-based charges will be included in the next invoice, generated at the end of the billing period (see example 3 below); and
