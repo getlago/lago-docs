@@ -29,7 +29,9 @@ Free credits are added to the customer's wallet instantly, while purchased credi
 Each customer can only have one active wallet.
 
 ## Credit purchases and top-ups
-Lago automatically generates an invoice for each purchase and taxes apply. Payment must be made in order for credits to be added to the customer's wallet (i.e. the status of the invoice must be `succeeded`).
+Lago automatically generates an invoice for each purchase. Taxes do not apply to credit purchases, which are considered as advance payments.
+
+Payment must be made in order for credits to be added to the customer's wallet (i.e. the status of the invoice must be `succeeded`).
 
 To top up a wallet through the user interface:
 1. Open the **"Wallets"** tab and click **"Edit wallet"** on the right;
@@ -42,9 +44,9 @@ Coupons **do not apply** to credit purchases and top-ups.
 :::
 
 ## Application scope
-Prepaid credits are deducted from the subtotal of the next invoice(s), before tax.
+Prepaid credits are deducted from the subtotal of the next invoice(s), after tax.
 
-![Invoice paid with prepaid credits](../../static/img/invoice-prepaid-credits.png)
+![Invoice partially paid with prepaid credits](../../static/img/prepaid-credits-invoice.png)
 
 :::info
 Prepaid credits **do not apply** to invoices related to add-ons.
