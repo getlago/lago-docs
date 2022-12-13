@@ -13,7 +13,7 @@ This library will allow you to build an entire billing system from scratch. Lago
 
 You can use the [self-hosted version](../self-hosting/docker) to deploy Lago on your existing infrastructure or [request access to Lago Cloud](https://forms.gle/eT7zgqcvq8dgt94g7) to start using our solution immediately.
 
-## Four-step billing workflow
+## Five-step billing workflow
 
 ### 1. Event ingestion
 [Events](../events/ingesting_events) provide information about your customers' consumption, with the highest level of granularity. Any product feature for which you want to charge your customers should correspond to a specific event. An event can be triggered by an action or can be sent periodically. Lago is able to ingest events at scale while preventing duplicates.
@@ -37,3 +37,6 @@ Creating [plans](../plans/overview) allows you to define how much your customers
 
 ### 4. Invoicing
 Lago automatically generates [invoices](../invoicing/overview) for each customer according to the plan model: the subscription fee can be billed at the beginning or at the end of the billing period while usage-based charges are always calculated at the end of the billing period. Invoices include fees, taxes and customer information.
+
+### 5. Payments
+When an invoice is emitted and finalized, it's ready for payment collection. Connect payment providers through [native integrations](../payments/overview) or trigger payments on any PSPs using the invoice payload created by Lago.
