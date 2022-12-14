@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/open-api",
+            "content_html": "<p>We have developed an Open API to help you get started with Lago and make it easier to test our solution.</p><p>Please refer to the <a href=\"/docs/guide/openapi\">documentation</a> to learn how to import the Lago Open API into Postman and create a new collection.</p><p>Our <a href=\"https://github.com/getlago/lago-openapi\" target=\"_blank\" rel=\"noopener noreferrer\">public repository</a> is also available on GitHub.</p>",
+            "url": "https://getlago.com/changelog/open-api",
+            "title": "Lago Open API",
+            "summary": "We have developed an Open API to help you get started with Lago and make it easier to test our solution.",
+            "date_modified": "2022-12-13T10:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/invoice-payment-status",
             "content_html": "<p>As we are making progress on the <a href=\"https://github.com/getlago/lago/issues/99\" target=\"_blank\" rel=\"noopener noreferrer\">grace period feature</a>, which will allow you to review invoices before they are sent to customers, we have introduced changes to the API to add new invoice management options.</p><p>The <a href=\"/docs/api/invoices/invoice-object\">invoice object</a> included a <code>status</code> attribute with three possible values: <code>pending</code>, <code>failed</code> and <code>succeeded</code>. This attribute has been renamed <code>payment_status</code> for accuracy purposes (possible values remains unchanged).</p><p>In addition to this, a new <code>status</code> attribute has been created, including two possible values:</p><ul><li><code>draft</code>: when an invoice has been generated but can still be modified; and</li><li><code>finalized</code>: when the invoice is validated and can no longer be modified.</li></ul><p>All existing invoices are considered as <code>finalized</code>, you will not be able to use the <code>draft</code> status until the grace period feature is deployed (later this month).</p><p>Please contact us at <a href=\"mailto:hello@getlago.com\" target=\"_blank\" rel=\"noopener noreferrer\">hello@getlago.com</a> if you have any questions, we will be happy to help.</p>",
             "url": "https://getlago.com/changelog/invoice-payment-status",
