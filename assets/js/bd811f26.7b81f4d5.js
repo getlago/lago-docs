@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklago_doc=self.webpackChunklago_doc||[]).push([[3536],{1990:o=>{o.exports=JSON.parse('{"title":"Introduction","slug":"/category/introduction","permalink":"/docs/category/introduction","navigation":{"next":{"title":"Welcome to Lago","permalink":"/docs/guide/intro/welcome"}}}')}}]);

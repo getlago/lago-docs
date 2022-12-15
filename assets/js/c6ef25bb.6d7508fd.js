@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklago_doc=self.webpackChunklago_doc||[]).push([[260],{3104:a=>{a.exports=JSON.parse('{"title":"Data","slug":"/category/data","permalink":"/docs/category/data","navigation":{"previous":{"title":"N8N","permalink":"/docs/integrations/alerting/n8n"},"next":{"title":"Airbyte (ETL)","permalink":"/docs/integrations/data/airbyte"}}}')}}]);
