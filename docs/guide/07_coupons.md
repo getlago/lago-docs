@@ -16,8 +16,9 @@ To create a coupon through the user interface:
 3. Choose a name and a code for your coupon;
 4. Select the type of coupon (i.e. fixed amount or percentage);
 5. Define its value and frequency (i.e. is applied once or several times);
-6. Choose whether or not to set an expiration date (i.e. date after which the coupon can no longer be redeemed); and
-7. Click **"Add coupon"** to confirm.
+6. Choose if the coupon can be applied several times to the same customer account or not;
+7. Choose whether or not to set an expiration date (i.e. date after which the coupon can no longer be redeemed); and
+8. Click **"Add coupon"** to confirm.
 
 ## Apply coupons
 :::caution
@@ -33,7 +34,9 @@ To apply a coupon to a customer:
 You can also apply coupons via the API ([learn more](../api/coupons/apply-coupon)).
 
 :::info
-You can apply several coupons to a customer. A coupon applied to a customer continues to apply beyond the expiration date.
+You can apply several coupons to a customer. However, if a coupon has been marked as non-reusable, you will only be able to apply it once to the customer account, even if it has not been fully consumed.
+
+A coupon applied to a customer continues to apply beyond the expiration date.
 :::
 
 ## Application scope
