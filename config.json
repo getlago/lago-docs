@@ -42,10 +42,6 @@
 
     "https://doc.getlago.com/docs/guide/testing-integration",
 
-    "https://doc.getlago.com/docs/guide/alerting-system/overview",
-    "https://doc.getlago.com/docs/guide/alerting-system/invoice-alerting",
-    "https://doc.getlago.com/docs/guide/alerting-system/current-usage-alerting",
-
     "https://doc.getlago.com/docs/guide/openapi",
 
     "https://doc.getlago.com/docs/api/intro",
@@ -121,8 +117,15 @@
     "https://doc.getlago.com/docs/api/wallets/get-all-wallets",
     "https://doc.getlago.com/docs/api/wallets/top-up",
     "https://doc.getlago.com/docs/api/wallets/wallet-transaction-object",
+    
+    "https://doc.getlago.com/changelog",
 
-    "https://doc.getlago.com/changelog"
+    "https://doc.getlago.com/docs/integrations/intro",
+    "https://doc.getlago.com/docs/integrations/payments/gocardless",
+    "https://doc.getlago.com/docs/integrations/payments/stripe",
+    "https://doc.getlago.com/docs/integrations/alerting/zapier",
+    "https://doc.getlago.com/docs/integrations/alerting/n8n",
+    "https://doc.getlago.com/docs/integrations/alerting/n8n"
   ],
   "sitemap_urls": [
     "https://doc.getlago.com/sitemap.xml"
