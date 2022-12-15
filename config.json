@@ -125,7 +125,7 @@
     "https://doc.getlago.com/docs/integrations/payments/stripe",
     "https://doc.getlago.com/docs/integrations/alerting/zapier",
     "https://doc.getlago.com/docs/integrations/alerting/n8n",
-    "https://doc.getlago.com/docs/integrations/alerting/n8n"
+    "https://doc.getlago.com/docs/integrations/data/airbyte"
   ],
   "sitemap_urls": [
     "https://doc.getlago.com/sitemap.xml"
