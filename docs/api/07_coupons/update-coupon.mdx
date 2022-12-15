@@ -34,6 +34,7 @@ import TabItem from '@theme/TabItem';
         "coupon_type": "fixed_amount",
         "frequency": "recurring",
         "frequency_duration": 3,
+        "reusable": true,
         "expiration": "time_limit",
         "expiration_date": "2022-08-08"
       }
@@ -121,6 +122,7 @@ import TabItem from '@theme/TabItem';
     "amount_currency": "USD",
     "expiration": "time_limit",
     "expiration_date": "2022-08-08",
+    "reusable": true,
     "coupon_type": "fixed_amount",
     "frequency": "recurring",
     "frequency_duration": 3
@@ -136,6 +138,7 @@ import TabItem from '@theme/TabItem';
 | amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Currency of the amount |
 | expiration | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Expiration type.<br></br>It can be `time_limit` or `no_expiration` |
 | expiration_date | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `time_limit` type)**</Optional> | Expiration date of the coupon. |
+| reusable | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if coupon is reusable or not. |
 | coupon_type | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Coupon type.<br></br>It can be `fixed_amount` or `percentage` |
 | frequency | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Frequency type.<br></br>It can be `once` or `recurring` |
 | frequency_duration | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `recurring` frequency type)**</Optional> | This field determines the number of billing periods to which the coupon applies. |

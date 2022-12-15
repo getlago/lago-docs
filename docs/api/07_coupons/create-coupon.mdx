@@ -32,6 +32,7 @@ import TabItem from '@theme/TabItem';
         "amount_cents": 5000,
         "amount_currency": "USD",
         "coupon_type": "fixed_amount",
+        "reusable": true,
         "frequency": "recurring",
         "frequency_duration": 3,
         "expiration": "time_limit",
@@ -56,7 +57,8 @@ import TabItem from '@theme/TabItem';
     amount_currency='EUR',
     coupon_type='fixed_amount',
     frequency='recurring',
-    frequency_duration=3
+    frequency_duration=3,
+    reusable=True
     expiration='time_limit',
     expiration_date='2022-08-08'
   )
@@ -79,6 +81,7 @@ import TabItem from '@theme/TabItem';
     amount_cents: 100,
     amount_currency: 'EUR',
     coupon_type: 'fixed_amount',
+    reusable: true,
     frequency: 'recurring',
     frequency_duration: 3
   }
@@ -102,6 +105,7 @@ import TabItem from '@theme/TabItem';
       amountCents: 10000,
       amountCurrency: 'USD',
       couponType: 'fixed_amount',
+      reusable: true,
       frequency: 'recurring',
       frequencyDuration: 3
   })
@@ -120,15 +124,16 @@ import TabItem from '@theme/TabItem';
         SetApiKey("__YOUR_API_KEY__")
 
       couponInput := &lago.CouponInput{
-            Name:               "Coupon",
+        Name:               "Coupon",
 	   		Code:               "coupon",
 	   		AmountCents:        1500,
 	   		AmountCurrency:     lago.EUR,
+        Reusable:           true,
 	   		Expiration:         lago.CouponExpirationTimeLimit,
-            ExpirationDate:     '2022-08-08',
-            CouponType:         lago.CouponTypeFixedAmount
-            Frequency:          lago.CouponFrequencyRecurring
-            FrequencyDuration:  3
+        ExpirationDate:     '2022-08-08',
+        CouponType:         lago.CouponTypeFixedAmount,
+        Frequency:          lago.CouponFrequencyRecurring,
+        FrequencyDuration:  3
       }
 
       coupon, err := lagoClient.Coupon().Create(couponInput)
@@ -157,6 +162,7 @@ import TabItem from '@theme/TabItem';
     "expiration": "time_limit",
     "expiration_date": "2022-08-08",
     "coupon_type": "fixed_amount",
+    "reusable": true,
     "frequency": "recurring",
     "frequency_duration": 3
   }
@@ -169,6 +175,7 @@ import TabItem from '@theme/TabItem';
 | code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the coupon |
 | amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Amount of the coupon |
 | amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Currency of the amount |
+| reusable | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if coupon is reusable or not. |
 | expiration | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Expiration type.<br></br>It can be `time_limit` or `no_expiration` |
 | expiration_date | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `time_limit` type)**</Optional> | Expiration date of the coupon. |
 | coupon_type | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Coupon type.<br></br>It can be `fixed_amount` or `percentage` |

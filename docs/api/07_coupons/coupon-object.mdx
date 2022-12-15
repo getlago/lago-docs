@@ -18,6 +18,7 @@ This object represents a coupon.<br></br>
     "amount_currency": "USD",
     "percentage_rate": null,
     "coupon_type": "fixed_amount",
+    "reusable": true,
     "frequency": "recurring",
     "frequency_duration": 3,
     "expiration": "time_limit",
@@ -34,6 +35,7 @@ This object represents a coupon.<br></br>
 | **code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the coupon. |
 | **amount_cents** &nbsp &nbsp <Type>Integer</Type> | Amount in cents. |
 | **amount_currency** &nbsp &nbsp <Type>String</Type> | Currency of the amount. |
+| **reusable** &nbsp &nbsp <Type>Boolean</Type> | Field specifying if coupon is reusable or not. |
 | **expiration** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Expiration type. <br></br> <details><summary>**Possible values**</summary><div>- `time_limit`<br></br>- `no_expiration`<div></div></div></details> |
 | **expiration_date** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Expiration date of the coupon. |
 | **coupon_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Coupon type. <br></br> <details><summary>**Possible values**</summary><div>- `fixed_amount`<br></br>- `percentage`<div></div></div></details> |
