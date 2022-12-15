@@ -84,6 +84,12 @@ const config = {
             sidebarId: 'api', // foldername
             label: 'API Reference',     // navbar title
           },
+          {
+            type: 'docSidebar',  // docSidebar
+            position: 'left',
+            sidebarId: 'integrations', // foldername
+            label: 'Integrations',     // navbar title
+          },
           {to: 'changelog', label: 'Changelog', position: 'right'},
           {
             to: 'https://github.com/getlago/lago',

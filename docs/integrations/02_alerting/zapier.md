@@ -1,8 +1,12 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Invoice Alerting Example (with Zapier)
+# Zapier
+
+Here is a typical use case of using Lago with Zapier to create powerful alerting automation.
+
+## Invoice Alerting Example (with Zapier)
 
 ![invoice alerting flow](../../../static/img/invoice-alerting-flow.png)
 

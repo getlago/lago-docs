@@ -1,5 +1,8 @@
 {
     "label": "Customers",
-    "position": 4
+    "position": 4,
+    "link": {
+      "type": "generated-index"
+    }
   }
   

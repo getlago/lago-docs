@@ -1,8 +1,12 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-# Overconsumption Alerting Example (with N8N)
+# N8N
+
+Here is a typical use case of using Lago and N8N to create powerful alerting automation.
+
+## Overconsumption Alerting Example (with N8N)
 
 When one of your customers is overconsuming during a period, you might need to warn her. This might happen for Cloud or API products. Automatic billing does not mean that your customers should have a bad surprise when opening their invoices.
 
