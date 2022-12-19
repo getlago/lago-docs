@@ -22,7 +22,7 @@ This object represents a wallet.<br></br>
     "balance": "10.0",
     "consumed_credits": "2.0",
     "created_at": "2022-04-29T08:59:51Z",
-    "expiration_date": null,
+    "expiration_at": null,
     "last_balance_sync_at": "2022-04-29T08:59:51Z",
     "last_consumed_credit_at": "2022-04-29T08:59:51Z"
   }
@@ -42,12 +42,16 @@ This object represents a wallet.<br></br>
 | **balance** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Balance in specified currency. |
 | **consumed_credits** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Credits consumed. |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of wallet creation. |
-| **expiration_date** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of wallet expiration. |
+| **expiration_at** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date and time of wallet expiration. |
 | **last_balance_sync_at** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of last wallet top-up. |
 | **last_consumed_credit_at** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of last wallet consumption. |
 | **terminated_at** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of wallet termination. |
 
+### Deprecated attributes
 
+| Attributes | Description |
+| -----------| ----------- |
+| **expiration_date** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of wallet expiration. |
 
 export const Type = ({children, color}) => (
   <span
