@@ -26,7 +26,7 @@ The subscription will then define how a the related customer will be invoiced ba
     "name": "display name",
     "external_id": "external_id",
     "billing_time": "anniversary",
-    "subscription_date": "2022-04-29",
+    "subscription_at": "2022-04-29T00:00:00Z",
     "terminated_at": null,
     "previous_plan_code": null,
     "next_plan_code": null,
@@ -41,7 +41,7 @@ The subscription will then define how a the related customer will be invoiced ba
 | **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
 | **billing_time** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Billing time of the subscription. <br></br> <details><summary>**Possible values**</summary><div>- `anniversary`: Subscription will be billed on each week/month/year anniversary, depending on the plan reccurence<br></br>- `calendar`: Subscription at the end of week/month/year. The first subscription billing will be at pro-rata if it is not created at the beginning of the week/month/year</div></details> |
 | **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
-| **subscription_date** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Anniversary date of the initial subscription. It is used a the based date to bill subscription with anniversary billing time. |
+| **subscription_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Anniversary date and time of the initial subscription. It is used a the based date to bill subscription with anniversary billing time. |
 | **canceled_at** &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Cancelation date of the subscription. It's not null when the subscription is `canceled` |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime  in UTC*</Comment> | Creation date of the subscription |
 | **plan_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Code identifying the plan.<br></br>It matches the `code` property of one of the plans |
@@ -53,6 +53,12 @@ The subscription will then define how a the related customer will be invoiced ba
 | **previous_plan_code** &nbsp &nbsp <Type>String</Type> | Code identifying the previous plan. |
 | **next_plan_code** &nbsp &nbsp <Type>String</Type> | Code identifying the next plan, in case of downgrade. |
 | **downgrade_plan_date** &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 8601 date*</Comment> | Date when the plan will be downgraded. |
+
+### Deprecated attributes
+
+| Attributes | Description |
+| -----------| ----------- |
+| **subscription_date** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Anniversary date of the initial subscription. It is used a the based date to bill subscription with anniversary billing time. |
 
 export const Type = ({children, color}) => (
   <span
