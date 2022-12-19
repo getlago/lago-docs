@@ -15,8 +15,8 @@ It allows you to monitor customer usage throughout the period.
 ```json
 {
   "customer_usage": {
-    "from_date": "2022-07-01",
-    "to_date": "2022-07-31",
+    "from_datetime": "2022-07-01T00:00:00Z",
+    "to_datetime": "2022-07-31T23:59:59Z",
     "issuing_date": "2022-08-01",
     "amount_cents": 123,
     "amount_currency": "EUR",
@@ -56,8 +56,8 @@ It allows you to monitor customer usage throughout the period.
 
 | Attributes | Description |
 | -----------| ----------- |
-| **from_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Lower bound of the billing period |
-| **to_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Upper bound of the billing period |
+| **from_datetime** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime*</Comment> | Lower bound of the billing period |
+| **to_datetime** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime*</Comment> | Upper bound of the billing period |
 | **issuing_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Date of creation of the invoice |
 | **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents, VAT (tax) excluded|
 | **amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
@@ -66,6 +66,13 @@ It allows you to monitor customer usage throughout the period.
 | **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents |
 | **vat_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
 | **charges_usage** &nbsp &nbsp <Type>Array</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Array of [charge usage](#charge-usage-object) objects |
+
+### Deprecated attributes
+
+| Attributes | Description |
+| -----------| ----------- |
+| **from_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Lower bound of the billing period |
+| **to_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Upper bound of the billing period |
 
 ## Charge Usage object
 
