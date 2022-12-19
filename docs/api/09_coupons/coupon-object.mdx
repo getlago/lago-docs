@@ -22,7 +22,7 @@ This object represents a coupon.<br></br>
     "frequency": "recurring",
     "frequency_duration": 3,
     "expiration": "time_limit",
-    "expiration_date": "2022-08-08",
+    "expiration_at": "2022-08-08T23:59:59Z",
     "created_at": "2022-04-29T08:59:51Z"
   }
 }
@@ -37,13 +37,18 @@ This object represents a coupon.<br></br>
 | **amount_currency** &nbsp &nbsp <Type>String</Type> | Currency of the amount. |
 | **reusable** &nbsp &nbsp <Type>Boolean</Type> | Field specifying if coupon is reusable or not. |
 | **expiration** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Expiration type. <br></br> <details><summary>**Possible values**</summary><div>- `time_limit`<br></br>- `no_expiration`<div></div></div></details> |
-| **expiration_date** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Expiration date of the coupon. |
+| **expiration_at** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Expiration date and time of the coupon. |
 | **coupon_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Coupon type. <br></br> <details><summary>**Possible values**</summary><div>- `fixed_amount`<br></br>- `percentage`<div></div></div></details> |
 | **percentage_rate** &nbsp &nbsp <Type>Float</Type> | Percentage rate of the coupon. |
 | **frequency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Frequency type. <br></br> <details><summary>**Possible values**</summary><div>- `once`<br></br>- `recurring`<div></div></div></details> |
 | **frequency_duration** &nbsp &nbsp <Type>Integer</Type> | It determines the number of billing periods to which the coupon applies |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of coupon creation. |
 
+### Deprecated arguments
+
+| Attributes | Description |
+| -----------| ----------- |
+| **expiration_date** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 date in UTC*</Comment> | Expiration date of the coupon. |
 
 export const Type = ({children, color}) => (
   <span
