@@ -38,6 +38,7 @@ import TabItem from '@theme/TabItem';
         "city": "city125",
         "legal_name": null,
         "legal_number": null,
+        "timezone": "Europe/Paris",
         "billing_configuration": {
           "invoice_footer": "footer custom",
           "vat_rate": 15.0
@@ -56,6 +57,7 @@ import TabItem from '@theme/TabItem';
   client = Client(api_key='__YOUR_API_KEY__')
 
   params = Organization(
+    timezone: "Europe/Paris",
     webhook_url="https://new.url",
     vat_rate=14.2,
     billing_configuration=OrganizationBillingConfiguration(
@@ -75,6 +77,7 @@ import TabItem from '@theme/TabItem';
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
   update_params = {
+    timezone: 'Europe/Paris',
     webhook_url: 'https://webhook_url.com',
     billing_configuration: {
       invoice_footer="footer custom",
@@ -94,6 +97,7 @@ import TabItem from '@theme/TabItem';
   let client = new Client('__API_KEY__')
 
   await client.updateOrganization(new Organization({
+    timezone: "Europe/Paris",
     webhookUrl: "https://newwebhookurl.com",
     billingConfiguration: new OrganizationBillingConfiguration({
       invoiceFooter: "footer custom",
@@ -115,6 +119,7 @@ import TabItem from '@theme/TabItem';
 
       organizationInput := &lago.OrganizationInput{
         LegalName: "Legal Name",
+        Timezone: "Europe/Paris",
         BillingConfiguration: &OrganizationBillingConfigurationInput{
           InvoiceFooter: "footer custom",
           VatRate: 20.0,
@@ -150,6 +155,7 @@ import TabItem from '@theme/TabItem';
     "city": "city125",
     "legal_name": null,
     "legal_number": null,
+    "timezone": "Europe/Paris",
     "billing_configuration": {
       "invoice_footer": "footer custom",
       "vat_rate": 15.0
@@ -170,6 +176,7 @@ import TabItem from '@theme/TabItem';
 | city | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization city. |
 | legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization legal name. |
 | legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization legal number. |
+| timezone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization [timezone](../resources/timezones).<br></br>It will be UTC if not defined |
 | billing_configuration | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Invoicing an billing specific configuration. |
 
 ### Billing configuration
@@ -244,6 +251,7 @@ import TabItem from '@theme/TabItem';
   | `email` | `invalid_email_format` | Email format is invalid |
   | `logo` | `invalid_size` | File size is too big |
   | `logo` | `invalid_content_type` | Content type is invalid |
+  | `timezone` | `timezone_invalid` | Provided timezone is invalid |
 
 
   </TabItem>
