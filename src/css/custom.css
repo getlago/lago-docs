@@ -187,3 +187,9 @@ table {
   }
 
 }
+
+.custom-toggle {
+  background-color: transparent;
+  border: 1px solid #C3C9D5 !important;
+  --docusaurus-details-decoration-color: #C3C9D5 !important;
+}
