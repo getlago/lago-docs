@@ -40,6 +40,7 @@ import TabItem from '@theme/TabItem';
         "name": "Gavin Belson",
         "phone": "1-171-883-3711 x245",
         "state": "CA",
+        "timezone": "Europe/Paris",
         "url": "http://hooli.com",
         "zipcode": "91364",
         "billing_configuration": {
@@ -77,6 +78,7 @@ import TabItem from '@theme/TabItem';
     name="Test Name",
     phone="1-171-883-3711 x245",
     state="CA",
+    timezone="Europe/Paris",
     url="http://hooli.com",
     zipcode="91364",
     billing_configuration=CustomerBillingConfiguration(
@@ -116,6 +118,7 @@ import TabItem from '@theme/TabItem';
     "test name",  // name
     None,  // phone
     None,  // state
+    "Europe/Paris", // timezone
     None,  // url
     None,  // zipcode
     new CustomerBillingConfiguration(
@@ -151,6 +154,7 @@ import TabItem from '@theme/TabItem';
     name: "Gavin Belson",
     phone: "1-171-883-3711 x245",
     state: "CA",
+    timezone: "Europe/Paris",
     url: "http://hooli.com",
     zipcode: "91364",
     billing_configuration: {
@@ -189,6 +193,7 @@ import TabItem from '@theme/TabItem';
         LegalName:    "GetLago",
         LegalNumber:  "123456",
         Phone:        "+330100000000",
+        Timezone:     "Europe/Paris",
         URL:          "https://getlago.com",
         BillingConfiguration: &CustomerBillingConfigurationInput{
           PaymentProvider: lago.PaymentProviderStripe,
@@ -237,6 +242,7 @@ import TabItem from '@theme/TabItem';
     "name": "Gavin Belson",
     "phone": "1-171-883-3711 x245",
     "state": "CA",
+    "timezone": "Europe/Paris",
     "url": "http://hooli.com",
     "zipcode": "91364",
     "billing_configuration": {
@@ -268,6 +274,7 @@ If the customer already exists, the call will work as an update
 | name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Full name of the customer |
 | phone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Phone number of the customer |
 | state | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | State of the customer's billing address |
+| timezone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | [Timezone](../resources/timezones) of the customer.<br></br>It will override the one defined at organization level |
 | url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom URL of the customer |
 | zipcode | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Zipcode of the customer's billing address |
 | billing_configuration | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider specific configuration used to bill the customer |
@@ -344,6 +351,7 @@ If the customer already exists, the call will work as an update
   | `country` | `not_a_valid_country_code` | Provided country value is not an ISO 3166 country code |
   | `currency` | `value_is_invalid` | Provided currency is not an accepted currency |
   | `currency` | `currencies_does_not_match` | Provided currency cannot be assigned to the customer as he already has a subscription, an add_on, a coupon or a wallet in an other currency. |
+  | `timezone` | `timezone_invalid` | Provided timezone is invalid |
   | `vat_rate` | `value_is_out_of_range` | Provided VAT rate is invalid.<br/>It must be a positive integer or floating number between 0 and 100. |
   | `payment_provider` | `value_is_invalid` | Provided payment provider is invalid |
 
