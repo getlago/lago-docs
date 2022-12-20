@@ -1,4 +1,7 @@
 {
     "label": "Credit Notes",
-    "position": 11
+    "position": 11,
+    "link": {
+      "type": "generated-index"
+    }
   }

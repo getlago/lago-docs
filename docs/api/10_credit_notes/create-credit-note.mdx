@@ -290,22 +290,22 @@ import TabItem from '@theme/TabItem';
 
   | Field | Code | Description |
   |--|--|--|
+  | `base` | `does_not_match_item_amounts` | Items amount does not match credited and refunded amount |
+  | `base` | `higher_than_remaining_invoice_amount` | Sum of credit and refund amount is higher than the remaining amount of the invoice |
+  | `credit_amount_cents` |  `higher_than_remaining_invoice_amount` | Credit amount is higher than the remaining creditable amount of the invoice |
   | `reason` | `value_is_invalid` | Provided `reason` does not match an accepted value |
+  | `refund_amount_cents` |  `higher_than_remaining_invoice_amount` | Refund amount is higher than the remaining refundable amount of the invoice |
+
+
 
   - On credit note items attributes:
 
-
   | Field | Code | Description |
   |--|--|--|
-  | `base` | `higher_than_remaining_fee_amount` | The sum of one of the item refund and credit amount is higher than the remaining creditable or refundable amount of the fee. |
-  | `base` | `higher_than_remaining_invoice_amount` | The sum of the items refund and credit amount is higher than the remaining creditable or refundable amount of the invoice. |
-  | `credit_amount_cents` | `higher_than_remaining_fee_amount` | The value is higher than the remaining creditable amount of the fee. |
-  | `credit_amount_cents` | `higher_than_remaining_invoice_amount` | The value is higher than the remaining creditable amount of the invoice. |
-  | `credit_amount_cents` | `value_is_out_of_range` | The value is negative. |
-  | `refund_amount_cents` | `cannot_refund_unpaid_invoice` | Invoice status does not allow a refund. |
-  | `refund_amount_cents` | `higher_than_remaining_fee_amount` | The value is higher than the remaining refundable amount of the fee. |
-  | `refund_amount_cents` | `higher_than_remaining_invoice_amount` | The value is higher than the remaining refundable amount of the invoice. |
-  | `refund_amount_cents` | `value_is_out_of_range` | The value is negative. |
+  | `amount_cents` | `invalid_value` | Amount is not a positive integer |
+  | `amount_cents` | `higher_than_remaining_fee_amount` | Amount is higher than the remaining amount of the fee |
+  | `amount_cents` | `higher_than_remaining_invoice_amount` | Amount is higher than the remaining amount of the invoice |
+
 
   </TabItem>
 </Tabs>
