@@ -34,6 +34,7 @@ This event flow enables Lago to understand the full activation flow, from the re
 - `applied_add_on_created`: when an add-on is assigned to a customer
 - `invoice_created`: when a new invoice is emitted for a specific customer
 - `payment_status_changed`: when the payment status of an invoice changes
+- `credit_note_issued`: when a new credit note is issued for a customer
 
 ## Examples of collected payloads
 
