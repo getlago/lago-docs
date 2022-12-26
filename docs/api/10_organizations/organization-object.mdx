@@ -26,6 +26,7 @@ This object represents an organization.<br></br>
     "timezone": "Europe/Paris",
     "billing_configuration": {
       "invoice_footer": "footer custom",
+      "invoice_grace_period": 3,
       "vat_rate": 15.0
     }
   }
@@ -53,6 +54,7 @@ This object represents an organization.<br></br>
 | Attributes | Description |
 | -----------| ----------- |
 | invoice_footer &nbsp &nbsp <Type>String</Type> | Custom footer used in invoices. |
+| invoice_grace_period &nbsp &nbsp <Type>Integer</Type> | Grace period in days for the invoice (time between the end of the period and the closing of the invoice). |
 | vat_rate &nbsp &nbsp <Type>Float</Type> | VAT rate used in fees. |
 
 export const Type = ({children, color}) => (
