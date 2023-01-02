@@ -49,7 +49,7 @@ This object represents a credit note emited to re-credit a customer for a fee or
             "name": "User Seats"
           },
           "amount_cents": 100,
-          "amount_currency": "",
+          "amount_currency": "EUR",
           "vat_amount_cents": 20,
           "vat_amount_currency": "EUR",
           "units": 12.6,
@@ -70,7 +70,7 @@ This object represents a credit note emited to re-credit a customer for a fee or
 | **invoice_number** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Invoice unique number |
 | **issuing_date** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Date of creation of the credit note |
 | **reason** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Issuing reason of the credit note<br></br> <details><summary>**Possible values**</summary><div>-`duplicated_charge`<br></br>-`product_unsatisfactory`<br></br>-`order_change`<br></br>-`order_cancellation`<br></br>-`fraudulent_charge`<br></br>-`other`<div></div></div></details> |
-| **credit_status** &nbsp &nbsp <Type>String</Type> | Status of the credit part of the credit note<br></br> <details><summary>**Possible values**</summary><div>- `available`: An amount remain available for future usage.<br></br>- `consumed`: The amount is fully consumed. Remaining amount is 0<div></div></div></details> |
+| **credit_status** &nbsp &nbsp <Type>String</Type> | Status of the credit part of the credit note<br></br> <details><summary>**Possible values**</summary><div>- `available`: An amount remain available for future usage.<br></br>- `consumed`: The amount is fully consumed. Remaining amount is 0<br></br>- `voided`: The remaining amount cannot be used any more.<div></div></div></details> |
 | **refund_status** &nbsp &nbsp <Type>String</Type> | Status of the refund part of the credit note<br></br> <details><summary>**Possible values**</summary><div>- `pending`: The refund is pending for its execution.<br></br>- `succeeded`: The refund has been executed<br></br>- `failed`: The refund failed to execute</div></details> |
 | **total_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Total amount in cents |
 | **total_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount |
@@ -82,7 +82,7 @@ This object represents a credit note emited to re-credit a customer for a fee or
 | **balance_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the balance amount |
 | **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents |
 | **vat_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
-| **sub_total_vat_excluded_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Subtotal tax exclueded in cents |
+| **sub_total_vat_excluded_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Subtotal excluding tax, in cents |
 | **sub_total_vat_excluded_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the subtotal amount |
 | **created_at** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime*</Comment> | Date and time of creation of the credit note in UTC |
 | **updated_at** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime*</Comment> | Date and time of last update of the credit note in UTC |
