@@ -63,6 +63,8 @@ To modify the expiration date of the prepaid credits through the user interface:
 3. Modify the expiration date; and
 4. Click **"Edit information"** to confirm.
 
+The expiration date displayed in the app is based on the [organization's timezone](../../changelog/timezones).
+
 You also have the ability to terminate a wallet manually, before its expiration date:
 1. Open the **"Wallets"** tab and click **"Edit wallet"** on the right;
 2. Select **"Terminate wallet"**; and
