@@ -71,9 +71,10 @@ Subtotal (excl. tax) = $70
 Tax (10%) = $7
 -----------------------------
 Subtotal (incl. tax) = $77
-Coupons = $10
 Credit notes = $20
+Coupons = $10
 Prepaid credits = $30
+-----------------------------
 Total due = $17
 ```
 
