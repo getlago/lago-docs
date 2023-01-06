@@ -12,12 +12,12 @@ To do so:
 4. Select a new timezone from the list; and
 5. Click **"Save timezone"** to confirm.
 
-The organization's timezone applies to all customers by default and determines when billing periods start and end (i.e. when invoices should be generated).
-
 It can also be set through the API using this [endpoint](../docs/api/organizations/update-organization).
+
+The organization's timezone applies to all customers by default and determines when billing periods start and end (i.e. when invoices should be generated). It is also the reference timezone for most views and lists in the app.
 
 The organization's timezone can be overwritten by the customer's timezone ([learn more](../docs/guide/customers#invoicing-a-customer)).
 
 :::tip
-You can hover over any date in the app to see the reference timezones.
+In the app, you can hover over any date with a dotted underline to see the reference timezones.
 :::
