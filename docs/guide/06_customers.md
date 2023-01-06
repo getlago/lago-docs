@@ -47,7 +47,7 @@ You can retrieve the customer's current usage via the API using [this endpoint](
 ## Invoicing a customer
 If a customer has an active subscription, Lago will automatically generate an [invoice](./invoicing/overview) for them at the end of the billing period.
 
-The beginning and end of the billing period depend on the timezone applied to the customer account. The default timezone is UTC but you can define another timezone for your organization, which can be overwritten by the customer's timezone.
+The beginning and end of the billing period depend on the timezone applied to the customer account. The default timezone is UTC but you can define another [timezone for your organization](../../changelog/timezones), which can be overwritten by the customer's timezone.
 
 To set the customer's timezone through the user interface:
 1. Access the **"Customers"** section via the side menu;
@@ -59,5 +59,5 @@ To set the customer's timezone through the user interface:
 The dates displayed in the **"Usage"**, **"Invoices"** and **"Credit notes"** tabs of the customer view are based on the customer's timezone.
 
 :::tip
-You can hover over any date in the customer view to see the reference timezone.
+You can hover over any date in the customer view to see the reference timezones.
 :::
