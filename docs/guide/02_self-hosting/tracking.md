@@ -20,7 +20,7 @@ As detailed previously, we ask you to keep as much as possible those tracked met
 
 In the case you need to remove it, we've created a very easy process to opt out. In the environment variables, by passing the field `LAGO_DISABLE_SEGMENT` to `true`, you prevent the entire tracking logic to run in your application.
 
-## Detail of metrics collected by Lago
+## Detail of events collected by Lago
 This event flow enables Lago to understand the full activation flow, from the registration to the first invoice generated.
 
 - `organization_registered`: when you create your organization by signing up to Lago
@@ -34,6 +34,13 @@ This event flow enables Lago to understand the full activation flow, from the re
 - `applied_add_on_created`: when an add-on is assigned to a customer
 - `invoice_created`: when a new invoice is emitted for a specific customer
 - `payment_status_changed`: when the payment status of an invoice changes
+
+## Detail of data collected about your organization
+By default, we collect data of your organization that you used in the signup form:
+- Your organization's **email**; and
+- Your organization's **name**.
+
+By [opting out](./tracking#opting-out), your organization's data won't be tracked anymore.
 
 ## Examples of collected payloads
 
