@@ -12,10 +12,12 @@ In the example below, the timeline includes a billing period of one month and a 
 ## Application scope and possible actions
 The grace period applies to **subscription invoices**. It does not apply to invoices related to add-ons or credit purchases.
 
+The creation of a `draft` invoice triggers the `invoice.drafted` [webhook](../../api/webhooks/messages).
+
 When a subscription invoice is in `draft` status, you can:
 - **Add usage records** by sending events with a `timestamp` within the relevant billing period;
 - **Apply coupons** to the customer's account; and
-- **Add credits** to the customer's wallet.
+- **Add credits** to the customer's wallet and credit note wallet.
 
 In order to add usage to an invoice that is in `draft` status, the `timestamp` of the [events](../events/ingesting_events#send-usage-measurements-to-lago) must be within the billing period. Consider the following example:
 
@@ -32,6 +34,8 @@ In order to add usage to an invoice that is in `draft` status, the `timestamp` o
 After sending events, you can **go to the invoice list and refresh** the corresponding `draft` invoice to ensure your new events have been taken into account.
 
 When all changes have been made, you can either wait for the grace period to expire (the invoice status will automatically switch to `finalized`) or you can **finalize the invoice manually** through the user interface or the API.
+
+When an invoice is `finalized`, it can no longer be edited. Finalizing an invoice triggers the `invoice.created` webhook.
 
 ![Draft invoice in the Lago app](../../../static/img/grace-period-draft-invoice.png)
 
