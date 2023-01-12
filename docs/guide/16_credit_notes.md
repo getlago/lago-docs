@@ -40,6 +40,8 @@ When the credit note is created, it will appear below the original invoice on th
 
 You can link several credit notes to an invoice. Like invoices, credit notes have a unique number and can be downloaded in PDF format.
 
+![Credit note details](../../static/img/credit-note.png)
+
 ## Credit methods
 ### Refund
 When a credit note involves a refund, the amount of the refund will be included in the `credit_note.created` [webhook](../api/webhooks/messages), which will allow you to proceed with the payment.
