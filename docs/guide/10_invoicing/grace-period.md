@@ -31,12 +31,12 @@ In order to add usage to an invoice that is in `draft` status, the `timestamp` o
 
 After sending events, you can **go to the invoice list and refresh** the corresponding `draft` invoice to ensure your new events have been taken into account.
 
-When all changes have been made, you can either wait for the grace period to expire (the invoice status will automatically switch to `finalized`) or you can **finalize it manually** through the user interface or the API.
+When all changes have been made, you can either wait for the grace period to expire (the invoice status will automatically switch to `finalized`) or you can **finalize the invoice manually** through the user interface or the API.
 
 ![Draft invoice in the Lago app](../../../static/img/grace-period-draft-invoice.png)
 
 :::info
-Coupons and prepaid credits that are applied/added during the grace period will not appear on `draft` invoices but will be automatically deducted from the customer's next `finalized` invoice.
+Coupons and credits that are applied/added during the grace period will not appear on `draft` invoices but will be automatically deducted from the customer's next `finalized` invoice.
 :::
 
 ## Define a grace period at organization level
