@@ -2,10 +2,12 @@
 date: 2023-01-10T10:00
 ---
 
-# Timezones
-You can now set the timezone of your organization in the settings of the app.
+# Timezones ✨
+:::note Premium feature
+This feature is only available to users with a premium license. Please **[contact us](mailto:hello@getlago.com)** to get access to Lago Cloud and Lago Self-Hosted Premium.
+:::
 
-To do so:
+You can now set the timezone of your organization in the settings of the app. To do so:
 1. Access the **"Settings"** section via the side menu;
 2. In the **"Organization"** tab, you will see the current timezone (UTC by default);
 3. Click **"Edit"**;
