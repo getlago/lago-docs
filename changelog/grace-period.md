@@ -2,7 +2,11 @@
 date: 2023-01-12T11:00
 ---
 
-# Grace period
+# Grace period ✨
+:::note Premium feature
+This feature is only available to users with a premium license. Please **[contact us](mailto:hello@getlago.com)** to get access to Lago Cloud and Lago Self-Hosted Premium.
+:::
+
 If at the end of the billing period, you want to review the invoices before sending them to customers for payment, you can define a [grace period](../docs/guide/invoicing/grace-period).
 
 During the grace period, invoices are in `draft` status and can be modified. Available actions include:

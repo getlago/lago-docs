@@ -3,6 +3,10 @@ sidebar_position: 4
 ---
 
 # Grace period
+:::note Premium feature ✨
+This feature is only available to users with a premium license. Please **[contact us](mailto:hello@getlago.com)** to get access to Lago Cloud and Lago Self-Hosted Premium.
+:::
+
 A grace period is defined as a number days during which invoices remain in `draft` status, allowing you to review them and make changes before they are `finalized` and sent for payment collection.
 
 In the example below, the timeline includes a billing period of one month and a grace period of three days.
