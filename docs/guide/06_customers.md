@@ -49,6 +49,10 @@ If a customer has an active subscription, Lago will automatically generate an [i
 
 The beginning and end of the billing period depend on the timezone applied to the customer account. The default timezone is UTC but you can define another [timezone for your organization](../../changelog/timezones), which can be overwritten by the customer's timezone.
 
+:::note Premium feature ✨
+The timezone feature is only available to users with a premium license. Please **[contact us](mailto:hello@getlago.com)** to get access to Lago Cloud and Lago Self-Hosted Premium.
+:::
+
 To set the customer's timezone through the user interface:
 1. Access the **"Customers"** section via the side menu;
 2. Select a customer from the list;
