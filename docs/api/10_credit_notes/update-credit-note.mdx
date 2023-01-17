@@ -1,16 +1,16 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Update payment status
+# Update credit note
 
 ## Route
 
 ```curl title="PUT"
-/api/v1/invoices/:lago_id
+/api/v1/credit_notes/:lago_id
 ```
 
 ## Usage
@@ -22,14 +22,14 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request PUT "$LAGO_URL/api/v1/invoices/5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba" \
-    --header "Authorization: Bearer $API_KEY" \
-    --header 'Content-Type: application/json' \
-    --data-raw '{
-      "invoice": {
-        "payment_status": "succeeded"
-      }
-    }'
+curl --location --request PUT "$LAGO_URL/api/v1/credit_notes/__lago_id__" \
+--header "Authorization: Bearer $API_KEY" \
+--header 'Content-Type: application/json' \
+  --data-raw '{
+    "credit_note": {
+      "refund_status": "refunded",
+    }
+  }'
   ```
   </TabItem>
 
@@ -37,17 +37,14 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import InvoicePaymentStatusChange
+  from lago_python_client.models import CreditNoteUpdate
 
-  client = Client(api_key='__YOUR_API_KEY__')
+  credit_note_id = "credit-note-id"
+  credit_note_update = CreditNoteUpdate(refund_status='pending')
 
-  payment_status_change = InvoicePaymentStatusChange(
-    lago_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
-    payment_status="succeeded"
-  )
-
-  client.invoices().update(payment_status_change)
+  client.credit_notes().update(credit_note_update, credit_note_id)
   ```
+
   </TabItem>
 
   <TabItem value="ruby" label="Ruby">
@@ -57,25 +54,28 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.invoices.update({
-      lago_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-      payment_status: "succeeded"
-  })
+  client.credit_note.update(
+    { refund_status: 'refunded' },
+    '__LAGO_CREDIT_NOTE_ID__',
+  )
   ```
+
   </TabItem>
 
   <TabItem value="javascript" label="Node.js">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
+  import CreditNote from 'lago-node-js-client/credit_note'
 
   let client = new Client('__API_KEY__')
 
-  await client.updateInvoicePaymentStatus({
-    lagoId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
-    paymentStatus: "succeeded"
+  let creditNoteUpdate = new CreditNote({
+    refundStatus: "refunded",
   })
+
+  await client.updateCreditNote(creditNoteUpdate, 'credit-note-id')
   ```
+
   </TabItem>
 
   <TabItem value="go" label="Go">
@@ -85,23 +85,21 @@ import TabItem from '@theme/TabItem';
     import "github.com/getlago/lago-go-client"
 
     func main() {
-      lagoClient := lago.New().
-        SetApiKey("__YOUR_API_KEY__")
+      lagoClient := lago.New().SetApiKey("__YOUR_API_KEY__")
 
-      invoiceId, _ := uuid.Parse("__YOUR_INVOICE_ID__")
-      invoiceInput := &lago.InvoiceInput{
-        LagoID: invoiceId,
-	   		PaymentStatus: lago.InvoicePaymentStatusSucceeded,
+      creditNoteUpdateInput := &lago.CreditNoteUpdateInput{
+        LagoID:       "lago-credit-note-id",
+        RefundStatus: lago.CreditNoteReasonOther,
       }
 
-      invoice, err := lagoClient.Invoice().Update(invoiceInput)
+      creditNote, err := lagoClient.CreditNote().Update(creditNoteInput)
       if err != nil {
         // Error is *lago.Error
         panic(err)
       }
 
-      // invoice is *lago.Invoice
-      fmt.Println(invoice)
+      // creditNote is *lago.CreditNote
+      fmt.Println(creditNote)
     }
   ```
 
@@ -112,24 +110,23 @@ import TabItem from '@theme/TabItem';
 
 ```json
 {
-  "invoice": {
-    "payment_status": "succeeded"
+  "credit_note": {
+    "refund_status": "succeeded"
   }
 }
 ```
 
 | Attributes | Type | Description |
 |--|--|--|
-| lago_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Invoice unique identifier in Lago |
-| payment_status | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Invoice payment status <br></br>It can be `pending`, `succeeded` or `failed` |
+| refund_status | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Credit Note refund status <br></br> It can be `pending`, `succeeded` or `failed` |
 
 ## Responses
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  The invoice payment status has been successfully updated.
+  The credit note refund status has been successfully updated.
 
-  Returns an [invoice](./invoice-object) object.
+  Returns a [credit note](./credit-note-object) object.
   </TabItem>
 
   <TabItem value="400" label="HTTP 400">
@@ -141,7 +138,7 @@ import TabItem from '@theme/TabItem';
   }
   ```
 
-  The `invoice` json root is not present in the request body.
+  The `credit_note` json root is not present in the request body.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -169,11 +166,11 @@ import TabItem from '@theme/TabItem';
   {
     "status": 404,
     "error": "Not Found",
-    "code": "invoice_not_found"
+    "code": "credit_note_not_found"
   }
   ```
 
-  The `invoice` was not found
+  The `credit_note` was not found
   </TabItem>
 
   <TabItem value="422" label="HTTP 422">
@@ -193,7 +190,7 @@ import TabItem from '@theme/TabItem';
 
   | Field | Code | Description |
   |--|--|--|
-  | `payment_status` | `value_is_invalid` | Provided `payment_status` does not match an accepted value |
+  | `refund_status` | `value_is_invalid` | Provided `refund_status` does not match an accepted value |
 
 
   </TabItem>

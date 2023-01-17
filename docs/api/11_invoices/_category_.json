@@ -1,6 +1,6 @@
 {
-  "label": "Customer usage",
-  "position": 12,
+  "label": "Invoices",
+  "position": 11,
   "link": {
     "type": "generated-index"
   }

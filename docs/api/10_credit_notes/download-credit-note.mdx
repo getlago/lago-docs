@@ -1,0 +1,177 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Download a Credit Note PDF
+
+## Route
+
+```curl title="POST"
+/api/v1/credit_notes/:lago_id/download
+```
+
+## Logic
+
+- If the credit note PDF has already been generated, you will receive in the response the [credit note](./credit-note-object) with the `file_url` where you can download your pdf file.
+- If the credit note PDF has never been generated, this endpoint will returns an empty `200` response, you will receive a `credit_note.generated` webhook when the PDF file is ready.
+  You can check the webhook documentation to know more about this.
+
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  CREDIT_NOTE_ID="__YOU_CREDIT_NOTE_ID__"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/credit_notes/$CREDIT_NOTE_ID/download" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json'
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  invoice = client.credit_notes().download('5eb02857-a71e-4ea2-bcf9-57d8885990ba')
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.credit_notes.download('5eb02857-a71e-4ea2-bcf9-57d8885990ba')
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  let client = new Client('__API_KEY__')
+
+  await client.downloadCreditNote('id');
+  ```
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().SetApiKey("__YOUR_API_KEY__")
+
+      credit_note, err := lagoClient.CreditNote().Download("__YOUR_CREDIT_NOTE_ID__")
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+
+      // credit_note is *lago.CreditNote
+      fmt.Println(credit_note)
+
+      // If the credit note has to be generated, the response is empty
+      // And you will get a webhook `credit_note.generated`
+    }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+
+  * The `credit_note` file has already been generated.
+  * The `credit_note` file has not been generated, returns an empty response.
+
+
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Bad Request",
+    "code": "credit_note_not_found"
+  }
+  ```
+
+  The `credit_note` is not found.
+  </TabItem>
+</Tabs>
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

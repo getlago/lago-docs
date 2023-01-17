@@ -1,0 +1,199 @@
+---
+sidebar_position: 7
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Void a credit note
+
+## Route
+
+```curl title="PUT"
+/api/v1/credit_notes/:lago_id/void
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  CREDIT_NOTE_ID="__YOU_CREDIT_NOTE_ID__"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request PUT "$LAGO_URL/api/v1/credit_notes/$CREDIT_NOTE_ID/void" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json'
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+
+  client.credit_notes().void("credit-note-id")
+  ```
+
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.credit_note.void('__LAGO_CREDIT_NOTE_ID__')
+  ```
+
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import CreditNote from 'lago-node-js-client/credit_note'
+
+  let client = new Client('__API_KEY__')
+
+  await client.voidCreditNote('credit-note-id')
+  ```
+
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().SetApiKey("__YOUR_API_KEY__")
+
+      creditNote, err := lagoClient.CreditNote().Void("lago-credit-note-id")
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+
+      // creditNote is *lago.CreditNote
+      fmt.Println(creditNote)
+    }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The credit note has been successfully voided.
+
+  Returns a [credit note](./credit-note-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `credit_note` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unauthorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "credit_note_not_found"
+  }
+  ```
+
+  The `credit_note` was not found
+  </TabItem>
+
+  <TabItem value="405" label="HTTP 405">
+
+  ```json
+  {
+    "status": 405,
+    "error": "Method Not Allowed",
+    "code": "no_voidable_amount"
+  }
+  ```
+
+  The `credit_note` cannot be voided. It could means:
+  - It's already voided
+  - The balance amount it not positive
+
+
+  </TabItem>
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
