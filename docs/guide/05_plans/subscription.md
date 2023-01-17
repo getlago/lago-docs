@@ -15,6 +15,10 @@ To assign a plan to a customer through the user interface:
 7. Choose whether the subscription should be renewed at the beginning of the period or on its anniversary date (see [below](subscription#billing-cycles)); and
 8. Click **"Add plan"** to confirm.
 
+:::info
+The subscription date displayed in the app is based on the organization's timezone.
+:::
+
 When a subscription is active, Lago will automatically generate invoices for the customer according to the [plan model](./plan-model). It will also start monitoring the customer's consumption, which means that you can start pushing [events](../../api/events/metered-event) related to this subscription.
 
 ## Billing cycles
@@ -51,7 +55,7 @@ For example:
 ![Illustration of the anniversary date logic](../../../static/img/anniversary-date.png)
 
 ## Subscription date
-By default, the subscription starts the day it is created. However, you can set a subscription date in the past or in the future.
+By default, the subscription starts the day it is created. However, you can set a subscription date in the past or in the future. The subscription date displayed in the app is based on the [organization's timezone](../../../changelog/timezones).
 
 ### Start date in the past
 If the start date of the subscription is in the past, the subscription is considered active.

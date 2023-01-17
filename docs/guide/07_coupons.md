@@ -20,6 +20,10 @@ To create a coupon through the user interface:
 7. Choose whether or not to set an expiration date (i.e. date after which the coupon can no longer be redeemed); and
 8. Click **"Add coupon"** to confirm.
 
+:::info
+The expiration date displayed in the app is based on the [organization's timezone](../../changelog/timezones).
+:::
+
 ## Apply coupons
 :::caution
 If the currency of the customer is already defined, the currency of the coupon must be the same, otherwise you will not be able to apply the coupon to the customer account.
