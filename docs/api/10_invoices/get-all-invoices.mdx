@@ -98,15 +98,16 @@ import TabItem from '@theme/TabItem';
 | issuing_date_from | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Filter results by FROM date.<br></br>Format example: `2022-02-15` |
 | issuing_date_to | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Filter results by TO date.<br></br>Format example: `2022-02-15` |
 | external_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Filter results by CUSTOMER unique identifier in your application |
-| status | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Filter results by status (draft or finalized) |
+| status | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Filter results by status (`draft` or `finalized`) |
+| payment_status | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Filter results by payment status (`pending`, `failed` or `succeeded`) |
 
 ## Responses
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  Invoices were successfully found
+  Invoices were successfully found.
 
-  Returns a list of [add-on](./invoice-object) objects.
+  Returns a list of [invoice](./invoice-object) objects.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
