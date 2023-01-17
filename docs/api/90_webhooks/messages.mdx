@@ -9,8 +9,111 @@ import TabItem from '@theme/TabItem';
 Here is the list of webhook messages sent by Lago.
 
 <details className="custom-toggle">
-<summary><b>Invoice created</b></summary>
-Sent when a new invoice has been issued for a customer.
+<summary><b>Draft invoice created</b></summary>
+Sent when a new invoice is in draft.
+
+```json
+{
+  "webhook_type": "invoice.drafted",
+  "object_type": "invoice",
+  "invoice": {
+    "lago_id": "10pb140c-0e7a-44dc-bdff-b683d0770et9",
+    "sequential_id": 2,
+    "number": "LAG-1234-001-002",
+    "issuing_date": "2023-01-22",
+    "invoice_type": "subscription",
+    "status": "draft",
+    "payment_status": "pending",
+    "amount_cents": 5500,
+    "amount_currency": "USD",
+    "vat_amount_cents": 0,
+    "vat_amount_currency": "USD",
+    "credit_amount_cents": 0,
+    "credit_amount_currency": "USD",
+    "total_amount_cents": 5500,
+    "total_amount_currency": "USD",
+    "file_url": null,
+    "legacy": false,
+    "customer": {
+      "lago_id": "578df9d1-a5b5-abc4-b1cd-cc123159cdj3",
+      "external_id": "customer_1234",
+      "name": "Helen Ross",
+      "sequential_id": 26,
+      "slug": "LAG-X575-026",
+      "created_at": "2023-01-11T06:59:44Z",
+      "country": null,
+      "address_line1": null,
+      "address_line2": null,
+      "state": null,
+      "zipcode": null,
+      "email": null,
+      "city": null,
+      "url": null,
+      "phone": null,
+      "logo_url": null,
+      "legal_name": null,
+      "legal_number": null,
+      "currency": "USD",
+      "timezone": null,
+      "applicable_timezone": "Europe/Paris",
+      "billing_configuration": {
+        "invoice_grace_period": null,
+        "payment_provider": null,
+        "vat_rate": null
+      }
+    },
+    "subscriptions": [
+      {
+        "lago_id": "00911bba-d074-1234-abcd-00d4e57746mm",
+        "external_id": "07cc066d-1234-5678-xyzw-e42ea21e6307",
+        "lago_customer_id": "578df9d1-a5b5-abc4-b1cd-cc123159cdj3",
+        "external_customer_id": "customer_1234",
+        "name": "",
+        "plan_code": "corporate",
+        "status": "active",
+        "billing_time": "anniversary",
+        "subscription_at": "2023-01-17T15:44:16Z",
+        "started_at": "2023-01-17T15:44:16Z",
+        "terminated_at": null,
+        "canceled_at": null,
+        "created_at": "2023-01-17T15:44:39Z",
+        "previous_plan_code": null,
+        "next_plan_code": null,
+        "downgrade_plan_date": null,
+        "subscription_date": "2023-01-17"
+      }
+    ],
+    "fees": [
+      {
+        "lago_id": "12345678-ebea-47de-ghjk-bbbfd42755f3",
+        "lago_group_id": null,
+        "item": {
+          "type": "subscription",
+          "code": "corporate",
+          "name": "Corporate"
+        },
+        "amount_cents": 5500,
+        "amount_currency": "USD",
+        "vat_amount_cents": 0,
+        "vat_amount_currency": "USD",
+        "units": "1.0",
+        "events_count": null
+      }
+    ],
+    "credits": []
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
+</details>
+
+
+<details className="custom-toggle">
+<summary><b>Finalized invoice created</b></summary>
+Sent when an invoice is finalized.
 
 This will allow your application to proceed with the billing.
 
@@ -141,139 +244,6 @@ This will allow your application to retrieve the PDF invoice.
 
 
 <details className="custom-toggle">
-<summary><b>Credit note created</b></summary>
-Sent when a new credit note has been issued for a customer.
-
-This will allow your application to proceed with the refund.
-
-```json
-{
-  "webhook_type": "credit_note.created",
-  "object_type": "credit_note",
-  "credit_note": {
-    "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "sequential_id": 2,
-    "number": "LAG-1234-CN2",
-    "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "invoice_number": "LAG-1234",
-    "issuing_date": "2022-12-06",
-    "credit_status": "available",
-    "refund_status": "pending",
-    "reason": "other",
-    "description": "Free text",
-    "total_amount_cents": 120,
-    "total_amount_currency": "EUR",
-    "credit_amount_cents": 100,
-    "credit_amount_currency": "EUR",
-    "refund_amount_cents": 0,
-    "refund_amount_currency": "EUR",
-    "balance_amount_cents": 100,
-    "balance_amount_currency": "EUR",
-    "vat_amount_cents": 20,
-    "vat_amount_currency": "EUR",
-    "sub_total_vat_excluded_amount_cents": 100,
-    "sub_total_vat_excluded_amount_currency": "EUR",
-    "created_at": "2022-10-06 09:52:00",
-    "updated_at": "2022-10-06 09:52:00",
-    "file_url": "https://getlago.com/credit_note/file",
-    "items": [
-      {
-        "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-        "amount_cents": 100,
-        "amount_currency": "EUR",
-        "fee":       {
-          "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-          "item": {
-            "type": "charge",
-            "code": "user_seats",
-            "name": "User Seats"
-          },
-          "amount_cents": 100,
-          "amount_currency": "",
-          "vat_amount_cents": 20,
-          "vat_amount_currency": "EUR",
-          "units": 12.6,
-          "events_count": 10
-        }
-      }
-    ]
-  }
-}
-```
-
-| Attributes | Description |
-| -----------| ----------- |
-| **credit_note** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Credit note object](../credit_notes/credit-note-object) |
-</details>
-
-<details className="custom-toggle">
-<summary><b>Credit note PDF generated</b></summary>
-Sent when the PDF file has been generated for a customer credit note.
-
-This will allow your application to retrieve the PDF credit note.
-
-```json
-{
-  "webhook_type": "credit_note.generated",
-  "object_type": "credit_note",
-    "credit_note": {
-    "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "sequential_id": 2,
-    "number": "LAG-1234-CN2",
-    "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "invoice_number": "LAG-1234",
-    "issuing_date": "2022-12-06",
-    "credit_status": "available",
-    "refund_status": "pending",
-    "reason": "other",
-    "description": "Free text",
-    "total_amount_cents": 120,
-    "total_amount_currency": "EUR",
-    "credit_amount_cents": 100,
-    "credit_amount_currency": "EUR",
-    "refund_amount_cents": 0,
-    "refund_amount_currency": "EUR",
-    "balance_amount_cents": 100,
-    "balance_amount_currency": "EUR",
-    "vat_amount_cents": 20,
-    "vat_amount_currency": "EUR",
-    "sub_total_vat_excluded_amount_cents": 100,
-    "sub_total_vat_excluded_amount_currency": "EUR",
-    "created_at": "2022-10-06 09:52:00",
-    "updated_at": "2022-10-06 09:52:00",
-    "file_url": "https://getlago.com/credit_note/file",
-    "items": [
-      {
-        "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-        "amount_cents": 100,
-        "amount_currency": "EUR",
-        "fee":       {
-          "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-          "item": {
-            "type": "charge",
-            "code": "user_seats",
-            "name": "User Seats"
-          },
-          "amount_cents": 100,
-          "amount_currency": "",
-          "vat_amount_cents": 20,
-          "vat_amount_currency": "EUR",
-          "units": 12.6,
-          "events_count": 10
-        }
-      }
-    ]
-  }
-}
-```
-
-| Attributes | Description |
-| -----------| ----------- |
-| **credit_note** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Credit note object](../credit_notes/credit-note-object) |
-</details>
-
-
-<details className="custom-toggle">
 <summary><b>Add-on added</b></summary>
 Sent when an add-on has been applied to customer. The invoice is created immediately after the add-on is assigned to a customer.
 
@@ -350,6 +320,140 @@ You can use this information to generate a PDF invoice or collect the payment.
 
 
 <details className="custom-toggle">
+<summary><b>Credit note created</b></summary>
+Sent when a new credit note has been issued for a customer.
+
+This will allow your application to proceed with the refund.
+
+```json
+{
+  "webhook_type": "credit_note.created",
+  "object_type": "credit_note",
+  "credit_note": {
+    "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "sequential_id": 2,
+    "number": "LAG-1234-CN2",
+    "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "invoice_number": "LAG-1234",
+    "issuing_date": "2022-12-06",
+    "credit_status": "available",
+    "refund_status": "pending",
+    "reason": "other",
+    "description": "Free text",
+    "total_amount_cents": 120,
+    "total_amount_currency": "EUR",
+    "credit_amount_cents": 100,
+    "credit_amount_currency": "EUR",
+    "refund_amount_cents": 0,
+    "refund_amount_currency": "EUR",
+    "balance_amount_cents": 100,
+    "balance_amount_currency": "EUR",
+    "vat_amount_cents": 20,
+    "vat_amount_currency": "EUR",
+    "sub_total_vat_excluded_amount_cents": 100,
+    "sub_total_vat_excluded_amount_currency": "EUR",
+    "created_at": "2022-10-06 09:52:00",
+    "updated_at": "2022-10-06 09:52:00",
+    "file_url": "https://getlago.com/credit_note/file",
+    "items": [
+      {
+        "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+        "amount_cents": 100,
+        "amount_currency": "EUR",
+        "fee":       {
+          "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+          "item": {
+            "type": "charge",
+            "code": "user_seats",
+            "name": "User Seats"
+          },
+          "amount_cents": 100,
+          "amount_currency": "",
+          "vat_amount_cents": 20,
+          "vat_amount_currency": "EUR",
+          "units": 12.6,
+          "events_count": 10
+        }
+      }
+    ]
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **credit_note** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Credit note object](../credit_notes/credit-note-object) |
+</details>
+
+
+<details className="custom-toggle">
+<summary><b>PDF credit note generated</b></summary>
+Sent when the PDF file has been generated for a credit note.
+
+This will allow your application to retrieve the PDF credit note.
+
+```json
+{
+  "webhook_type": "credit_note.generated",
+  "object_type": "credit_note",
+    "credit_note": {
+    "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "sequential_id": 2,
+    "number": "LAG-1234-CN2",
+    "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "invoice_number": "LAG-1234",
+    "issuing_date": "2022-12-06",
+    "credit_status": "available",
+    "refund_status": "pending",
+    "reason": "other",
+    "description": "Free text",
+    "total_amount_cents": 120,
+    "total_amount_currency": "EUR",
+    "credit_amount_cents": 100,
+    "credit_amount_currency": "EUR",
+    "refund_amount_cents": 0,
+    "refund_amount_currency": "EUR",
+    "balance_amount_cents": 100,
+    "balance_amount_currency": "EUR",
+    "vat_amount_cents": 20,
+    "vat_amount_currency": "EUR",
+    "sub_total_vat_excluded_amount_cents": 100,
+    "sub_total_vat_excluded_amount_currency": "EUR",
+    "created_at": "2022-10-06 09:52:00",
+    "updated_at": "2022-10-06 09:52:00",
+    "file_url": "https://getlago.com/credit_note/file",
+    "items": [
+      {
+        "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+        "amount_cents": 100,
+        "amount_currency": "EUR",
+        "fee":       {
+          "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+          "item": {
+            "type": "charge",
+            "code": "user_seats",
+            "name": "User Seats"
+          },
+          "amount_cents": 100,
+          "amount_currency": "",
+          "vat_amount_cents": 20,
+          "vat_amount_currency": "EUR",
+          "units": 12.6,
+          "events_count": 10
+        }
+      }
+    ]
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **credit_note** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Credit note object](../credit_notes/credit-note-object) |
+</details>
+
+
+<details className="custom-toggle">
 <summary><b>Payment provider created</b></summary>
 This webhook is sent when a customer is successfully created in the payment provider's application.
 
@@ -422,38 +526,6 @@ You should review the customer's data.
 | **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
 </details>
 
-<details className="custom-toggle">
-<summary><b>Payment provider credit note refund failure</b></summary>
-This webhook is sent when there is an error related to a credit note refund of a payment previously created on a payment provider.
-
-```json
-{
-  "webhook_type": "credit_note.refund_failure",
-  "object_type": "payment_provider_customer_error",
-  "credit_note_payment_provider_refund_error": {
-    "lago_credit_note_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "lago_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "provider_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "payment_provider": "stripe",
-    "provider_error": {
-      "message": "error message",
-      "code": "error_code"
-    },
-  }
-}
-```
-
-| Attributes | Description |
-| -----------| ----------- |
-| **lago_credit_note_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the credit note in Lago application |
-| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
-| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
-| **provider_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in payment provider |
-| **payment_provider** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Payment provider used to process the payment |
-| **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
-| **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
-</details>
 
 <details className="custom-toggle">
 <summary><b>Checkout URL generated</b></summary>
@@ -516,6 +588,40 @@ Usually occurs when no valid payment method is defined for the customer in the p
 | **payment_provider** &nbsp &nbsp <Type>String</Type> | Payment provider used to process the payment |
 | **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
 | **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
+</details>
+
+
+<details className="custom-toggle">
+<summary><b>Refund failure</b></summary>
+This webhook is sent when there is an error related to a credit note refund of a payment previously created on a payment provider.
+
+```json
+{
+  "webhook_type": "credit_note.refund_failure",
+  "object_type": "payment_provider_customer_error",
+  "credit_note_payment_provider_refund_error": {
+    "lago_credit_note_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "lago_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "provider_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "payment_provider": "stripe",
+    "provider_error": {
+      "message": "error message",
+      "code": "error_code"
+    },
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_credit_note_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the credit note in Lago application |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
+| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **provider_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in payment provider |
+| **payment_provider** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Payment provider used to process the payment |
+| **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
+| **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
 </details>
 
 
