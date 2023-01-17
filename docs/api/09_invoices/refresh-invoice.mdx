@@ -1,16 +1,16 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Update Wallet
+# Refresh a draft invoice
 
 ## Route
 
 ```curl title="PUT"
-/api/v1/wallets/:id
+/api/v1/invoices/:lago_id/refresh
 ```
 
 ## Usage
@@ -22,15 +22,10 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request PUT "$LAGO_URL/api/v1/wallets/:id" \
+  curl --location --request PUT "$LAGO_URL/api/v1/invoices/5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba/refresh" \
     --header "Authorization: Bearer $API_KEY" \
     --header 'Content-Type: application/json' \
-    --data-raw '{
-      "wallet": {
-        "name": "new_name",
-        "expiration_at": "2022-07-07T23:59:59Z"
-      }
-    }'
+    --data-raw '{}'
   ```
   </TabItem>
 
@@ -38,15 +33,10 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import Wallet
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  wallet = Wallet(
-    name='name',
-    expiration_at='2022-07-07T23:59:59Z'
-  )
-  client.wallets().update(wallet, 'id')
+  client.invoices().refresh('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
   ```
   </TabItem>
 
@@ -57,22 +47,18 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.wallets.update({
-      name: 'new name',
-      expiration_at: '2022-07-07T23:59:59Z',
-  }, 'id')
+  client.invoices.refresh('5eb02857-a71e-4ea2-bcf9-57d8885990ba') // Invoice ID
   ```
   </TabItem>
 
   <TabItem value="javascript" label="Node.js">
 
   ```javascript
-  import Wallet from 'lago-nodejs-client/wallet'
+  import Client from 'lago-nodejs-client'
 
   let client = new Client('__API_KEY__')
 
-  let wallet = new Wallet({name: 'name1', expirationAt: '2022-07-07T23:59:59Z'})
-  await client.updateWallet(wallet, 'id');
+  await client.refreshInvoice('id');
   ```
   </TabItem>
 
@@ -86,53 +72,27 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      walletInput := &lago.WalletInput{
-        Name:            "new name",
-        ExpirationAt:    "2022-07-07T23:59:59Z"
-      }
-
-      wallet, err := lagoClient.Wallet().Update(walletInput, "__ID__")
+      invoice, err := lagoClient.Invoice().Refresh("__YOUR_INVOICE_ID__")
       if err != nil {
         // Error is *lago.Error
         panic(err)
       }
 
-      // wallet is *lago.Wallet
-      fmt.Println(wallet)
+      // invoice is *lago.Invoice
+      fmt.Println(invoice)
     }
   ```
 
   </TabItem>
 </Tabs>
 
-## Arguments
-
-```json
-{
-  "wallet": {
-    "name": "new name",
-    "expiration_at": "2022-07-07T23:59:59Z",
-  }
-}
-```
-
-| Attributes | Type | Description |
-|--|--|--|
-| name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | New wallet name. |
-| expiration_at | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date and time that identifies wallet expiration |
-
-## Deprecated arguments
-
-| Attributes | Type | Description |
-|--|--|--|
-| expiration_date | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Date that identifies wallet expiration<br></br>Replaced by expiration_at. Value will be converted to "end_of_day" |
 ## Responses
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  The wallet was successfully updated.
+  The draft invoice has been successfully refreshed.
 
-  Returns a [wallet](./wallet-object) object.
+  Returns an [invoice](./invoice-object) object.
   </TabItem>
 
   <TabItem value="400" label="HTTP 400">
@@ -144,7 +104,7 @@ import TabItem from '@theme/TabItem';
   }
   ```
 
-  The `wallet` json root is not present in the request body.
+  The `invoice` json root is not present in the request body.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -156,13 +116,12 @@ import TabItem from '@theme/TabItem';
   }
   ```
 
-  Access to the API endpoint is unhautorized.
+  Access to the API endpoint is unauthorized.
 
   **Possible reasons are:**
   * The `Authorization` header is missing
   * The `Authorization` header does not contain the API key
   * The Api key is invalid or expired
-
 
   </TabItem>
 
@@ -172,15 +131,14 @@ import TabItem from '@theme/TabItem';
   {
     "status": 404,
     "error": "Not Found",
-    "code": "wallet_not_found"
+    "code": "invoice_not_found"
   }
   ```
 
-  The `wallet` was not found by the id.
+  The `invoice` was not found.
+
   </TabItem>
 </Tabs>
-
-
 
 export const Required = ({children, color}) => (
   <span

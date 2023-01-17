@@ -40,14 +40,16 @@ import TabItem from '@theme/TabItem';
         "name": "Gavin Belson",
         "phone": "1-171-883-3711 x245",
         "state": "CA",
+        "timezone": "Europe/Paris",
         "url": "http://hooli.com",
         "zipcode": "91364",
         "billing_configuration": {
+          "invoice_grace_period": 3,
           "payment_provider": "stripe",
           "provider_customer_id": "cus_12345",
           "sync": true,
+          "sync_with_provider": true,
           "vat_rate": 12.5,
-          "sync_with_provider": true
         }
       }
     }'
@@ -77,14 +79,16 @@ import TabItem from '@theme/TabItem';
     name="Test Name",
     phone="1-171-883-3711 x245",
     state="CA",
+    timezone="Europe/Paris",
     url="http://hooli.com",
     zipcode="91364",
     billing_configuration=CustomerBillingConfiguration(
+      invoice_grace_period=3,
       payment_provider="stripe",
       provider_customer_id="cus_12345",
       sync=true,
-      vat_rate=12.5,
-      sync_with_provider=true
+      sync_with_provider=true,
+      vat_rate=12.5
     )
   )
 
@@ -116,9 +120,11 @@ import TabItem from '@theme/TabItem';
     "test name",  // name
     None,  // phone
     None,  // state
+    "Europe/Paris", // timezone
     None,  // url
     None,  // zipcode
     new CustomerBillingConfiguration(
+      3,  // invoiceGracePeriod
       "stripe",  // paymentProvider
       "cus_12345",  // providerCustomerId
       true,  // sync
@@ -151,13 +157,15 @@ import TabItem from '@theme/TabItem';
     name: "Gavin Belson",
     phone: "1-171-883-3711 x245",
     state: "CA",
+    timezone: "Europe/Paris",
     url: "http://hooli.com",
     zipcode: "91364",
     billing_configuration: {
+      invoice_grace_period: 3,
       payment_provider: "stripe",
       provider_customer_id: "cus_12345",
-      sync_wih_provider: true,
       sync: true,
+      sync_with_provider: true,
       vat_rate: 12.5
     }
   )
@@ -177,8 +185,8 @@ import TabItem from '@theme/TabItem';
 
       customerInput := &lago.CustomerInput{
         ExternalID:   "__YOUR_CUSTOMER_ID__",
-	   		Name:         "Customer",
-	   		Email:        "customer@getlago.com",
+        Name:         "Customer",
+        Email:        "customer@getlago.com",
         AddressLine1: "Address Line 1",
         AddressLine2: "Address Line 2",
         City:         "Paris",
@@ -189,12 +197,14 @@ import TabItem from '@theme/TabItem';
         LegalName:    "GetLago",
         LegalNumber:  "123456",
         Phone:        "+330100000000",
+        Timezone:     "Europe/Paris",
         URL:          "https://getlago.com",
         BillingConfiguration: &CustomerBillingConfigurationInput{
+          InvoiceGracePeriod: 3,
           PaymentProvider: lago.PaymentProviderStripe,
           ProviderCustomerID: "__STRIPE_CUSTOMER_ID__",
-          VatRate: 20.0,
-          SyncWithProvider: true
+          SyncWithProvider: true,
+          VatRate: 20.0
         }
       }
 
@@ -237,14 +247,16 @@ import TabItem from '@theme/TabItem';
     "name": "Gavin Belson",
     "phone": "1-171-883-3711 x245",
     "state": "CA",
+    "timezone": "Europe/Paris",
     "url": "http://hooli.com",
     "zipcode": "91364",
     "billing_configuration": {
+      "invoice_grace_period": 3,
       "payment_provider": "stripe",
       "provider_customer_id": "cus_12345",
       "sync": true,
-      "vat_rate": 12.5,
-      "sync_with_provider": true
+      "sync_with_provider": true,
+      "vat_rate": 12.5
     }
   }
 }
@@ -268,6 +280,7 @@ If the customer already exists, the call will work as an update
 | name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Full name of the customer |
 | phone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Phone number of the customer |
 | state | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | State of the customer's billing address |
+| timezone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | [Timezone](../resources/timezones) of the customer.<br></br>It will override the one defined at organization level |
 | url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom URL of the customer |
 | zipcode | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Zipcode of the customer's billing address |
 | billing_configuration | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider specific configuration used to bill the customer |
@@ -276,10 +289,11 @@ If the customer already exists, the call will work as an update
 
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
+| invoice_grace_period | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Grace period in days for the invoice.
 | payment_provider | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider used to bill the customer.<br/>Only accepted value: `stripe`, this field is required if you want to assign a `provider_customer_id`
 | provider_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer ID on the payment provider.<br/>If not provided, Lago can optionally create the provider customer
-| sync_with_provider | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` if you want to create the customer record in the provider's system. Only applies when `provider_customer_id` is `null` and `sync_with_provider` is set to `true`. Default value: `false`
 | sync | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` is you want to create the provider customer synchronously with the customer creation.<br/>Apply only when `provider_customer_id` is `null` and payment provider is configured to create customer.<br/>Default value: `false`
+| sync_with_provider | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` if you want to create the customer record in the provider's system. Only applies when `provider_customer_id` is `null` and `sync_with_provider` is set to `true`. Default value: `false`
 | vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom VAT applied to the customer.<br></br> It will override the one defined at organization level |
 
 ## Responses
@@ -344,8 +358,10 @@ If the customer already exists, the call will work as an update
   | `country` | `not_a_valid_country_code` | Provided country value is not an ISO 3166 country code |
   | `currency` | `value_is_invalid` | Provided currency is not an accepted currency |
   | `currency` | `currencies_does_not_match` | Provided currency cannot be assigned to the customer as he already has a subscription, an add_on, a coupon or a wallet in an other currency. |
-  | `vat_rate` | `value_is_out_of_range` | Provided VAT rate is invalid.<br/>It must be a positive integer or floating number between 0 and 100. |
+  | `invoice_grace_period` | `value_is_out_of_range` | Provided invoice grace period is invalid.<br/>It must be a positive integer. |
   | `payment_provider` | `value_is_invalid` | Provided payment provider is invalid |
+  | `timezone` | `timezone_invalid` | Provided timezone is invalid |
+  | `vat_rate` | `value_is_out_of_range` | Provided VAT rate is invalid.<br/>It must be a positive integer or floating number between 0 and 100. |
 
   </TabItem>
 </Tabs>

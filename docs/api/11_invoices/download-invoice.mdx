@@ -60,6 +60,8 @@ import TabItem from '@theme/TabItem';
   <TabItem value="javascript" label="Node.js">
 
   ```javascript
+  import Client from 'lago-nodejs-client'
+
   let client = new Client('__API_KEY__')
 
   await client.downloadInvoice('id');

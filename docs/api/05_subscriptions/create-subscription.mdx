@@ -31,7 +31,7 @@ import TabItem from '@theme/TabItem';
         "plan_code": "code",
         "external_id": "id",
         "name": "display name",
-        "subscription_date": "2022-08-08",
+        "subscription_at": "2022-08-08T00:00:00Z",
         "billing_time": "anniversary"
       }
     }'
@@ -51,7 +51,7 @@ import TabItem from '@theme/TabItem';
     plan_code="code",
     external_id="id",
     name="display name",
-    subscription_date="2022-08-08",
+    subscription_at="2022-08-08T00:00:00Z",
     billing_time="anniversary"
   )
 
@@ -72,7 +72,7 @@ import TabItem from '@theme/TabItem';
     planCode: "code",
     externalId: "id",
     name: "display name",
-    subscriptionDate: "2022-08-08",
+    subscriptionAt: "2022-08-08T00:00:00Z",
     billingTime: "anniversary"
   })
 
@@ -93,7 +93,7 @@ import TabItem from '@theme/TabItem';
     plan_code: "code",
     external_id: "id",
     name: "display name",
-    subscription_date: "2022-08-08",
+    subscription_at: "2022-08-08T00:00:00Z",
     billing_time: "anniversary"
   )
   ```
@@ -110,10 +110,10 @@ import TabItem from '@theme/TabItem';
         SetApiKey("__YOUR_API_KEY__")
 
       subscriptionInput := &lago.SubscriptionInput{
-        ExternalCustomerID:   "__YOUR_CUSTOMER_ID__",
-        PlanCode:     "__YOUR_PLAN_CODE__",
-        SubscriptionDate:     "2022-08-08",
-        BillingTime: lago.Anniversary,
+        ExternalCustomerID: "__YOUR_CUSTOMER_ID__",
+        PlanCode:           "__YOUR_PLAN_CODE__",
+        SubscriptionAt:     "2022-08-08T00:00:00Z",
+        BillingTime:        lago.Anniversary,
       }
 
       subscription, err := lagoClient.Subscription().Create(subscriptionInput)
@@ -140,7 +140,7 @@ import TabItem from '@theme/TabItem';
     "plan_code": "new_code",
     "name": "name",
     "external_id": "sub id",
-    "subscription_date": "2022-08-08",
+    "subscription_at": "2022-08-08T00:00:00Z",
     "billing_time": "anniversary"
   }
 }
@@ -152,13 +152,19 @@ import TabItem from '@theme/TabItem';
 | plan_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the plan.<br></br>It must match the `code` property of one of the plans. |
 | external_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique external identifier of the subscription. Used as an idempotency key. |
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Subscription display name. |
-| subscription_date | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Can be used to create a subscription that started in the past or will start in the future. Cannot be used to update the start date of a pending subscription or to schedule an upgrade/downgrade. |
+| subscription_at | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Can be used to create a subscription that started in the past or will start in the future. Cannot be used to update the start date of a pending subscription or to schedule an upgrade/downgrade. |
 | billing_time | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Billing time of the subscription.<br></br>It can be `anniversary` or `calendar`<br></br>If not provided, it will default to `calendar` |
 
 
 :::info
 If the customer is not found, it will be created with blank metadata
 :::
+
+### Deprecated arguments
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| subscription_date | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Can be used to create a subscription that started in the past or will start in the future. Cannot be used to update the start date of a pending subscription or to schedule an upgrade/downgrade. |
 
 ## Responses
 
@@ -239,6 +245,7 @@ If the customer is not found, it will be created with blank metadata
   | `currency` | `currencies_does_not_match` | The plan currency differs from the customer currency |
   | `external_id` | `value_already_exists` | The external id is already assigned to an active subscription |
   | `external_id` | `value_is_mandatory` | No external id was provided in the request payload |
+  | `subscription_at` | `invalid_date` | Field does not have a valid ISO 8601 datetime format |
 
   </TabItem>
 </Tabs>

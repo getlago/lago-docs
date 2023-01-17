@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
         "frequency": "recurring",
         "frequency_duration": 3,
         "expiration": "time_limit",
-        "expiration_date": "2022-08-08"
+        "expiration_at": "2022-08-08T23:59:59Z"
       }
     }'
   ```
@@ -60,7 +60,7 @@ import TabItem from '@theme/TabItem';
     frequency_duration=3,
     reusable=True
     expiration='time_limit',
-    expiration_date='2022-08-08'
+    expiration_at='2022-08-08T23:59:59Z'
   )
   client.coupons().create(coupon)
   ```
@@ -77,7 +77,7 @@ import TabItem from '@theme/TabItem';
     name: 'coupon name',
     code: 'code',
     expiration: 'time_limit',
-    expiration_date: '2022-08-08',
+    expiration_at: '2022-08-08T23:59:59Z',
     amount_cents: 100,
     amount_currency: 'EUR',
     coupon_type: 'fixed_amount',
@@ -101,7 +101,7 @@ import TabItem from '@theme/TabItem';
       name: 'name1',
       code: 'code1',
       expiration: 'time_limit',
-      expirationDate: '2022-08-08',
+      expirationAt: '2022-08-08T23:59:59Z',
       amountCents: 10000,
       amountCurrency: 'USD',
       couponType: 'fixed_amount',
@@ -125,12 +125,12 @@ import TabItem from '@theme/TabItem';
 
       couponInput := &lago.CouponInput{
         Name:               "Coupon",
-	   		Code:               "coupon",
-	   		AmountCents:        1500,
-	   		AmountCurrency:     lago.EUR,
+        Code:               "coupon",
+        AmountCents:        1500,
+        AmountCurrency:     lago.EUR,
         Reusable:           true,
-	   		Expiration:         lago.CouponExpirationTimeLimit,
-        ExpirationDate:     '2022-08-08',
+        Expiration:         lago.CouponExpirationTimeLimit,
+        ExpirationAt:       "2022-08-08T23:59:59Z",
         CouponType:         lago.CouponTypeFixedAmount,
         Frequency:          lago.CouponFrequencyRecurring,
         FrequencyDuration:  3
@@ -160,7 +160,7 @@ import TabItem from '@theme/TabItem';
     "amount_cents": 5000,
     "amount_currency": "USD",
     "expiration": "time_limit",
-    "expiration_date": "2022-08-08",
+    "expiration_at": "2022-08-08T23:59:59Z",
     "coupon_type": "fixed_amount",
     "reusable": true,
     "frequency": "recurring",
@@ -177,11 +177,19 @@ import TabItem from '@theme/TabItem';
 | amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Currency of the amount |
 | reusable | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if coupon is reusable or not. |
 | expiration | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Expiration type.<br></br>It can be `time_limit` or `no_expiration` |
-| expiration_date | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `time_limit` type)**</Optional> | Expiration date of the coupon. |
+| expiration_at | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `time_limit` type)**</Optional><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Expiration date and time of the coupon. |
 | coupon_type | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Coupon type.<br></br>It can be `fixed_amount` or `percentage` |
 | frequency | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Frequency type.<br></br>It can be `once` or `recurring` |
 | frequency_duration | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `recurring` frequency type)**</Optional> | This field determines the number of billing periods to which the coupon applies. |
 | percentage_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional (required only for `percentage` coupon type)**</Optional> | Rate of the coupon. |
+
+
+### Deprecated attributes
+
+| Attributes | Type | Description |
+|--|--|--|
+| expiration_date | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `time_limit` type)**</Optional> | Expiration date of the coupon.<br></br> Replaced by expiration_at. Value will be converted to "end_of_day" |
+
 ## Responses
 
 <Tabs>
@@ -243,6 +251,7 @@ import TabItem from '@theme/TabItem';
   | `code` | `value_already_exists` | `code` value is already used for another coupon |
   | `amount_cents` | `value_is_out_of_range` | `amount_cents` value is not a positive integer |
   | `amount_currency` | `value_is_invalid` | Provided currency value is invalid |
+  | `expiration_at` | `invalid_date` | Field does not have a valid ISO 8601 datetime format |
   | `expiration_duration` | `value_is_out_of_range` | `expiration_duration` is not a positive integer |
 
 
