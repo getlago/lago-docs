@@ -2,7 +2,7 @@
 sidebar_position: 12
 ---
 
-# Credit Notes
+# Credit notes
 :::note Premium feature ✨
 Lago may automatically generate a credit note when a subscription is upgraded or downgraded. However, only users with a premium license can manually generate credit notes via the user interface or the API. Please **[contact us](mailto:hello@getlago.com)** to get access to Lago Cloud and Lago Self-Hosted Premium.
 :::

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Aggregation Types
+# Aggregation types
 
 ## Metered aggregation types
 

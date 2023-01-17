@@ -2,7 +2,7 @@
 sidebar_position: 14
 ---
 
-# Integration Testing
+# Integration testing
 This step-by-step integration guide will help you get started with Lago.
 
 ## Foreword

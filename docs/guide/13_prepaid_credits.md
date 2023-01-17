@@ -2,7 +2,7 @@
 sidebar_position: 13
 ---
 
-# Prepaid Credits
+# Prepaid credits
 Since usage-based charges are calculated at the end of the billing period, you often need to wait to collect payments. With prepaid credits, you can now unlock recurring revenue opportunities for pay-as-you-go pricing models.
 
 Prepaid credits increase predictability as they allow you to collect payments in advance and then monitor the evolution of the balance of your customer's wallets.
