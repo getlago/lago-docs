@@ -1,16 +1,16 @@
 ---
-sidebar_position: 4
+sidebar_position: 7
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Finalize a draft invoice
+# Retry invoice payment
 
 ## Route
 
-```curl title="PUT"
-/api/v1/invoices/:lago_id/finalize
+```curl title="POST"
+/api/v1/invoices/:id/retry_payment
 ```
 
 ## Usage
@@ -20,12 +20,12 @@ import TabItem from '@theme/TabItem';
 
   ```bash
   LAGO_URL="https://api.getlago.com"
+  INVOICE_ID="__YOU_INVOICE_ID__"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request PUT "$LAGO_URL/api/v1/invoices/5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba/finalize" \
+  curl --location --request POST "$LAGO_URL/api/v1/$INVOICE_ID/retry_payment" \
     --header "Authorization: Bearer $API_KEY" \
-    --header 'Content-Type: application/json' \
-    --data-raw '{}'
+    --header 'Content-Type: application/json'
   ```
   </TabItem>
 
@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.invoices().finalize('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
+  invoice = client.invoices().retry_payment('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
   ```
   </TabItem>
 
@@ -47,18 +47,16 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.invoices.finalize('5eb02857-a71e-4ea2-bcf9-57d8885990ba') // Invoice ID
+  client.invoices.retry_payment('5eb02857-a71e-4ea2-bcf9-57d8885990ba') // Invoice ID
   ```
   </TabItem>
 
   <TabItem value="javascript" label="Node.js">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
-
   let client = new Client('__API_KEY__')
 
-  await client.finalizeInvoice('id');
+  await client.retryInvoicePayment('id');
   ```
   </TabItem>
 
@@ -72,7 +70,7 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      invoice, err := lagoClient.Invoice().Finalize("__YOUR_INVOICE_ID__")
+      invoice, err := lagoClient.Invoice().RetryPayment("__YOUR_INVOICE_ID__")
       if err != nil {
         // Error is *lago.Error
         panic(err)
@@ -80,6 +78,9 @@ import TabItem from '@theme/TabItem';
 
       // invoice is *lago.Invoice
       fmt.Println(invoice)
+
+      // If the invoice has to be generated, the response is empty
+      // And you will get a webhook `invoice.generated`
     }
   ```
 
@@ -91,23 +92,22 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
 
-  The draft invoice has been successfully finalized.
+  * The `retry payment` job has been scheduled. Empty response is returned.
 
-  Returns an [invoice](./invoice-object) object.
 
   </TabItem>
 
-  <TabItem value="400" label="HTTP 400">
+  <TabItem value="404" label="HTTP 404">
 
   ```json
   {
-    "status": 400,
-    "error": "Bad Request"
+    "status": 404,
+    "error": "Bad Request",
+    "code": "invoice_not_found"
   }
   ```
 
-  The `invoice` json root is not present in the request body.
-
+  The `invoice` is not found.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -119,7 +119,7 @@ import TabItem from '@theme/TabItem';
   }
   ```
 
-  Access to the API endpoint is unauthorized.
+  Access to the API endpoint is unhautorized.
 
   **Possible reasons are:**
   * The `Authorization` header is missing
@@ -129,18 +129,22 @@ import TabItem from '@theme/TabItem';
 
   </TabItem>
 
-  <TabItem value="404" label="HTTP 404">
+  <TabItem value="405" label="HTTP 405">
 
   ```json
   {
-    "status": 404,
-    "error": "Not Found",
-    "code": "invoice_not_found"
+    "status": 405,
+    "error": "Method Not Allowed",
+    "code": "message"
   }
   ```
 
-  The `invoice` was not found or is already finalized.
+  **Possible code messages:**
 
+  | Code message | Description |
+  |--|--|--|
+  | `invalid_status` | Payment retry is only available for `finalized` invoices that are in `pending` or `failed` payment status. |
+  | `payment_processor_is_currently_handling_payment` | Payment retry is not available if payment processor is already handling the payment. |
   </TabItem>
 </Tabs>
 

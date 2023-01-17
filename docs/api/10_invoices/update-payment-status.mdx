@@ -1,16 +1,16 @@
 ---
-sidebar_position: 4
+sidebar_position: 8
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Refresh a draft invoice
+# Update payment status
 
 ## Route
 
 ```curl title="PUT"
-/api/v1/invoices/:lago_id/refresh
+/api/v1/invoices/:lago_id
 ```
 
 ## Usage
@@ -22,10 +22,14 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request PUT "$LAGO_URL/api/v1/invoices/5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba/refresh" \
+  curl --location --request PUT "$LAGO_URL/api/v1/invoices/5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba" \
     --header "Authorization: Bearer $API_KEY" \
     --header 'Content-Type: application/json' \
-    --data-raw '{}'
+    --data-raw '{
+      "invoice": {
+        "payment_status": "succeeded"
+      }
+    }'
   ```
   </TabItem>
 
@@ -33,10 +37,16 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
+  from lago_python_client.models import InvoicePaymentStatusChange
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.invoices().refresh('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
+  payment_status_change = InvoicePaymentStatusChange(
+    lago_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    payment_status="succeeded"
+  )
+
+  client.invoices().update(payment_status_change)
   ```
   </TabItem>
 
@@ -47,7 +57,10 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.invoices.refresh('5eb02857-a71e-4ea2-bcf9-57d8885990ba') // Invoice ID
+  client.invoices.update({
+      lago_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+      payment_status: "succeeded"
+  })
   ```
   </TabItem>
 
@@ -58,7 +71,10 @@ import TabItem from '@theme/TabItem';
 
   let client = new Client('__API_KEY__')
 
-  await client.refreshInvoice('id');
+  await client.updateInvoicePaymentStatus({
+    lagoId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    paymentStatus: "succeeded"
+  })
   ```
   </TabItem>
 
@@ -72,7 +88,13 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      invoice, err := lagoClient.Invoice().Refresh("__YOUR_INVOICE_ID__")
+      invoiceId, _ := uuid.Parse("__YOUR_INVOICE_ID__")
+      invoiceInput := &lago.InvoiceInput{
+        LagoID: invoiceId,
+	   		PaymentStatus: lago.InvoicePaymentStatusSucceeded,
+      }
+
+      invoice, err := lagoClient.Invoice().Update(invoiceInput)
       if err != nil {
         // Error is *lago.Error
         panic(err)
@@ -86,11 +108,26 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
+## Arguments
+
+```json
+{
+  "invoice": {
+    "payment_status": "succeeded"
+  }
+}
+```
+
+| Attributes | Type | Description |
+|--|--|--|
+| lago_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Invoice unique identifier in Lago |
+| payment_status | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Invoice payment status <br></br>It can be `pending`, `succeeded` or `failed` |
+
 ## Responses
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  The draft invoice has been successfully refreshed.
+  The invoice payment status has been successfully updated.
 
   Returns an [invoice](./invoice-object) object.
   </TabItem>
@@ -136,10 +173,33 @@ import TabItem from '@theme/TabItem';
   }
   ```
 
-  The `invoice` was not found.
+  The `invoice` was not found
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
+  }
+  ```
+
+  **Possible errors:**
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `payment_status` | `value_is_invalid` | Provided `payment_status` does not match an accepted value |
+
 
   </TabItem>
 </Tabs>
+
+
 
 export const Required = ({children, color}) => (
   <span

@@ -1,17 +1,23 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Update payment status
+# Download an invoice
 
 ## Route
 
-```curl title="PUT"
-/api/v1/invoices/:lago_id
+```curl title="POST"
+/api/v1/invoices/:id/download
 ```
+
+## Logic
+
+- If the invoice has already been generated, you will receive in the response the `invoice` object with the `file_url` where you can download your pdf file.
+- If the invoice has never been generated, this endpoint will returns an empty `200` response, you will receive a `invoice.generated` webhook when the PDF file is ready.
+  You can check the webhook documentation to know more about this.
 
 ## Usage
 
@@ -20,16 +26,12 @@ import TabItem from '@theme/TabItem';
 
   ```bash
   LAGO_URL="https://api.getlago.com"
+  INVOICE_ID="__YOU_INVOICE_ID__"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request PUT "$LAGO_URL/api/v1/invoices/5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba" \
+  curl --location --request POST "$LAGO_URL/api/v1/invoices/$INVOICE_ID/download" \
     --header "Authorization: Bearer $API_KEY" \
-    --header 'Content-Type: application/json' \
-    --data-raw '{
-      "invoice": {
-        "payment_status": "succeeded"
-      }
-    }'
+    --header 'Content-Type: application/json'
   ```
   </TabItem>
 
@@ -37,16 +39,10 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client import Client
-  from lago_python_client.models import InvoicePaymentStatusChange
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  payment_status_change = InvoicePaymentStatusChange(
-    lago_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
-    payment_status="succeeded"
-  )
-
-  client.invoices().update(payment_status_change)
+  invoice = client.invoices().download('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
   ```
   </TabItem>
 
@@ -57,10 +53,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.invoices.update({
-      lago_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-      payment_status: "succeeded"
-  })
+  client.invoices.download('5eb02857-a71e-4ea2-bcf9-57d8885990ba') // Invoice ID
   ```
   </TabItem>
 
@@ -71,10 +64,7 @@ import TabItem from '@theme/TabItem';
 
   let client = new Client('__API_KEY__')
 
-  await client.updateInvoicePaymentStatus({
-    lagoId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
-    paymentStatus: "succeeded"
-  })
+  await client.downloadInvoice('id');
   ```
   </TabItem>
 
@@ -88,13 +78,7 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      invoiceId, _ := uuid.Parse("__YOUR_INVOICE_ID__")
-      invoiceInput := &lago.InvoiceInput{
-        LagoID: invoiceId,
-	   		PaymentStatus: lago.InvoicePaymentStatusSucceeded,
-      }
-
-      invoice, err := lagoClient.Invoice().Update(invoiceInput)
+      invoice, err := lagoClient.Invoice().Download("__YOUR_INVOICE_ID__")
       if err != nil {
         // Error is *lago.Error
         panic(err)
@@ -102,46 +86,24 @@ import TabItem from '@theme/TabItem';
 
       // invoice is *lago.Invoice
       fmt.Println(invoice)
+
+      // If the invoice has to be generated, the response is empty
+      // And you will get a webhook `invoice.generated`
     }
   ```
 
   </TabItem>
 </Tabs>
 
-## Arguments
-
-```json
-{
-  "invoice": {
-    "payment_status": "succeeded"
-  }
-}
-```
-
-| Attributes | Type | Description |
-|--|--|--|
-| lago_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Invoice unique identifier in Lago |
-| payment_status | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Invoice payment status <br></br>It can be `pending`, `succeeded` or `failed` |
-
 ## Responses
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  The invoice payment status has been successfully updated.
 
-  Returns an [invoice](./invoice-object) object.
-  </TabItem>
+  * The `invoice` file has already been generated.
+  * The `invoice` file has not been generated, returns an empty response.
 
-  <TabItem value="400" label="HTTP 400">
 
-  ```json
-  {
-    "status": 400,
-    "error": "Bad Request"
-  }
-  ```
-
-  The `invoice` json root is not present in the request body.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -153,7 +115,7 @@ import TabItem from '@theme/TabItem';
   }
   ```
 
-  Access to the API endpoint is unauthorized.
+  Access to the API endpoint is unhautorized.
 
   **Possible reasons are:**
   * The `Authorization` header is missing
@@ -168,38 +130,14 @@ import TabItem from '@theme/TabItem';
   ```json
   {
     "status": 404,
-    "error": "Not Found",
+    "error": "Bad Request",
     "code": "invoice_not_found"
   }
   ```
 
-  The `invoice` was not found
-  </TabItem>
-
-  <TabItem value="422" label="HTTP 422">
-
-  ```json
-  {
-    "status": 422,
-    "error": "Unprocessable entity",
-    "code": "validation_errors",
-    "error_details": {
-      "field": ["error"]
-    }
-  }
-  ```
-
-  **Possible errors:**
-
-  | Field | Code | Description |
-  |--|--|--|
-  | `payment_status` | `value_is_invalid` | Provided `payment_status` does not match an accepted value |
-
-
+  The `invoice` is not found.
   </TabItem>
 </Tabs>
-
-
 
 export const Required = ({children, color}) => (
   <span
