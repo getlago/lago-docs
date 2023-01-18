@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2023-01-12T11:00:00.000Z</updated>
+    <updated>2023-01-17T10:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
     <icon>https://getlago.com/img/lago.ico</icon>
     <rights>Copyright © 2023 Lago.</rights>
+    <entry>
+        <title type="html"><![CDATA[Payment retries]]></title>
+        <id>/payment-retries</id>
+        <link href="https://getlago.com/changelog/payment-retries"/>
+        <updated>2023-01-17T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We have added the ability to resend payments for collection.]]></summary>
+        <content type="html"><![CDATA[<p>We have added the ability to resend payments for collection.</p><p>This new feature is available to all users:</p><ul><li>Through the user interface (<a href="/docs/guide/payments/payment-retries">learn more</a>); and</li><li>Through the API (<a href="/docs/api/invoices/retry-payment">learn more</a>).</li></ul><p><img loading="lazy" alt="Payment retry via the invoice list" src="/assets/images/retry-payment-a34e7670c5465cd86eb660502b3aa4ce.png" width="2880" height="1566" class="img_ev3q"></p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Grace period ✨]]></title>
         <id>/grace-period</id>

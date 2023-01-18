@@ -4,11 +4,19 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Thu, 12 Jan 2023 11:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 17 Jan 2023 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2023 Lago.</copyright>
+        <item>
+            <title><![CDATA[Payment retries]]></title>
+            <link>https://getlago.com/changelog/payment-retries</link>
+            <guid>/payment-retries</guid>
+            <pubDate>Tue, 17 Jan 2023 10:00:00 GMT</pubDate>
+            <description><![CDATA[We have added the ability to resend payments for collection.]]></description>
+            <content:encoded><![CDATA[<p>We have added the ability to resend payments for collection.</p><p>This new feature is available to all users:</p><ul><li>Through the user interface (<a href="/docs/guide/payments/payment-retries">learn more</a>); and</li><li>Through the API (<a href="/docs/api/invoices/retry-payment">learn more</a>).</li></ul><p><img loading="lazy" alt="Payment retry via the invoice list" src="/assets/images/retry-payment-a34e7670c5465cd86eb660502b3aa4ce.png" width="2880" height="1566" class="img_ev3q"></p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Grace period ✨]]></title>
             <link>https://getlago.com/changelog/grace-period</link>
