@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Stripe Integration
+# Stripe integration
 Lago's native integration with Stripe allows you to collect payments automatically when new invoices are generated.
 
 ## Integration setup

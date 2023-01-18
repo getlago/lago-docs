@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# GoCardless Integration
+# GoCardless integration
 Lago's native integration with GoCardless allows you to collect payments via direct debit.
 
 ## Integration setup

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Ingesting Events
+# Ingesting events
 This guide explains how Lago ingests usage-based events coming from your application.
 
 ## Define a Billable metric

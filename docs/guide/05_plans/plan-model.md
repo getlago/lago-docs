@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Plan Model
+# Plan model
 The plan model defines **when** and **how much** a customer is charged.
 
 ## Plan interval
