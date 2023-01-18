@@ -320,6 +320,89 @@ You can use this information to generate a PDF invoice or collect the payment.
 
 
 <details className="custom-toggle">
+<summary><b>Prepaid credits added</b></summary>
+Sent when prepaid credits have been added to the customer's wallet.
+
+You can use this information to generate a PDF invoice or collect the payment.
+
+```json
+{
+  "webhook_type": "invoice.paid_credit_added",
+  "object_type": "invoice",
+  "invoice": {
+    "lago_id": "dd3f587c-1122-4fc1-a8dd-dfghj0d98765",
+    "sequential_id": 7,
+    "number": "LAG-C875-031-007",
+    "issuing_date": "2023-01-18",
+    "invoice_type": "credit",
+    "status": "finalized",
+    "payment_status": "pending",
+    "amount_cents": 5000,
+    "amount_currency": "USD",
+    "vat_amount_cents": 0,
+    "vat_amount_currency": "USD",
+    "credit_amount_cents": 0,
+    "credit_amount_currency": "USD",
+    "total_amount_cents": 5000,
+    "total_amount_currency": "USD",
+    "file_url": null,
+    "legacy": false,
+    "customer": {
+      "lago_id": "12345678-qsdf-vbnm-898f-f0d29a8e0eea",
+      "external_id": "seb_1234",
+      "name": "Sebastian Molde",
+      "sequential_id": 31,
+      "slug": "LAG-C875-031",
+      "created_at": "2023-01-17T13:43:53Z",
+      "country": null,
+      "address_line1": null,
+      "address_line2": null,
+      "state": null,
+      "zipcode": null,
+      "email": null,
+      "city": null,
+      "url": null,
+      "phone": null,
+      "logo_url": null,
+      "legal_name": null,
+      "legal_number": null,
+      "currency": "USD",
+      "timezone": null,
+      "applicable_timezone": "Europe/Paris",
+      "billing_configuration": {
+        "invoice_grace_period": null,
+        "payment_provider": null,
+        "vat_rate": null
+      }
+    },
+    "fees": [
+      {
+        "lago_id": "600a3709-erty-8765-3214-e4ca436fe6b6",
+        "lago_group_id": null,
+        "item": {
+          "type": "credit",
+          "code": "credit",
+          "name": "credit"
+        },
+        "amount_cents": 5000,
+        "amount_currency": "USD",
+        "vat_amount_cents": 0,
+        "vat_amount_currency": "USD",
+        "units": "1.0",
+        "events_count": null
+      }
+    ]
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
+</details>
+
+
+<details className="custom-toggle">
 <summary><b>Credit note created</b></summary>
 Sent when a new credit note has been issued for a customer.
 
@@ -663,7 +746,40 @@ This webhook is sent when there is an error related to the creation of an event.
 </details>
 
 
+<details className="custom-toggle">
+<summary><b>Subscription terminated</b></summary>
+Sent when a subscription is terminated.
 
+```json
+{
+  "webhook_type": "subscription.terminated",
+  "object_type": "subscription",
+  "subscription": {
+    "lago_id": "0fd99089-b15a-abcd-1234-a8292df18990",
+    "external_id": "custom_sub_id_1234",
+    "lago_customer_id": "27b9c2d9-abcd-1234-898f-hyt29a8e0eea",
+    "external_customer_id": "customer_1234",
+    "name": "",
+    "plan_code": "premium",
+    "status": "terminated",
+    "billing_time": "anniversary",
+    "subscription_at": "2023-01-11T10:51:29Z",
+    "started_at": "2023-01-11T10:51:29Z",
+    "terminated_at": "2023-01-24T14:53:02Z",
+    "canceled_at": null,
+    "created_at": "2023-01-11T10:51:34Z",
+    "previous_plan_code": null,
+    "next_plan_code": null,
+    "downgrade_plan_date": null,
+    "subscription_date": "2023-01-11"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **subscription** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Subscription object](../subscriptions/subscription-object) |
+</details>
 
 
 
