@@ -223,6 +223,7 @@ You have to set these variables to use AWS S3 Compatible Endpoints.
 |`LAGO_AWS_S3_ACCESS_KEY_ID`|AWS S3 Credentials Access Key Id|
 |`LAGO_AWS_S3_SECRET_ACCESS_KEY`|AWS S3 Credentials Secret Access Key|
 |`LAGO_AWS_S3_BUCKET`|AWS S3 Bucket|
+|`LAGO_AWS_S3_REGION`|Not used but required by the AWS SDK|
 
 #### Google Cloud Service Cloud Storage
 
