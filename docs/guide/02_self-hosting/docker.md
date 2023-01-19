@@ -198,6 +198,8 @@ We currently support :
   - AWS S3 Compatibles Endpoints
   - Google Cloud Service Cloud Storage
 
+:warning: If you use S3 compatibles endpoints, you should set the `LAGO_AWS_S3_REGION` to a default value (ei: `us-east-1`), it is required to work properly!
+
 #### AWS S3
 
 You have to set these variables to use AWS S3.
