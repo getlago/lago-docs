@@ -32,11 +32,15 @@
     "https://doc.getlago.com/docs/guide/invoicing/overview",
     "https://doc.getlago.com/docs/guide/invoicing/fees",
     "https://doc.getlago.com/docs/guide/invoicing/taxes",
+    "https://doc.getlago.com/docs/guide/invoicing/grace-period",
     "https://doc.getlago.com/docs/guide/invoicing/download-invoices",
 
     "https://doc.getlago.com/docs/guide/payments/overview",
     "https://doc.getlago.com/docs/guide/payments/gocardless-integration",
     "https://doc.getlago.com/docs/guide/payments/stripe-integration",
+    "https://doc.getlago.com/docs/guide/payments/payment-retries",
+
+    "https://doc.getlago.com/docs/guide/credit_notes",
 
     "https://doc.getlago.com/docs/guide/prepaid_credits",
 
@@ -45,6 +49,7 @@
     "https://doc.getlago.com/docs/guide/openapi",
 
     "https://doc.getlago.com/docs/api/intro",
+
     "https://doc.getlago.com/docs/api/billable_metrics/billable-metric-object",
     "https://doc.getlago.com/docs/api/billable_metrics/create-billable-metric",
     "https://doc.getlago.com/docs/api/billable_metrics/update-billable-metric",
@@ -77,14 +82,8 @@
     "https://doc.getlago.com/docs/api/events/create-batch-event",
     "https://doc.getlago.com/docs/api/events/get-event",
 
-    "https://doc.getlago.com/docs/api/coupons/coupon-object",
-    "https://doc.getlago.com/docs/api/coupons/create-coupon",
-    "https://doc.getlago.com/docs/api/coupons/update-coupon",
-    "https://doc.getlago.com/docs/api/coupons/destroy-coupon",
-    "https://doc.getlago.com/docs/api/coupons/get-coupon",
-    "https://doc.getlago.com/docs/api/coupons/get-all-coupons",
-    "https://doc.getlago.com/docs/api/coupons/apply-coupon",
-    "https://doc.getlago.com/docs/api/coupons/get-all-applied-coupons",
+    "https://doc.getlago.com/docs/api/customer_usage/customer-usage-object",
+    "https://doc.getlago.com/docs/api/customer_usage/customer-usage",
 
     "https://doc.getlago.com/docs/api/add_ons/add-on-object",
     "https://doc.getlago.com/docs/api/add_ons/create-add-on",
@@ -94,20 +93,34 @@
     "https://doc.getlago.com/docs/api/add_ons/get-all-add-ons",
     "https://doc.getlago.com/docs/api/add_ons/apply-add-on",
 
+    "https://doc.getlago.com/docs/api/coupons/coupon-object",
+    "https://doc.getlago.com/docs/api/coupons/create-coupon",
+    "https://doc.getlago.com/docs/api/coupons/update-coupon",
+    "https://doc.getlago.com/docs/api/coupons/destroy-coupon",
+    "https://doc.getlago.com/docs/api/coupons/get-coupon",
+    "https://doc.getlago.com/docs/api/coupons/get-all-coupons",
+    "https://doc.getlago.com/docs/api/coupons/apply-coupon",
+    "https://doc.getlago.com/docs/api/coupons/get-all-applied-coupons",
+
     "https://doc.getlago.com/docs/api/invoices/invoice-object",
-    "https://doc.getlago.com/docs/api/invoices/download-invoice",
-    "https://doc.getlago.com/docs/api/invoices/update-payment-status",
     "https://doc.getlago.com/docs/api/invoices/get-invoice",
+    "https://doc.getlago.com/docs/api/invoices/download-invoice",
     "https://doc.getlago.com/docs/api/invoices/get-all-invoices",
+    "https://doc.getlago.com/docs/api/invoices/refresh-invoice",
+    "https://doc.getlago.com/docs/api/invoices/finalize-invoice",
+    "https://doc.getlago.com/docs/api/invoices/retry-payment",
+    "https://doc.getlago.com/docs/api/invoices/update-payment-status",
+
+    "https://doc.getlago.com/docs/api/credit_notes/credit-note-object",
+    "https://doc.getlago.com/docs/api/credit_notes/create-credit-note",
+    "https://doc.getlago.com/docs/api/credit_notes/update-credit-note",
+    "https://doc.getlago.com/docs/api/credit_notes/download-credit-note",
+    "https://doc.getlago.com/docs/api/credit_notes/get-credit-note",
+    "https://doc.getlago.com/docs/api/credit_notes/get-all-credit-notes",
+    "https://doc.getlago.com/docs/api/credit_notes/void-credit-note",
 
     "https://doc.getlago.com/docs/api/organizations/organization-object",
     "https://doc.getlago.com/docs/api/organizations/update-organization",
-
-    "https://doc.getlago.com/docs/api/webhooks/message-signature",
-    "https://doc.getlago.com/docs/api/webhooks/messages",
-
-    "https://doc.getlago.com/docs/api/customer_usage/customer-usage-object",
-    "https://doc.getlago.com/docs/api/customer_usage/customer-usage",
 
     "https://doc.getlago.com/docs/api/wallets/wallet-object",
     "https://doc.getlago.com/docs/api/wallets/create-wallet",
@@ -117,6 +130,12 @@
     "https://doc.getlago.com/docs/api/wallets/get-all-wallets",
     "https://doc.getlago.com/docs/api/wallets/top-up",
     "https://doc.getlago.com/docs/api/wallets/wallet-transaction-object",
+
+    "https://doc.getlago.com/docs/api/webhooks/message-signature",
+    "https://doc.getlago.com/docs/api/webhooks/messages",
+
+    "https://doc.getlago.com/docs/api/resources/currencies",
+    "https://doc.getlago.com/docs/api/resources/timezones",
     
     "https://doc.getlago.com/changelog",
 
