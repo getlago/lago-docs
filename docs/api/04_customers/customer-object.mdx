@@ -57,8 +57,8 @@ It lets you create a customer, but also track usage and create invoices for the 
 | **address_line2** &nbsp &nbsp <Type>String</Type> | Second line of the billing address |
 | **address_line2** &nbsp &nbsp <Type>String</Type> | Second line of the billing address |
 | **city** &nbsp &nbsp <Type>String</Type> | City of the customer's billing address |
-| **country** &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 3166 alpha 2 Country code.*</Comment> | Country code of the customer's billing address |
-| **currency** &nbsp &nbsp <Type>String</Type> | Currency of the customer |
+| **country** &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 3166 (alpha-2)*</Comment> | Country code of the customer's billing address |
+| **currency** &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 4217*</Comment> | Currency of the customer - [learn more](../resources/currencies) |
 | **email** &nbsp &nbsp <Type>String</Type> | Email of the customer |
 | **legal_name** &nbsp &nbsp <Type>String</Type> | Legal company name of the customer |
 | **legal_number** &nbsp &nbsp <Type>String</Type> | Legal company number of the customer |
@@ -66,7 +66,7 @@ It lets you create a customer, but also track usage and create invoices for the 
 | **name** &nbsp &nbsp <Type>String</Type> | Full name of the customer |
 | **phone** &nbsp &nbsp <Type>String</Type> | Phone number of the customer |
 | **state** &nbsp &nbsp <Type>String</Type> | State of the customer's billing address |
-| **timezone** &nbsp &nbsp <Type>String</Type> | Timezone of the customer |
+| **timezone** &nbsp &nbsp <Type>String</Type><br></br><Comment>*TZ database*</Comment> | Timezone of the customer - [learn more](../resources/timezones) |
 | **applicable_timezone** &nbsp &nbsp <Type>String</Type> | Timezone applicable the customer.<br></br>Value is inherited from the organization if timezone attribute is null |
 | **url** &nbsp &nbsp <Type>String</Type> | Custom URL of the customer |
 | **zipcode** &nbsp &nbsp <Type>String</Type> | Zipcode of the customer's billing address |

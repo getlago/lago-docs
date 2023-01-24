@@ -171,26 +171,26 @@ import TabItem from '@theme/TabItem';
 
 | Attributes | Type | Description |
 |--|--|--|
-| webhook_url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Webhook URL. |
-| country | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Country alpha-2 code |
-| address_line1 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Address first line. |
-| address_line2 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Address second line. |
-| state | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization state. |
-| zipcode | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization zipcode. |
-| email | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Business email. |
-| city | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization city. |
-| legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization legal name. |
-| legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization legal number. |
-| timezone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Organization [timezone](../resources/timezones).<br></br>It will be UTC if not defined |
-| billing_configuration | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Invoicing an billing specific configuration. |
+| webhook_url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Webhook URL |
+| country | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*ISO 3166 (alpha-2)*</Comment> | Country where the organization is located |
+| address_line1 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Address (first line) |
+| address_line2 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Address (second line) |
+| state | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | State where the organization is located |
+| zipcode | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Zip code associated with the organization's address |
+| email | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Business email address |
+| city | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | City where the organization is located |
+| legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal name of the organization |
+| legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal number of the organization |
+| timezone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*TZ database*</Comment> | Timezone of the organization - [learn more](../resources/timezones)<br></br>UTC by default |
+| billing_configuration | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom billing settings |
 
 ### Billing configuration
 
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
-| invoice_footer | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom invoice footer. |
-| invoice_grace_period | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Grace period in days for the invoice. |
-| vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom VAT rate. |
+| invoice_footer | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom invoice footer |
+| invoice_grace_period | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Grace period (in days) |
+| vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom VAT rate |
 
 ## Responses
 

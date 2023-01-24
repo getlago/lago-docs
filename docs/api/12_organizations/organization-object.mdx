@@ -35,27 +35,27 @@ This object represents an organization.<br></br>
 
 | Attributes | Description |
 | -----------| ----------- |
-| **name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Organization name. |
-| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of organization creation. |
-| **webhook_url** &nbsp &nbsp <Type>String</Type> | Webhook URL. |
-| **country** &nbsp &nbsp <Type>String</Type> | Valid country alpha-2 code. |
-| **address_line1** &nbsp &nbsp <Type>String</Type> | Address first line. |
-| **address_line2** &nbsp &nbsp <Type>String</Type> | Address second line. |
-| **state** &nbsp &nbsp <Type>String</Type> | Organization state. |
-| **zipcode** &nbsp &nbsp <Type>String</Type> | Organization zipcode. |
-| **email** &nbsp &nbsp <Type>String</Type> | Business email. |
-| **city** &nbsp &nbsp <Type>String</Type> | Organization city. |
-| **legal_name** &nbsp &nbsp <Type>String</Type> | Organization legal name. |
-| **legal_number** &nbsp &nbsp <Type>String</Type> | Organization legal number. |
-| **timezone** &nbsp &nbsp <Type>String</Type> | Organization timezone. |
+| **name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Name of the organization |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Creation date |
+| **webhook_url** &nbsp &nbsp <Type>String</Type> | Webhook URL |
+| **country** &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 3166 (alpha-2)*</Comment> | Country where the organization is located |
+| **address_line1** &nbsp &nbsp <Type>String</Type> | Address (first line) |
+| **address_line2** &nbsp &nbsp <Type>String</Type> | Address (second line) |
+| **state** &nbsp &nbsp <Type>String</Type> | State where the organization is located |
+| **zipcode** &nbsp &nbsp <Type>String</Type> | Zip code associated with the organization's address |
+| **email** &nbsp &nbsp <Type>String</Type> | Business email address |
+| **city** &nbsp &nbsp <Type>String</Type> | City where the organization is located |
+| **legal_name** &nbsp &nbsp <Type>String</Type> | Legal name of the organization |
+| **legal_number** &nbsp &nbsp <Type>String</Type> | Legal number of the organization |
+| **timezone** &nbsp &nbsp <Type>String</Type><br></br><Comment>*TZ database*</Comment> | Timezone of the organization - [learn more](../resources/timezones) |
 
 ## Billing Configuration Object
 
 | Attributes | Description |
 | -----------| ----------- |
-| invoice_footer &nbsp &nbsp <Type>String</Type> | Custom footer used in invoices. |
-| invoice_grace_period &nbsp &nbsp <Type>Integer</Type> | Grace period in days for the invoice (time between the end of the period and the closing of the invoice). |
-| vat_rate &nbsp &nbsp <Type>Float</Type> | VAT rate used in fees. |
+| invoice_footer &nbsp &nbsp <Type>String</Type> | Custom invoice footer |
+| invoice_grace_period &nbsp &nbsp <Type>Integer</Type> | Grace period (in days) |
+| vat_rate &nbsp &nbsp <Type>Float</Type> | Custom VAT rate |
 
 export const Type = ({children, color}) => (
   <span
