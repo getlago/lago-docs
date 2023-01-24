@@ -271,8 +271,8 @@ If the customer already exists, the call will work as an update
 | address_line1 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | First line of the billing address |
 | address_line2 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Second line of the billing address |
 | city | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | City of the customer's billing address |
-| country | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*ISO 3166 alpha 2 Country code.*</Comment>| Country code of the customer's billing address |
-| currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Currency of customer |
+| country | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*ISO 3166 (alpha-2)*</Comment> | Country code of the customer's billing address |
+| currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*ISO 4217*</Comment> | Currency of the customer - [learn more](../resources/currencies) |
 | email | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Email of the customer |
 | legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal company name of the customer |
 | legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal company number of the customer |
@@ -280,7 +280,7 @@ If the customer already exists, the call will work as an update
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Full name of the customer |
 | phone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Phone number of the customer |
 | state | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | State of the customer's billing address |
-| timezone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | [Timezone](../resources/timezones) of the customer.<br></br>It will override the one defined at organization level |
+| timezone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*TZ database*</Comment> | Timezone of the customer - [learn more](../resources/timezones)<br></br>Will override the organization's timezone |
 | url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom URL of the customer |
 | zipcode | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Zipcode of the customer's billing address |
 | billing_configuration | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider specific configuration used to bill the customer |
