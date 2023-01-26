@@ -85,11 +85,11 @@ Consider the following example, where each unit represents an API call:
 In this case, 65,000 API calls would cost 65,000 x $0.0006 + $10 = $49.
 
 ## Delete charges
-You may delete a charge included in a plan associated with existing subscriptions.
+You may delete a charge included in a plan associated with existing [subscriptions](../plans/subscription).
 
 If you do so and save the change:
 - The charge will be immediately removed from all subscriptions linked to this plan;
-- The charge will no longer be included in the current usage of the customers concerned; and
+- The charge will no longer be included in the [current usage](../../api/customer_usage/customer-usage-object) of the customers concerned; and
 - The charge will be immediately removed from all `draft` invoices associated with these subscriptions.
 
 However, the charge will still be included in all `finalized` invoices associated with these subscriptions.
