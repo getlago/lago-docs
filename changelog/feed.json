@@ -5,6 +5,24 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "/search-bar",
+            "content_html": "<p>Tired of scrolling through an endless list to find the customer your are looking for? We understand that.</p><p>We have added a search functionality to the user interface to make it easier to find metrics, plans, customers, invoices, etc.</p><p><img loading=\"lazy\" alt=\"Search bar in the user interface\" src=\"/assets/images/search-bar-f4d0063763ceed058f3dba46ac19862b.png\" width=\"2880\" height=\"818\" class=\"img_ev3q\"></p>",
+            "url": "https://getlago.com/changelog/search-bar",
+            "title": "Search bar",
+            "summary": "Tired of scrolling through an endless list to find the customer your are looking for? We understand that.",
+            "date_modified": "2023-01-26T15:00:00.000Z",
+            "tags": []
+        },
+        {
+            "id": "/coupons-forever",
+            "content_html": "<p>When creating a coupon, through the <a href=\"/docs/guide/coupons\">user interface</a> or the <a href=\"/docs/api/coupons/create-coupon\">API</a>, it is now possible to select the <code>forever</code> frequency.</p><p>Coupons with the <code>forever</code> frequency apply to all subscription invoices, regardless of the number of subscription invoices generated in a given period.</p><div class=\"theme-admonition theme-admonition-info alert alert--info admonition_LlT9\"><div class=\"admonitionHeading_tbUL\"><span class=\"admonitionIcon_kALy\"><svg viewBox=\"0 0 14 16\"><path fill-rule=\"evenodd\" d=\"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z\"></path></svg></span>info</div><div class=\"admonitionContent_S0QG\"><p>The value of the coupon is deducted from the amount of the invoice after tax.</p><p>Coupons do not apply to add-ons or any other one-off charges.</p></div></div><p><img loading=\"lazy\" alt=\"Coupon that apply forever\" src=\"/assets/images/coupons-forever-04065a9a516010c48b334d6debd3d953.png\" width=\"1630\" height=\"1098\" class=\"img_ev3q\"></p>",
+            "url": "https://getlago.com/changelog/coupons-forever",
+            "title": "Coupons that apply forever",
+            "summary": "When creating a coupon, through the user interface or the API, it is now possible to select the forever frequency.",
+            "date_modified": "2023-01-26T14:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "/payment-retries",
             "content_html": "<p>We have added the ability to resend payments for collection.</p><p>This new feature is available to all users:</p><ul><li>Through the user interface (<a href=\"/docs/guide/payments/payment-retries\">learn more</a>); and</li><li>Through the API (<a href=\"/docs/api/invoices/retry-payment\">learn more</a>).</li></ul><p><img loading=\"lazy\" alt=\"Payment retry via the invoice list\" src=\"/assets/images/retry-payment-a34e7670c5465cd86eb660502b3aa4ce.png\" width=\"2880\" height=\"1566\" class=\"img_ev3q\"></p>",
             "url": "https://getlago.com/changelog/payment-retries",

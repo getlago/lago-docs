@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklago_doc=self.webpackChunklago_doc||[]).push([[8485],{855:e=>{e.exports=JSON.parse('{"title":"Plans","slug":"/category/plans","permalink":"/docs/category/plans","navigation":{"previous":{"title":"Dimensions","permalink":"/docs/guide/billable-metrics/dimensions"},"next":{"title":"Overview","permalink":"/docs/guide/plans/overview"}}}')}}]);
