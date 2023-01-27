@@ -15,7 +15,7 @@ To create a coupon through the user interface:
 2. Click **"Add a coupon"**;
 3. Choose a name and a code for your coupon;
 4. Select the type of coupon (i.e. fixed amount or percentage);
-5. Define its value and frequency (i.e. is applied once or several times);
+5. Define its value and frequency (i.e. will be applied once, over several periods or forever);
 6. Choose if the coupon can be applied several times to the same customer account or not;
 7. Choose whether or not to set an expiration date (i.e. date after which the coupon can no longer be redeemed); and
 8. Click **"Add coupon"** to confirm.
