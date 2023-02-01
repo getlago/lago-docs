@@ -125,7 +125,10 @@ import TabItem from '@theme/TabItem';
     "reusable": true,
     "coupon_type": "fixed_amount",
     "frequency": "recurring",
-    "frequency_duration": 3
+    "frequency_duration": 3,
+    "applies_to": {
+      "plan_codes": ["code1"]
+    }
   }
 }
 ```
@@ -143,6 +146,7 @@ import TabItem from '@theme/TabItem';
 | frequency | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Frequency type.<br></br>It can be `once` or `recurring` |
 | frequency_duration | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `recurring` frequency type)**</Optional> | This field determines the number of billing periods to which the coupon applies. |
 | percentage_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional (required only for `percentage` coupon type)**</Optional> | Rate of the coupon. |
+| applies_to | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Settings with coupon limitations |
 
 ### Deprecated attributes
 

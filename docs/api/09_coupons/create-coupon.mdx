@@ -36,7 +36,10 @@ import TabItem from '@theme/TabItem';
         "frequency": "recurring",
         "frequency_duration": 3,
         "expiration": "time_limit",
-        "expiration_at": "2022-08-08T23:59:59Z"
+        "expiration_at": "2022-08-08T23:59:59Z",
+        "applies_to": {
+          "plan_codes": ["code1"]
+        }
       }
     }'
   ```
@@ -60,7 +63,8 @@ import TabItem from '@theme/TabItem';
     frequency_duration=3,
     reusable=True
     expiration='time_limit',
-    expiration_at='2022-08-08T23:59:59Z'
+    expiration_at='2022-08-08T23:59:59Z',
+    applies_to=LimitationConfiguration(plan_codes=['plan1'])
   )
   client.coupons().create(coupon)
   ```
@@ -83,7 +87,10 @@ import TabItem from '@theme/TabItem';
     coupon_type: 'fixed_amount',
     reusable: true,
     frequency: 'recurring',
-    frequency_duration: 3
+    frequency_duration: 3,
+    applies_to: {
+      plan_codes: ['code1']
+    }
   }
 
   client.coupons.create(coupon)
@@ -107,7 +114,10 @@ import TabItem from '@theme/TabItem';
       couponType: 'fixed_amount',
       reusable: true,
       frequency: 'recurring',
-      frequencyDuration: 3
+      frequencyDuration: 3,
+      appliesTo: new CouponLimitationConfiguration({
+        planCodes: ['plan1']
+      })
   })
   await client.createCoupon(coupon);
   ```
@@ -123,6 +133,10 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
+      limitationInput := &lago.LimitationInput{
+        PlanCodes:        []string{"code1"}
+      }
+
       couponInput := &lago.CouponInput{
         Name:               "Coupon",
         Code:               "coupon",
@@ -133,7 +147,8 @@ import TabItem from '@theme/TabItem';
         ExpirationAt:       "2022-08-08T23:59:59Z",
         CouponType:         lago.CouponTypeFixedAmount,
         Frequency:          lago.CouponFrequencyRecurring,
-        FrequencyDuration:  3
+        FrequencyDuration:  3,
+        AppliesTo           limitationInput
       }
 
       coupon, err := lagoClient.Coupon().Create(couponInput)
@@ -164,7 +179,10 @@ import TabItem from '@theme/TabItem';
     "coupon_type": "fixed_amount",
     "reusable": true,
     "frequency": "recurring",
-    "frequency_duration": 3
+    "frequency_duration": 3,
+    "applies_to": {
+      "plan_codes": ["code1"]
+    }
   }
 }
 ```
@@ -182,6 +200,7 @@ import TabItem from '@theme/TabItem';
 | frequency | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Frequency type.<br></br>It can be `once` or `recurring` |
 | frequency_duration | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `recurring` frequency type)**</Optional> | This field determines the number of billing periods to which the coupon applies. |
 | percentage_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional (required only for `percentage` coupon type)**</Optional> | Rate of the coupon. |
+| applies_to | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Settings with coupon limitations |
 
 
 ### Deprecated attributes
