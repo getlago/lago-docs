@@ -85,6 +85,48 @@ import TabItem from '@theme/TabItem';
   ```
 
   </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class FindAllPlansExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PlansApi(Configuration.Default);
+            var page = 2;  // int? | Number of page (optional) 
+            var perPage = 20;  // int? | Number of records per page (optional) 
+
+            try
+            {
+                // Find plans
+                Plans result = apiInstance.FindAllPlans(page, perPage);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling PlansApi.FindAllPlans: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

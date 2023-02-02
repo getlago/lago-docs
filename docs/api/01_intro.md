@@ -102,4 +102,37 @@ You must retrieve your API key from your account.
     }
   ```
   </TabItem>
+  <TabItem value="csharp" label="C#">
+
+  **Install package**
+  ```bash
+  nuget pack -Build -OutputDirectory out Org.OpenAPITools.csproj
+  ```
+
+  **Usage**
+
+  ```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public static void Main()
+        {
+
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+        }
+    }
+}
+  ```
+  </TabItem>
+
 </Tabs>

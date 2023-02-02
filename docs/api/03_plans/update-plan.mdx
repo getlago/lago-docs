@@ -468,6 +468,48 @@ standard_charge = Charge(
   ```
 
   </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class UpdatePlanExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PlansApi(Configuration.Default);
+            var code = "example_code";  // string | Code of the existing plan
+            var planInput = new PlanInput(); // PlanInput | Update an existing plan
+
+            try
+            {
+                // Update an existing plan
+                Plan result = apiInstance.UpdatePlan(code, planInput);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling PlansApi.UpdatePlan: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

@@ -104,6 +104,48 @@ curl --location --request PUT "$LAGO_URL/api/v1/credit_notes/__lago_id__" \
   ```
 
   </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class UpdateCreditNoteExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CreditNotesApi(Configuration.Default);
+            var id = "12345";  // string | Id of the existing credit note
+            var creditNoteUpdateInput = new CreditNoteUpdateInput(); // CreditNoteUpdateInput | Update an existing credit note
+
+            try
+            {
+                // Update an existing credit note
+                CreditNote result = apiInstance.UpdateCreditNote(id, creditNoteUpdateInput);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling CreditNotesApi.UpdateCreditNote: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments
