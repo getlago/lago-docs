@@ -17,8 +17,9 @@ To create a coupon through the user interface:
 4. Select the type of coupon (i.e. fixed amount or percentage);
 5. Define its value and frequency (i.e. will be applied once, over several periods or forever);
 6. Choose if the coupon can be applied several times to the same customer account or not;
-7. Choose whether or not to set an expiration date (i.e. date after which the coupon can no longer be redeemed); and
-8. Click **"Add coupon"** to confirm.
+7. Choose whether or not to set an expiration date (i.e. date after which the coupon can no longer be redeemed);
+8. Select the plan(s) to which the coupon applies (applies to all plans by default); and
+9. Click **"Add coupon"** to confirm.
 
 :::info
 The expiration date displayed in the app is based on the [organization's timezone](../../changelog/timezones).
@@ -37,20 +38,33 @@ To apply a coupon to a customer:
 
 You can also apply coupons via the API ([learn more](../api/coupons/apply-coupon)).
 
-:::info
-You can apply several coupons to a customer. However, if a coupon has been marked as non-reusable, you will only be able to apply it once to the customer account, even if it has not been fully consumed.
+You can apply several coupons to a customer. However, if a coupon has been marked as **non-reusable**, you will only be able to apply it once to the customer account, even if it has not been fully consumed.
 
+In addition to this, it is not possible to apply several **coupons that share the same plan limitation(s)**. Consider the following example:
+>Your company offers three plans (A, B and C) and three coupons:
+>
+>- Coupon 1 applies to all plans;
+>- Coupon 2 only applies to plan A; and
+>- Coupon 3 only applies to plans A and B.
+>
+>Since coupon 1 has no limitation, you can apply coupons 1 and 2 (or 1 and 3) to the customer account.
+>
+>However, since coupons 2 and 3 share the same limitation related to plan A, they cannot be applied jointly to the customer account.
+
+:::info
 A coupon applied to a customer continues to apply beyond the expiration date.
 :::
 
 ## Application scope
-**Coupons are deducted from the total amount of the following invoice(s)**, including subscription fees and charges. As mentioned previously, the value of the coupon is deducted from the amount of the invoice after tax.
+**Coupons are deducted from the total amount of the future invoice(s)**, including subscription fees and charges. As mentioned previously, the value of the coupon is deducted from the amount of the invoice after tax.
 
 For coupons whose value is a fixed amount:
-- When the coupon only applies once and its value is higher than the invoice amount, the remaining unused amount will be applied to the following invoices, until the coupon is totally consumed or removed; and
-- When the coupon is recurring and its value is higher than the invoice amount, any remaining unused amount will be lost, even if it is the last application period.
+- When **the coupon only applies once** and its value is higher than the invoice amount, the remaining unused amount will be applied to the following invoices, until the coupon is totally consumed or removed; and
+- When **the coupon is recurring** and its value is higher than the invoice amount, any remaining unused amount will be lost, even if it is the last application period.
 
-When several coupons are applied to the customer account, they will be deducted according to the date on which they were applied: **the coupon that was applied first will be deducted first**.
+When several coupons are applied to the customer account, they will be deducted according to the following rules:
+- **Coupons limited to specific plans** will be deducted first (if any, and if there is at least one subscription associated with the relevant plan); and
+- **Coupons that apply to all plans** will be deducted according to the date on which they were applied (i.e. the coupon that was applied first will be deducted first).
 
 You can see the remaining value / number of remaining periods for each coupon in the **"Overview"** tab of the customer view.
 
