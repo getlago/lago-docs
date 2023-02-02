@@ -57,6 +57,47 @@ import TabItem from '@theme/TabItem';
   await client.findEvent('transactionId');
   ```
   </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class FindEventExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new EventsApi(Configuration.Default);
+            var id = 12345;  // string | Id of the existing transaction
+
+            try
+            {
+                // Find event by transaction ID
+                Event result = apiInstance.FindEvent(id);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling EventsApi.FindEvent: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+  ```
+  </TabItem>
+
 </Tabs>
 
 ## Responses
