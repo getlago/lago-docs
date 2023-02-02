@@ -103,6 +103,48 @@ import TabItem from '@theme/TabItem';
   ```
 
   </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class UpdateWalletExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new WalletsApi(Configuration.Default);
+            var id = 321da83c-c007-4fbb-afcd-b00c07c41ssd;  // string | Lago ID of the existing wallet
+            var walletUpdateInput = new WalletUpdateInput(); // WalletUpdateInput | Update an existing wallet
+
+            try
+            {
+                // Update an existing wallet
+                Wallet result = apiInstance.UpdateWallet(id, walletUpdateInput);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling WalletsApi.UpdateWallet: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments
