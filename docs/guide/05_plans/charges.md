@@ -17,7 +17,7 @@ You can add charges to a plan by calling an existing billable metric. These "pay
 There are several price models available for charges (see below).
 
 ## Number of decimals
-Lago allows you create charges with up to five decimals (e.g. $0.00012).
+Lago allows you create charges with up to fifteen decimals (e.g. $0.000123456789123).
 
 Please note that charges are invoiced in `amount_cents`. Therefore, Lago automatically rounds prices (e.g. USD 1102 `amount_cents` = $11.02).
 
