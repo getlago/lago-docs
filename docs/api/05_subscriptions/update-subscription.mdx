@@ -113,6 +113,34 @@ namespace Example
 }
   ```
   </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\SubscriptionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$external_id = "example_id"; // string | External ID of the existing subscription
+$subscription_update_input = new \OpenAPI\Client\Model\SubscriptionUpdateInput(); // \OpenAPI\Client\Model\SubscriptionUpdateInput | Update an existing subscription
+
+try {
+    $result = $apiInstance->updateSubscription($external_id, $subscription_update_input);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SubscriptionsApi->updateSubscription: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+  </TabItem>
 </Tabs>
 
 ## Arguments
