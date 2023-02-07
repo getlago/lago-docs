@@ -181,6 +181,33 @@ namespace Example
   ```
 
   </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\EventsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$event_input = new \OpenAPI\Client\Model\EventInput(); // \OpenAPI\Client\Model\EventInput | Event payload
+
+try {
+    $apiInstance->createEvent($event_input);
+} catch (Exception $e) {
+    echo 'Exception when calling EventsApi->createEvent: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments
