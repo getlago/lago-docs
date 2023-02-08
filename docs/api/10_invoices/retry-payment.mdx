@@ -125,6 +125,34 @@ namespace Example
   ```
 
   </TabItem>
+
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "183da83c-c007-4fbb-afcd-b00c07c41ffe"; // string | ID of the existing Lago Invoice
+
+try {
+    $apiInstance->retryPayment($id);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoicesApi->retryPayment: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Responses
