@@ -37,6 +37,7 @@ This event flow enables Lago to understand the full activation flow, from the re
 - `credit_note_issued`: when a new credit note is issued for a customer
 - `billable_metric_deleted`: when a billable metric is deleted
 - `plan_deleted`: when a plan is deleted
+- `customer_deleted`: when a customer account is deleted
 
 ## Detail of data collected about your organization
 By default, we collect data of your organization that you used in the signup form:
