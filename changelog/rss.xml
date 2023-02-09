@@ -4,11 +4,19 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Thu, 26 Jan 2023 15:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 02 Feb 2023 12:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2023 Lago.</copyright>
+        <item>
+            <title><![CDATA[Coupons limited to specific plans]]></title>
+            <link>https://getlago.com/changelog/coupons-plans</link>
+            <guid>/coupons-plans</guid>
+            <pubDate>Thu, 02 Feb 2023 12:00:00 GMT</pubDate>
+            <description><![CDATA[We have added a new option to the coupon settings: it is now possible to limit the application scope of a coupon to specific plans.]]></description>
+            <content:encoded><![CDATA[<p>We have added a new option to the coupon settings: it is now possible to limit the application scope of a coupon to specific plans.</p><p>By default, coupons apply to all plans but when creating a new coupon, you can define the list of plans to which the coupon applies.</p><p>This feature is related to the <code>plan_codes</code> attribute of the <code>coupon</code> object (<a href="/docs/api/coupons/create-coupon">see API documentation</a>).</p><p>Please refer to <a href="/docs/guide/coupons">the guide</a> for more information on coupons.</p><p><img loading="lazy" alt="Coupon limitations" src="/assets/images/coupons-plans-9e4d4c39236c774b0dfdadced14b7fc6.png" width="1634" height="948" class="img_ev3q"></p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Search bar]]></title>
             <link>https://getlago.com/changelog/search-bar</link>
