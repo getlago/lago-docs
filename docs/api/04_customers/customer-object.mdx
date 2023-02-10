@@ -76,7 +76,7 @@ It lets you create a customer, but also track usage and create invoices for the 
 | Attributes | Description |
 | -----------| ----------- |
 | invoice_grace_period &nbsp &nbsp <Type>Integer</Type> | Grace period in days for the invoice (time between the end of the period and the closing of the invoice). |
-| payment_provider &nbsp &nbsp <Type>String</Type> | Payment provider used to bill the customer. <details><summary>**Possible values**</summary><div>- `stripe`: Use stripe as a payment provider.<br></br>- null: No payment providers. Only webhooks will be send to process customer billing.<div></div></div></details> |
+| payment_provider &nbsp &nbsp <Type>String</Type> | Payment provider used to bill the customer. <details><summary>**Possible values**</summary><div>- `stripe`: Use Stripe as the payment provider.<br></br>- `gocardless`: Use GoCardless as the payment provider.<br></br>- `null`: No payment providers. Payments processed using Lago's webhooks.<div></div></div></details> |
 | provider_customer_id &nbsp &nbsp <Type>String</Type> | Customer ID on the payment provider. |
 | vat_rate &nbsp &nbsp <Type>Float</Type> | Custom VAT rate applied to the customer. |
 | sync_with_provider  &nbsp &nbsp <Type>Boolean</Type> | Field that determines whether to create customer in payment provider or not. |
