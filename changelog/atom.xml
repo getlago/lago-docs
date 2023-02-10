@@ -10,7 +10,7 @@
     <rights>Copyright © 2023 Lago.</rights>
     <entry>
         <title type="html"><![CDATA[Coupons limited to specific plans]]></title>
-        <id>/coupons-plans</id>
+        <id>https://getlago.com/changelog/coupons-plans</id>
         <link href="https://getlago.com/changelog/coupons-plans"/>
         <updated>2023-02-02T12:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have added a new option to the coupon settings: it is now possible to limit the application scope of a coupon to specific plans.]]></summary>
@@ -18,7 +18,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Search bar]]></title>
-        <id>/search-bar</id>
+        <id>https://getlago.com/changelog/search-bar</id>
         <link href="https://getlago.com/changelog/search-bar"/>
         <updated>2023-01-26T15:00:00.000Z</updated>
         <summary type="html"><![CDATA[Tired of scrolling through an endless list to find the customer your are looking for? We understand that.]]></summary>
@@ -26,7 +26,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Coupons that apply forever]]></title>
-        <id>/coupons-forever</id>
+        <id>https://getlago.com/changelog/coupons-forever</id>
         <link href="https://getlago.com/changelog/coupons-forever"/>
         <updated>2023-01-26T14:00:00.000Z</updated>
         <summary type="html"><![CDATA[When creating a coupon, through the user interface or the API, it is now possible to select the forever frequency.]]></summary>
@@ -34,7 +34,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Payment retries]]></title>
-        <id>/payment-retries</id>
+        <id>https://getlago.com/changelog/payment-retries</id>
         <link href="https://getlago.com/changelog/payment-retries"/>
         <updated>2023-01-17T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have added the ability to resend payments for collection.]]></summary>
@@ -42,7 +42,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Grace period ✨]]></title>
-        <id>/grace-period</id>
+        <id>https://getlago.com/changelog/grace-period</id>
         <link href="https://getlago.com/changelog/grace-period"/>
         <updated>2023-01-12T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[This feature is only available to users with a premium license. Please contact us to get access to Lago Cloud and Lago Self-Hosted Premium.]]></summary>
@@ -50,7 +50,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Invoice list]]></title>
-        <id>/invoice-list</id>
+        <id>https://getlago.com/changelog/invoice-list</id>
         <link href="https://getlago.com/changelog/invoice-list"/>
         <updated>2023-01-12T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have added a new "Invoices" section, which allows you to access the list of invoices.]]></summary>
@@ -58,7 +58,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Credit notes ✨]]></title>
-        <id>/credit-notes</id>
+        <id>https://getlago.com/changelog/credit-notes</id>
         <link href="https://getlago.com/changelog/credit-notes"/>
         <updated>2023-01-10T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[Lago may automatically generate a credit note when a subscription is upgraded or downgraded. However, only users with a premium license can manually generate credit notes via the user interface or the API. Please contact us to get access to Lago Cloud and Lago Self-Hosted Premium.]]></summary>
@@ -66,7 +66,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Timezones ✨]]></title>
-        <id>/timezones</id>
+        <id>https://getlago.com/changelog/timezones</id>
         <link href="https://getlago.com/changelog/timezones"/>
         <updated>2023-01-10T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[This feature is only available to users with a premium license. Please contact us to get access to Lago Cloud and Lago Self-Hosted Premium.]]></summary>
@@ -74,7 +74,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Lago Open API]]></title>
-        <id>/open-api</id>
+        <id>https://getlago.com/changelog/open-api</id>
         <link href="https://getlago.com/changelog/open-api"/>
         <updated>2022-12-13T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have developed an Open API to help you get started with Lago and make it easier to test our solution.]]></summary>
@@ -82,7 +82,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Invoice payment status]]></title>
-        <id>/invoice-payment-status</id>
+        <id>https://getlago.com/changelog/invoice-payment-status</id>
         <link href="https://getlago.com/changelog/invoice-payment-status"/>
         <updated>2022-12-08T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[As we are making progress on the grace period feature, which will allow you to review invoices before they are sent to customers, we have introduced changes to the API to add new invoice management options.]]></summary>
@@ -90,7 +90,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[New calculation method for invoices]]></title>
-        <id>/invoice-calculation-method</id>
+        <id>https://getlago.com/changelog/invoice-calculation-method</id>
         <link href="https://getlago.com/changelog/invoice-calculation-method"/>
         <updated>2022-12-08T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[In preparation for the release of the credit note feature and based on feedback from accountants, we have introduced changes to the way coupons and prepaid credits are taken into account in the calculation of invoices.]]></summary>
@@ -98,7 +98,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Apply several coupons]]></title>
-        <id>/coupons-v3</id>
+        <id>https://getlago.com/changelog/coupons-v3</id>
         <link href="https://getlago.com/changelog/coupons-v3"/>
         <updated>2022-11-21T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[You can now apply several coupons to a customer account.]]></summary>
@@ -106,7 +106,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Integration with GoCardless]]></title>
-        <id>/gocardless-integration</id>
+        <id>https://getlago.com/changelog/gocardless-integration</id>
         <link href="https://getlago.com/changelog/gocardless-integration"/>
         <updated>2022-11-18T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[Lago now offers native integration with GoCardless, including (but not limited to):]]></summary>
@@ -114,7 +114,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Dimensions for grouping events]]></title>
-        <id>/dimensions</id>
+        <id>https://getlago.com/changelog/dimensions</id>
         <link href="https://getlago.com/changelog/dimensions"/>
         <updated>2022-11-10T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[When creating a new billable metric, you can define dimensions that will be used to group events according to their properties.]]></summary>
@@ -122,7 +122,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Invoice details]]></title>
-        <id>/invoice-details</id>
+        <id>https://getlago.com/changelog/invoice-details</id>
         <link href="https://getlago.com/changelog/invoice-details"/>
         <updated>2022-11-10T09:00:00.000Z</updated>
         <summary type="html"><![CDATA[To review the invoice details through the user interface:]]></summary>
@@ -130,7 +130,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Past and future subscription dates]]></title>
-        <id>/subscription-date</id>
+        <id>https://getlago.com/changelog/subscription-date</id>
         <link href="https://getlago.com/changelog/subscription-date"/>
         <updated>2022-10-13T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[It is now possible to set a start date in the past or in the future for a new subscription.]]></summary>
@@ -138,7 +138,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Enhanced coupon model]]></title>
-        <id>/coupons-v2</id>
+        <id>https://getlago.com/changelog/coupons-v2</id>
         <link href="https://getlago.com/changelog/coupons-v2"/>
         <updated>2022-10-07T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have improved the coupon model to offer more flexibility.]]></summary>
@@ -146,7 +146,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Customer currency]]></title>
-        <id>/customer-currency</id>
+        <id>https://getlago.com/changelog/customer-currency</id>
         <link href="https://getlago.com/changelog/customer-currency"/>
         <updated>2022-10-06T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[It is now possible to define the currency at customer level.]]></summary>
@@ -154,7 +154,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Error management]]></title>
-        <id>/error-management</id>
+        <id>https://getlago.com/changelog/error-management</id>
         <link href="https://getlago.com/changelog/error-management"/>
         <updated>2022-10-06T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have refactored the error management system to give more visibility to API users.]]></summary>
@@ -162,7 +162,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Overwrite plans]]></title>
-        <id>/overwrite-plans</id>
+        <id>https://getlago.com/changelog/overwrite-plans</id>
         <link href="https://getlago.com/changelog/overwrite-plans"/>
         <updated>2022-09-23T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[If after a negotiation phase, you need to create a custom plan for an important customer, you can use the 'overwrite' feature, available through the user interface.]]></summary>
@@ -170,7 +170,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Invite members]]></title>
-        <id>/invite-members</id>
+        <id>https://getlago.com/changelog/invite-members</id>
         <link href="https://getlago.com/changelog/invite-members"/>
         <updated>2022-09-23T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[You can now invite your teammates to join your Lago account.]]></summary>
@@ -178,7 +178,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Recurring count]]></title>
-        <id>/recurring-count</id>
+        <id>https://getlago.com/changelog/recurring-count</id>
         <link href="https://getlago.com/changelog/recurring-count"/>
         <updated>2022-09-08T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[Companies with fair and transparent pricing models are often praised by customers. If you are considering implementing seat-based pricing for instance, the reccuring_count aggregation is exactly what you need.]]></summary>
@@ -186,7 +186,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[API changes - External IDs]]></title>
-        <id>/external-ids</id>
+        <id>https://getlago.com/changelog/external-ids</id>
         <link href="https://getlago.com/changelog/external-ids"/>
         <updated>2022-09-07T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[We are introducing changes to the API that will make it easier to manage subscriptions:]]></summary>
@@ -194,7 +194,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Prepaid credits]]></title>
-        <id>/prepaid-credits</id>
+        <id>https://getlago.com/changelog/prepaid-credits</id>
         <link href="https://getlago.com/changelog/prepaid-credits"/>
         <updated>2022-09-01T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[Unlock recurring revenue opportunities for pay-as-you-go pricing models with Lago's prepaid credit features:]]></summary>
@@ -202,7 +202,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Volume charge model]]></title>
-        <id>/volume-charge-model</id>
+        <id>https://getlago.com/changelog/volume-charge-model</id>
         <link href="https://getlago.com/changelog/volume-charge-model"/>
         <updated>2022-08-31T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[The new volume charge model allows you to create a tiered pricing structure and then calculate a unit price that applies to all units depending on total volume.]]></summary>
@@ -210,7 +210,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Anniversary dates for subscriptions]]></title>
-        <id>/anniversary-date</id>
+        <id>https://getlago.com/changelog/anniversary-date</id>
         <link href="https://getlago.com/changelog/anniversary-date"/>
         <updated>2022-08-23T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[When assigning a plan to a customer, you can now choose whether the subscription should be renewed at the beginning of the period or on its anniversary date.]]></summary>
@@ -218,7 +218,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Free units for the percentage charge model]]></title>
-        <id>/free-units-percentage-model</id>
+        <id>https://getlago.com/changelog/free-units-percentage-model</id>
         <link href="https://getlago.com/changelog/free-units-percentage-model"/>
         <updated>2022-08-23T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have released an enhanced version of the percentage charge model, including:]]></summary>
@@ -226,7 +226,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Multiple plans]]></title>
-        <id>/multiple-plans</id>
+        <id>https://getlago.com/changelog/multiple-plans</id>
         <link href="https://getlago.com/changelog/multiple-plans"/>
         <updated>2022-08-08T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[It is now possible to assign multiple plans to a customer (e.g. if your customer needs to create several workspaces on your platform, you can link a plan to each workspace).]]></summary>
@@ -234,7 +234,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Tracking & Analytics]]></title>
-        <id>/tracking</id>
+        <id>https://getlago.com/changelog/tracking</id>
         <link href="https://getlago.com/changelog/tracking"/>
         <updated>2022-08-08T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[To help us better understand your needs, we have added a tracking module to the self-hosted version of Lago.]]></summary>
@@ -242,7 +242,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Go client]]></title>
-        <id>/go-client</id>
+        <id>https://getlago.com/changelog/go-client</id>
         <link href="https://getlago.com/changelog/go-client"/>
         <updated>2022-08-04T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have added a new API client to make it easier for Go users to set up their billing system with Lago.]]></summary>
@@ -250,7 +250,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Released new API endpoints]]></title>
-        <id>/new-api-endpoints</id>
+        <id>https://getlago.com/changelog/new-api-endpoints</id>
         <link href="https://getlago.com/changelog/new-api-endpoints"/>
         <updated>2022-07-13T18:00:00.000Z</updated>
         <summary type="html"><![CDATA[We like our users when they use our nice and clean UI, but we also love when they use our API. One of the usecase could be to use Lago as a white-labeled solution.]]></summary>
@@ -258,7 +258,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[App version]]></title>
-        <id>/app-version</id>
+        <id>https://getlago.com/changelog/app-version</id>
         <link href="https://getlago.com/changelog/app-version"/>
         <updated>2022-07-13T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[It is now possible to check the version of the Lago application you are using.]]></summary>
@@ -266,7 +266,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Customer current usage]]></title>
-        <id>/current-usage</id>
+        <id>https://getlago.com/changelog/current-usage</id>
         <link href="https://getlago.com/changelog/current-usage"/>
         <updated>2022-07-13T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[Current Usage]]></summary>
@@ -274,7 +274,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[PDF invoices]]></title>
-        <id>/download-invoices</id>
+        <id>https://getlago.com/changelog/download-invoices</id>
         <link href="https://getlago.com/changelog/download-invoices"/>
         <updated>2022-07-13T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[Lago will generate a PDF file for each new invoice.]]></summary>
@@ -282,7 +282,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Integration with Stripe Payments]]></title>
-        <id>/stripe-integration</id>
+        <id>https://getlago.com/changelog/stripe-integration</id>
         <link href="https://getlago.com/changelog/stripe-integration"/>
         <updated>2022-07-04T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[Lago now offers native integration with Stripe, including (but not limited to):]]></summary>
@@ -290,7 +290,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Weekly plan interval]]></title>
-        <id>/weekly-interval</id>
+        <id>https://getlago.com/changelog/weekly-interval</id>
         <link href="https://getlago.com/changelog/weekly-interval"/>
         <updated>2022-07-04T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[When setting up a plan, you can select the weekly interval to define a weekly billing period.]]></summary>
@@ -298,7 +298,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Invoice monthly charges for a plan paid yearly]]></title>
-        <id>/billable-metric-monthly-for-plan-yearly</id>
+        <id>https://getlago.com/changelog/billable-metric-monthly-for-plan-yearly</id>
         <link href="https://getlago.com/changelog/billable-metric-monthly-for-plan-yearly"/>
         <updated>2022-06-13T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[Before the release of this feature, usaged-based features (charges) were following the plan period. If the plan period was invoiced yearly, the charges were invoiced yearly.]]></summary>
@@ -306,7 +306,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Percentage charge model]]></title>
-        <id>/percentage-charge-model</id>
+        <id>https://getlago.com/changelog/percentage-charge-model</id>
         <link href="https://getlago.com/changelog/percentage-charge-model"/>
         <updated>2022-06-13T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[Inside the plan, when creating a charge, you can now select the percentage charge model.]]></summary>
@@ -314,7 +314,7 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Event debugger]]></title>
-        <id>/event-debugger</id>
+        <id>https://getlago.com/changelog/event-debugger</id>
         <link href="https://getlago.com/changelog/event-debugger"/>
         <updated>2022-06-10T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[You are now able to view all the ingested events sent from your application to Lago.]]></summary>
@@ -323,7 +323,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
     </entry>
     <entry>
         <title type="html"><![CDATA[Add-ons]]></title>
-        <id>/ftr-addons</id>
+        <id>https://getlago.com/changelog/ftr-addons</id>
         <link href="https://getlago.com/changelog/ftr-addons"/>
         <updated>2022-06-06T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.]]></summary>
@@ -331,7 +331,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
     </entry>
     <entry>
         <title type="html"><![CDATA[Pay-as-you-go template]]></title>
-        <id>/template-algolia</id>
+        <id>https://getlago.com/changelog/template-algolia</id>
         <link href="https://getlago.com/changelog/template-algolia"/>
         <updated>2022-06-03T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[We've added a new template to our collection: click here to learn how to replicate Algolia's pay-as-you-go pricing.]]></summary>
@@ -339,7 +339,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
     </entry>
     <entry>
         <title type="html"><![CDATA[Coupons]]></title>
-        <id>/ftr-coupons</id>
+        <id>https://getlago.com/changelog/ftr-coupons</id>
         <link href="https://getlago.com/changelog/ftr-coupons"/>
         <updated>2022-06-02T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[Introducing coupons, a new feature that allows you to offer discounts to your customers.]]></summary>
@@ -347,7 +347,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
     </entry>
     <entry>
         <title type="html"><![CDATA[Subscription changes]]></title>
-        <id>/subscription-changes</id>
+        <id>https://getlago.com/changelog/subscription-changes</id>
         <link href="https://getlago.com/changelog/subscription-changes"/>
         <updated>2022-05-24T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[You can now modify the subscription assigned to a customer through the user interface.]]></summary>
@@ -355,7 +355,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
     </entry>
     <entry>
         <title type="html"><![CDATA[Package pricing for charges]]></title>
-        <id>/package-pricing</id>
+        <id>https://getlago.com/changelog/package-pricing</id>
         <link href="https://getlago.com/changelog/package-pricing"/>
         <updated>2022-05-18T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[It is now possible to apply a package pricing model to a charge. To do so:]]></summary>

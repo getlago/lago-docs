@@ -12,7 +12,7 @@
         <item>
             <title><![CDATA[Coupons limited to specific plans]]></title>
             <link>https://getlago.com/changelog/coupons-plans</link>
-            <guid>/coupons-plans</guid>
+            <guid>https://getlago.com/changelog/coupons-plans</guid>
             <pubDate>Thu, 02 Feb 2023 12:00:00 GMT</pubDate>
             <description><![CDATA[We have added a new option to the coupon settings: it is now possible to limit the application scope of a coupon to specific plans.]]></description>
             <content:encoded><![CDATA[<p>We have added a new option to the coupon settings: it is now possible to limit the application scope of a coupon to specific plans.</p><p>By default, coupons apply to all plans but when creating a new coupon, you can define the list of plans to which the coupon applies.</p><p>This feature is related to the <code>plan_codes</code> attribute of the <code>coupon</code> object (<a href="/docs/api/coupons/create-coupon">see API documentation</a>).</p><p>Please refer to <a href="/docs/guide/coupons">the guide</a> for more information on coupons.</p><p><img loading="lazy" alt="Coupon limitations" src="/assets/images/coupons-plans-9e4d4c39236c774b0dfdadced14b7fc6.png" width="1634" height="948" class="img_ev3q"></p>]]></content:encoded>
@@ -20,7 +20,7 @@
         <item>
             <title><![CDATA[Search bar]]></title>
             <link>https://getlago.com/changelog/search-bar</link>
-            <guid>/search-bar</guid>
+            <guid>https://getlago.com/changelog/search-bar</guid>
             <pubDate>Thu, 26 Jan 2023 15:00:00 GMT</pubDate>
             <description><![CDATA[Tired of scrolling through an endless list to find the customer your are looking for? We understand that.]]></description>
             <content:encoded><![CDATA[<p>Tired of scrolling through an endless list to find the customer your are looking for? We understand that.</p><p>We have added a search functionality to the user interface to make it easier to find metrics, plans, customers, invoices, etc.</p><p><img loading="lazy" alt="Search bar in the user interface" src="/assets/images/search-bar-f4d0063763ceed058f3dba46ac19862b.png" width="2880" height="818" class="img_ev3q"></p>]]></content:encoded>
@@ -28,7 +28,7 @@
         <item>
             <title><![CDATA[Coupons that apply forever]]></title>
             <link>https://getlago.com/changelog/coupons-forever</link>
-            <guid>/coupons-forever</guid>
+            <guid>https://getlago.com/changelog/coupons-forever</guid>
             <pubDate>Thu, 26 Jan 2023 14:00:00 GMT</pubDate>
             <description><![CDATA[When creating a coupon, through the user interface or the API, it is now possible to select the forever frequency.]]></description>
             <content:encoded><![CDATA[<p>When creating a coupon, through the <a href="/docs/guide/coupons">user interface</a> or the <a href="/docs/api/coupons/create-coupon">API</a>, it is now possible to select the <code>forever</code> frequency.</p><p>Coupons with the <code>forever</code> frequency apply to all subscription invoices, regardless of the number of subscription invoices generated in a given period.</p><div class="theme-admonition theme-admonition-info alert alert--info admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_S0QG"><p>The value of the coupon is deducted from the amount of the invoice after tax.</p><p>Coupons do not apply to add-ons or any other one-off charges.</p></div></div><p><img loading="lazy" alt="Coupon that apply forever" src="/assets/images/coupons-forever-04065a9a516010c48b334d6debd3d953.png" width="1630" height="1098" class="img_ev3q"></p>]]></content:encoded>
@@ -36,7 +36,7 @@
         <item>
             <title><![CDATA[Payment retries]]></title>
             <link>https://getlago.com/changelog/payment-retries</link>
-            <guid>/payment-retries</guid>
+            <guid>https://getlago.com/changelog/payment-retries</guid>
             <pubDate>Tue, 17 Jan 2023 10:00:00 GMT</pubDate>
             <description><![CDATA[We have added the ability to resend payments for collection.]]></description>
             <content:encoded><![CDATA[<p>We have added the ability to resend payments for collection.</p><p>This new feature is available to all users:</p><ul><li>Through the user interface (<a href="/docs/guide/payments/payment-retries">learn more</a>); and</li><li>Through the API (<a href="/docs/api/invoices/retry-payment">learn more</a>).</li></ul><p><img loading="lazy" alt="Payment retry via the invoice list" src="/assets/images/retry-payment-a34e7670c5465cd86eb660502b3aa4ce.png" width="2880" height="1566" class="img_ev3q"></p>]]></content:encoded>
@@ -44,7 +44,7 @@
         <item>
             <title><![CDATA[Grace period ✨]]></title>
             <link>https://getlago.com/changelog/grace-period</link>
-            <guid>/grace-period</guid>
+            <guid>https://getlago.com/changelog/grace-period</guid>
             <pubDate>Thu, 12 Jan 2023 11:00:00 GMT</pubDate>
             <description><![CDATA[This feature is only available to users with a premium license. Please contact us to get access to Lago Cloud and Lago Self-Hosted Premium.]]></description>
             <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Premium feature</div><div class="admonitionContent_S0QG"><p>This feature is only available to users with a premium license. Please <strong><a href="mailto:hello@getlago.com" target="_blank" rel="noopener noreferrer">contact us</a></strong> to get access to Lago Cloud and Lago Self-Hosted Premium.</p></div></div><p>If at the end of the billing period, you want to review the invoices before sending them to customers for payment, you can define a <a href="/docs/guide/invoicing/grace-period">grace period</a>.</p><p>During the grace period, invoices are in <code>draft</code> status and can be modified. Available actions include:</p><ul><li><strong>Adding usage records</strong> by sending events with a <code>timestamp</code> within the relevant billing period;</li><li><strong>Applying coupons</strong> to the customer's account; and</li><li><strong>Adding credits</strong> to the customer's wallet and credit note wallet.</li></ul><p>When the grace period expires, invoices are automatically <code>finalized</code> (they can no longer be edited), which triggers the <code>invoice.created</code> <a href="/docs/api/webhooks/messages">webhook</a>. You can also finalize invoices manually.</p><p>The organization's grace period applies to all customers by default, but it can be overwritten by the customer's grace period.</p>]]></content:encoded>
@@ -52,7 +52,7 @@
         <item>
             <title><![CDATA[Invoice list]]></title>
             <link>https://getlago.com/changelog/invoice-list</link>
-            <guid>/invoice-list</guid>
+            <guid>https://getlago.com/changelog/invoice-list</guid>
             <pubDate>Thu, 12 Jan 2023 10:00:00 GMT</pubDate>
             <description><![CDATA[We have added a new "Invoices" section, which allows you to access the list of invoices.]]></description>
             <content:encoded><![CDATA[<p>We have added a new <strong>"Invoices"</strong> section, which allows you to access the list of invoices.</p><p>Invoices are filtered according to their status (i.e. <code>draft</code> or <code>finalized</code>) and according to their payment status (i.e. <code>succeeded</code>, <code>pending</code> or <code>failed</code>).</p><p>The same filters can be applied when <a href="/docs/api/invoices/get-all-invoices">retrieving invoices via the API</a>.</p><p><img loading="lazy" alt="Invoice list in the app" src="/assets/images/invoice-list-4f26d1a19b456f9969ebfbda3228af2e.png" width="2880" height="1572" class="img_ev3q"></p>]]></content:encoded>
@@ -60,7 +60,7 @@
         <item>
             <title><![CDATA[Credit notes ✨]]></title>
             <link>https://getlago.com/changelog/credit-notes</link>
-            <guid>/credit-notes</guid>
+            <guid>https://getlago.com/changelog/credit-notes</guid>
             <pubDate>Tue, 10 Jan 2023 11:00:00 GMT</pubDate>
             <description><![CDATA[Lago may automatically generate a credit note when a subscription is upgraded or downgraded. However, only users with a premium license can manually generate credit notes via the user interface or the API. Please contact us to get access to Lago Cloud and Lago Self-Hosted Premium.]]></description>
             <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Premium feature</div><div class="admonitionContent_S0QG"><p>Lago may automatically generate a credit note when a subscription is upgraded or downgraded. However, only users with a premium license can manually generate credit notes via the user interface or the API. Please <strong><a href="mailto:hello@getlago.com" target="_blank" rel="noopener noreferrer">contact us</a></strong> to get access to Lago Cloud and Lago Self-Hosted Premium.</p></div></div><p>You can now use your Lago account to issue credit notes for subscription invoices and add-ons.</p><p>Depending on the payment status of the invoice, you will be able to:</p><ul><li>Refund the customer (only for paid invoices); and/or</li><li>Credit back the customer's account.</li></ul><p>Please refer to the <a href="/docs/guide/credit_notes">documentation</a> for more information on credit notes and credit methods.</p>]]></content:encoded>
@@ -68,7 +68,7 @@
         <item>
             <title><![CDATA[Timezones ✨]]></title>
             <link>https://getlago.com/changelog/timezones</link>
-            <guid>/timezones</guid>
+            <guid>https://getlago.com/changelog/timezones</guid>
             <pubDate>Tue, 10 Jan 2023 10:00:00 GMT</pubDate>
             <description><![CDATA[This feature is only available to users with a premium license. Please contact us to get access to Lago Cloud and Lago Self-Hosted Premium.]]></description>
             <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Premium feature</div><div class="admonitionContent_S0QG"><p>This feature is only available to users with a premium license. Please <strong><a href="mailto:hello@getlago.com" target="_blank" rel="noopener noreferrer">contact us</a></strong> to get access to Lago Cloud and Lago Self-Hosted Premium.</p></div></div><p>You can now set the timezone of your organization in the settings of the app. To do so:</p><ol><li>Access the <strong>"Settings"</strong> section via the side menu;</li><li>In the <strong>"Organization"</strong> tab, you will see the current timezone (UTC by default);</li><li>Click <strong>"Edit"</strong>;</li><li>Select a new timezone from the list; and</li><li>Click <strong>"Save timezone"</strong> to confirm.</li></ol><p>It can also be set through the API using this <a href="/docs/api/organizations/update-organization">endpoint</a>.</p><p>The organization's timezone applies to all customers by default and determines when billing periods start and end (i.e. when invoices should be generated). It is also the reference timezone for most views and lists in the app.</p><p>The organization's timezone can be overwritten by the customer's timezone (<a href="/docs/guide/customers#invoicing-a-customer">learn more</a>).</p><div class="theme-admonition theme-admonition-tip alert alert--success admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_S0QG"><p>In the app, you can hover over any date with a dotted underline to see the reference timezones.</p></div></div>]]></content:encoded>
@@ -76,7 +76,7 @@
         <item>
             <title><![CDATA[Lago Open API]]></title>
             <link>https://getlago.com/changelog/open-api</link>
-            <guid>/open-api</guid>
+            <guid>https://getlago.com/changelog/open-api</guid>
             <pubDate>Tue, 13 Dec 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[We have developed an Open API to help you get started with Lago and make it easier to test our solution.]]></description>
             <content:encoded><![CDATA[<p>We have developed an Open API to help you get started with Lago and make it easier to test our solution.</p><p>Please refer to the <a href="/docs/guide/openapi">documentation</a> to learn how to import the Lago Open API into Postman and create a new collection.</p><p>Our <a href="https://github.com/getlago/lago-openapi" target="_blank" rel="noopener noreferrer">public repository</a> is also available on GitHub.</p>]]></content:encoded>
@@ -84,7 +84,7 @@
         <item>
             <title><![CDATA[Invoice payment status]]></title>
             <link>https://getlago.com/changelog/invoice-payment-status</link>
-            <guid>/invoice-payment-status</guid>
+            <guid>https://getlago.com/changelog/invoice-payment-status</guid>
             <pubDate>Thu, 08 Dec 2022 11:00:00 GMT</pubDate>
             <description><![CDATA[As we are making progress on the grace period feature, which will allow you to review invoices before they are sent to customers, we have introduced changes to the API to add new invoice management options.]]></description>
             <content:encoded><![CDATA[<p>As we are making progress on the <a href="https://github.com/getlago/lago/issues/99" target="_blank" rel="noopener noreferrer">grace period feature</a>, which will allow you to review invoices before they are sent to customers, we have introduced changes to the API to add new invoice management options.</p><p>The <a href="/docs/api/invoices/invoice-object">invoice object</a> included a <code>status</code> attribute with three possible values: <code>pending</code>, <code>failed</code> and <code>succeeded</code>. This attribute has been renamed <code>payment_status</code> for accuracy purposes (possible values remains unchanged).</p><p>In addition to this, a new <code>status</code> attribute has been created, including two possible values:</p><ul><li><code>draft</code>: when an invoice has been generated but can still be modified; and</li><li><code>finalized</code>: when the invoice is validated and can no longer be modified.</li></ul><p>All existing invoices are considered as <code>finalized</code>, you will not be able to use the <code>draft</code> status until the grace period feature is deployed (later this month).</p><p>Please contact us at <a href="mailto:hello@getlago.com" target="_blank" rel="noopener noreferrer">hello@getlago.com</a> if you have any questions, we will be happy to help.</p>]]></content:encoded>
@@ -92,7 +92,7 @@
         <item>
             <title><![CDATA[New calculation method for invoices]]></title>
             <link>https://getlago.com/changelog/invoice-calculation-method</link>
-            <guid>/invoice-calculation-method</guid>
+            <guid>https://getlago.com/changelog/invoice-calculation-method</guid>
             <pubDate>Thu, 08 Dec 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[In preparation for the release of the credit note feature and based on feedback from accountants, we have introduced changes to the way coupons and prepaid credits are taken into account in the calculation of invoices.]]></description>
             <content:encoded><![CDATA[<p>In preparation for the release of the <a href="https://github.com/getlago/lago/issues/59" target="_blank" rel="noopener noreferrer">credit note feature</a> and based on feedback from accountants, we have introduced changes to the way coupons and prepaid credits are taken into account in the calculation of invoices.</p><p>Until now, <a href="/docs/guide/coupons">coupons</a> and <a href="/docs/guide/prepaid_credits">prepaid credits</a> were deducted from the amount before tax - for example:</p><div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">CURRENT INVOICE CALCULATION</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-----------------------------</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">All subscriptions = $50</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">All usage-based fees = $20</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Coupons = $10</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Prepaid credits = $30</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-----------------------------</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Subtotal = $30</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Tax (10%) = $3</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Total due = $33</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg class="copyButtonIcon_y97N" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_LjdS" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><p>From now on, <strong>coupons and prepaid credits will be deducted from the amount after tax</strong>.</p><p>Following the previous example:</p><div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">NEW INVOICE CALCULATION</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-----------------------------</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">All subscriptions = $50</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">All usage-based fees = $20</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-----------------------------</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Subtotal (excl. tax) = $70</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Tax (10%) = $7</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-----------------------------</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Subtotal (incl. tax) = $77</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Coupons = $10</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Prepaid credits = $30</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Total due = $37</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg class="copyButtonIcon_y97N" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_LjdS" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><p>In addition to this, credit purchases are now considered as advance payments. Therefore, <strong>the tax rate no longer applies to the purchase of credits</strong>.</p>]]></content:encoded>
@@ -100,7 +100,7 @@
         <item>
             <title><![CDATA[Apply several coupons]]></title>
             <link>https://getlago.com/changelog/coupons-v3</link>
-            <guid>/coupons-v3</guid>
+            <guid>https://getlago.com/changelog/coupons-v3</guid>
             <pubDate>Mon, 21 Nov 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[You can now apply several coupons to a customer account.]]></description>
             <content:encoded><![CDATA[<p>You can now apply several coupons to a customer account.</p><p>When several coupons are applied to a customer, they will be deducted according to the date on which they were applied: the coupon that was applied first will be deducted first.</p><p>The remaining value / number of remaining periods for each coupon will be visible in the <strong>"Overview"</strong> tab of the customer view.</p><p>You can also use <code>GET /api/v1/applied_coupons</code> to retrieve all coupons applied to a customer.</p>]]></content:encoded>
@@ -108,7 +108,7 @@
         <item>
             <title><![CDATA[Integration with GoCardless]]></title>
             <link>https://getlago.com/changelog/gocardless-integration</link>
-            <guid>/gocardless-integration</guid>
+            <guid>https://getlago.com/changelog/gocardless-integration</guid>
             <pubDate>Fri, 18 Nov 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Lago now offers native integration with GoCardless, including (but not limited to):]]></description>
             <content:encoded><![CDATA[<p>Lago now offers native integration with <a href="https://gocardless.com/" target="_blank" rel="noopener noreferrer">GoCardless</a>, including (but not limited to):</p><ul><li>Ability to define GoCardless as the default payment provider for a customer;</li><li>Ability to automatically create Lago customers in GoCardless and retrieve their customer ID;</li><li>Ability to automatically collect payments via direct debit;</li><li>Ability to automatically update the status of an invoice depending on the payment status; and</li><li>Ability to automatically resubmit failed payments with <a href="https://gocardless.com/solutions/success-plus/" target="_blank" rel="noopener noreferrer">GoCardless Success+</a>.</li></ul><p>To learn more about this integration, please <a href="/docs/guide/payments/gocardless-integration">consult our guide</a>.</p>]]></content:encoded>
@@ -116,7 +116,7 @@
         <item>
             <title><![CDATA[Dimensions for grouping events]]></title>
             <link>https://getlago.com/changelog/dimensions</link>
-            <guid>/dimensions</guid>
+            <guid>https://getlago.com/changelog/dimensions</guid>
             <pubDate>Thu, 10 Nov 2022 11:00:00 GMT</pubDate>
             <description><![CDATA[When creating a new billable metric, you can define dimensions that will be used to group events according to their properties.]]></description>
             <content:encoded><![CDATA[<p>When creating a new billable metric, you can define dimensions that will be used to group events according to their properties.</p><p>For example, if you want to charge your customers for compute capacity according to the cloud provider and server region, you can create a <code>compute</code> billable metric with two dimensions (<a href="/docs/guide/billable-metrics/dimensions">learn more</a>).</p><p>Changes to the API include:</p><ul><li>Ability to add a <code>group</code> parameter with one or two dimensions when <a href="/docs/api/billable_metrics/create-billable-metric">creating</a> or <a href="/docs/api/billable_metrics/update-billable-metric">updating</a> billable metrics;</li><li>Ability to <a href="/docs/api/billable_metrics/get-all-groups">retrieve the groups</a> associated with a billable metric;</li><li>Ability to add a <code>group_properties</code> parameter when <a href="/docs/api/plans/create-plan">creating</a> or <a href="/docs/api/plans/update-plan">updating</a> a plan;</li><li>Ability to retrieve <a href="/docs/api/customer_usage/customer-usage-object">customer usage</a> by group; and</li><li>New <code>lago_group_id</code> for fees (see <a href="/docs/api/invoices/invoice-object">invoice object</a>).</li></ul>]]></content:encoded>
@@ -124,7 +124,7 @@
         <item>
             <title><![CDATA[Invoice details]]></title>
             <link>https://getlago.com/changelog/invoice-details</link>
-            <guid>/invoice-details</guid>
+            <guid>https://getlago.com/changelog/invoice-details</guid>
             <pubDate>Thu, 10 Nov 2022 09:00:00 GMT</pubDate>
             <description><![CDATA[To review the invoice details through the user interface:]]></description>
             <content:encoded><![CDATA[<p>To review the invoice details through the user interface:</p><ol><li>Go to the <strong>"Customers"</strong> section;</li><li>Select a customer to open the customer view;</li><li>Open the <strong>"Invoices"</strong> tab; and</li><li>Click the invoice to see its details.</li></ol><p>On the details page, you can download the invoice in PDF format and copy the invoice ID through the <strong>"Actions"</strong> dropdown in the upper right corner.</p><p><img loading="lazy" alt="Invoice details in the user interface" src="/assets/images/invoice-details-cb0ed4614f3491b48e476c8e4ca63396.png" width="2456" height="1476" class="img_ev3q"></p>]]></content:encoded>
@@ -132,7 +132,7 @@
         <item>
             <title><![CDATA[Past and future subscription dates]]></title>
             <link>https://getlago.com/changelog/subscription-date</link>
-            <guid>/subscription-date</guid>
+            <guid>https://getlago.com/changelog/subscription-date</guid>
             <pubDate>Thu, 13 Oct 2022 11:00:00 GMT</pubDate>
             <description><![CDATA[It is now possible to set a start date in the past or in the future for a new subscription.]]></description>
             <content:encoded><![CDATA[<p>It is now possible to set a start date in the past or in the future for a new subscription.</p><p>Setting a start date in the past can be useful when migrating existing customers to Lago, while setting a start date in the future can be useful for scheduling upcoming subscriptions.</p><p>For more information about the impact of the start date on the invoicing process, please refer to <a href="/docs/guide/plans/subscription#subscription-date">the documentation</a>.</p>]]></content:encoded>
@@ -140,7 +140,7 @@
         <item>
             <title><![CDATA[Enhanced coupon model]]></title>
             <link>https://getlago.com/changelog/coupons-v2</link>
-            <guid>/coupons-v2</guid>
+            <guid>https://getlago.com/changelog/coupons-v2</guid>
             <pubDate>Fri, 07 Oct 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[We have improved the coupon model to offer more flexibility.]]></description>
             <content:encoded><![CDATA[<p>We have improved the coupon model to offer more flexibility.</p><p>Changes include (but are not limited to):</p><ol><li>Ability to define the value of a coupon as a fixed amount or percentage;</li><li>Ability to create recurring coupons that apply over several billing periods; and</li><li>Ability to set an expiration date (i.e. date after which the coupon can no longer be redeemed).</li></ol><p><a href="/docs/guide/coupons">Learn more</a></p>]]></content:encoded>
@@ -148,7 +148,7 @@
         <item>
             <title><![CDATA[Customer currency]]></title>
             <link>https://getlago.com/changelog/customer-currency</link>
-            <guid>/customer-currency</guid>
+            <guid>https://getlago.com/changelog/customer-currency</guid>
             <pubDate>Thu, 06 Oct 2022 11:00:00 GMT</pubDate>
             <description><![CDATA[It is now possible to define the currency at customer level.]]></description>
             <content:encoded><![CDATA[<p>It is now possible to define the currency at <a href="/docs/api/customers/customer-object">customer</a> level.</p><p>The currency associated with each customer was previously defined by the currency of the plan assigned to the customer. This logic prevented users from assigning a coupon or an add-on to a customer before creating a subscription.</p><p>When creating a new customer via the user interface or the API, you can now select the currency associated with the customer. If the currency is not defined at customer level, it will be determined by the first object assigned to the customer (i.e. currency of the plan, add-on, coupon, or wallet).</p><div class="theme-admonition theme-admonition-caution alert alert--warning admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>caution</div><div class="admonitionContent_S0QG"><p>Once an object has been assigned to the customer (i.e. plan, add-on, coupon, or wallet), the currency associated with the customer cannot be changed.</p></div></div>]]></content:encoded>
@@ -156,7 +156,7 @@
         <item>
             <title><![CDATA[Error management]]></title>
             <link>https://getlago.com/changelog/error-management</link>
-            <guid>/error-management</guid>
+            <guid>https://getlago.com/changelog/error-management</guid>
             <pubDate>Thu, 06 Oct 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[We have refactored the error management system to give more visibility to API users.]]></description>
             <content:encoded><![CDATA[<p>We have refactored the error management system to give more visibility to API users.</p><p>The <code>message</code> attribute for errors has been replaced with <code>code</code> and <code>error_details</code>, which provide more information about the errors. There are several codes associated with each error.</p><p>For example, when creating a new billable metric, the API may return <code>"error": "Unprocessable entity"</code> with the code <code>value_is_mandatory</code> for the <code>name</code> field (i.e. the name of the billable metric is missing).</p><p>Please refer to the <a href="/docs/api/intro">documentation</a> available for each endpoint for more information on error codes.</p>]]></content:encoded>
@@ -164,7 +164,7 @@
         <item>
             <title><![CDATA[Overwrite plans]]></title>
             <link>https://getlago.com/changelog/overwrite-plans</link>
-            <guid>/overwrite-plans</guid>
+            <guid>https://getlago.com/changelog/overwrite-plans</guid>
             <pubDate>Fri, 23 Sep 2022 11:00:00 GMT</pubDate>
             <description><![CDATA[If after a negotiation phase, you need to create a custom plan for an important customer, you can use the 'overwrite' feature, available through the user interface.]]></description>
             <content:encoded><![CDATA[<p>If after a negotiation phase, you need to create a custom plan for an important customer, you can use the 'overwrite' feature, available through the user interface.</p><p>This feature allows you to create a new plan from an existing one, in order to adjust the plan model and charges according to your business needs.</p><p>Overwriting a plan has no impact on the original plan or existing subscriptions.</p><p><a href="/docs/guide/plans/subscription#overwriting-a-plan">Learn more</a></p>]]></content:encoded>
@@ -172,7 +172,7 @@
         <item>
             <title><![CDATA[Invite members]]></title>
             <link>https://getlago.com/changelog/invite-members</link>
-            <guid>/invite-members</guid>
+            <guid>https://getlago.com/changelog/invite-members</guid>
             <pubDate>Fri, 23 Sep 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[You can now invite your teammates to join your Lago account.]]></description>
             <content:encoded><![CDATA[<p>You can now invite your teammates to join your Lago account.</p><p>To add a new member via the user interface:</p><ol><li>Go to the <strong>"Settings"</strong> section of the app;</li><li>Open the <strong>"Members"</strong> tab;</li><li>Click <strong>"Invite a member"</strong> on the right;</li><li>Enter the email address of your teammate;</li><li>Click <strong>"Generate invitation link"</strong> to confirm; and</li><li>Copy the invitation link to share it with your teammate.</li></ol><p>Invitation links have no expiration date. When your teammate clicks the link, they can choose their password and then access the account.</p><p>You can remove a member by clicking the <strong>bin icon</strong> on the right of the list of members.</p><div class="theme-admonition theme-admonition-info alert alert--info admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_S0QG"><p>All members have the same role and permissions.</p></div></div>]]></content:encoded>
@@ -180,7 +180,7 @@
         <item>
             <title><![CDATA[Recurring count]]></title>
             <link>https://getlago.com/changelog/recurring-count</link>
-            <guid>/recurring-count</guid>
+            <guid>https://getlago.com/changelog/recurring-count</guid>
             <pubDate>Thu, 08 Sep 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Companies with fair and transparent pricing models are often praised by customers. If you are considering implementing seat-based pricing for instance, the reccuring_count aggregation is exactly what you need.]]></description>
             <content:encoded><![CDATA[<p>Companies with fair and transparent pricing models are often praised by customers. If you are considering implementing seat-based pricing for instance, the <code>reccuring_count</code> aggregation is exactly what you need.</p><p>This new aggregation type allows you to push events for persistent units.</p><p>Consider the following example:</p><blockquote><p>Your customer is on a monthly plan and adds a new user to their account on September 15th, so you generate an event that corresponds to one billing unit.</p><p>At the end of September, Lago will automatically create a prorated charge for this user, based on the number of days of activity (i.e. from September 15th to September 30th).</p><p>This billing unit will remain valid until you generate another event to remove it. For instance, if your customer deletes the user on October 22nd, Lago will create another prorated charge for the period October 1st to October 22nd.</p></blockquote><p>Consult <a href="/docs/guide/billable-metrics/aggregation-types#persistent-aggregation-types">our guide</a> to learn more about persistent units.</p>]]></content:encoded>
@@ -188,7 +188,7 @@
         <item>
             <title><![CDATA[API changes - External IDs]]></title>
             <link>https://getlago.com/changelog/external-ids</link>
-            <guid>/external-ids</guid>
+            <guid>https://getlago.com/changelog/external-ids</guid>
             <pubDate>Wed, 07 Sep 2022 11:00:00 GMT</pubDate>
             <description><![CDATA[We are introducing changes to the API that will make it easier to manage subscriptions:]]></description>
             <content:encoded><![CDATA[<p>We are introducing changes to the API that will make it easier to manage subscriptions:</p><ul><li>For the <a href="/docs/api/subscriptions/create-subscription">creation of new subscriptions</a>, <code>subscription_id</code> and <code>unique_id</code> will be removed and replaced with <code>external_id</code> (required); and</li><li>For all other endpoints, <code>subscription_id</code> will be replaced with <code>external_subscription_id</code>.</li></ul><p>This will allow you to operate via the API using your own identifiers and save you the trouble for storing our IDs.</p><p>In addition to this, for consistency purposes:</p><ul><li>For the <a href="/docs/api/customers/create-update-customer">creation of new customers</a>, <code>customer_id</code> will be replaced with <code>external_id</code>; and</li><li>For all other endpoints, <code>customer_id</code> will be replaced with <code>external_customer_id</code>.</li></ul><p>These changes will come into effect on <strong>September 8, 2022</strong>.</p><p>Please <a href="https://www.getlago.com/slack" target="_blank" rel="noopener noreferrer">get in touch</a> with our team if you have any questions.</p>]]></content:encoded>
@@ -196,7 +196,7 @@
         <item>
             <title><![CDATA[Prepaid credits]]></title>
             <link>https://getlago.com/changelog/prepaid-credits</link>
-            <guid>/prepaid-credits</guid>
+            <guid>https://getlago.com/changelog/prepaid-credits</guid>
             <pubDate>Thu, 01 Sep 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Unlock recurring revenue opportunities for pay-as-you-go pricing models with Lago's prepaid credit features:]]></description>
             <content:encoded><![CDATA[<p>Unlock recurring revenue opportunities for pay-as-you-go pricing models with Lago's prepaid credit features:</p><ol><li>Set the value of the credits and create wallets for your customers;</li><li>Collect payments upfront using the invoices automatically generated by Lago; and</li><li>Check the balance of your customers' wallets and trigger top-ups at any time via the API or the user interface.</li></ol><p>Please refer to <a href="/docs/guide/prepaid_credits">the guide</a> and <a href="/docs/api/wallets/wallet-object">API documentation</a> for more information.</p>]]></content:encoded>
@@ -204,7 +204,7 @@
         <item>
             <title><![CDATA[Volume charge model]]></title>
             <link>https://getlago.com/changelog/volume-charge-model</link>
-            <guid>/volume-charge-model</guid>
+            <guid>https://getlago.com/changelog/volume-charge-model</guid>
             <pubDate>Wed, 31 Aug 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[The new volume charge model allows you to create a tiered pricing structure and then calculate a unit price that applies to all units depending on total volume.]]></description>
             <content:encoded><![CDATA[<p>The new volume charge model allows you to create a tiered pricing structure and then calculate a unit price that applies to all units depending on total volume.</p><p>It is similar to the graduated charge model, except that only one price tier applies at the end of the billing period.</p><p>Please refer to <a href="/docs/guide/plans/charges#volume-charge-model">the guide</a> and <a href="/docs/api/plans/create-plan">API documentation</a> for more information.</p>]]></content:encoded>
@@ -212,7 +212,7 @@
         <item>
             <title><![CDATA[Anniversary dates for subscriptions]]></title>
             <link>https://getlago.com/changelog/anniversary-date</link>
-            <guid>/anniversary-date</guid>
+            <guid>https://getlago.com/changelog/anniversary-date</guid>
             <pubDate>Tue, 23 Aug 2022 11:00:00 GMT</pubDate>
             <description><![CDATA[When assigning a plan to a customer, you can now choose whether the subscription should be renewed at the beginning of the period or on its anniversary date.]]></description>
             <content:encoded><![CDATA[<p>When assigning a plan to a customer, you can now choose whether the subscription should be renewed at the beginning of the period or on its anniversary date.</p><p>For instance, if a monthly plan is assigned to a customer on August 10th and you choose to align the billing cycle with the anniversary date of the subscription, the customer will be billed every 10th of the month.</p><p>With <a href="/docs/api/subscriptions/create-subscription#arguments">the API</a>, you can use the <code>billing_time</code> attribute to choose your preferred option. If not provided, Lago will base the subscription on calendar periods.</p><p><a href="/docs/guide/plans/subscription">Learn more</a></p>]]></content:encoded>
@@ -220,7 +220,7 @@
         <item>
             <title><![CDATA[Free units for the percentage charge model]]></title>
             <link>https://getlago.com/changelog/free-units-percentage-model</link>
-            <guid>/free-units-percentage-model</guid>
+            <guid>https://getlago.com/changelog/free-units-percentage-model</guid>
             <pubDate>Tue, 23 Aug 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[We have released an enhanced version of the percentage charge model, including:]]></description>
             <content:encoded><![CDATA[<p>We have released an enhanced version of the percentage charge model, including:</p><ul><li>Ability to define free units based on the number of events (e.g. first 3 events are free); and</li><li>Ability to define free units based on the total amount (e.g. first $500 are free).</li></ul><p>Please refer to the <a href="/docs/guide/plans/charges#percentage-charge-model">documentation</a> for more information.</p>]]></content:encoded>
@@ -228,7 +228,7 @@
         <item>
             <title><![CDATA[Multiple plans]]></title>
             <link>https://getlago.com/changelog/multiple-plans</link>
-            <guid>/multiple-plans</guid>
+            <guid>https://getlago.com/changelog/multiple-plans</guid>
             <pubDate>Mon, 08 Aug 2022 11:00:00 GMT</pubDate>
             <description><![CDATA[It is now possible to assign multiple plans to a customer (e.g. if your customer needs to create several workspaces on your platform, you can link a plan to each workspace).]]></description>
             <content:encoded><![CDATA[<p>It is now possible to assign multiple plans to a customer (e.g. if your customer needs to create several workspaces on your platform, you can link a plan to each workspace).</p><p>To help differentiate each plan, you can add display names that will appear in the user interface and on invoices.</p><p>Kindly note that:</p><ol><li>All plans must be denominated in the same currency; and</li><li>You must now specify the <code>subscription_id</code> for each event or create batch events.</li></ol><p><a href="/docs/guide/plans/subscription#multiple-plans">Click here to see the documentation</a></p>]]></content:encoded>
@@ -236,7 +236,7 @@
         <item>
             <title><![CDATA[Tracking & Analytics]]></title>
             <link>https://getlago.com/changelog/tracking</link>
-            <guid>/tracking</guid>
+            <guid>https://getlago.com/changelog/tracking</guid>
             <pubDate>Mon, 08 Aug 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[To help us better understand your needs, we have added a tracking module to the self-hosted version of Lago.]]></description>
             <content:encoded><![CDATA[<p>To help us better understand your needs, we have added a tracking module to the self-hosted version of Lago.</p><p>Data analytics will help us improve the quality of our product and performance of the API.</p><p>As the privacy of our users is of paramount importance, we will not collect any personal information about your customers or the amount of your invoices, and you can opt out at any time.</p><p><a href="/docs/guide/self-hosting/tracking">Learn more</a></p>]]></content:encoded>
@@ -244,7 +244,7 @@
         <item>
             <title><![CDATA[Go client]]></title>
             <link>https://getlago.com/changelog/go-client</link>
-            <guid>/go-client</guid>
+            <guid>https://getlago.com/changelog/go-client</guid>
             <pubDate>Thu, 04 Aug 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[We have added a new API client to make it easier for Go users to set up their billing system with Lago.]]></description>
             <content:encoded><![CDATA[<p>We have added a new API client to make it easier for Go users to set up their billing system with Lago.</p><p><a href="/docs/api/intro">Click here to see the documentation</a></p>]]></content:encoded>
@@ -252,7 +252,7 @@
         <item>
             <title><![CDATA[Released new API endpoints]]></title>
             <link>https://getlago.com/changelog/new-api-endpoints</link>
-            <guid>/new-api-endpoints</guid>
+            <guid>https://getlago.com/changelog/new-api-endpoints</guid>
             <pubDate>Wed, 13 Jul 2022 18:00:00 GMT</pubDate>
             <description><![CDATA[We like our users when they use our nice and clean UI, but we also love when they use our API. One of the usecase could be to use Lago as a white-labeled solution.]]></description>
             <content:encoded><![CDATA[<p>We like our users when they use our nice and clean UI, but we also love when they use our API. One of the usecase could be to use Lago as a white-labeled solution.</p><p>Here is the full list of endpoints we have just released:</p><p><strong>Billable metrics</strong></p><ul><li>Create a billable metric <code>POST /api/v1/billable_metrics</code></li><li>Update a billable metric <code>PUT /api/v1/billable_metrics/:code</code></li><li>Destroy a billable metric <code>DELETE /api/v1/billable_metrics/:code</code></li><li>Fetch a specific billable metric <code>GET /api/v1/billable_metrics/:code</code></li><li>Fetch all billable metrics <code>GET /api/v1/billable_metrics?per_page=2&amp;page=1</code></li></ul><p><strong>Plans</strong></p><ul><li>Create a plan <code>POST /api/v1/plans</code></li><li>Update a plan <code>PUT /api/v1/plans/:code</code></li><li>Destroy a plan <code>DELETE /api/v1/plans/:code</code></li><li>Fetch a specific plan <code>GET /api/v1/plans/:code</code></li><li>Fetch all plans <code>GET /api/v1/plans?per_page=2&amp;page=1</code></li></ul><p><strong>Coupons</strong></p><ul><li>Create a coupon <code>POST /api/v1/coupons</code></li><li>Update a coupon <code>PUT /api/v1/coupons/:code</code></li><li>Destroy a coupon <code>DELETE /api/v1/coupons/:code</code></li><li>Fetch a specific coupon <code>GET /api/v1/coupons/:code</code></li><li>Fetch all coupons <code>GET /api/v1/coupons?per_page=2&amp;page=1</code></li></ul><p><strong>Add-ons</strong></p><ul><li>Create a add_on <code>POST /api/v1/add_ons</code></li><li>Update a add_on <code>PUT /api/v1/add_ons/:code</code></li><li>Destroy a add_on <code>DELETE /api/v1/add_ons/:code</code></li><li>Fetch a specific add_on <code>GET /api/v1/add_ons/:code</code></li><li>Fetch all add_ons <code>GET /api/v1/add_ons?per_page=2&amp;page=1</code></li></ul><p><strong>Current usage</strong></p><ul><li>Get the current usage of a specific customer <code>GET /api/v1/customers/:customer_id/current_usage</code></li></ul><p><strong>Organization</strong></p><ul><li>Update the information of your organization <code>PUT /api/v1/organizations</code></li></ul>]]></content:encoded>
@@ -260,7 +260,7 @@
         <item>
             <title><![CDATA[App version]]></title>
             <link>https://getlago.com/changelog/app-version</link>
-            <guid>/app-version</guid>
+            <guid>https://getlago.com/changelog/app-version</guid>
             <pubDate>Wed, 13 Jul 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[It is now possible to check the version of the Lago application you are using.]]></description>
             <content:encoded><![CDATA[<p>It is now possible to check the version of the Lago application you are using.</p><p>Click the name of your organization in the top-left corner of the user interface to see the app version currently in use.</p><p><img loading="lazy" alt="App version as displayed in the user interface" src="/assets/images/app-version-8bb67a00ed0f74ca573d5ff1e3be4baa.png" width="1086" height="622" class="img_ev3q"></p>]]></content:encoded>
@@ -268,7 +268,7 @@
         <item>
             <title><![CDATA[Customer current usage]]></title>
             <link>https://getlago.com/changelog/current-usage</link>
-            <guid>/current-usage</guid>
+            <guid>https://getlago.com/changelog/current-usage</guid>
             <pubDate>Wed, 13 Jul 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Current Usage]]></description>
             <content:encoded><![CDATA[<p><img loading="lazy" alt="Current Usage" src="/assets/images/current-usage-577fa187125126be7dc8309cb1decbc2.png" width="2366" height="1020" class="img_ev3q"></p><p>Good news for those who follow closely the consumption of their customers. You can now track the current billing usage of your customers either from the UI or from the API.</p><p><strong>To access this Usage tab:</strong></p><ol><li>Access your list of <strong>customers</strong>;</li><li>Select a specific customer that is <strong>already linked to a subscription</strong>;</li><li>Access the <strong>usage</strong> tab; and</li><li>Get a complete view of <strong>usage-based consumption</strong> that is going to be billed on the next invoice.</li></ol><p>On top of that, you can fetch the current usage of a customer directly from the API. To do so, you can access the following endpoint <code>GET /api/v1/customers/:customer_id/current_usage</code></p>]]></content:encoded>
@@ -276,7 +276,7 @@
         <item>
             <title><![CDATA[PDF invoices]]></title>
             <link>https://getlago.com/changelog/download-invoices</link>
-            <guid>/download-invoices</guid>
+            <guid>https://getlago.com/changelog/download-invoices</guid>
             <pubDate>Wed, 13 Jul 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Lago will generate a PDF file for each new invoice.]]></description>
             <content:encoded><![CDATA[<p>Lago will generate a PDF file for each new invoice.</p><p>You can download invoices via the user interface or the API and can also modify some of the elements included in the invoice template.</p><p>Full documentation <a href="/docs/guide/invoicing/download-invoices">available here</a>.</p>]]></content:encoded>
@@ -284,7 +284,7 @@
         <item>
             <title><![CDATA[Integration with Stripe Payments]]></title>
             <link>https://getlago.com/changelog/stripe-integration</link>
-            <guid>/stripe-integration</guid>
+            <guid>https://getlago.com/changelog/stripe-integration</guid>
             <pubDate>Mon, 04 Jul 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Lago now offers native integration with Stripe, including (but not limited to):]]></description>
             <content:encoded><![CDATA[<p>Lago now offers native integration with Stripe, including (but not limited to):</p><ul><li>Ability to create Lago customers in Stripe automatically and retrieve their customer ID;</li><li>Ability to define Stripe as the default payment provider for a customer;</li><li>Ability to generate payment intents automatically;</li><li>Ability to update the status of an invoice depending on the payment status; and</li><li>Ability to receive a webhook when a payment fails.</li></ul><p>To learn more about this integration, please <a href="/docs/guide/payments/stripe-integration">consult our guide</a>.</p>]]></content:encoded>
@@ -292,7 +292,7 @@
         <item>
             <title><![CDATA[Weekly plan interval]]></title>
             <link>https://getlago.com/changelog/weekly-interval</link>
-            <guid>/weekly-interval</guid>
+            <guid>https://getlago.com/changelog/weekly-interval</guid>
             <pubDate>Mon, 04 Jul 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[When setting up a plan, you can select the weekly interval to define a weekly billing period.]]></description>
             <content:encoded><![CDATA[<p>When setting up a plan, you can select the weekly interval to define a weekly billing period.</p><p>The plan interval applies to the subscription and charges, which means that:</p><ul><li>For plans that must be paid in advance, the subscription fee is invoiced at the beginning of the week;</li><li>For plans that are paid in arrears, the subscription fee is invoiced at the end of the week; and</li><li>Usage is calculated at the end of each week.</li></ul><p>The week starts on Monday and ends on Sunday. If the customer's subscription starts in the middle of the week, the fees will be applied on a pro-rata basis.</p>]]></content:encoded>
@@ -300,7 +300,7 @@
         <item>
             <title><![CDATA[Invoice monthly charges for a plan paid yearly]]></title>
             <link>https://getlago.com/changelog/billable-metric-monthly-for-plan-yearly</link>
-            <guid>/billable-metric-monthly-for-plan-yearly</guid>
+            <guid>https://getlago.com/changelog/billable-metric-monthly-for-plan-yearly</guid>
             <pubDate>Mon, 13 Jun 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Before the release of this feature, usaged-based features (charges) were following the plan period. If the plan period was invoiced yearly, the charges were invoiced yearly.]]></description>
             <content:encoded><![CDATA[<p>Before the release of this feature, usaged-based features (charges) were following the plan period. If the plan period was invoiced yearly, the charges were invoiced yearly.</p><p>It's now possible to <strong>invoice billable metrics on a montly basis</strong> for a plan billed yearly. The base amount of the plan will be invoice yearly (in-arrears or in-advance), but your usage based features will be invoiced on a monthly basis.</p><p><strong>To do so:</strong></p><ol><li>Access a <strong>Plan</strong>;</li><li>Define a plan <strong>yearly</strong>;</li><li>Price <strong>additional charges</strong> from your billable metrics; and</li><li>Turn <code>on</code> the toggle for <strong>applying charges monthly</strong>.</li></ol><p>By switching on, <strong>all the charges</strong> will be invoiced monthly even if the plan is yearly.</p><div class="theme-admonition theme-admonition-tip alert alert--success admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_S0QG"><p>The last invoice is gathering both the subscription and the usage-based charges</p></div></div><p><img loading="lazy" alt="charges invoiced monthly" src="/assets/images/charges-monthly-a2b67994b71b0178fa073e9bae0a574f.png" width="1386" height="162" class="img_ev3q"></p>]]></content:encoded>
@@ -308,7 +308,7 @@
         <item>
             <title><![CDATA[Percentage charge model]]></title>
             <link>https://getlago.com/changelog/percentage-charge-model</link>
-            <guid>/percentage-charge-model</guid>
+            <guid>https://getlago.com/changelog/percentage-charge-model</guid>
             <pubDate>Mon, 13 Jun 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Inside the plan, when creating a charge, you can now select the percentage charge model.]]></description>
             <content:encoded><![CDATA[<p>Inside the <strong>plan</strong>, when creating a charge, you can now select the <strong>percentage charge model</strong>.</p><p>This feature is useful for industries willing to take a <code>% + fixed fee</code> out of a usage-based features (for banking or charity industry, for instance). These fees are applied on the <em>units to be charged</em> (e.g. the aggregation result of your billable metric).</p>]]></content:encoded>
@@ -316,7 +316,7 @@
         <item>
             <title><![CDATA[Event debugger]]></title>
             <link>https://getlago.com/changelog/event-debugger</link>
-            <guid>/event-debugger</guid>
+            <guid>https://getlago.com/changelog/event-debugger</guid>
             <pubDate>Fri, 10 Jun 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[You are now able to view all the ingested events sent from your application to Lago.]]></description>
             <content:encoded><![CDATA[<p>You are now able to view all the ingested events sent from your application to Lago.
@@ -325,7 +325,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
         <item>
             <title><![CDATA[Add-ons]]></title>
             <link>https://getlago.com/changelog/ftr-addons</link>
-            <guid>/ftr-addons</guid>
+            <guid>https://getlago.com/changelog/ftr-addons</guid>
             <pubDate>Mon, 06 Jun 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.]]></description>
             <content:encoded><![CDATA[<p>Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.</p><p>Full documentation <a href="/docs/guide/addons">available here</a>.</p>]]></content:encoded>
@@ -333,7 +333,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
         <item>
             <title><![CDATA[Pay-as-you-go template]]></title>
             <link>https://getlago.com/changelog/template-algolia</link>
-            <guid>/template-algolia</guid>
+            <guid>https://getlago.com/changelog/template-algolia</guid>
             <pubDate>Fri, 03 Jun 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[We've added a new template to our collection: click here to learn how to replicate Algolia's pay-as-you-go pricing.]]></description>
             <content:encoded><![CDATA[<p>We've added a new template to our collection: <a href="https://www.getlago.com/resources/templates/algolia" target="_blank" rel="noopener noreferrer">click here</a> to learn how to replicate Algolia's pay-as-you-go pricing.</p><p>It's a great starting point for companies whose pricing fully depends on usage, such as cloud service providers and API companies.</p><p>With Lago, you can adapt this template to your products and services, using some of our most popular features, including the <a href="/docs/guide/billable-metrics/aggregation-types#2-sum">'sum' aggregation type</a> and the <a href="/docs/guide/plans/charges#the-package-charge-model">package charge model</a>.</p>]]></content:encoded>
@@ -341,7 +341,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
         <item>
             <title><![CDATA[Coupons]]></title>
             <link>https://getlago.com/changelog/ftr-coupons</link>
-            <guid>/ftr-coupons</guid>
+            <guid>https://getlago.com/changelog/ftr-coupons</guid>
             <pubDate>Thu, 02 Jun 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Introducing coupons, a new feature that allows you to offer discounts to your customers.]]></description>
             <content:encoded><![CDATA[<p>Introducing coupons, a new feature that allows you to offer discounts to your customers.</p><p>Full documentation <a href="/docs/guide/coupons">available here</a>.</p>]]></content:encoded>
@@ -349,7 +349,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
         <item>
             <title><![CDATA[Subscription changes]]></title>
             <link>https://getlago.com/changelog/subscription-changes</link>
-            <guid>/subscription-changes</guid>
+            <guid>https://getlago.com/changelog/subscription-changes</guid>
             <pubDate>Tue, 24 May 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[You can now modify the subscription assigned to a customer through the user interface.]]></description>
             <content:encoded><![CDATA[<p>You can now modify the subscription assigned to a customer through the user interface.</p><p>To learn how to upgrade or downgrade a subscription and how it affects billing, please refer to the documentation.</p>]]></content:encoded>
@@ -357,7 +357,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
         <item>
             <title><![CDATA[Package pricing for charges]]></title>
             <link>https://getlago.com/changelog/package-pricing</link>
-            <guid>/package-pricing</guid>
+            <guid>https://getlago.com/changelog/package-pricing</guid>
             <pubDate>Wed, 18 May 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[It is now possible to apply a package pricing model to a charge. To do so:]]></description>
             <content:encoded><![CDATA[<p>It is now possible to apply a <a href="/docs/guide/plans/charges#the-package-charge-model">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>]]></content:encoded>

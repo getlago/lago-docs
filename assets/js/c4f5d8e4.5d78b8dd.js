@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklago_doc=self.webpackChunklago_doc||[]).push([[4195],{2841:(e,o,t)=>{t.r(o),t.d(o,{default:()=>s});var c=t(7294),n=t(2263),l=t(6775);function s(){const{siteConfig:e}=(0,n.Z)();return c.createElement(l.l_,{to:"/docs/guide/intro/welcome"})}}}]);
