@@ -1,16 +1,16 @@
 ---
-sidebar_position: 9
+sidebar_position: 8
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Get all applied coupons
+# Destroy coupon
 
 ## Route
 
-```curl title="GET"
-/api/v1/applied_coupons?per_page=2&page=1
+```curl title="DELETE"
+/api/v1/customers/:external_id/coupons/:code
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request GET "$LAGO_URL/api/v1/applied_coupons?per_page=2&page=1" \
+  curl --location --request DELETE "$LAGO_URL/api/v1/customers/:external_id/coupons/:code" \
     --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
@@ -34,7 +34,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.applied_coupons().find_all({'per_page': 2, 'page': 1})
+  client.applied_coupons().destroy('external_customer_id', 'coupon_code')
   ```
   </TabItem>
 
@@ -45,7 +45,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.applied_coupons.get_all({ per_page: 2, page: 3 })
+  client.applied_coupons.destroy('external_customer_id', 'coupon_code')
   ```
   </TabItem>
 
@@ -54,7 +54,7 @@ import TabItem from '@theme/TabItem';
   ```javascript
   let client = new Client('__API_KEY__')
 
-  await client.findAllAppliedCoupons({per_page: 2, page: 3});
+  await client.destroyAppliedCoupon('external_customer_id', 'coupon_code');
   ```
   </TabItem>
 
@@ -68,19 +68,14 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      couponListInput := &lago.AppliedCouponListInput{
-        PerPage: 1,
-        Page: 1,
-      }
-
-      couponResult, err := lagoClient.AppliedCoupon().GetList(couponListInput)
+      appliedCoupon, err := lagoClient.Coupon().AppliedCouponDelete('external_customer_id', 'coupon_code')
       if err != nil {
         // Error is *lago.Error
         panic(err)
       }
 
-      // couponResult is *lago.CouponResult
-      fmt.Println(couponResult)
+      // appliedCoupon is *lago.AppliedCoupon
+      fmt.Println(appliedCoupon)
     }
   ```
 
@@ -97,7 +92,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class FindAllAppliedCouponsExample
+    public class DestroyCouponExample
     {
         public static void Main()
         {
@@ -105,21 +100,19 @@ namespace Example
             // Configure HTTP bearer authorization: bearerAuth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new CouponsApi(Configuration.Default);
-            var page = 2;  // int? | Number of page (optional)
-            var perPage = 20;  // int? | Number of records per page (optional)
-            var status = "active";  // string | Applied coupon status (optional)
-            var externalCustomerId = "12345";  // string | External customer ID (optional)
+            var apiInstance = new AppliedCouponsApi(Configuration.Default);
+            var externalCustomerId = "external_customer_id"; // string | External id of the customer
+            var couponCode = "coupon_code"; // string | Code of the coupon
 
             try
             {
-                // Find Applied Coupons
-                AppliedCoupons result = apiInstance.FindAllAppliedCoupons(page, perPage, status, externalCustomerId);
+                // Delete an applied coupon
+                AppliedCoupon result = apiInstance.DestroyAppliedCoupon(externalCustomerId, couponCode);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling CouponsApi.FindAllAppliedCoupons: " + e.Message );
+                Debug.Print("Exception when calling AppliedCouponsApi.DestroyAppliedCoupon: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -131,22 +124,13 @@ namespace Example
   </TabItem>
 </Tabs>
 
-## Arguments
-
-| Attributes | Type | Description |
-|--|--|--|
-| per_page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Number of records per page. |
-| page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Page number |
-| status | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | can be either `active` or `terminated` |
-| external_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer external id |
-
 ## Responses
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  Applied coupons were successfully found
+  The applied coupon was successfully destroyed
 
-  Returns a list of [applied coupon](./apply-coupon#the-applied-coupon-object) objects.
+  Returns an [applied coupon](./apply-coupon#the-applied-coupon-object) object.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -168,7 +152,38 @@ namespace Example
 
   </TabItem>
 
+  <TabItem value="404" label="HTTP 404">
 
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "customer_not_found"
+  }
+  ```
+
+  The `customer` was not found.
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "coupon_not_found"
+  }
+  ```
+
+  The `applied_coupon` was not found.
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "applied_coupon_not_found"
+  }
+  ```
+
+  The `applied_coupon` was not found.
+  </TabItem>
 </Tabs>
 
 

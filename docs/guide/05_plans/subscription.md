@@ -134,3 +134,12 @@ To start a subscription, the currency of the new plan must match the currency as
 :::info
 Overwriting a plan has no impact on the original plan or existing subscriptions.
 :::
+
+## Deleting a plan
+You may [delete a plan](../../api/plans/destroy-plan) linked to existing subscriptions.
+
+If you do so, the subscriptions associated with this plan will be immediately terminated. This action may trigger the generation of invoices and/or credit notes.
+
+:::info
+After deleting a plan, you can create a new one using the same code.
+:::

@@ -65,3 +65,20 @@ The dates displayed in the **"Usage"**, **"Invoices"** and **"Credit notes"** ta
 :::tip
 You can hover over any date in the customer view to see the reference timezones.
 :::
+
+## Deleting a customer
+You may delete a customer linked to existing objects (i.e. applied coupons, wallets, subscriptions, add-ons).
+
+If you do so:
+- All [subscriptions](./plans/subscription) associated with this customer account will be immediately terminated (this action may trigger the generation of invoices and/or credit notes);
+- All [coupons](coupons) applied to this customer account will be immeditely terminated;
+- The customer's active [wallet](prepaid_credits) will be immediately terminated and all remaining credits will be voided; and
+- All `draft` invoices associated with this customer account will be immediately finalized.
+
+`finalized` invoices and [credit notes](credit_notes) associated with the deleted customer remain available in the **"Invoices"** section of the user interface and can also be retrieved via the API.
+
+It is possible to generate new credit notes and process refunds after the deletion of the customer.
+
+:::info
+After deleting a customer account, you can create a new one using the same `external_id`.
+:::

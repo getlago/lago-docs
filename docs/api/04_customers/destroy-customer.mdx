@@ -1,16 +1,16 @@
 ---
-sidebar_position: 9
+sidebar_position: 4
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Get all applied coupons
+# Destroy customer
 
 ## Route
 
-```curl title="GET"
-/api/v1/applied_coupons?per_page=2&page=1
+```curl title="DELETE"
+/api/v1/customers/:external_id
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request GET "$LAGO_URL/api/v1/applied_coupons?per_page=2&page=1" \
+  curl --location --request DELETE "$LAGO_URL/api/v1/customers/:external_id" \
     --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
@@ -34,7 +34,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.applied_coupons().find_all({'per_page': 2, 'page': 1})
+  client.customers().destroy('external_id')
   ```
   </TabItem>
 
@@ -45,7 +45,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.applied_coupons.get_all({ per_page: 2, page: 3 })
+  client.customers.destroy('external_id')
   ```
   </TabItem>
 
@@ -54,7 +54,7 @@ import TabItem from '@theme/TabItem';
   ```javascript
   let client = new Client('__API_KEY__')
 
-  await client.findAllAppliedCoupons({per_page: 2, page: 3});
+  await client.destroyCustomer('external_id');
   ```
   </TabItem>
 
@@ -68,19 +68,14 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      couponListInput := &lago.AppliedCouponListInput{
-        PerPage: 1,
-        Page: 1,
-      }
-
-      couponResult, err := lagoClient.AppliedCoupon().GetList(couponListInput)
+      customer, err := lagoClient.Customer().Delete("external_id")
       if err != nil {
         // Error is *lago.Error
         panic(err)
       }
 
-      // couponResult is *lago.CouponResult
-      fmt.Println(couponResult)
+      // customer is *lago.Customer
+      fmt.Println(customer)
     }
   ```
 
@@ -97,7 +92,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class FindAllAppliedCouponsExample
+    public class DestroyCustomerExample
     {
         public static void Main()
         {
@@ -105,21 +100,18 @@ namespace Example
             // Configure HTTP bearer authorization: bearerAuth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new CouponsApi(Configuration.Default);
-            var page = 2;  // int? | Number of page (optional)
-            var perPage = 20;  // int? | Number of records per page (optional)
-            var status = "active";  // string | Applied coupon status (optional)
-            var externalCustomerId = "12345";  // string | External customer ID (optional)
+            var apiInstance = new CustomersApi(Configuration.Default);
+            var externalID = "external_id";  // string | External id of the existing customer
 
             try
             {
-                // Find Applied Coupons
-                AppliedCoupons result = apiInstance.FindAllAppliedCoupons(page, perPage, status, externalCustomerId);
+                // Delete a customer
+                Customer result = apiInstance.DestroyCustomer(externalID);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling CouponsApi.FindAllAppliedCoupons: " + e.Message );
+                Debug.Print("Exception when calling CustomersApi.DestroyCustomer: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -131,22 +123,13 @@ namespace Example
   </TabItem>
 </Tabs>
 
-## Arguments
-
-| Attributes | Type | Description |
-|--|--|--|
-| per_page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Number of records per page. |
-| page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Page number |
-| status | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | can be either `active` or `terminated` |
-| external_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer external id |
-
 ## Responses
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  Applied coupons were successfully found
+  The customer was successfully destroyed
 
-  Returns a list of [applied coupon](./apply-coupon#the-applied-coupon-object) objects.
+  Returns a [customer](./customer-object) object.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -168,10 +151,19 @@ namespace Example
 
   </TabItem>
 
+  <TabItem value="404" label="HTTP 404">
 
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "customer_not_found"
+  }
+  ```
+
+  The `customer` was not found.
+  </TabItem>
 </Tabs>
-
-
 
 export const Required = ({children, color}) => (
   <span
@@ -192,6 +184,7 @@ export const Optional = ({children, color}) => (
     {children}
   </span>
 );
+
 
 export const Comment = ({children, color}) => (
   <span
