@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Route
 
 ```curl title="DELETE"
-/api/v1/customers/:external_id/applied_coupons/:code
+/api/v1/customers/:external_id/applied_coupons/:applied_coupon_id
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request DELETE "$LAGO_URL/api/v1/customers/:external_id/applied_coupons/:code" \
+  curl --location --request DELETE "$LAGO_URL/api/v1/customers/:external_id/applied_coupons/:applied_coupon_id" \
     --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
@@ -34,7 +34,7 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.applied_coupons().destroy('external_customer_id', 'coupon_code')
+  client.applied_coupons().destroy('external_customer_id', 'applied_coupon_id')
   ```
   </TabItem>
 
@@ -45,7 +45,7 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.applied_coupons.destroy('external_customer_id', 'coupon_code')
+  client.applied_coupons.destroy('external_customer_id', 'applied_coupon_id')
   ```
   </TabItem>
 
@@ -54,7 +54,7 @@ import TabItem from '@theme/TabItem';
   ```javascript
   let client = new Client('__API_KEY__')
 
-  await client.destroyAppliedCoupon('external_customer_id', 'coupon_code');
+  await client.destroyAppliedCoupon('external_customer_id', 'applied_coupon_id');
   ```
   </TabItem>
 
@@ -68,7 +68,7 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      appliedCoupon, err := lagoClient.Coupon().AppliedCouponDelete('external_customer_id', 'coupon_code')
+      appliedCoupon, err := lagoClient.Coupon().AppliedCouponDelete('external_customer_id', 'applied_coupon_id')
       if err != nil {
         // Error is *lago.Error
         panic(err)
@@ -102,12 +102,12 @@ namespace Example
 
             var apiInstance = new AppliedCouponsApi(Configuration.Default);
             var externalCustomerId = "external_customer_id"; // string | External id of the customer
-            var couponCode = "coupon_code"; // string | Code of the coupon
+            var appliedCouponId = "applied_coupon_id"; // string | Applied Coupon Lago ID
 
             try
             {
                 // Delete an applied coupon
-                AppliedCoupon result = apiInstance.DestroyAppliedCoupon(externalCustomerId, couponCode);
+                AppliedCoupon result = apiInstance.DestroyAppliedCoupon(externalCustomerId, appliedCouponId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
