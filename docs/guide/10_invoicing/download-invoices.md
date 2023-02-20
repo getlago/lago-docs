@@ -15,6 +15,11 @@ To download an invoice through the user interface:
 You can also download invoices via API ([learn more](../../api/invoices/download-invoice)).
 
 ## How to modify the invoice template
+:::info
+Changes to the invoice template and new information about your organization do not affect existing invoices and only apply to future invoices.
+:::
+
+### Add information about your organization
 You can modify some of the elements that are included in the PDF invoice, such as information about the organization, its logo and the footer.
 
 To update your organization's information and logo:
@@ -27,6 +32,7 @@ To update your organization's information and logo:
 For the logo, you can upload a JPG or PNG file with a maximum size of 800 KB.
 :::
 
+### Add a custom footer
 To update the footer of the invoice:
 1. Click **"Settings"** in the side menu;
 2. Open the **"Invoice"** tab;
@@ -36,6 +42,12 @@ To update the footer of the invoice:
 
 ![Adding a custom footer via the user interface](../../../static/img/custom-footer.png)
 
-:::info
-Changes to the invoice template and new information about your organization do not affect existing invoices and only apply to future invoices.
-:::
+### Translate invoices
+To set the default language for documents:
+1. Click **"Settings"** in the side menu;
+2. Open the **"Invoice"** tab;
+3. Select **"Edit"** in the **"Document language"** block;
+4. Select your preferred language from the list; and
+5. Click **"Edit language"** to confirm.
+
+The organization's default language can be overwritten by the customer's preferred language ([learn more](../customers#invoicing-a-customer)).
