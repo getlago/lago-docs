@@ -47,6 +47,7 @@ You can retrieve the customer's current usage via the API using [this endpoint](
 ## Invoicing a customer
 If a customer has an active subscription, Lago will automatically generate an [invoice](./invoicing/overview) for them at the end of the billing period.
 
+### Timezone
 The beginning and end of the billing period depend on the timezone applied to the customer account. The default timezone is UTC but you can define another [timezone for your organization](../../changelog/timezones), which can be overwritten by the customer's timezone.
 
 :::note Premium feature ✨
@@ -64,6 +65,21 @@ The dates displayed in the **"Usage"**, **"Invoices"** and **"Credit notes"** ta
 
 :::tip
 You can hover over any date in the customer view to see the reference timezones.
+:::
+
+### Preferred language
+The default language for documents is defined at the organization level ([learn more](./invoicing/download-invoices#translate-invoices)). It can be overwritten at the customer level.
+
+To set the customer's preferred language:
+1. Access the **"Customers"** section via the side menu;
+2. Select a customer from the list;
+3. Open the **"Settings"** tab;
+4. Click **"Add a language"**;
+5. Select a language from the list; and
+6. Click **"Add language"** to confirm.
+
+:::info
+When the customer's preferred language is updated, the change only applies to new PDF files. Existing documents are not affected.
 :::
 
 ## Deleting a customer
