@@ -135,4 +135,46 @@ namespace Example
   ```
   </TabItem>
 
+  <TabItem value="php" label="PHP">
+
+  **Composer**
+  ```json
+  {
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+    }
+  ],
+  "require": {
+    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    }
+}
+  ```
+
+  **Manual installation**
+
+  ```php
+<?php
+require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
+  ```
+
+  **Getting started**
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new OpenAPI\Client\Api\AddOnsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+  ```
+  </TabItem>
+
 </Tabs>

@@ -136,6 +136,35 @@ namespace Example
   ```
 
   </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$customer_external_id = "12345"; // string | External ID of the existing customer
+$external_subscription_id = "54321"; // string | External subscription ID
+
+try {
+    $result = $apiInstance->findCustomerCurrentUsage($customer_external_id, $external_subscription_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomersApi->findCustomerCurrentUsage: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

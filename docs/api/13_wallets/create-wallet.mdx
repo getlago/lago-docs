@@ -171,6 +171,35 @@ namespace Example
   ```
 
   </TabItem>
+
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\WalletsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$wallet_input = new \OpenAPI\Client\Model\WalletInput(); // \OpenAPI\Client\Model\WalletInput | Wallet payload
+
+try {
+    $result = $apiInstance->createWallet($wallet_input);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WalletsApi->createWallet: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

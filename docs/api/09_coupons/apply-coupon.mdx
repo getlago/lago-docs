@@ -166,6 +166,34 @@ namespace Example
   ```
 
   </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\CouponsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$applied_coupon_input = new \OpenAPI\Client\Model\AppliedCouponInput(); // \OpenAPI\Client\Model\AppliedCouponInput | Apply coupon payload
+
+try {
+    $result = $apiInstance->applyCoupon($applied_coupon_input);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CouponsApi->applyCoupon: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments

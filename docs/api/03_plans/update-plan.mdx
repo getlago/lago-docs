@@ -510,6 +510,35 @@ namespace Example
   ```
 
   </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\PlansApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$code = "example_code"; // string | Code of the existing plan
+$plan_input = new \OpenAPI\Client\Model\PlanInput(); // \OpenAPI\Client\Model\PlanInput | Update an existing plan
+
+try {
+    $result = $apiInstance->updatePlan($code, $plan_input);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlansApi->updatePlan: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
 </Tabs>
 
 ## Arguments
