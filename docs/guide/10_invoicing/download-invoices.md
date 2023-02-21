@@ -51,3 +51,5 @@ To set the default language for documents:
 5. Click **"Edit language"** to confirm.
 
 The organization's default language can be overwritten by the customer's preferred language ([learn more](../customers#invoicing-a-customer)).
+
+Please refer to the API documentation to see the [list of supported languages](../../api/resources/locales).

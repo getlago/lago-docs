@@ -78,6 +78,8 @@ To set the customer's preferred language:
 5. Select a language from the list; and
 6. Click **"Add language"** to confirm.
 
+Please refer to the API documentation to see the [list of supported languages](../api/resources/locales).
+
 :::info
 When the customer's preferred language is updated, the change only applies to new PDF files. Existing documents are not affected.
 :::
