@@ -10,3 +10,110 @@ List of accepted locales for documents (ISO 639-1).
 |--|--|
 | `en` | English |
 | `fr` | French |
+
+## How to add a new language
+
+You can contribute to Lago's open-source project by helping us translate documents. The new language will then be added to the list of supported locales and available to the entire Lago Community.
+
+The document template includes translation keys for:
+- Invoices related to subscriptions, add-ons and prepaid credits;
+- Credit notes;
+- Data formatting (e.g. amounts and dates); and
+- Syntax (i.e. sentence structure).
+
+:::info
+The names of your billable metrics, plans, add-ons, coupons and wallets are defined in the app. There are no keys to translate them.
+:::
+
+To add a new language:
+1. [Download the document template](../../../static/files/doc-template.pdf) to see where each key is located;
+2. Use the JSON file below to provide translations for the new language; and
+3. Send the new JSON file to [hello@getlago.com](mailto:hello@getlago.com), so that we can review it and add it to the codebase.
+
+Thanks for your time and support!
+
+```json
+en:
+  invoice:
+    [01] document_name: Invoice
+    [02] invoice_number: Invoice Number
+    [03] issue_date: Issue Date
+    [04] bill_from: From
+    [05] bill_to: Bill to
+    [07] due_date: Due %{date}
+    [08] all_subscriptions: All Subscriptions    
+    [09] all_usage_based_fees: All usage based fees
+    [10] sub_total_without_tax: Sub total (excl. tax)
+    [11] tax: Tax
+    [12] sub_total_with_tax: Sub total (incl. tax)
+    [13] credit_notes: Credit Notes
+    [14] coupons: Coupons
+    [15] prepaid_credits: Prepaid credits
+    [16] total_due: Total due
+    [17] powered_by: Powered by
+
+    [18] details: “%{resource} details”
+    [19] subscription: Subscription
+    [20] date_from: From
+    [21] date_to: To
+    [22] monthly: Monthly
+    [23] yearly: Yearly
+    [24] weekly: Weekly
+    [25] sub_total: Sub total
+
+    [26] usage_based_fees: Usage based fees
+    [27] list_of_charges: List of charges used from %{from} to %{to}
+    [28] see_breakdown: See breakdown for total unit
+    [29] total unit_interval: "Total unit: %{events_count} events for %{units}"
+    [30] total_unit: "Total unit: %{units}"
+    [31] total: Total
+    [32] breakdown: Breakdown
+    [34] breakdown_for_days: "%{breakdown_duration} of %{breakdown_total_duration} days"
+    [35] breakdown_of: "%{breakdown} of %{fee_group_name}"
+    [36] notice: For example, if a unit is added with 15 days left in your monthly plan, we multiply the price by 15/31 (days remaining divided by the total number of days in your plan) to calculate the prorated price. Same logic when removing a unit used during 10 days, we multiply the price by 10/31.
+
+    [37] prepaid_credits_with_value: Prepaid credits - %{wallet_name}
+    [38] total_credits_with_value: "Total credits: %{credit_amount} credits"
+    [38] total_credits: Total credits
+    
+
+=====================================================================
+
+en:
+  credit_note:
+    [39] document_name: Credit note
+    [40] credit_note_number: Credit note number
+    [41] invoice_number: Invoice number
+    [42] issue_date: Issue date
+    [43] credit_from: From
+    [44] credit_to: Credit to
+    [45] refunded_notice: Refunded on %{issuing_date}
+    [46] credited_notice: Credited on customer balance on %{issuing_date}
+    [47] credited_refunded_notice: Credited on customer balance and refunded on %{issuing_date}
+    [48] subscription: Subscription
+    [49] sub_total_without_tax: Sub total (excl. tax)
+    [50] tax: Tax
+    [51] credited_on_customer_balance: Credited on customer balance
+    [52] refunded: Refunded
+    [53] total_due: Total due
+    [54] powered_by: Powered by
+
+=====================================================================
+
+en:
+  syntax:
+    [AA] details_title: %{plan_name} %{details}
+    [AB] subscription_interval: %{plan_interval} subscription - %{subscription_name}
+
+=====================================================================
+
+en:
+  data_formating:
+    [06] amount_format: $1,000,000.00
+    [33] date format: Sep 15, 2022
+    
+    abbr_day_names: Sun / Mon / Tue / Wed / Thu / Fri / Sat
+    abbr_month_names: Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep / Oct / Nov / Dec
+    day_names: Sunday / Monday / Tuesday / Wednesday / Thursday / Friday / Saturday
+    month_names: January / February / March / April / May / June / July / August / September / October / November / December
+```
