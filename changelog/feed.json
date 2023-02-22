@@ -5,6 +5,15 @@
     "description": "Lago documentation Blog",
     "items": [
         {
+            "id": "https://getlago.com/changelog/document-locale",
+            "content_html": "<p>PDF files including invoices and credit notes can be generated in different languages.</p><p>The <a href=\"/docs/guide/invoicing/download-invoices#translate-invoices\">default language</a> that is set at the organization level can be overwritten by the <a href=\"/docs/guide/customers#preferred-language\">customer's preferred language</a>.</p><p>In the API, the <code>document_locale</code> attribute determines the language of the documents.</p><p>You can contribute to Lago's open-source project by helping us translate documents. The new language will then be added to the <a href=\"/docs/api/resources/locales\">list of supported locales</a> and available to the entire Lago Community.</p>",
+            "url": "https://getlago.com/changelog/document-locale",
+            "title": "Document translation",
+            "summary": "PDF files including invoices and credit notes can be generated in different languages.",
+            "date_modified": "2023-02-21T11:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "https://getlago.com/changelog/update-payment-status",
             "content_html": "<p>You can now update the payment status of an invoice through the user interface.</p><p>To do so:</p><ol><li>Access the <strong>\"Invoices\"</strong> section;</li><li>Find the relevant invoice;</li><li>Click the ellipsis icon on the right;</li><li>Click <strong>\"Update payment status\"</strong>;</li><li>Select the new payment status; and</li><li>Click <strong>\"Update status\"</strong> to confirm.</li></ol><p>This action can be performed <a href=\"/docs/api/invoices/update-payment-status\">via the API</a> as well.</p><p><img loading=\"lazy\" alt=\"Payment status update via the user interface\" src=\"/assets/images/payment-status-ui-05432db8f7ea894d3e94a33697d59375.png\" width=\"2880\" height=\"1564\" class=\"img_ev3q\"></p>",
             "url": "https://getlago.com/changelog/update-payment-status",
