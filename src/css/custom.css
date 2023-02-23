@@ -195,5 +195,11 @@ table {
 }
 
 .sidebarViewport_Xe31 {
-  max-height: 100%;
+  max-height: 100%!important;
+}
+
+@media (min-width: 997px){
+  .sidebarViewport_Xe31 {
+    max-height: 100%!important;
+  }
 }
