@@ -193,3 +193,7 @@ table {
   border: 1px solid #C3C9D5 !important;
   --docusaurus-details-decoration-color: #C3C9D5 !important;
 }
+
+.sidebarViewport_Xe31 {
+  max-height: 100%;
+}
