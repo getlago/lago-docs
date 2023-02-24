@@ -206,15 +206,15 @@ try {
 
 | Attributes | Type | Description |
 |--|--|--|
-| name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Coupon name |
-| code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the coupon |
+| name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Coupon name |
+| code | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Code identifying the coupon |
 | amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Amount of the coupon |
 | amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Currency of the amount |
-| expiration | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Expiration type.<br></br>It can be `time_limit` or `no_expiration` |
+| expiration | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Expiration type.<br></br>It can be `time_limit` or `no_expiration` |
 | expiration_at | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `time_limit` type)**</Optional><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Expiration date and time of the coupon. |
 | reusable | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if coupon is reusable or not. |
-| coupon_type | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Coupon type.<br></br>It can be `fixed_amount` or `percentage` |
-| frequency | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Frequency type.<br></br>It can be `once` or `recurring` |
+| coupon_type | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Coupon type.<br></br>It can be `fixed_amount` or `percentage` |
+| frequency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Frequency type.<br></br>It can be `once` or `recurring` |
 | frequency_duration | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `recurring` frequency type)**</Optional> | This field determines the number of billing periods to which the coupon applies. |
 | percentage_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional (required only for `percentage` coupon type)**</Optional> | Rate of the coupon. |
 | applies_to | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Settings with coupon limitations |
