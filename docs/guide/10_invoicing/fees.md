@@ -80,3 +80,17 @@ The fee object is embedded in the invoice object, as illustrated below.
   }
 }
 ```
+
+## Rounding rules for Lago fees
+Lago rounds the Lago fees to the nearest unit (e.g., cents). For example, if the fee is 0.175, Lago will round up to 0.18. If the fee is 0.174, Lago will round down to 0.17.
+
+The tax rate is calculated at the item level and the total amount is rounded after summing all the items on the invoice.
+
+|                      | Amount | Tax rate | Tax amount | Total amount (before rounding) | Total amount (after rounding) | Total |
+|----------------------|--------|----------|------------|--------------------------------|-------------------------------|-------|
+| Line item 1          | $0.17  | 20%      | $0.034     |                                |                               |       |
+| Line item 2          | $4.46  | 20%      | $0.892     |                                |                               |       |
+| Subtotal (excl. tax) | $4.63  |          |            |                                |                               |       |
+| Tax amount           |        |          | $0.926     |                                |                               |       |
+| Subtotal (incl. tax) |        |          |            | $5.556                         | $5.56                         |       |
+| Total                |        |          |            |                                |                               | $5.56 |

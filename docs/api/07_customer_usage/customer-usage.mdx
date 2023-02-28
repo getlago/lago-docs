@@ -172,7 +172,7 @@ try {
 | Attributes | Type | Description |
 | ---------- | ---- | ----------- |
 | external_customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
-| external_subscription_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Subscription unique identifier in your application |
+| external_subscription_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Subscription unique identifier in your application |
 
 ## Responses
 
@@ -226,3 +226,43 @@ try {
   Customer is not attached to an active subscription.
   </TabItem>
 </Tabs>
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
