@@ -1,0 +1,234 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Get a specific fee
+
+## Route
+
+```curl title="GET"
+/api/v1/fees/:lago_id
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  FEE_ID="__YOU_CREDIT_NOTE_ID__"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request GET "$LAGO_URL/api/v1/fees/$FEE_ID" \
+    --header "Authorization: Bearer $API_KEY"
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  client.fees().find('id')
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.fees.get('id')
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  let client = new Client('__API_KEY__')
+
+  await client.findFee('id');
+  ```
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().SetApiKey("__YOUR_API_KEY__")
+
+      fee, err := lagoClient.Fees().Get("id")
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+
+      // credit note is *lago.Fee
+      fmt.Println(fee)
+    }
+  ```
+
+  </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class FindFeeExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new FeesApi(Configuration.Default);
+            var id = "12345";  // string | Id of the existing fee
+
+            try
+            {
+                // Find fee
+                Fee result = apiInstance.FindFee(id);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling FeesApi.FindFee: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+  ```
+
+  </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\FeesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "12345"; // string | Id of the existing fee
+
+try {
+    $result = $apiInstance->findFee($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FeesApi->findFee: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
+</Tabs>
+
+##  Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The fee was successfully found
+
+  Returns a [fee](./fee-object) object.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "fee_not_found"
+  }
+  ```
+
+  The `fee` was not found.
+  </TabItem>
+
+</Tabs>
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
