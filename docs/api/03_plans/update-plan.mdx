@@ -41,6 +41,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "id": "__CHARGE_ID__",
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "standard",
+          "instant": false,
           "group_properties": [
             {
               group_id: "__GROUP_ID__",
@@ -54,6 +55,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "id": "__CHARGE_ID__",
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "graduated",
+          "instant": false,
           "properties": {
             "graduated_ranges": [
               {
@@ -75,6 +77,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "id": "__CHARGE_ID__",
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "package",
+          "instant": false,
           "properties": {
             "amount": "100",
             "free_units": 10000,
@@ -85,6 +88,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "id": "__CHARGE_ID__",
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "percentage",
+          "instant": false,
           "properties": {
             "rate": "0.5",
             "fixed_amount": "1",
@@ -96,6 +100,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "id": "__CHARGE_ID__",
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "volume",
+          "instant": false,
           "properties": {
             "volume_ranges": [
               {
@@ -128,7 +133,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-standard_charge = Charge(
+  standard_charge = Charge(
     id='id',
     billable_metric_id='id',
     charge_model='standard',
@@ -558,6 +563,7 @@ Charges cannot be updated if the plan is linked to a subscription.
 | id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Charge unique id in Lago application |
 | billable_metric_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Billable metric id in lago application |
 | charge_model | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Charge model used in event calculations.<br></br>It can be `standard`, `graduated`, `package`, `percentage` or `volume` |
+| instant | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if charge is instant or not. |
 | properties | JSON &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Extra data to use for the event calculations.<br></br> |
 | group_properties | Array &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Extra data scoped by groups to use for the event calculations.<br></br> |
 
