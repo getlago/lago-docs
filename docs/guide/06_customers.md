@@ -5,13 +5,14 @@ sidebar_position: 6
 # Customers
 
 ## Create and update a customer
-To create a customer through the user interface:
+To create a customer through the user interface, follow these steps:
 1. Access the **"Customers"** section via the side menu;
-2. In the upper right corner, click **"Add a customer"**;
+2. Click **"Add a customer"** in the upper right corner;
 3. Enter the customer's name and external ID (i.e. unique ID as defined in your backend system);
 4. Select the customer's timezone (optional - [learn more](#invoicing-a-customer));
 5. Enter the customer's billing information, including company information and address (optional);
-6. Select the default payment provider for this customer (optional - [learn more](./payments/overview)); and
+6. Select the default payment provider for this customer (optional - [learn more](./payments/overview)); 
+7. Add metadata on the customer and choose whether to display it on the next invoices (optional); and
 7. Click **"Create customer"** to confirm.
 
 Once a customer is created, you can access the customer view, where you can edit their information.
