@@ -12,8 +12,8 @@ To create a customer through the user interface, follow these steps:
 4. Select the customer's timezone (optional - [learn more](#invoicing-a-customer));
 5. Enter the customer's billing information, including company information and address (optional);
 6. Select the default payment provider for this customer (optional - [learn more](./payments/overview)); 
-7. Add metadata on the customer and choose whether to display it on the next invoices (optional); and
-7. Click **"Create customer"** to confirm.
+7. Add metadata if needed and choose whether or not to display it on the next invoices (optional); and
+8. Click **"Create customer"** to confirm.
 
 Once a customer is created, you can access the customer view, where you can edit their information.
 
