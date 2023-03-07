@@ -196,7 +196,7 @@ try {
 | **external_subscription_ids** | Array &nbsp &nbsp &nbsp<Required>**Required**</Required> | Array of subscription IDs associated with the customer |
 | **external_customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer unique identifier in your application |
 | **code** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the type of the event.<br></br> It should match the `code` property of one of your active billable metrics, otherwise it will be ignored |
-| **timestamp** | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*Default: event reception timestamp*</Comment> | Unix timestamp of the event occurence in UTC.<br></br> If not provided, the API will set the event reception time |
+| **timestamp** | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*Default: event reception timestamp*</Comment> | Unix timestamp in seconds of the event occurence (UTC).<br></br> If not provided, the API will set the event reception time |
 | **properties** | JSON &nbsp &nbsp &nbsp<Variable>**Variable**</Variable> | Extra data to use for the event aggregation.<br></br>When mandatory, it should contains the `field_name` configured at billable metric level as `key` and any value as field `value`.<br></br><details><summary>**Aggregation type:**</summary><div>- `COUNT`: **optional**<br></br>- `MAX`: **required**. value must be a number<br></br>- `SUM`: **required**. value must be a number<br></br>- `COUNT UNIQUE`: **required**. value could have any datatype<br></br>- `RECURRING COUNT`: **required**. value must be the unique identifier of the persisted object.<div></div></div></details> |
 
 ### Recurring count aggregation
