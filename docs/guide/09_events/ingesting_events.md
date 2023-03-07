@@ -54,9 +54,9 @@ The event `code` represents the unique code of the Billable metric you want to s
 This code is required for all events received in Lago. For instance, you can start ingesting events for Billable metrics with codes `api_seaches` *(for api products example)*, `storage` *(cloud companies example)*, `atm_withdrawals` *(fintech example)*, or anything you need to define as a paying feature.
 
 ### 4. The event `timestamp`
-The event timestamp is the date when the billing event occurs in your application and sent to Lago. This event must be a **[UNIX Timestamp](https://www.unixtimestamp.com/).** For instance, you could define `1650893379` for *Mon Apr 25 2022 13:29:39 GMT+0000* or `1651682217`for *Wed May 04 2022 16:36:57 GMT+0000*.
+The event timestamp is the date the billing event occurred on your application. It must be a **[Unix timestamp](https://www.unixtimestamp.com/) in seconds**. For instance, you can send `1650893379` for *Mon Apr 25 2022 13:29:39 GMT+0000* or `1651682217`for *Wed May 04 2022 16:36:57 GMT+0000*.
 
-**This `timestamp` is not mandatory to send the event**. If you do not specify a timestamp on your own, Lago automatically defines the reception date of the event as the event timestamp.
+This `timestamp` is **not mandatory to send the event**. If you do not specify a timestamp, Lago will automatically set the reception date of the event as the event timestamp.
 
 ### 5. The event `properties`
 Event properties are useful to send more context in usage events. Moreover, they are also very useful when you need to aggregate a Billable metrics for `SUM`, `MAX` and `COUNT DISTINCT`. Event properties can be `strings`, `integers`, `floats`, `uuids` or `timestamps`.
