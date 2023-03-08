@@ -20,7 +20,10 @@
     "https://doc.getlago.com/docs/guide/plans/subscription",
     "https://doc.getlago.com/docs/guide/plans/upgrades-downgrades",
 
-    "https://doc.getlago.com/docs/guide/customers",
+    "https://doc.getlago.com/docs/guide/customers/management",
+    "https://doc.getlago.com/docs/guide/customers/metadata",
+    "https://doc.getlago.com/docs/guide/customers/invoice_customer",
+
 
     "https://doc.getlago.com/docs/guide/coupons",
 
