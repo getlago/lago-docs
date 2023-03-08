@@ -381,7 +381,7 @@ try {
 }
 ```
 :::info
-If the customer already exists, the call will work as an update
+If the customer already exists, this request will trigger an update.
 :::
 
 | Attributes | Type | Description |
@@ -420,10 +420,14 @@ If the customer already exists, the call will work as an update
 
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
-| key | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object key
-| value | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object value
-| display_in_invoice | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field that determines if metadata pair will be visible on invoice
-| id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object identifier. This field is needed only for `update` action
+| key | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object key |
+| value | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object value |
+| display_in_invoice | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field that determines whether the metadata key-value pair will be visible on invoices |
+| id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object identifier - only required when updating metadata |
+
+:::caution
+When updating a customer, if an existing `metadata.id` is not included in the payload, then the corresponding key-value pair will be deleted.
+:::
 
 ## Responses
 
