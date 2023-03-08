@@ -51,7 +51,15 @@ import TabItem from '@theme/TabItem';
           "sync_with_provider": true,
           "document_locale": "fr",
           "vat_rate": 12.5
-        }
+        },
+        "metadata": [
+          {
+            "id": "__METADATA_ID__",
+            "key": "Name",
+            "value": "John",
+            "display_in_invoice": true
+          }
+        ]
       }
     }'
   ```
@@ -65,6 +73,12 @@ import TabItem from '@theme/TabItem';
   from lago_python_client.models import Customer, CustomerBillingConfiguration
 
   client = Client(api_key='__YOUR_API_KEY__')
+
+  metadata_object = Metadata(
+    display_in_invoice=True,
+    key='key',
+    value='value'
+  )
 
   customer = Customer(
     external_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
@@ -91,7 +105,8 @@ import TabItem from '@theme/TabItem';
       sync_with_provider=true,
       document_locale="fr",
       vat_rate=12.5
-    )
+    ),
+    metadata=MetadataList(__root__=[metadata_object])
   )
 
   client.customers().create(customer)
@@ -133,7 +148,14 @@ import TabItem from '@theme/TabItem';
       true, // syncWithProvider
       "fr", // documentLocale
       None  // vatRate
-    )
+    ),
+    [
+      new CustomerMetadata({
+        key: 'key',
+        value: 'value',
+        displayInInvoice: true
+      })
+    ]
   )
   await client.createCustomer(customer);
   ```
@@ -171,7 +193,14 @@ import TabItem from '@theme/TabItem';
       sync_with_provider: true,
       document_locale: "fr",
       vat_rate: 12.5
-    }
+    },
+    metadata: [
+      {
+        key: 'key',
+        value: 'value',
+        display_in_invoice: true
+      }
+    ]
   )
   ```
 
@@ -210,7 +239,14 @@ import TabItem from '@theme/TabItem';
           SyncWithProvider: true,
           DocumentLocale: "fr",
           VatRate: 20.0
-        }
+        },
+        Metadata: [
+          &CustomerMetadataInput{
+            Key: "Key",
+            Value: "Value",
+            DisplayInInvoice: true
+          }
+        ]
       }
 
       customer, err := lagoClient.Customer().Create(customerInput)
@@ -332,12 +368,20 @@ try {
       "sync_with_provider": true,
       "document_locale": "fr",
       "vat_rate": 12.5
-    }
+    },
+    "metadata": [
+      {
+        "id": "__METADATA LAGO ID__",
+        "key": "Key example",
+        "value": "Value example",
+        "display_in_invoice": true
+      }
+    ]
   }
 }
 ```
 :::info
-If the customer already exists, the call will work as an update
+If the customer already exists, this request will trigger an update.
 :::
 
 | Attributes | Type | Description |
@@ -371,6 +415,19 @@ If the customer already exists, the call will work as an update
 | sync_with_provider | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` if you want to create the customer record in the provider's system. Only applies when `provider_customer_id` is `null` and `sync_with_provider` is set to `true`. Default value: `false`
 | document_locale | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Document locale in ISO 639-1 format - [learn more](../resources/locales)
 | vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom VAT applied to the customer.<br></br> It will override the one defined at organization level |
+
+### Metadata
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| key | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object key |
+| value | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object value |
+| display_in_invoice | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field that determines whether the metadata key-value pair will be visible on invoices |
+| id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object identifier - only required when updating metadata |
+
+:::caution
+When updating a customer, if an existing `metadata.id` is not included in the payload, then the corresponding key-value pair will be deleted.
+:::
 
 ## Responses
 
