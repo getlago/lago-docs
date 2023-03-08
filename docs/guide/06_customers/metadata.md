@@ -17,6 +17,10 @@ After adding metadata to a customer, you can edit or delete it. To edit metadata
 1. Use the user interface to update the information displayed in the "Edit customer" drawer, and then save the customer changes.
 2. Use the API to target the key-value pair information with the metadata ID in your code snippet and edit the key and value.
 
+:::info
+When editing customer metadata through the API, make sure to include the existing metadata in your payload to avoid removing them.
+:::
+
 Similarly, you can delete a key-value metadata pair by:
 
 1. Clicking on the trash icon in the user interface, and then saving the customer changes.
