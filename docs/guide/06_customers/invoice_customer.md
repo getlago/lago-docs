@@ -26,7 +26,7 @@ You can hover over any date in the customer view to see the reference timezones.
 :::
 
 ## Preferred language
-The default language for documents is defined at the organization level [learn more](../invoicing/download-invoices#translate-invoices). It can be overwritten at the customer level.
+The default language for documents is defined at the organization level ([learn more](../invoicing/download-invoices#translate-invoices)). It can be overwritten at the customer level.
 
 To set the customer's preferred language:
 1. Access the **"Customers"** section via the side menu;

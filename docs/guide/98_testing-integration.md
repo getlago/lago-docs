@@ -37,7 +37,7 @@ To create a plan through the user interface:
 To create a customer through the user interface:
 1. In the side menu, select **"Customers"**;
 2. Click **"Add a customer"** in the upper right corner;
-3. Fill in the form in the pop-up window ([learn more about customers](./06_customers/)); and
+3. Fill in the form in the pop-up window ([learn more about customers](./customers/management)); and
 4. Click **"Add customer"** to save.
 
 You can also create customers through the API, as described in the [documentation](../api/customers/create-update-customer).
