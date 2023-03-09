@@ -10,9 +10,8 @@ Adding metadata to an `invoice` object can provide additional structured informa
 
 1. Navigate to the Invoice detail page to target a specific invoice;
 2. Click on "Add metadata";
-3. Add your information in the drawer;
-4. Note that a key cannot exist without its corresponding value, and vice versa; and
-5. Save the metadata and find it in the invoice object.
+3. Add the information (kindly note, a key cannot exist without its corresponding value, and vice versa); and
+4. Save to confirm.
 
 :::info
 The invoice metadata will be included in the `invoice` object but will not be displayed on the PDF file.
@@ -24,17 +23,16 @@ The invoice metadata will be included in the `invoice` object but will not be di
 
 1. Navigate to the Invoice detail page to target a specific invoice;
 2. Click on "Edit metadata";
-3. Add, edit, remove your information in the drawer;
-4. Note that a key cannot exist without its corresponding value, and vice versa; and
-5. Save to confirm.
+3. Add, edit, remove information (kindly note, a key cannot exist without its corresponding value, and vice versa); and
+4. Save to confirm.
 
 **To edit metadata using the API:**
 
-1. In your payload, locate the key-value pair with the metadata ID you want to edit;
+1. In your payload, locate the key-value pair with the metadata ID you want to edit; and
 2. Modify the key and/or value as needed.
 
 :::tip
-When editing invoice metadata through the API, please make sure to include the existing metadata in your payload to avoid removing them.
+When editing invoice metadata through the API, please make sure to include the existing metadata in your payload to avoid removing it.
 :::
 
 ## Delete metadata on invoice
