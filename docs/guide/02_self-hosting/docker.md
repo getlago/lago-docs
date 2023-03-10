@@ -90,6 +90,7 @@ Lago uses the following environment variables to configure the components of the
 | LAGO_AWS_S3_REGION | | AWS S3 Region |
 | LAGO_AWS_S3_BUCKET | | AWS S3 Bucket name |
 | LAGO_AWS_S3_ENDPOINT | | S3 compatible storage endpoint. Should be set only if you are using another storage provider than AWS S3 |
+| LAGO_AWS_S3_PATH_STYLE | | S3 compatible storage endpoint path style option |
 | LAGO_USE_GCS | `false`| Use Google Cloud Service Cloud Storage for file storage, :warning: If you want to use GCS, you have to pass the credentials json key file to the `api` and `worker` service |
 | LAGO_GCS_PROJECT | | GCS Project name |
 | LAGO_GCS_BUCKET| | GCS Bucket Name |
@@ -225,6 +226,7 @@ You have to set these variables to use AWS S3 Compatible Endpoints.
 |`LAGO_AWS_S3_SECRET_ACCESS_KEY`|AWS S3 Credentials Secret Access Key|
 |`LAGO_AWS_S3_BUCKET`|AWS S3 Bucket|
 |`LAGO_AWS_S3_REGION`|Not used but required by the AWS SDK|
+|`LAGO_AWS_S3_PATH_STYLE`|AWS S3 Path Style option|
 
 #### Google Cloud Service Cloud Storage
 
