@@ -31,8 +31,8 @@ import TabItem from '@theme/TabItem';
         "metadata": [
           {
             "id": "__METADATA_ID__",
-            "key": "Name",
-            "value": "John"
+            "key": "digital_ref_id",
+            "value": "INV-0123456-98765"
           }
         ]
       }
@@ -256,7 +256,7 @@ try {
 | id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object identifier - only required when updating metadata |
 
 :::caution
-When updating an invoice metadata, if an existing `metadata.id` is not included in the payload, then the corresponding key-value pair will be deleted.
+When updating an invoice, if an existing `metadata.id` is not included in the payload, then the corresponding key-value pair will be deleted.
 :::
 
 ## Responses
