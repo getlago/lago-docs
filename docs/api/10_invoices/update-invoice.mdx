@@ -5,7 +5,7 @@ sidebar_position: 8
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Update payment status
+# Update invoice
 
 ## Route
 
@@ -27,7 +27,14 @@ import TabItem from '@theme/TabItem';
     --header 'Content-Type: application/json' \
     --data-raw '{
       "invoice": {
-        "payment_status": "succeeded"
+        "payment_status": "succeeded",
+        "metadata": [
+          {
+            "id": "__METADATA_ID__",
+            "key": "digital_ref_id",
+            "value": "INV-0123456-98765"
+          }
+        ]
       }
     }'
   ```
@@ -41,12 +48,25 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
+  metadata_object = InvoiceMetadata(
+    key='key',
+    value='value'
+  )
+
+  invoice_update = Invoice(
+    payment_status="succeeded",
+    metadata=InvoiceMetadataList(__root__=[metadata_object])
+  )
+
+  client.invoices().update(invoice_update, "5eb02857-a71e-4ea2-bcf9-57d8885990ba")
+
+  # Deprecated
+
   payment_status_change = InvoicePaymentStatusChange(
-    lago_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
     payment_status="succeeded"
   )
 
-  client.invoices().update(payment_status_change)
+  client.invoices().update(payment_status_change, "5eb02857-a71e-4ea2-bcf9-57d8885990ba")
   ```
   </TabItem>
 
@@ -58,8 +78,14 @@ import TabItem from '@theme/TabItem';
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
   client.invoices.update({
-      lago_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-      payment_status: "succeeded"
+    lago_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    payment_status: "succeeded",
+    metadata: [
+      {
+        key: 'key',
+        value: 'value'
+      }
+    ]
   })
   ```
   </TabItem>
@@ -70,6 +96,20 @@ import TabItem from '@theme/TabItem';
   import Client from 'lago-nodejs-client'
 
   let client = new Client('__API_KEY__')
+
+  await client.updateInvoice(
+    new Invoice({
+      paymentStatus: 'succeeded',
+      metadata: [
+        new InvoiceMetadata({
+          key: 'key',
+          value: 'value'
+        })
+      ]
+    }
+  ), 'code');
+
+  // Deprecated
 
   await client.updateInvoicePaymentStatus({
     lagoId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
@@ -92,6 +132,12 @@ import TabItem from '@theme/TabItem';
       invoiceInput := &lago.InvoiceInput{
         LagoID: invoiceId,
 	   		PaymentStatus: lago.InvoicePaymentStatusSucceeded,
+        Metadata: [
+          &InvoiceMetadataInput{
+            Key: "Key",
+            Value: "Value"
+          }
+        ]
       }
 
       invoice, err := lagoClient.Invoice().Update(invoiceInput)
@@ -184,7 +230,14 @@ try {
 ```json
 {
   "invoice": {
-    "payment_status": "succeeded"
+    "payment_status": "succeeded",
+    "metadata": [
+      {
+        "id": "__METADATA LAGO ID__",
+        "key": "Key example",
+        "value": "Value example"
+      }
+    ]
   }
 }
 ```
@@ -193,6 +246,18 @@ try {
 |--|--|--|
 | lago_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Invoice unique identifier in Lago |
 | payment_status | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Invoice payment status <br></br>It can be `pending`, `succeeded` or `failed` |
+
+### Metadata
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| key | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object key |
+| value | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object value |
+| id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object identifier - only required when updating metadata |
+
+:::caution
+When updating an invoice, if an existing `metadata.id` is not included in the payload, then the corresponding key-value pair will be deleted.
+:::
 
 ## Responses
 

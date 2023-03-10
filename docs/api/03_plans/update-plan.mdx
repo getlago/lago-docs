@@ -224,7 +224,7 @@ standard_charge = Charge(
     pay_in_advance=True,
     charges=charges
   )
-  client.plans().update(plan)
+  client.plans().update(plan, "__identifier__")
   ```
   </TabItem>
 
@@ -321,7 +321,7 @@ standard_charge = Charge(
     ]
   }
 
-  client.plans.update(plan)
+  client.plans.update(plan, "__identifier__")
   ```
 
   </TabItem>
@@ -433,7 +433,7 @@ standard_charge = Charge(
     billChargesMonthly: false,
     charges: charges
   })
-  await client.updatePlan(plan);
+  await client.updatePlan(plan, "__identifier__");
   ```
   </TabItem>
 
