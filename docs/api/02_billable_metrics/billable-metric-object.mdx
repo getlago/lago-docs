@@ -20,7 +20,8 @@ This object represents a billable metric.<br></br>
     "created_at": "2022-04-29T08:59:51Z",
     "group": {},
     "active_subscriptions_count": 0,
-    "draft_invoices_count": 0
+    "draft_invoices_count": 0,
+    "plans_count": 0
   }
 }
 ```
@@ -37,6 +38,7 @@ This object represents a billable metric.<br></br>
 | **group** &nbsp &nbsp <Type>Object</Type> | Group (one or two dimensions) for pricing differently the billable metric |
 | **active_subscriptions_count** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Count of active subscription attached to the billable metric. This field can be used to know the impact of deleting this billable metric. |
 | **draft_invoices_count** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Count of draft invoices containing a subscription attached to the billable metric. This field can be used to know the impact of deleting this billable metric. |
+| **plans_count** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Count of plans attachedto the billable metric. This field can be used to know if aggregation attributes can be edited. |
 
 
 export const Type = ({children, color}) => (
