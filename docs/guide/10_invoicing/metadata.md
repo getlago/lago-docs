@@ -52,4 +52,4 @@ When editing invoice metadata through the API, please make sure to include the e
 
 1. You can add up to 5 metadata key-value pairs;
 2. Keys must be strings of 20 characters maximum; and
-3. Values must be strings of 40 characters maximum.
+3. Values must be strings of 255 characters maximum.

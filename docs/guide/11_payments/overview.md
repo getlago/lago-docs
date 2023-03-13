@@ -25,4 +25,4 @@ If needed, you can update the payment status via the user interface:
 5. Select the new payment status; and
 6. Click **"Update status"** to confirm.
 
-This action can be performed [via the API](../../api/invoices/update-payment-status) as well.
+This action can be performed [via the API](../../api/invoices/update-invoice) as well.
