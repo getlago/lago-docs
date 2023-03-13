@@ -4,11 +4,19 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Tue, 07 Mar 2023 10:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 10 Mar 2023 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2023 Lago.</copyright>
+        <item>
+            <title><![CDATA[Invoice metadata]]></title>
+            <link>https://getlago.com/changelog/invoice-metadata</link>
+            <guid>https://getlago.com/changelog/invoice-metadata</guid>
+            <pubDate>Fri, 10 Mar 2023 10:00:00 GMT</pubDate>
+            <description><![CDATA[After an invoice has been generated, you can add metadata to store additional information (e.g. custom ID, payment reference, etc.). This information will be included in the invoice object but will not be displayed on the PDF invoice.]]></description>
+            <content:encoded><![CDATA[<p>After an invoice has been generated, you can add metadata to store additional information (e.g. custom ID, payment reference, etc.). This information will be included in the <code>invoice</code> object but will not be displayed on the PDF invoice.</p><p>Invoice metadata can be managed via the user interface or the API.</p><p><a href="/docs/guide/invoicing/metadata">Learn more</a></p><p><img loading="lazy" alt="Invoice metadata in the user interface" src="/assets/images/invoice-metadata-b13dd0c8879275b47474d90751c6d3ce.png" width="2880" height="1560" class="img_ev3q"></p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Customer metadata]]></title>
             <link>https://getlago.com/changelog/customer-metadata</link>
@@ -39,7 +47,7 @@
             <guid>https://getlago.com/changelog/update-payment-status</guid>
             <pubDate>Tue, 21 Feb 2023 10:00:00 GMT</pubDate>
             <description><![CDATA[You can now update the payment status of an invoice through the user interface.]]></description>
-            <content:encoded><![CDATA[<p>You can now update the payment status of an invoice through the user interface.</p><p>To do so:</p><ol><li>Access the <strong>"Invoices"</strong> section;</li><li>Find the relevant invoice;</li><li>Click the ellipsis icon on the right;</li><li>Click <strong>"Update payment status"</strong>;</li><li>Select the new payment status; and</li><li>Click <strong>"Update status"</strong> to confirm.</li></ol><p>This action can be performed <a href="/docs/api/invoices/update-payment-status">via the API</a> as well.</p><p><img loading="lazy" alt="Payment status update via the user interface" src="/assets/images/payment-status-ui-05432db8f7ea894d3e94a33697d59375.png" width="2880" height="1564" class="img_ev3q"></p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>You can now update the payment status of an invoice through the user interface.</p><p>To do so:</p><ol><li>Access the <strong>"Invoices"</strong> section;</li><li>Find the relevant invoice;</li><li>Click the ellipsis icon on the right;</li><li>Click <strong>"Update payment status"</strong>;</li><li>Select the new payment status; and</li><li>Click <strong>"Update status"</strong> to confirm.</li></ol><p>This action can be performed <a href="/docs/api/invoices/update-invoice">via the API</a> as well.</p><p><img loading="lazy" alt="Payment status update via the user interface" src="/assets/images/payment-status-ui-05432db8f7ea894d3e94a33697d59375.png" width="2880" height="1564" class="img_ev3q"></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Coupons limited to specific plans]]></title>
