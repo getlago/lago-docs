@@ -242,6 +242,40 @@ This will allow your application to retrieve the PDF invoice.
 | **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
 </details>
 
+<details className="custom-toggle">
+<summary><b>Instant fee created</b></summary>
+Sent when a fee for an instant charge is created.
+
+You can use this information to collect the payment of the instant fee.
+
+```json
+{
+  "webhook_type": "fee.instant_created",
+  "object_type": "fee",
+  "fee": {
+    "lago_id": "6be23c42-47d2-45a3-9770-5b3572f225c3",
+    "lago_group_id": "5b4881e3-b451-472e-9e03-d99379550743",
+    "item": {
+      "type": "subscription",
+      "code": "plan_code",
+      "name": "Plan"
+    },
+    "amount_cents": 100,
+    "amount_currency": "EUR",
+    "vat_amount_cents": 20,
+    "vat_amount_currency": "EUR",
+    "units": "0.32",
+    "events_count": 23
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **fee** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Fee object](../fees/fee-object) |
+
+</details>
+
 
 <details className="custom-toggle">
 <summary><b>Add-on added</b></summary>
