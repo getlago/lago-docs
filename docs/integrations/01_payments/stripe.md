@@ -20,7 +20,7 @@ By default, customers created in Lago are not automatically created in Stripe. I
 To collect payments automatically, the customer must exist in both the Lago and Stripe databases.
 
 ### New customer
-If the customer does not already exist in Stripe, you can first create them in Lago, either via the user interface or [the API](../../api/customers/create-update-customer). When adding customer information, you must:
+If the customer does not already exist in Stripe, you can first create them in Lago, either via the user interface or [the API](../../api/customers/create-customer). When adding customer information, you must:
 1. Define Stripe as the **default payment provider**;
 2. Leave the field associated with the **Stripe customer ID** blank; and
 3. **Enable** the option to automatically create the customer in Stripe.

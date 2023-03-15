@@ -64,7 +64,7 @@ When the customer is successfully created, you will receive two [webhook message
 - `customer.checkout_url_generated` that includes the checkout URL to set up the direct debit ([learn more](#direct-debit)).
 
 ### Existing customer
-If the customer and direct debit mandate already exist in GoCardless, then you should create the customer record in Lago, either via the user interface or [the API](../../api/customers/create-update-customer). When adding customer information, you must:
+If the customer and direct debit mandate already exist in GoCardless, then you should create the customer record in Lago, either via the user interface or [the API](../../api/customers/create-customer). When adding customer information, you must:
 1. Provide the customer's email address;
 2. Define GoCardless as the **default payment provider**;
 3. Provide the **GoCardless customer ID**; and
