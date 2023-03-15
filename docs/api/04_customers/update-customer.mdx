@@ -1,0 +1,550 @@
+---
+sidebar_position: 3
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Update a customer
+
+## Route
+
+```curl title="POST"
+/api/v1/customers
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/customers" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "customer": {
+        "external_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+        "address_line1": "5230 Penfield Ave",
+        "address_line2": "",
+        "city": "Woodland Hills",
+        "country": "US",
+        "currency": "EUR",
+        "email": "dinesh@piedpiper.test",
+        "legal_name": "Coleman-Blair",
+        "legal_number": "49-008-2965",
+        "logo_url": "http://hooli.com/logo.png",
+        "name": "Gavin Belson",
+        "phone": "1-171-883-3711 x245",
+        "state": "CA",
+        "timezone": "Europe/Paris",
+        "url": "http://hooli.com",
+        "zipcode": "91364",
+        "billing_configuration": {
+          "invoice_grace_period": 3,
+          "payment_provider": "stripe",
+          "provider_customer_id": "cus_12345",
+          "sync": true,
+          "sync_with_provider": true,
+          "document_locale": "fr",
+          "vat_rate": 12.5
+        },
+        "metadata": [
+          {
+            "id": "__METADATA_ID__",
+            "key": "Name",
+            "value": "John",
+            "display_in_invoice": true
+          }
+        ]
+      }
+    }'
+  ```
+
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+  from lago_python_client.models import Customer, CustomerBillingConfiguration
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  metadata_object = Metadata(
+    display_in_invoice=True,
+    key='key',
+    value='value'
+  )
+
+  customer = Customer(
+    external_id="5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    address_line1="5230 Penfield Ave",
+    address_line2=None,
+    city="Woodland Hills",
+    currency="EUR",
+    country="US",
+    email="test@example.com",
+    legal_name="Coleman-Blair",
+    legal_number="49-008-2965",
+    logo_url="http://hooli.com/logo.png",
+    name="Test Name",
+    phone="1-171-883-3711 x245",
+    state="CA",
+    timezone="Europe/Paris",
+    url="http://hooli.com",
+    zipcode="91364",
+    billing_configuration=CustomerBillingConfiguration(
+      invoice_grace_period=3,
+      payment_provider="stripe",
+      provider_customer_id="cus_12345",
+      sync=true,
+      sync_with_provider=true,
+      document_locale="fr",
+      vat_rate=12.5
+    ),
+    metadata=MetadataList(__root__=[metadata_object])
+  )
+
+  client.customers().create(customer)
+  ```
+
+  </TabItem>
+
+  <TabItem value="javascript" label="Node.js">
+
+  ```javascript
+  import Client from 'lago-nodejs-client'
+  import Customer from 'lago-nodejs-client/customer'
+  import CustomerBillingConfiguration from 'lago-nodejs-client/customer_billing_configuration'
+
+  let client = new Client('__API_KEY__')
+
+  let customer = new Customer(
+    "5eb02857-a71e-4ea2-bcf9-57d8885990ba",  // externalId
+    None,  // addressLine1
+    None,  // addressLine2
+    None,  // city
+    None,  // country
+    "EUR", // currency
+    "test@example.com",  // email
+    None,  // legalName
+    None,  // legalNumber
+    None,  // lagoUrl
+    "test name",  // name
+    None,  // phone
+    None,  // state
+    "Europe/Paris", // timezone
+    None,  // url
+    None,  // zipcode
+    new CustomerBillingConfiguration(
+      3,  // invoiceGracePeriod
+      "stripe",  // paymentProvider
+      "cus_12345",  // providerCustomerId
+      true,  // sync
+      true, // syncWithProvider
+      "fr", // documentLocale
+      None  // vatRate
+    ),
+    [
+      new CustomerMetadata({
+        key: 'key',
+        value: 'value',
+        displayInInvoice: true
+      })
+    ]
+  )
+  await client.createCustomer(customer);
+  ```
+  </TabItem>
+
+   <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.customers.create(
+    external_id: "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    address_line1: "5230 Penfield Ave",
+    address_line2: nil,
+    city: "Woodland Hills",
+    country: "US",
+    currency: "EUR",
+    email: "dinesh@piedpiper.test",
+    legal_name: "Coleman-Blair",
+    legal_number: "49-008-2965",
+    logo_url: "http://hooli.com/logo.png",
+    name: "Gavin Belson",
+    phone: "1-171-883-3711 x245",
+    state: "CA",
+    timezone: "Europe/Paris",
+    url: "http://hooli.com",
+    zipcode: "91364",
+    billing_configuration: {
+      invoice_grace_period: 3,
+      payment_provider: "stripe",
+      provider_customer_id: "cus_12345",
+      sync: true,
+      sync_with_provider: true,
+      document_locale: "fr",
+      vat_rate: 12.5
+    },
+    metadata: [
+      {
+        key: 'key',
+        value: 'value',
+        display_in_invoice: true
+      }
+    ]
+  )
+  ```
+
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      customerInput := &lago.CustomerInput{
+        ExternalID:   "__YOUR_CUSTOMER_ID__",
+        Name:         "Customer",
+        Email:        "customer@getlago.com",
+        AddressLine1: "Address Line 1",
+        AddressLine2: "Address Line 2",
+        City:         "Paris",
+        Country:      "France",
+        Currency:     "EUR",
+        State:        "Paris",
+        Zipcode:      "75001",
+        LegalName:    "GetLago",
+        LegalNumber:  "123456",
+        Phone:        "+330100000000",
+        Timezone:     "Europe/Paris",
+        URL:          "https://getlago.com",
+        BillingConfiguration: &CustomerBillingConfigurationInput{
+          InvoiceGracePeriod: 3,
+          PaymentProvider: lago.PaymentProviderStripe,
+          ProviderCustomerID: "__STRIPE_CUSTOMER_ID__",
+          SyncWithProvider: true,
+          DocumentLocale: "fr",
+          VatRate: 20.0
+        },
+        Metadata: [
+          &CustomerMetadataInput{
+            Key: "Key",
+            Value: "Value",
+            DisplayInInvoice: true
+          }
+        ]
+      }
+
+      customer, err := lagoClient.Customer().Create(customerInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+
+      // You can use the same input to update the customer
+      customer, err := lagoClient.Customer().Update(customerInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+
+      // customer is *lago.Customer
+      fmt.Println(customer)
+    }
+  ```
+
+  </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+ using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class CreateCustomerExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomersApi(Configuration.Default);
+            var customerInput = new CustomerInput(); // CustomerInput | Customer payload
+
+            try
+            {
+                // Create a customer
+                Customer result = apiInstance.CreateCustomer(customerInput);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling CustomersApi.CreateCustomer: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+  ```
+
+  </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$customer_input = new \OpenAPI\Client\Model\CustomerInput(); // \OpenAPI\Client\Model\CustomerInput | Customer payload
+
+try {
+    $result = $apiInstance->createCustomer($customer_input);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomersApi->createCustomer: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "customer": {
+    "external_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "address_line1": "5230 Penfield Ave",
+    "address_line2": null,
+    "city": "Woodland Hills",
+    "country": "US",
+    "currency": "EUR",
+    "email": "dinesh@piedpiper.test",
+    "legal_name": "Coleman-Blair",
+    "legal_number": "49-008-2965",
+    "logo_url": "http://hooli.com/logo.png",
+    "name": "Gavin Belson",
+    "phone": "1-171-883-3711 x245",
+    "state": "CA",
+    "timezone": "Europe/Paris",
+    "url": "http://hooli.com",
+    "zipcode": "91364",
+    "billing_configuration": {
+      "invoice_grace_period": 3,
+      "payment_provider": "stripe",
+      "provider_customer_id": "cus_12345",
+      "sync": true,
+      "sync_with_provider": true,
+      "document_locale": "fr",
+      "vat_rate": 12.5
+    },
+    "metadata": [
+      {
+        "id": "__METADATA LAGO ID__",
+        "key": "Key example",
+        "value": "Value example",
+        "display_in_invoice": true
+      }
+    ]
+  }
+}
+```
+:::info
+If the customer already exists, this request will trigger an update.
+:::
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| external_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
+| address_line1 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | First line of the billing address |
+| address_line2 | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Second line of the billing address |
+| city | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | City of the customer's billing address |
+| country | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*ISO 3166 (alpha-2)*</Comment> | Country code of the customer's billing address |
+| currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*ISO 4217*</Comment> | Currency of the customer - [learn more](../resources/currencies) |
+| email | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Email of the customer |
+| legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal company name of the customer |
+| legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal company number of the customer |
+| logo_url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Logo URL of the customer |
+| name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Full name of the customer |
+| phone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Phone number of the customer |
+| state | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | State of the customer's billing address |
+| timezone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional><br></br><Comment>*TZ database*</Comment> | Timezone of the customer - [learn more](../resources/timezones)<br></br>Will override the organization's timezone |
+| url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom URL of the customer |
+| zipcode | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Zipcode of the customer's billing address |
+| billing_configuration | Object &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider specific configuration used to bill the customer |
+
+### Billing configuration
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| invoice_grace_period | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Grace period in days for the invoice.
+| payment_provider | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider used to bill the customer.<br/>Accepted values: `stripe` and `gocardless`<br/>This field is required if you want to assign a `provider_customer_id`
+| provider_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer ID on the payment provider.<br/>If not provided, Lago can optionally create the provider customer
+| sync | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` is you want to create the provider customer synchronously with the customer creation.<br/>Apply only when `provider_customer_id` is `null` and payment provider is configured to create customer.<br/>Default value: `false`
+| sync_with_provider | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` if you want to create the customer record in the provider's system. Only applies when `provider_customer_id` is `null` and `sync_with_provider` is set to `true`. Default value: `false`
+| document_locale | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Document locale in ISO 639-1 format - [learn more](../resources/locales)
+| vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom VAT applied to the customer.<br></br> It will override the one defined at organization level |
+
+### Metadata
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| key | String &nbsp &nbsp &nbsp<RequiredUnderCondition>**Required conditionally**</RequiredUnderCondition> | Metadata object key. Required only when updating an existing metadata |
+| value | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object value |
+| display_in_invoice | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field that determines whether the metadata key-value pair will be visible on invoices |
+| id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object identifier - only required when updating metadata |
+
+:::caution
+When updating metadata for a specific customer, all metadata must be included in the payload using the corresponding `metadata.id`. Any metadata that are not included will be deleted.
+:::
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The customer was succesfuly created or updated.
+
+  Returns a [customer](./customer-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `customer` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
+  }
+  ```
+
+  **Possible errors:**
+
+  | field | error | description |
+  |--|--|--|
+  | `external_id` | `value_is_mandatory` | external_id is missing |
+  | `country` | `not_a_valid_country_code` | Provided country value is not an ISO 3166 country code |
+  | `currency` | `value_is_invalid` | Provided currency is not an accepted currency |
+  | `currency` | `currencies_does_not_match` | Provided currency cannot be assigned to the customer as he already has a subscription, an add_on, a coupon or a wallet in an other currency. |
+  | `invoice_grace_period` | `value_is_out_of_range` | Provided invoice grace period is invalid.<br/>It must be a positive integer. |
+  | `payment_provider` | `value_is_invalid` | Provided payment provider is invalid |
+  | `timezone` | `timezone_invalid` | Provided timezone is invalid |
+  | `vat_rate` | `value_is_out_of_range` | Provided VAT rate is invalid.<br/>It must be a positive integer or floating number between 0 and 100. |
+
+  </TabItem>
+</Tabs>
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const RequiredUnderCondition = ({children, color}) => (
+  <span
+    style={{
+      color: "#FF7E1D",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

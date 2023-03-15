@@ -5,7 +5,7 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Create or update a customer
+# Create a customer
 
 ## Route
 
@@ -54,7 +54,6 @@ import TabItem from '@theme/TabItem';
         },
         "metadata": [
           {
-            "id": "__METADATA_ID__",
             "key": "Name",
             "value": "John",
             "display_in_invoice": true
@@ -371,7 +370,6 @@ try {
     },
     "metadata": [
       {
-        "id": "__METADATA LAGO ID__",
         "key": "Key example",
         "value": "Value example",
         "display_in_invoice": true
@@ -423,11 +421,6 @@ If the customer already exists, this request will trigger an update.
 | key | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object key |
 | value | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object value |
 | display_in_invoice | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field that determines whether the metadata key-value pair will be visible on invoices |
-| id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object identifier - only required when updating metadata |
-
-:::caution
-When updating a customer, if an existing `metadata.id` is not included in the payload, then the corresponding key-value pair will be deleted.
-:::
 
 ## Responses
 
