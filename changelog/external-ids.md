@@ -10,7 +10,7 @@ We are introducing changes to the API that will make it easier to manage subscri
 This will allow you to operate via the API using your own identifiers and save you the trouble for storing our IDs.
 
 In addition to this, for consistency purposes:
-- For the [creation of new customers](../docs/api/customers/create-update-customer), `customer_id` will be replaced with `external_id`; and
+- For the [creation of new customers](../docs/api/customers/create-customer), `customer_id` will be replaced with `external_id`; and
 - For all other endpoints, `customer_id` will be replaced with `external_customer_id`.
 
 These changes will come into effect on **September 8, 2022**.

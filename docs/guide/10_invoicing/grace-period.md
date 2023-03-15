@@ -76,7 +76,7 @@ To define a grace period at customer level through the user interface:
 5. Enter the number of days associated with the grace period; and
 6. Click **"Add grace period"** to confirm.
 
-You can modify the customer's grace period at any time through the user interface or [the API](../../api/customers/create-update-customer).
+You can modify the customer's grace period at any time through the user interface or [the API](../../api/customers/update-customer).
 
 ![Grace period in the customer view](../../../static/img/grace-period-customer.png)
 

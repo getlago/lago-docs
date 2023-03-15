@@ -30,7 +30,7 @@ The customer will automatically be added to Stripe. Stripe will then return the 
 ![Creation of a new customer with Stripe](../../../static/img/stripe-customer-new.png)
 
 ### Existing customer
-If the customer already exists in Stripe but not in Lago, you should create the customer record, either via the user interface or [the API](../../api/customers/create-update-customer). When adding customer information, you must:
+If the customer already exists in Stripe but not in Lago, you should create the customer record, either via the user interface or [the API](../../api/customers/create-customer). When adding customer information, you must:
 1. Define Stripe as the **default payment provider**;
 2. Provide the **Stripe customer ID**; and
 3. **Disable** the option to automatically create the customer in Stripe.

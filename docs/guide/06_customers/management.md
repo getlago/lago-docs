@@ -21,7 +21,7 @@ Once a customer is created, you can access the customer view, where you can edit
 You cannot change the `external_id` of a customer after an object has been assigned to them (i.e. plan, coupon, add-on, wallet and credits).
 :::
 
-You can also [create and update customers](../../api/customers/create-update-customer) via the API.
+You can also [create and update customers](../../api/customers/create-customer) via the API.
 
 ## Assign objects to a customer
 The usage monitoring and billing processes start when you assign a plan to a customer, which triggers a [subscription](../plans/subscription).

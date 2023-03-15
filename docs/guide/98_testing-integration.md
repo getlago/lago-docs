@@ -40,7 +40,7 @@ To create a customer through the user interface:
 3. Fill in the form in the pop-up window ([learn more about customers](./customers/management)); and
 4. Click **"Add customer"** to save.
 
-You can also create customers through the API, as described in the [documentation](../api/customers/create-update-customer).
+You can also create customers through the API, as described in the [documentation](../api/customers/create-customer).
 
 ## 4. Start a subscription
 To start a subscription, you need to assign a plan to an existing customer. To do so through the user interface:
