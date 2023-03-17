@@ -21,6 +21,8 @@ This object represents a line item of an invoice, handling amount, billed units 
   "amount_currency": "EUR",
   "vat_amount_cents": 20,
   "vat_amount_currency": "EUR",
+  "total_amount_cents": 120,
+  "total_amount_currency": "EUR",
   "units": "0.32",
   "events_count": 23
 }
@@ -35,6 +37,8 @@ This object represents a line item of an invoice, handling amount, billed units 
 | **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
 | **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents |
 | **vat_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
+| **total_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Total amount in cents |
+| **total_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount |
 | **units**  &nbsp &nbsp <Type>String (Decimal)</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Units used to charge the customer |
 | **events_count**  &nbsp &nbsp <Type>Integer</Type> | Number of events |
 
