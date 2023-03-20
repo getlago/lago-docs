@@ -65,11 +65,9 @@ import TabItem from '@theme/TabItem';
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import AddOn from 'lago-nodejs-client/add_on'
-
-  let client = new Client('__API_KEY__')
-
-  await client.updateAddOn(new AddOn({name: 'new name', code: 'new_code'}), 'code');
+  await client.addOns.updateAddOn("code", {
+    add_on: { name: "new name", code: "new_code" },
+  });
   ```
   </TabItem>
 

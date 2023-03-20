@@ -73,15 +73,15 @@ You must retrieve your API key from your account.
 
   **Install package with npm**
   ```bash
-  npm install lago-nodejs-client
+  npm install lago-javascript-client
   ```
 
   **Usage**
 
   ```javascript
-  import Client from 'lago-nodejs-client'
+  import { Client } from 'lago-javascript-client'
 
-  let client = new Client('__YOUR_API_KEY__')
+  const client = Client('__YOUR_API_KEY__')
   ```
   </TabItem>
   <TabItem value="go" label="Go">

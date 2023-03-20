@@ -78,14 +78,15 @@ import TabItem from '@theme/TabItem';
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import AddOn from 'lago-nodejs-client/add_on'
+  const addOnObject = {
+    name: "name1",
+    code: "code1",
+    description: "desc",
+    amount_cents: 10000,
+    amount_currency: "USD",
+  };
 
-  let client = new Client('__API_KEY__')
-
-  let addOn = new AddOn({name: 'name1', code: 'code1', description: 'desc',
-      amountCents: 10000, amountCurrency: 'USD'
-  })
-  await client.createAddOn(addOn);
+  await client.addOns.createAddOn({ add_on: addOnObject });
   ```
   </TabItem>
 

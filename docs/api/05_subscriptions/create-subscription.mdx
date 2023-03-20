@@ -62,21 +62,20 @@ import TabItem from '@theme/TabItem';
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
-  import Subscription from 'lago-nodejs-client/subscription'
+  import { Client, SubscriptionObject } from "lago-javascript-client";
 
-  let client = new Client('__API_KEY__')
-
-  let subscription = new Subscription({
-    externalCustomerId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
-    planCode: "code",
-    externalId: "id",
+  const subscriptionObject = {
+    external_customer_id: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    plan_code: "code",
+    external_id: "id",
     name: "display name",
-    subscriptionAt: "2022-08-08T00:00:00Z",
-    billingTime: "anniversary"
-  })
+    subscription_at: "2022-08-08T00:00:00Z",
+    billing_time: "anniversary" as SubscriptionObject["billing_time"],
+  };
 
-  await client.createSubscription(subscription);
+  await client.subscriptions.createSubscription({
+    subscription: subscriptionObject,
+  });
   ```
 
   </TabItem>

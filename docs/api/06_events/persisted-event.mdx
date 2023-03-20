@@ -95,21 +95,16 @@ api/v1/events
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
-  import Event from 'lago-nodejs-client/event'
-
-  let client = new Client('__API_KEY__')
-
-  let event = new Event({
-    transactionId: "__UNIQUE_TRANSACTION_ID__",
-    externalCustomerId: "__UNIQUE_CUSTOMER_ID__",
-    externalSubscriptionId: "__UNIQUE_SUBSCRIPTION_ID__",
-    code: "code",
-    timestamp: 1650893379,
-    properties: {customField: "custom", operationType: "add"}
-  })
-
-  await client.createEvent(event);
+  await client.events.createEvent({
+    event: {
+      transaction_id: "__UNIQUE_TRANSACTION_ID__",
+      external_customer_id: "__UNIQUE_CUSTOMER_ID__",
+      external_subscription_id: "__UNIQUE_SUBSCRIPTION_ID__",
+      code: "code",
+      timestamp: 1650893379,
+      properties: { customField: "custom", operationType: "add" },
+    },
+  });
   ```
 
   </TabItem>

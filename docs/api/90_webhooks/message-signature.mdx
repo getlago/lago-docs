@@ -47,10 +47,7 @@ To verify the signature, you must decode the signature and compare the result wi
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
-
-  let client = new Client('__YOUR_API_KEY__')
-  let webhooksPublicKey = client.webhookPublicKey()
+  await client.webhooks.fetchPublicKey();
   ```
 
 </TabItem>
@@ -117,7 +114,7 @@ You should persist the public key on you side to prevent querying it for each we
   ```javascript
   import jwt from 'jsonwebtoken';
 
-  let token = request.header('X-Lago-Signature')
+  const token = request.header('X-Lago-Signature')
 
   jwt.verify(token, webhooksPublicKey, {
     algorithms: ['RS256'],

@@ -2,8 +2,8 @@
 sidebar_position: 3
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 # Update credit note
 
@@ -18,96 +18,93 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="prog-language">
   <TabItem value="curl" label="Curl" default>
 
-  ```bash
-  LAGO_URL="https://api.getlago.com"
-  API_KEY="__YOUR_API_KEY__"
+```bash
+LAGO_URL="https://api.getlago.com"
+API_KEY="__YOUR_API_KEY__"
 
 curl --location --request PUT "$LAGO_URL/api/v1/credit_notes/__lago_id__" \
 --header "Authorization: Bearer $API_KEY" \
 --header 'Content-Type: application/json' \
-  --data-raw '{
-    "credit_note": {
-      "refund_status": "refunded",
-    }
-  }'
-  ```
+--data-raw '{
+  "credit_note": {
+    "refund_status": "refunded",
+  }
+}'
+```
+
   </TabItem>
 
   <TabItem value="python" label="Python">
 
-  ```python
-  from lago_python_client import Client
-  from lago_python_client.models import CreditNoteUpdate
+```python
+from lago_python_client import Client
+from lago_python_client.models import CreditNoteUpdate
 
-  credit_note_id = "credit-note-id"
-  credit_note_update = CreditNoteUpdate(refund_status='pending')
+credit_note_id = "credit-note-id"
+credit_note_update = CreditNoteUpdate(refund_status='pending')
 
-  client.credit_notes().update(credit_note_update, credit_note_id)
-  ```
+client.credit_notes().update(credit_note_update, credit_note_id)
+```
 
   </TabItem>
 
   <TabItem value="ruby" label="Ruby">
 
-  ```ruby
-  require 'lago-ruby-client'
+```ruby
+require 'lago-ruby-client'
 
-  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.credit_note.update(
-    { refund_status: 'refunded' },
-    '__LAGO_CREDIT_NOTE_ID__',
-  )
-  ```
+client.credit_note.update(
+  { refund_status: 'refunded' },
+  '__LAGO_CREDIT_NOTE_ID__',
+)
+```
 
   </TabItem>
 
   <TabItem value="javascript" label="Javascript">
 
-  ```javascript
-  import CreditNote from 'lago-node-js-client/credit_note'
-
-  let client = new Client('__API_KEY__')
-
-  let creditNoteUpdate = new CreditNote({
-    refundStatus: "refunded",
-  })
-
-  await client.updateCreditNote(creditNoteUpdate, 'credit-note-id')
-  ```
+```javascript
+await client.creditNotes.updateCreditNote("credit-note-id", {
+  credit_note: {
+    refund_status: "pending",
+  },
+});
+```
 
   </TabItem>
 
   <TabItem value="go" label="Go">
 
-  ```go
-    import "fmt"
-    import "github.com/getlago/lago-go-client"
+```go
+  import "fmt"
+  import "github.com/getlago/lago-go-client"
 
-    func main() {
-      lagoClient := lago.New().SetApiKey("__YOUR_API_KEY__")
+  func main() {
+    lagoClient := lago.New().SetApiKey("__YOUR_API_KEY__")
 
-      creditNoteUpdateInput := &lago.CreditNoteUpdateInput{
-        LagoID:       "lago-credit-note-id",
-        RefundStatus: lago.CreditNoteReasonOther,
-      }
-
-      creditNote, err := lagoClient.CreditNote().Update(creditNoteInput)
-      if err != nil {
-        // Error is *lago.Error
-        panic(err)
-      }
-
-      // creditNote is *lago.CreditNote
-      fmt.Println(creditNote)
+    creditNoteUpdateInput := &lago.CreditNoteUpdateInput{
+      LagoID:       "lago-credit-note-id",
+      RefundStatus: lago.CreditNoteReasonOther,
     }
-  ```
+
+    creditNote, err := lagoClient.CreditNote().Update(creditNoteInput)
+    if err != nil {
+      // Error is *lago.Error
+      panic(err)
+    }
+
+    // creditNote is *lago.CreditNote
+    fmt.Println(creditNote)
+  }
+```
 
   </TabItem>
 
   <TabItem value="csharp" label="C#">
 
-  ```csharp
+```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using Org.OpenAPITools.Api;
@@ -116,40 +113,40 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class UpdateCreditNoteExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
-            // Configure HTTP bearer authorization: bearerAuth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+  public class UpdateCreditNoteExample
+  {
+      public static void Main()
+      {
+          Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+          // Configure HTTP bearer authorization: bearerAuth
+          Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new CreditNotesApi(Configuration.Default);
-            var id = "12345";  // string | Id of the existing credit note
-            var creditNoteUpdateInput = new CreditNoteUpdateInput(); // CreditNoteUpdateInput | Update an existing credit note
+          var apiInstance = new CreditNotesApi(Configuration.Default);
+          var id = "12345";  // string | Id of the existing credit note
+          var creditNoteUpdateInput = new CreditNoteUpdateInput(); // CreditNoteUpdateInput | Update an existing credit note
 
-            try
-            {
-                // Update an existing credit note
-                CreditNote result = apiInstance.UpdateCreditNote(id, creditNoteUpdateInput);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling CreditNotesApi.UpdateCreditNote: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
+          try
+          {
+              // Update an existing credit note
+              CreditNote result = apiInstance.UpdateCreditNote(id, creditNoteUpdateInput);
+              Debug.WriteLine(result);
+          }
+          catch (ApiException e)
+          {
+              Debug.Print("Exception when calling CreditNotesApi.UpdateCreditNote: " + e.Message );
+              Debug.Print("Status Code: "+ e.ErrorCode);
+              Debug.Print(e.StackTrace);
+          }
+      }
+  }
 }
-  ```
+```
 
   </TabItem>
 
   <TabItem value="php" label="PHP">
 
-  ```php
+```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -159,21 +156,21 @@ $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToke
 
 
 $apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+  // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+  // This is optional, `GuzzleHttp\Client` will be used as default.
+  new GuzzleHttp\Client(),
+  $config
 );
 $id = "12345"; // string | Id of the existing credit note
 $credit_note_update_input = new \OpenAPI\Client\Model\CreditNoteUpdateInput(); // \OpenAPI\Client\Model\CreditNoteUpdateInput | Update an existing credit note
 
 try {
-    $result = $apiInstance->updateCreditNote($id, $credit_note_update_input);
-    print_r($result);
+  $result = $apiInstance->updateCreditNote($id, $credit_note_update_input);
+  print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CreditNotesApi->updateCreditNote: ', $e->getMessage(), PHP_EOL;
+  echo 'Exception when calling CreditNotesApi->updateCreditNote: ', $e->getMessage(), PHP_EOL;
 }
-  ```
+```
 
   </TabItem>
 </Tabs>
@@ -188,8 +185,8 @@ try {
 }
 ```
 
-| Attributes | Type | Description |
-|--|--|--|
+| Attributes    | Type                                                      | Description                                                                      |
+| ------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | refund_status | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Credit Note refund status <br></br> It can be `pending`, `succeeded` or `failed` |
 
 ## Responses
@@ -198,113 +195,117 @@ try {
   <TabItem value="200" label="HTTP 200" default>
   The credit note refund status has been successfully updated.
 
-  Returns a [credit note](./credit-note-object) object.
+Returns a [credit note](./credit-note-object) object.
+
   </TabItem>
 
   <TabItem value="400" label="HTTP 400">
 
-  ```json
-  {
-    "status": 400,
-    "error": "Bad Request"
-  }
-  ```
+```json
+{
+  "status": 400,
+  "error": "Bad Request"
+}
+```
 
-  The `credit_note` json root is not present in the request body.
+The `credit_note` json root is not present in the request body.
+
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
 
-  ```json
-  {
-    "status": 401,
-    "error": "Unauthorized"
-  }
-  ```
+```json
+{
+  "status": 401,
+  "error": "Unauthorized"
+}
+```
 
-  Access to the API endpoint is unauthorized.
+Access to the API endpoint is unauthorized.
 
-  **Possible reasons are:**
-  * The `Authorization` header is missing
-  * The `Authorization` header does not contain the API key
-  * The Api key is invalid or expired
+**Possible reasons are:**
 
+- The `Authorization` header is missing
+- The `Authorization` header does not contain the API key
+- The Api key is invalid or expired
 
   </TabItem>
 
   <TabItem value="404" label="HTTP 404">
 
-  ```json
-  {
-    "status": 404,
-    "error": "Not Found",
-    "code": "credit_note_not_found"
-  }
-  ```
+```json
+{
+  "status": 404,
+  "error": "Not Found",
+  "code": "credit_note_not_found"
+}
+```
 
-  The `credit_note` was not found
+The `credit_note` was not found
+
   </TabItem>
 
   <TabItem value="422" label="HTTP 422">
 
-  ```json
-  {
-    "status": 422,
-    "error": "Unprocessable entity",
-    "code": "validation_errors",
-    "error_details": {
-      "field": ["error"]
-    }
+```json
+{
+  "status": 422,
+  "error": "Unprocessable entity",
+  "code": "validation_errors",
+  "error_details": {
+    "field": ["error"]
   }
-  ```
+}
+```
 
-  **Possible errors:**
+**Possible errors:**
 
-  | Field | Code | Description |
-  |--|--|--|
-  | `refund_status` | `value_is_invalid` | Provided `refund_status` does not match an accepted value |
-
+| Field           | Code               | Description                                               |
+| --------------- | ------------------ | --------------------------------------------------------- |
+| `refund_status` | `value_is_invalid` | Provided `refund_status` does not match an accepted value |
 
   </TabItem>
 </Tabs>
 
-
-
-export const Required = ({children, color}) => (
+export const Required = ({ children, color }) => (
   <span
     style={{
       color: "#DC3309",
-      fontSize: "13px"
-    }}>
+      fontSize: "13px",
+    }}
+  >
     {children}
   </span>
 );
 
-export const Optional = ({children, color}) => (
+export const Optional = ({ children, color }) => (
   <span
     style={{
       color: "#8C95A6",
-      fontSize: "13px"
-    }}>
+      fontSize: "13px",
+    }}
+  >
     {children}
   </span>
 );
 
-export const Comment = ({children, color}) => (
+export const Comment = ({ children, color }) => (
   <span
     style={{
-      fontSize: "12px"
-    }}>
+      fontSize: "12px",
+    }}
+  >
     {children}
   </span>
 );
 
-export const PostEndpoint = ({children, color}) => (
+export const PostEndpoint = ({ children, color }) => (
   <span
     style={{
       color: "#008559",
-      fontSize: "12px"
-    }}>
+      fontSize: "12px",
+    }}
+  >
     {children}
   </span>
 );

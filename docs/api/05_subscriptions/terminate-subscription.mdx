@@ -42,11 +42,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
-
-  let client = new Client('__API_KEY__')
-
-  await client.destroySubscription("5eb02857-a71e-4ea2-bcf9-57d8885990ba")
+  await client.subscriptions.destroySubscription("external_id");
   ```
   </TabItem>
 
