@@ -1,0 +1,352 @@
+---
+sidebar_position: 7
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Estimate fees for an instant charge
+
+TODO
+
+## Route
+
+```curl title="POST"
+api/v1/events/estimate_fees
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/events/estimate_fees" \
+  --header "Authorization: Bearer $API_KEY" \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+        "event": {
+            "external_customer_id": "__YOUR_CUSTOMER_ID__",
+            "external_subscription_id": "__YOUR_SUBSCRIPTION_ID__",
+            "code": "__EVENT_CODE__",
+            "properties": {
+              "custom_field": 12,
+            }
+        }
+    }'
+  ```
+
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client import Client
+  from lago_python_client.models import Event
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  event = Event(
+    external_customer_id="__UNIQUE_ID__",
+    external_subscription_id="__UNIQUE_ID__",
+    code="code",
+  )
+
+  client.events().estimate_fees(event)
+  ```
+
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.events.estimate_fees(
+    external_customer_id: "__CUSTOMER_ID__",
+    external_subscription_id: "__SUBSCRIPTION_ID__",
+    code: "code",
+    properties: {
+      custom_field: 12,
+    }
+  )
+  ```
+
+  </TabItem>
+
+  <TabItem value="javascript" label="Javascript">
+
+  ```javascript
+  import { Client, getLagoError } from 'lago-javascript-client';
+
+  const lagoClient = Client('__YOUR_API_KEY__');
+
+  try {
+      const { data } = await lagoClient.events.eventEstimateFees(estimateEvent);
+  } catch (error) {
+      const lagoError = await getLagoError<typeof lagoClient.events.eventEstimateFees>(error);
+  }
+  ```
+
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().SetApiKey("__YOUR_API_KEY__")
+
+      eventEstimateInput := &lago.EventEstimateFeesInput{
+        ExternalCustomerID: "vincent_12345",
+        ExternalSubscriptionID: "1dbe81ce-b092-401c-a00b-314292e17a98",
+        Code:          "code",
+        Properties: map[string]string{
+          "nbusers": "12",
+        },
+      }
+
+      err := lagoClient.Event().EstimateFees(eventEstimateInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+    }
+  ```
+
+  </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+  using System.Collections.Generic;
+  using System.Diagnostics;
+  using Org.OpenAPITools.Api;
+  using Org.OpenAPITools.Client;
+  using Org.OpenAPITools.Model;
+
+  namespace Example
+  {
+    public class CreateEventExample
+    {
+      public static void Main()
+      {
+        Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+        // Configure HTTP bearer authorization: bearerAuth
+        Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+        var apiInstance = new EventsApi(Configuration.Default);
+        // EventEstimateFeesInput | Event estimate payload
+        var eventEstimateInput = new EventEstimateFeesInput();
+
+        try
+        {
+          // Create a new event
+          apiInstance.EventEstimateFees(eventEstimateInput);
+        }
+        catch (ApiException e)
+        {
+          Debug.Print("Exception when calling EventsApi.EventEstimateFees: " + e.Message );
+          Debug.Print("Status Code: "+ e.ErrorCode);
+          Debug.Print(e.StackTrace);
+        }
+      }
+    }
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+  require_once(__DIR__ . '/vendor/autoload.php');
+
+  // Configure Bearer authorization: bearerAuth
+  $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+  $apiInstance = new OpenAPI\Client\Api\EventsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+  );
+  $event_estimate_input = new \OpenAPI\Client\Model\EventEstimateFeesInput(); // \OpenAPI\Client\Model\EventEstimateFeesInput | Event estimage fees payload
+
+  try {
+      $apiInstance->eventEstimateFees($event_input);
+  } catch (Exception $e) {
+      echo 'Exception when calling EventsApi->eventEstimateFees: ', $e->getMessage(), PHP_EOL;
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "event": {
+    "code": "__EVENT_CODE__",
+    "external_customer_id": "__CUSTOMER_ID__",
+    "external_subscription_id": "__SUBSCRIPTION_ID__",
+    "properties": {
+      "custom_field": 12
+    }
+  }
+}
+```
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| **code** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the type of the event.<br></br> It should match the `code` property of one of your active billable metrics attached to an `instant` charge. |
+| **external_customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique customer ID in your application.<br></br>If `external_subscription_id` is not given, `external_customer_id` is required if there is only one subscription attached to customer. For multiple subscriptions per customer this attribute is not enough |
+| **external_subscription_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique subscription ID in your application.<br></br>`external_subscription_id` is required if the customer has multiple subscriptions or if `external_customer_id` is not provided (in case there's only one subscription) |
+| **properties** | JSON &nbsp &nbsp &nbsp<Variable>**Variable**</Variable> | Extra data to use for the event aggregation.<br></br>When mandatory, it should contains the `field_name` configured at billable metric level as `key` and any value as field `value`. |
+
+### Content of the event properties object
+
+| Attributes | Types | Description |
+|--|--|--|
+| *field_name* **(*)** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | **(*)** Key must be the `field_name` configured at billable metric level. |
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+
+  The event estimate was succesfuly estimated.
+
+  Returns a list of [fee](../fees/fee-object) objects.
+
+  </TabItem>
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request",
+  }
+  ```
+
+  The `event` json root is not present in the request body.
+
+  </TabItem>
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized",
+  }
+  ```
+
+  Access to the API end point is unhautorized.
+
+  **Possible reasons are:**
+  - The `Authorization` header is missing
+  - The `Authorization` header does not contain the API key
+  - The Api key is invalid or expired
+
+
+  </TabItem>
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "error"
+  }
+  ```
+
+  **Possible errors:**
+
+  | error | description |
+  |--|--|
+  | `customer_not_found` | The `external_customer_id` does not match an existing customer. |
+  | `subscription_not_found` | The `external_subscription_id` does not match an existing subscription. |
+  | `billable_metric_not_found` | The `code` does not match an existing billable metric code. |
+
+  </TabItem>
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
+  }
+  ```
+
+  **Possible errors:**
+
+  | field | error | description |
+  |--|--|--|
+  | `transaction_id` | `value_is_mandatory` | `transaction_id` value is missing |
+  | `code` | `value_is_mandatory` | `code` value is missing |
+  | `external_subscription_id` | `value_is_mandatory` | `external_subscription_id` is missing |
+  | `properties` | `value_is_not_valid_number` | Provided property is not a number |
+
+  </TabItem>
+</Tabs>
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Variable = ({children, color}) => (
+  <span
+    style={{
+      color: "#422CC1",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
