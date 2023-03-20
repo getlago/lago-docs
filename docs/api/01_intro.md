@@ -69,7 +69,7 @@ You must retrieve your API key from your account.
   ```
 
   </TabItem>
-  <TabItem value="javascript" label="Node.js">
+  <TabItem value="javascript" label="Javascript">
 
   **Install package with npm**
   ```bash
