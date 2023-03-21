@@ -77,22 +77,21 @@ import TabItem from '@theme/TabItem';
   ```
   </TabItem>
 
-  <TabItem value="javascript" label="Node.js">
+  <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import AppliedCoupon from 'lago-nodejs-client/applied_coupon'
+  const appliedCouponObject = {
+    external_customer_id: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    coupon_code: "code",
+    amount_cents: 123,
+    amount_currency: "EUR",
+    frequency: "once" as AppliedCouponObject["frequency"],
+    frequency_duration: 3,
+  };
 
-  let client = new Client('__API_KEY__')
-
-  let appliedCoupon = new AppliedCoupon({
-      externalCustomerId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
-      couponCode: "code",
-      amountCents: 123,
-      amountCurrency: "EUR",
-      frequency: "once",
-      frequency_duration: 3
-  })
-  await client.applyCoupon(appliedCoupon);
+  await client.appliedCoupons.applyCoupon({
+    applied_coupon: appliedCouponObject,
+  });
   ```
   </TabItem>
 

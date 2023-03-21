@@ -113,50 +113,48 @@ import TabItem from '@theme/TabItem';
 
   </TabItem>
 
-  <TabItem value="javascript" label="Node.js">
+  <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
-  import Customer from 'lago-nodejs-client/customer'
-  import CustomerBillingConfiguration from 'lago-nodejs-client/customer_billing_configuration'
+  import { BillingConfigurationCustomer } from "lago-javascript-client";
 
-  let client = new Client('__API_KEY__')
+  const customerObject = {
+    external_id: "1234-5678-9098-7654-3210",
+    address_line1: "5230 Penfield Ave",
+    city: "Woodland Hills",
+    currency: "EUR",
+    country: "US",
+    email: "test@example.com",
+    legal_name: "Coleman-Blair",
+    legal_number: "49-008-2965",
+    logo_url: "http://hooli.com/logo.png",
+    name: "Test Name",
+    phone: "1-171-883-3711 x245",
+    state: "CA",
+    timezone: "Europe/Paris",
+    url: "http://hooli.com",
+    zipcode: "91364",
+    billing_configuration: {
+      invoice_grace_period: 3,
+      payment_provider:
+        "stripe" as BillingConfigurationCustomer["payment_provider"],
+      provider_customer_id: "cus_12345",
+      sync: true,
+      sync_with_provider: true,
+      document_locale: "fr",
+      vat_rate: 12.5,
+    },
+    metadata: [
+      {
+        lago_id: "1234",
+        key: "foo",
+        value: "bar",
+        display_in_invoice: true,
+      },
+    ],
+  };
 
-  let customer = new Customer(
-    "5eb02857-a71e-4ea2-bcf9-57d8885990ba",  // externalId
-    None,  // addressLine1
-    None,  // addressLine2
-    None,  // city
-    None,  // country
-    "EUR", // currency
-    "test@example.com",  // email
-    None,  // legalName
-    None,  // legalNumber
-    None,  // lagoUrl
-    "test name",  // name
-    None,  // phone
-    None,  // state
-    "Europe/Paris", // timezone
-    None,  // url
-    None,  // zipcode
-    new CustomerBillingConfiguration(
-      3,  // invoiceGracePeriod
-      "stripe",  // paymentProvider
-      "cus_12345",  // providerCustomerId
-      true,  // sync
-      true, // syncWithProvider
-      "fr", // documentLocale
-      None  // vatRate
-    ),
-    [
-      new CustomerMetadata({
-        key: 'key',
-        value: 'value',
-        displayInInvoice: true
-      })
-    ]
-  )
-  await client.createCustomer(customer);
+  await client.customers.createCustomer({ customer: customerObject });
   ```
   </TabItem>
 

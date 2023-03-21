@@ -310,110 +310,125 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
   ```
   </TabItem>
 
-  <TabItem value="javascript" label="Node.js">
+  <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import Plan from 'lago-nodejs-client/plan'
-  import Charge from 'lago-nodejs-client/charge'
-
-  let client = new Client('__API_KEY__')
-
-  let standardCharge = new Charge({
-    billableMetricId: 'id',
-    chargeModel: 'standard',
+  import { ChargeObject, PlanInput } from "lago-javascript-client";
+  
+  const standardChargeObject = {
+    lago_id: null,
+    billable_metric_code: null,
+    created_at: null,
+    lago_billable_metric_id: "id",
+    charge_model: "standard" as ChargeObject["charge_model"],
     groupProperties: [
       {
-        groupId: 'group_id',
+        groupId: "group_id",
         values: {
-          amount: '0.10'
-        }
-      }
-    ]
-  })
+          amount: "0.10",
+        },
+      },
+    ],
+  };
 
-  let graduatedCharge = new Charge({
-    billableMetricId: 'id',
-    chargeModel: 'graduated',
+  const graduatedChargeObject = {
+    lago_id: null,
+    billable_metric_code: null,
+    created_at: null,
+    lago_billable_metric_id: "id",
+    charge_model: "graduated" as ChargeObject["charge_model"],
     properties: [
       {
         to_value: 10,
         from_value: 0,
-        flat_amount: '0',
-        per_unit_amount: '0.00010'
+        flat_amount: "0",
+        per_unit_amount: "0.00010",
       },
       {
-        to_value: nil,
+        to_value: null,
         from_value: 11,
-        flat_amount: '0',
-        per_unit_amount: '0.0005'
-      }
-    ]
-  })
+        flat_amount: "0",
+        per_unit_amount: "0.0005",
+      },
+    ],
+  };
 
-  let packageCharge = new Charge({
-    billableMetricId: 'id',
-    chargeModel: 'package',
+  const packageChargeObject = {
+    lago_id: null,
+    billable_metric_code: null,
+    created_at: null,
+    lago_billable_metric_id: "id",
+    charge_model: "package" as ChargeObject["charge_model"],
     properties: {
-      amount: '100',
+      amount: "100",
       free_units: 10000,
-      package_size: 1000
-    }
-  })
+      package_size: 1000,
+    },
+  };
 
-  let percentageCharge = new Charge({
-    billableMetricId: 'id',
-    chargeModel: 'percentage',
+  const percentageChargeObject = {
+    lago_id: null,
+    billable_metric_code: null,
+    created_at: null,
+    lago_billable_metric_id: "id",
+    charge_model: "percentage" as ChargeObject["charge_model"],
     properties: {
-      rate: '0.5',
-      fixed_amount: '1',
+      rate: "0.5",
+      fixed_amount: "1",
       free_units_per_events: 3,
-      free_units_per_total_aggregation: nil
-    }
-  })
+      free_units_per_total_aggregation: null,
+    },
+  };
 
-  let volumeCharge = new Charge({
-    billableMetricId: 'id',
-    chargeModel: 'volume',
+  const volumeChargeObject = {
+    lago_id: null,
+    billable_metric_code: null,
+    created_at: null,
+    lago_billable_metric_id: "id",
+    charge_model: "volume" as ChargeObject["charge_model"],
     properties: {
       volume_ranges: [
         {
           to_value: 10,
           from_value: 0,
-          flat_amount: '0',
-          per_unit_amount: '0.00010'
+          flat_amount: "0",
+          per_unit_amount: "0.00010",
         },
         {
-          to_value: nil,
+          to_value: null,
           from_value: 11,
-          flat_amount: '0',
-          per_unit_amount: '0.0005'
-        }
-      ]
-    }
-  })
+          flat_amount: "0",
+          per_unit_amount: "0.0005",
+        },
+      ],
+    },
+  };
 
-  let charges = [
-    standardCharge,
-    packageCharge,
-    graduatedCharge,
-    percentageCharge,
-    volumeCharge,
-  ]
+  const charges = [
+    standardChargeObject,
+    packageChargeObject,
+    graduatedChargeObject,
+    percentageChargeObject,
+    volumeChargeObject,
+  ];
 
-  let plan = new Plan(
-    {
-      name: 'name1',
-      code: 'code1',
-      interval: 'weekly',
-      amountCents: 1000,
-      amountCurrency: 'USD',
-      payInAdvance: true,
-      trialPeriod: 2,
-      description: 'decs',
-      billChargesMonthly: false,
+  const planObject: PlanInput = {
+    plan: {
+      name: "name1",
+      code: "code1",
+      interval: "weekly",
+      amount_cents: 1000,
+      amount_currency: "USD",
+      pay_in_advance: true,
+      trial_period: 2,
+      description: "decs",
+      bill_charges_monthly: false,
       charges: charges,
-  })
-  await client.createPlan(plan);
+    },
+  };
+
+  await client.plans.createPlan(planObject);
+
   ```
   </TabItem>
 

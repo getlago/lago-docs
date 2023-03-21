@@ -2,8 +2,8 @@
 sidebar_position: 6
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 # Finalize a draft invoice
 
@@ -18,76 +18,76 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="prog-language">
   <TabItem value="curl" label="Curl" default>
 
-  ```bash
-  LAGO_URL="https://api.getlago.com"
-  API_KEY="__YOUR_API_KEY__"
+```bash
+LAGO_URL="https://api.getlago.com"
+API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request PUT "$LAGO_URL/api/v1/invoices/5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba/finalize" \
-    --header "Authorization: Bearer $API_KEY" \
-    --header 'Content-Type: application/json' \
-    --data-raw '{}'
-  ```
+curl --location --request PUT "$LAGO_URL/api/v1/invoices/5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba/finalize" \
+  --header "Authorization: Bearer $API_KEY" \
+  --header 'Content-Type: application/json' \
+  --data-raw '{}'
+```
+
   </TabItem>
 
   <TabItem value="python" label="Python">
 
-  ```python
-  from lago_python_client import Client
+```python
+from lago_python_client import Client
 
-  client = Client(api_key='__YOUR_API_KEY__')
+client = Client(api_key='__YOUR_API_KEY__')
 
-  client.invoices().finalize('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
-  ```
+client.invoices().finalize('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
+```
+
   </TabItem>
 
   <TabItem value="ruby" label="Ruby">
 
-  ```ruby
-  require 'lago-ruby-client'
+```ruby
+require 'lago-ruby-client'
 
-  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.invoices.finalize('5eb02857-a71e-4ea2-bcf9-57d8885990ba') // Invoice ID
-  ```
+client.invoices.finalize('5eb02857-a71e-4ea2-bcf9-57d8885990ba') // Invoice ID
+```
+
   </TabItem>
 
-  <TabItem value="javascript" label="Node.js">
+  <TabItem value="javascript" label="Javascript">
 
-  ```javascript
-  import Client from 'lago-nodejs-client'
+```javascript
+await client.invoices.finalizeInvoice("invoice-id");
+```
 
-  let client = new Client('__API_KEY__')
-
-  await client.finalizeInvoice('id');
-  ```
   </TabItem>
 
   <TabItem value="go" label="Go">
 
-  ```go
-    import "fmt"
-    import "github.com/getlago/lago-go-client"
+```go
+  import "fmt"
+  import "github.com/getlago/lago-go-client"
 
-    func main() {
-      lagoClient := lago.New().
-        SetApiKey("__YOUR_API_KEY__")
+  func main() {
+    lagoClient := lago.New().
+      SetApiKey("__YOUR_API_KEY__")
 
-      invoice, err := lagoClient.Invoice().Finalize("__YOUR_INVOICE_ID__")
-      if err != nil {
-        // Error is *lago.Error
-        panic(err)
-      }
-
-      // invoice is *lago.Invoice
-      fmt.Println(invoice)
+    invoice, err := lagoClient.Invoice().Finalize("__YOUR_INVOICE_ID__")
+    if err != nil {
+      // Error is *lago.Error
+      panic(err)
     }
-  ```
+
+    // invoice is *lago.Invoice
+    fmt.Println(invoice)
+  }
+```
 
   </TabItem>
 
   <TabItem value="csharp" label="C#">
 
-  ```csharp
+```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using Org.OpenAPITools.Api;
@@ -96,39 +96,39 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class FinalizeInvoiceExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
-            // Configure HTTP bearer authorization: bearerAuth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+  public class FinalizeInvoiceExample
+  {
+      public static void Main()
+      {
+          Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+          // Configure HTTP bearer authorization: bearerAuth
+          Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new InvoicesApi(Configuration.Default);
-            var id = "183da83c-c007-4fbb-afcd-b00c07c41ffe";  // string | ID of the draft Lago Invoice
+          var apiInstance = new InvoicesApi(Configuration.Default);
+          var id = "183da83c-c007-4fbb-afcd-b00c07c41ffe";  // string | ID of the draft Lago Invoice
 
-            try
-            {
-                // Finalize a draft invoice
-                Invoice result = apiInstance.FinalizeInvoice(id);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling InvoicesApi.FinalizeInvoice: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
+          try
+          {
+              // Finalize a draft invoice
+              Invoice result = apiInstance.FinalizeInvoice(id);
+              Debug.WriteLine(result);
+          }
+          catch (ApiException e)
+          {
+              Debug.Print("Exception when calling InvoicesApi.FinalizeInvoice: " + e.Message );
+              Debug.Print("Status Code: "+ e.ErrorCode);
+              Debug.Print(e.StackTrace);
+          }
+      }
+  }
 }
-  ```
+```
 
   </TabItem>
 
   <TabItem value="php" label="PHP">
 
-  ```php
+```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -138,20 +138,20 @@ $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToke
 
 
 $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+  // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+  // This is optional, `GuzzleHttp\Client` will be used as default.
+  new GuzzleHttp\Client(),
+  $config
 );
 $id = "183da83c-c007-4fbb-afcd-b00c07c41ffe"; // string | ID of the draft Lago Invoice
 
 try {
-    $result = $apiInstance->finalizeInvoice($id);
-    print_r($result);
+  $result = $apiInstance->finalizeInvoice($id);
+  print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InvoicesApi->finalizeInvoice: ', $e->getMessage(), PHP_EOL;
+  echo 'Exception when calling InvoicesApi->finalizeInvoice: ', $e->getMessage(), PHP_EOL;
 }
-  ```
+```
 
   </TabItem>
 </Tabs>
@@ -161,94 +161,98 @@ try {
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
 
-  The draft invoice has been successfully finalized.
+The draft invoice has been successfully finalized.
 
-  Returns an [invoice](./invoice-object) object.
+Returns an [invoice](./invoice-object) object.
 
   </TabItem>
 
   <TabItem value="400" label="HTTP 400">
 
-  ```json
-  {
-    "status": 400,
-    "error": "Bad Request"
-  }
-  ```
+```json
+{
+  "status": 400,
+  "error": "Bad Request"
+}
+```
 
-  The `invoice` json root is not present in the request body.
+The `invoice` json root is not present in the request body.
 
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
 
-  ```json
-  {
-    "status": 401,
-    "error": "Unauthorized"
-  }
-  ```
+```json
+{
+  "status": 401,
+  "error": "Unauthorized"
+}
+```
 
-  Access to the API endpoint is unauthorized.
+Access to the API endpoint is unauthorized.
 
-  **Possible reasons are:**
-  * The `Authorization` header is missing
-  * The `Authorization` header does not contain the API key
-  * The Api key is invalid or expired
+**Possible reasons are:**
 
+- The `Authorization` header is missing
+- The `Authorization` header does not contain the API key
+- The Api key is invalid or expired
 
   </TabItem>
 
   <TabItem value="404" label="HTTP 404">
 
-  ```json
-  {
-    "status": 404,
-    "error": "Not Found",
-    "code": "invoice_not_found"
-  }
-  ```
+```json
+{
+  "status": 404,
+  "error": "Not Found",
+  "code": "invoice_not_found"
+}
+```
 
-  The `invoice` was not found or is already finalized.
+The `invoice` was not found or is already finalized.
 
   </TabItem>
 </Tabs>
 
-export const Required = ({children, color}) => (
+export const Required = ({ children, color }) => (
   <span
     style={{
       color: "#DC3309",
-      fontSize: "13px"
-    }}>
+      fontSize: "13px",
+    }}
+  >
     {children}
   </span>
 );
 
-export const Optional = ({children, color}) => (
+export const Optional = ({ children, color }) => (
   <span
     style={{
       color: "#8C95A6",
-      fontSize: "13px"
-    }}>
+      fontSize: "13px",
+    }}
+  >
     {children}
   </span>
 );
 
-export const Comment = ({children, color}) => (
+export const Comment = ({ children, color }) => (
   <span
     style={{
-      fontSize: "12px"
-    }}>
+      fontSize: "12px",
+    }}
+  >
     {children}
   </span>
 );
 
-export const PostEndpoint = ({children, color}) => (
+export const PostEndpoint = ({ children, color }) => (
   <span
     style={{
       color: "#008559",
-      fontSize: "12px"
-    }}>
+      fontSize: "12px",
+    }}
+  >
     {children}
   </span>
 );

@@ -90,31 +90,22 @@ import TabItem from '@theme/TabItem';
   ```
   </TabItem>
 
-  <TabItem value="javascript" label="Node.js">
+  <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
+  const invoiceObject = {
+    payment_status: "succeeded" as InvoiceObject["payment_status"],
+    metadata: [
+      {
+        key: "key",
+        value: "value",
+      },
+    ],
+  };
 
-  let client = new Client('__API_KEY__')
-
-  await client.updateInvoice(
-    new Invoice({
-      paymentStatus: 'succeeded',
-      metadata: [
-        new InvoiceMetadata({
-          key: 'key',
-          value: 'value'
-        })
-      ]
-    }
-  ), 'code');
-
-  // Deprecated
-
-  await client.updateInvoicePaymentStatus({
-    lagoId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
-    paymentStatus: "succeeded"
-  })
+  await client.invoices.updateInvoice("invoice-id", {
+    invoice: invoiceObject,
+  });
   ```
   </TabItem>
 

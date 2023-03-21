@@ -117,47 +117,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="javascript" label="Node.js">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
-  import Customer from 'lago-nodejs-client/customer'
-  import CustomerBillingConfiguration from 'lago-nodejs-client/customer_billing_configuration'
-
-  let client = new Client('__API_KEY__')
-
-  let customer = new Customer(
-    "5eb02857-a71e-4ea2-bcf9-57d8885990ba",  // externalId
-    None,  // addressLine1
-    None,  // addressLine2
-    None,  // city
-    None,  // country
-    "EUR", // currency
-    "test@example.com",  // email
-    None,  // legalName
-    None,  // legalNumber
-    None,  // lagoUrl
-    "test name",  // name
-    None,  // phone
-    None,  // state
-    "Europe/Paris", // timezone
-    None,  // url
-    None,  // zipcode
-    new CustomerBillingConfiguration(
-      3,  // invoiceGracePeriod
-      "stripe",  // paymentProvider
-      "cus_12345",  // providerCustomerId
-      true,  // sync
-      true, // syncWithProvider
-      "fr", // documentLocale
-      None  // vatRate
-    ),
-    [
-      new CustomerMetadata({
-        key: 'key',
-        value: 'value',
-        displayInInvoice: true
-      })
-    ]
-  )
-  await client.createCustomer(customer);
+  await client.customers.createCustomer({ customer: { external_id: "1234" } });
   ```
   </TabItem>
 

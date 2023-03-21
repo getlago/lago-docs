@@ -97,29 +97,26 @@ import TabItem from '@theme/TabItem';
   ```
   </TabItem>
 
-  <TabItem value="javascript" label="Node.js">
+  <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import Coupon from 'lago-nodejs-client/coupon'
+  const couponObject = {
+    name: "name1",
+    code: "code1",
+    expiration: "time_limit" as CouponObject["expiration"],
+    expiration_at: "2022-08-08T23:59:59Z",
+    amount_cents: 10000,
+    amount_currency: "USD",
+    coupon_type: "fixed_amount" as CouponObject["coupon_type"],
+    reusable: true,
+    frequency: "recurring" as CouponObject["frequency"],
+    frequency_duration: 3,
+    applies_to: {
+      plan_codes: ["plan1"],
+    },
+  };
 
-  let client = new Client('__API_KEY__')
-
-  let coupon = new Coupon({
-      name: 'name1',
-      code: 'code1',
-      expiration: 'time_limit',
-      expirationAt: '2022-08-08T23:59:59Z',
-      amountCents: 10000,
-      amountCurrency: 'USD',
-      couponType: 'fixed_amount',
-      reusable: true,
-      frequency: 'recurring',
-      frequencyDuration: 3,
-      appliesTo: new CouponLimitationConfiguration({
-        planCodes: ['plan1']
-      })
-  })
-  await client.createCoupon(coupon);
+  await client.coupons.createCoupon({ coupon: couponObject });
   ```
   </TabItem>
 

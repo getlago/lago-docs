@@ -67,17 +67,16 @@ import TabItem from '@theme/TabItem';
   ```
   </TabItem>
 
-  <TabItem value="javascript" label="Node.js">
+  <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import WalletTransaction from 'lago-nodejs-client/wallet_transaction'
-
-  let client = new Client('__API_KEY__')
-
-  let transaction = new WalletTransaction({wallet_id: '12345', paid_credits: '20.0',
-    granted_credits: '10.0'
-  })
-  await client.createWalletTransaction(transaction);
+  await client.walletTransactions.createWalletTransaction({
+    wallet_transaction: {
+      wallet_id: "12345",
+      paid_credits: 20.0,
+      granted_credits: 10.0,
+    },
+  });
   ```
   </TabItem>
 

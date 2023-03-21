@@ -84,23 +84,18 @@ api/v1/events/batch
 
   </TabItem>
 
-  <TabItem value="javascript" label="Node.js">
+  <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
-  import Event from 'lago-nodejs-client/batch_event'
-
-  let client = new Client('__API_KEY__')
-
-  let event = new BatchEvent({
-    transactionId: "__UNIQUE_TRANSACTION_ID__",
-    externalSubscriptionIds: ["id1", "id2"],
+  const batchEvent = {
+    transaction_id: "__UNIQUE_TRANSACTION_ID__",
+    external_subscription_ids: ["id1", "id2"],
     code: "code",
     timestamp: 1650893379,
-    properties: {customField: "custom"}
-  })
-
-  await client.createBatchEvent(event);
+    properties: { customField: "custom" },
+  };
+  
+  await client.events.createBatchEvents({ event: batchEvent });
   ```
 
   </TabItem>

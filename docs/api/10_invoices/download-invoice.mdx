@@ -57,14 +57,10 @@ import TabItem from '@theme/TabItem';
   ```
   </TabItem>
 
-  <TabItem value="javascript" label="Node.js">
+  <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  import Client from 'lago-nodejs-client'
-
-  let client = new Client('__API_KEY__')
-
-  await client.downloadInvoice('id');
+  await client.invoices.downloadInvoice('invoice-id');
   ```
   </TabItem>
 
