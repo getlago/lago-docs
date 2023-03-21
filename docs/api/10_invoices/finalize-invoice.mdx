@@ -161,55 +161,55 @@ try {
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
 
-The draft invoice has been successfully finalized.
+  The draft invoice has been successfully finalized.
 
-Returns an [invoice](./invoice-object) object.
+  Returns an [invoice](./invoice-object) object.
 
   </TabItem>
 
   <TabItem value="400" label="HTTP 400">
 
-```json
-{
-  "status": 400,
-  "error": "Bad Request"
-}
-```
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
 
-The `invoice` json root is not present in the request body.
+  The `invoice` json root is not present in the request body.
 
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
 
-```json
-{
-  "status": 401,
-  "error": "Unauthorized"
-}
-```
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
 
-Access to the API endpoint is unauthorized.
+  Access to the API endpoint is unauthorized.
 
-**Possible reasons are:**
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
 
-- The `Authorization` header is missing
-- The `Authorization` header does not contain the API key
-- The Api key is invalid or expired
 
   </TabItem>
 
   <TabItem value="404" label="HTTP 404">
 
-```json
-{
-  "status": 404,
-  "error": "Not Found",
-  "code": "invoice_not_found"
-}
-```
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "invoice_not_found"
+  }
+  ```
 
-The `invoice` was not found or is already finalized.
+  The `invoice` was not found or is already finalized.
 
   </TabItem>
 </Tabs>

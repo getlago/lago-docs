@@ -173,26 +173,26 @@ try {
   <TabItem value="200" label="HTTP 200" default>
   Add-ons were successfully found
 
-Returns a list of [add-on](./add-on-object) objects.
+  Returns a list of [add-on](./add-on-object) objects.
 
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
 
-```json
-{
-  "status": 401,
-  "error": "Unauthorized"
-}
-```
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
 
-Access to the API endpoint is unhautorized.
+  Access to the API endpoint is unhautorized.
 
-**Possible reasons are:**
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
 
-- The `Authorization` header is missing
-- The `Authorization` header does not contain the API key
-- The Api key is invalid or expired
 
   </TabItem>
 </Tabs>
