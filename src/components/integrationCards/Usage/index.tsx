@@ -20,8 +20,20 @@ const WebDevCards = [
       page: '../../docs/integrations/usage/segment',
     },
     description: (
-      <Translate id="special.gocardless.description">
+      <Translate id="special.segment.description">
         Segment is used to track and ingest events that can be sent to Lago as usage.
+      </Translate>
+    ),
+  },
+    {
+    name: 'Hightouch',
+    image: 'https://logo.clearbit.com/hightouch.com',
+    url: {
+      page: '../../docs/integrations/usage/hightouch',
+    },
+    description: (
+      <Translate id="special.hightouch.description">
+        Reverse-ETL helping you sync data from any sources (database, warehouses, spreadsheet...) to Lago.
       </Translate>
     ),
   }
