@@ -39,6 +39,8 @@ Consider the following example:
 >
 >Therefore, on April 1st, the system will issue an invoice of $50 x 25 days due / 30 days in April = $41.67.
 
+The trial period applies to the base amount of the plan. Usage-based charges incurred during the trial period remain payable by the customer.
+
 :::info
 The trial period **only applies to the first plan** associated with the subscription. In case of an upgrade or a downgrade, the trial period of the new plan does not apply.
 :::
