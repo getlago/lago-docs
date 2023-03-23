@@ -28,13 +28,21 @@ With Lago, you can define if the base charge of the Plan is paid **in advance** 
 Note that this toggle only affects the base amount of the Plan. Additional charges for per-usage Billable metrics **are always paid in arrears because they are linked to a past consumption of your customers.**
 :::
 
-## The trial period (optional)
-You can decide to apply a `Trial period` for a Plan. This means your customers can test the Plan without being charged for a certain number of days. This is optional and if the value is null, the Plan holds 0 day of trial.
+## Trial period (optional)
+You may define a trial period for your plan. A trial period is defined as a number days that are not charged to the customer.
 
-Note  that the trial period **can only be specified in days**. A pro-rata is applied to the Plan regarding the number of days offered.
+Consider the following example:
 
-:::caution
-A trial period can only be applied to the first subscribed Plan. In case of an upgrade or downgrade, the trial period of the new Plan **is not applied**.
+>You create a monthly plan of $50 that needs to be paid in advance, with a trial period of 5 days.
+>
+>If the customer's subscription starts on April 1st, then Lago will immediately issue an invoice for the period April 6th to April 30th.
+>
+>Therefore, on April 1st, the system will issue an invoice of $50 x 25 days due / 30 days in April = $41.67.
+
+The trial period applies to the base amount of the plan. Usage-based charges incurred during the trial period remain payable by the customer.
+
+:::info
+The trial period **only applies to the first plan** associated with the subscription. In case of an upgrade or a downgrade, the trial period of the new plan does not apply.
 :::
 
 ## Pro-ratas based on subscription date
