@@ -40,7 +40,7 @@ You must retrieve your API key from your account.
   **Usage**
 
   ```python
-  from lago_python_client import Client
+  from lago_python_client.client import Client
 
   client = Client(api_key='__YOUR_API_KEY__')
   ```
