@@ -148,7 +148,9 @@
     "https://doc.getlago.com/docs/integrations/alerting/zapier",
     "https://doc.getlago.com/docs/integrations/alerting/n8n",
     "https://doc.getlago.com/docs/integrations/data/airbyte",
-    "https://doc.getlago.com/docs/integrations/entitlements/oso"
+    "https://doc.getlago.com/docs/integrations/entitlements/oso",
+    "https://doc.getlago.com/docs/integrations/usage/segment",
+    "https://doc.getlago.com/docs/integrations/usage/hightouch"
   ],
   "sitemap_urls": [
     "https://doc.getlago.com/sitemap.xml"
