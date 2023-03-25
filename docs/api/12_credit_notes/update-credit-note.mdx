@@ -43,7 +43,7 @@ from lago_python_client.models import CreditNoteUpdate
 credit_note_id = "credit-note-id"
 credit_note_update = CreditNoteUpdate(refund_status='pending')
 
-client.credit_notes().update(credit_note_update, credit_note_id)
+client.credit_notes.update(credit_note_update, credit_note_id)
 ```
 
   </TabItem>
