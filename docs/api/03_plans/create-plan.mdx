@@ -118,6 +118,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
 
   ```python
   from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
   from lago_python_client.models import Plan, Charges, Charge
 
   client = Client(api_key='__YOUR_API_KEY__')

@@ -37,6 +37,7 @@ To verify the signature, you must decode the signature and compare the result wi
 
   ```python
   from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
 
   client = Client(api_key='__YOUR_API_KEY__')
   webhooks_public_key = client.webhooks.public_key()

@@ -38,6 +38,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/credit_notes/__lago_id__" \
 
 ```python
 from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
 from lago_python_client.models import CreditNoteUpdate
 
 credit_note_id = "credit-note-id"

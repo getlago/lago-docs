@@ -47,6 +47,7 @@ api/v1/events/batch
 
   ```python
   from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
   from lago_python_client.models import BatchEvent
 
   client = Client(api_key='__YOUR_API_KEY__')

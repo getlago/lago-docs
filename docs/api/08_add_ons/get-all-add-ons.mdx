@@ -32,6 +32,7 @@ curl --location --request GET "$LAGO_URL/api/v1/add_ons?per_page=2&page=1" \
 
 ```python
 from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
 
 client = Client(api_key='__YOUR_API_KEY__')
 
