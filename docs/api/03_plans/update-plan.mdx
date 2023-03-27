@@ -225,7 +225,11 @@ standard_charge = Charge(
     pay_in_advance=True,
     charges=charges
   )
-  client.plans.update(plan, "__identifier__")
+  
+  try:
+      client.plans.update(plan, "__identifier__")
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
   </TabItem>
 

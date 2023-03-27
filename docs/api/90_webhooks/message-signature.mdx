@@ -40,7 +40,11 @@ To verify the signature, you must decode the signature and compare the result wi
   from lago_python_client.exceptions import LagoApiError
 
   client = Client(api_key='__YOUR_API_KEY__')
-  webhooks_public_key = client.webhooks.public_key()
+  
+  try:
+      webhooks_public_key = client.webhooks.public_key()
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
 
   </TabItem>

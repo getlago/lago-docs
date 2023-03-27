@@ -60,7 +60,10 @@ api/v1/events/batch
     properties={"custom_field": "custom"}
   )
 
-  client.events.batch_create(event)
+  try:
+      client.events.batch_create(event)
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
 
   </TabItem>

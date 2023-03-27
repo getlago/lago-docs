@@ -56,7 +56,10 @@ import TabItem from '@theme/TabItem';
     frequency_duration=3
   )
 
-  client.applied_coupons.create(applied_coupon)
+  try:
+      client.applied_coupons.create(applied_coupon)
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
   </TabItem>
 

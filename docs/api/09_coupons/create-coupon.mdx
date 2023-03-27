@@ -67,7 +67,11 @@ import TabItem from '@theme/TabItem';
     expiration_at='2022-08-08T23:59:59Z',
     applies_to=LimitationConfiguration(plan_codes=['plan1'])
   )
-  client.coupons.create(coupon)
+  
+  try:
+      client.coupons.create(coupon)
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
   </TabItem>
 

@@ -36,7 +36,10 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.subscriptions.destroy('external_id')
+  try:
+      client.subscriptions.destroy('external_id')
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
   </TabItem>
 

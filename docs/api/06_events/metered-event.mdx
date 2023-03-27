@@ -64,7 +64,10 @@ api/v1/events
     properties={"custom_field": "custom"}
   )
 
-  client.events.create(event)
+  try:
+      client.events.create(event)
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
 
   </TabItem>

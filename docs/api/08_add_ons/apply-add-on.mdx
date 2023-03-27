@@ -52,7 +52,10 @@ import TabItem from '@theme/TabItem';
     amount_currency="EUR"
   )
 
-  client.applied_add_ons.create(applied_add_on)
+  try:
+      client.applied_add_ons.create(applied_add_on)
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
   </TabItem>
 

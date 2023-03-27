@@ -43,7 +43,10 @@ import TabItem from '@theme/TabItem';
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  invoice = client.invoices.download('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
+  try:
+      invoice = client.invoices.download('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
   </TabItem>
 
