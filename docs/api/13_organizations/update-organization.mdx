@@ -65,6 +65,7 @@ import TabItem from '@theme/TabItem';
   params = Organization(
     timezone="Europe/Paris",
     webhook_url="https://new.url",
+    email_settings=["invoice.finalized"],
     billing_configuration=OrganizationBillingConfiguration(
       invoice_footer="footer custom",
       invoice_grace_period=3,
@@ -86,6 +87,7 @@ import TabItem from '@theme/TabItem';
   update_params = {
     timezone: 'Europe/Paris',
     webhook_url: 'https://webhook_url.com',
+    email_settings: ['invoice.finalized'],
     billing_configuration: {
       invoice_footer="footer custom",
       invoice_grace_period=3,
@@ -104,6 +106,7 @@ import TabItem from '@theme/TabItem';
     organization: {
       timezone: "Europe/Paris",
       webhook_url: "https://newwebhookurl.com",
+      email_settings: ["invoice.finalized"],
       billing_configuration: {
         invoice_footer: "footer custom",
         invoice_grace_period: 3,
@@ -128,6 +131,7 @@ import TabItem from '@theme/TabItem';
       organizationInput := &lago.OrganizationInput{
         LegalName: "Legal Name",
         Timezone: "Europe/Paris",
+        EmailSettings: ["invoice.finalized"],
         BillingConfiguration: &OrganizationBillingConfigurationInput{
           InvoiceFooter: "footer custom",
           InvoiceGracePeriod: 3,
@@ -235,6 +239,7 @@ try {
     "legal_name": null,
     "legal_number": null,
     "timezone": "Europe/Paris",
+    "email_settings": ["invoice.finalized", "credit_note.created"],
     "billing_configuration": {
       "invoice_footer": "footer custom",
       "invoice_grace_period": 3,
