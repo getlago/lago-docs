@@ -380,10 +380,10 @@ If the customer already exists, this request will trigger an update.
 
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
-| key | String &nbsp &nbsp &nbsp<| Metadata object key. Required only when updating an existing metadata |
+| key | String &nbsp &nbsp &nbsp| Metadata object key. Required only when updating an existing metadata |
 | value | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Metadata object value |
 | display_in_invoice | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field that determines whether the metadata key-value pair will be visible on invoices |
-| id | String &nbsp &nbsp &nbspRequiredUnderCondition>**Required conditionally**</RequiredUnderCondition> | Metadata object identifier - only required when updating metadata |
+| id | String &nbsp &nbsp &nbsp<RequiredUnderCondition>**Required conditionally**</RequiredUnderCondition> | Metadata object identifier - only required when updating metadata |
 
 :::caution
 When updating metadata for a specific customer, all metadata must be included in the payload using the corresponding `metadata.id`. Any metadata that are not included will be deleted.
