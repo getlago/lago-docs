@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklago_doc=self.webpackChunklago_doc||[]).push([[8626],{20677:e=>{e.exports=JSON.parse('{"title":"Resources","slug":"/category/resources","permalink":"/docs/category/resources","navigation":{"previous":{"title":"Messages","permalink":"/docs/api/webhooks/messages"},"next":{"title":"Currencies","permalink":"/docs/api/resources/currencies"}}}')}}]);
