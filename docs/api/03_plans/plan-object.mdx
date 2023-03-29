@@ -28,6 +28,7 @@ This object represents a plan.<br></br>
       {
         "lago_id": "27f12d13-4ae0-437b-b822-8771bcd62e3a",
         "lago_billable_metric_id": "b09ce382-ce87-4da4-89f2-78b2060689fc",
+        "billable_metric_code": "bm_code",
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "standard",
         "group_properties": [
@@ -42,6 +43,7 @@ This object represents a plan.<br></br>
       {
         "lago_id": "e530f658-c06a-44bb-a413-1fbe3796adb4",
         "lago_billable_metric_id": "b09ce382-ce87-4da4-89f2-78b2060689fc",
+        "billable_metric_code": "bm_code",
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "graduated",
         "properties": {
@@ -64,6 +66,7 @@ This object represents a plan.<br></br>
       {
         "lago_id": "108051fc-c71b-47b4-bd86-47436ea6b639",
         "lago_billable_metric_id": "b09ce382-ce87-4da4-89f2-78b2060689fc",
+        "billable_metric_code": "bm_code",
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "package",
         "properties": {
@@ -75,6 +78,7 @@ This object represents a plan.<br></br>
       {
         "lago_id": "88b878e2-4ba4-4f37-98c9-ca8522a9e574",
         "lago_billable_metric_id": "b09ce382-ce87-4da4-89f2-78b2060689fc",
+        "billable_metric_code": "bm_code",
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "percentage",
         "properties": {
@@ -87,6 +91,7 @@ This object represents a plan.<br></br>
       {
         "lago_id": "e530f658-c06a-44bb-a413-1fbe3796555",
         "lago_billable_metric_id": "b09ce382-ce87-4da4-89f2-78b2060689fc",
+        "billable_metric_code": "bm_code",
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "volume",
         "properties": {
@@ -133,6 +138,7 @@ This object represents a plan.<br></br>
 | -----------| ----------- |
 | **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifier of the charge in Lago application. |
 | **lago_billable_metric_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifier of the related billable metric in Lago application. |
+| **billable_metric_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not Null</NotNullable> | Code identifying the billable metric. |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of charge creation. |
 | **charge_model** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Charge model used in event calculations. <br></br> <details><summary>**Possible values**</summary><div>- `standard`<br></br>- `graduated`<br></br>- `package`<br></br>- `percentage`<br></br>- `volume`<div></div></div></details> |
 | **properties** &nbsp &nbsp <Type>JSON</Type> | Extra data. This field will depend on selected charge_model |
