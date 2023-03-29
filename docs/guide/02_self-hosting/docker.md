@@ -97,6 +97,11 @@ Lago uses the following environment variables to configure the components of the
 | LAGO_PDF_URL | http://pdf:3000 | PDF Service URL on your infrastructure |
 | LAGO_DISABLE_SIGNUP | | Disable Sign up when running Lago in self-hosted |
 | RAILS_LOG_TO_STDOUT | | Set to `true` to activate logs on containers |
+| LAGO_FROM_EMAIL | | Needed to send emails ei: noreply@getlago.com |
+| LAGO_SMTP_ADDRESS | | Address of the SMTP server |
+| LAGO_SMTP_PORT | | Port of the SMTP Server |
+| LAGO_SMTP_USERNAME | | Username of the SMTP Server |
+| LAGO_SMTP_PASSWORD | | Password of the SMTP Server |
 
 :::caution
 We recommend that you change `POSTGRES_PASSWORD`, `SECRET_KEY_BASE`, `LAGO_RSA_PRIVATE_KEY`, `LAGO_ENCRYPTION_PRIMARY_KEY`, `LAGO_ENCRYPTION_DETERMINISTIC_KEY` and `LAGO_ENCRYPTION_KEY_DERIVATION_SALT` to improve the security of your Lago instance:
@@ -249,3 +254,15 @@ api-worker:
   volumes:
     - gcs_keyfile.json:/app/gcs_keyfile.json
 ```
+
+### SMTP Configuration
+
+In order to use the email feature, you need to configure some environment variables.
+
+|Name|Description|
+|--|--|
+| `LAGO_FROM_EMAIL` | Needed to send emails ei: noreply@getlago.com |
+| `LAGO_SMTP_ADDRESS` | Address of the SMTP server |
+| `LAGO_SMTP_PORT` | Port of the SMTP Server |
+| `LAGO_SMTP_USERNAME` | Username of the SMTP Server |
+| `LAGO_SMTP_PASSWORD` | Password of the SMTP Server |
