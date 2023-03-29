@@ -11,7 +11,7 @@ The Lago Customer Portal is a user-friendly platform that allows you to effortle
 
 ## Generate a customer portal link
 To generate a customer portal URL that can be embedded into your product, you have two options:
-1. Use the API endpoint; or
+1. Use the [API endpoint](../../api/customers/customer-portal-url); or
 2. Click the Customer Portal link on a specific customer details view.
 
 ![Customer Portal Access](../../../static/img/customer-portal-detail-view.png)
