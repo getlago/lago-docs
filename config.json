@@ -37,6 +37,7 @@
     "https://doc.getlago.com/docs/guide/invoicing/taxes",
     "https://doc.getlago.com/docs/guide/invoicing/grace-period",
     "https://doc.getlago.com/docs/guide/invoicing/download-invoices",
+    "https://doc.getlago.com/docs/guide/invoicing/metadata",
 
     "https://doc.getlago.com/docs/guide/payments/overview",
     "https://doc.getlago.com/docs/guide/payments/gocardless-integration",
@@ -138,6 +139,7 @@
     "https://doc.getlago.com/docs/api/webhooks/messages",
 
     "https://doc.getlago.com/docs/api/resources/currencies",
+    "https://doc.getlago.com/docs/api/resources/locales",
     "https://doc.getlago.com/docs/api/resources/timezones",
     
     "https://doc.getlago.com/changelog",
