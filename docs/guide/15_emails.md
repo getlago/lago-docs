@@ -42,7 +42,7 @@ By default, both scenarios are switched off. You can turn on/off these scenarios
 The email will be sent to customers based on the organization or customer’s document locale. This means that the email will have the same locale as the invoice sent.
 
 ## Email sending address
-For the cloud version, Lago uses no-reply@getlago.com as the sending email address. This email address cannot receive replies from your customers. However, your organization’s email address will be included in the email template in case your customer needs to contact you (see below).
+For the cloud version, Lago uses [no-reply@getlago.com](mailto:no-reply@getlago.com) as the sending email address. Any responses from your customers will be directed to the email address you have established for your organization in the organization settings.
 
 ## Email template
 ![Send invoice by email ](../../static/img/email-template.png)
