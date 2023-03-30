@@ -5,7 +5,7 @@ sidebar_position: 2
 # Hightouch
 
 <head>
-  <meta property="og:image" content="../../../static/img/integration-lago-hightouch.png" />
+  <meta property="og:image" content="https://uploads-ssl.webflow.com/635119506e36baf5c267fecd/642540f497e0b1b84c374118_integration-lago-ht.png" />
 </head>
 
 Hightouch is a Data Activation platform that syncs data from sources (database, warehouses, spreadsheet and much more) to business applications and developer tools. This data can be sent to Lago, our usage-based billing platform, to automate your billing process and ensure accurate invoicing for your customers. Here's a step-by-step guide to help you get started:
