@@ -261,7 +261,7 @@ In order to use the email feature, you need to configure some environment variab
 
 |Name|Description|
 |--|--|
-| `LAGO_FROM_EMAIL` | Needed to send emails ei: noreply@getlago.com |
+| `LAGO_FROM_EMAIL` | Required to send emails (i.e:* noreply@getlago.com*) |
 | `LAGO_SMTP_ADDRESS` | Address of the SMTP server |
 | `LAGO_SMTP_PORT` | Port of the SMTP Server |
 | `LAGO_SMTP_USERNAME` | Username of the SMTP Server |
