@@ -1,0 +1,271 @@
+---
+sidebar_position: 8
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Update fee
+
+## Route
+
+```curl title="PUT"
+/api/v1/fees/:lago_id
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  curl --location --request PUT "$LAGO_URL/api/v1/fees/1a901a90-1a90-1a90-1a90-1a901a901a90" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "fee": {
+        "payment_status": "succeeded"
+      }
+    }'
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client.models import Fee
+
+  fee_update = Fee(
+    payment_status="succeeded",
+  )
+
+  client.fees.update(fee_update, "1a901a90-1a90-1a90-1a90-1a901a901a90")
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  client.fees.update({
+    lago_id: "1a901a90-1a90-1a90-1a90-1a901a901a90",
+    payment_status: "succeeded",
+  })
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Javascript">
+
+  ```javascript
+  const feeObject = {
+    payment_status: "succeeded" as FeeObject["payment_status"],
+  };
+
+  await client.fees.updateFee("1a901a90-1a90-1a90-1a90-1a901a901a90", {
+    fee: feeObject,
+  });
+  ```
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+  feeId, _ := uuid.Parse("1a901a90-1a90-1a90-1a90-1a901a901a90")
+  feeInput := &lago.FeeInput{
+    LagoID: invoiceId,
+    PaymentStatus: lago.FeePaymentStatusSucceeded,
+  }
+
+  fee, err := lagoClient.Fee().Update(feeInput)
+  if err != nil {
+    panic(err)
+  }
+
+  // fee is *lago.Fee
+  fmt.Println(fee)
+    }
+  ```
+
+  </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+  var apiInstance = new FeesApi(Configuration.Default);
+  var id = "1a901a90-1a90-1a90-1a90-1a901a901a90";
+  var feeInput = new FeeInput();
+
+  try
+  {
+      Fee result = apiInstance.UpdateFee(id, feeInput);
+  }
+  catch (ApiException e)
+  {
+      Debug.Print("Exception when calling lago API: " + e.Message );
+      Debug.Print("Status Code: "+ e.ErrorCode);
+      Debug.Print(e.StackTrace);
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+  $id = "1a901a90-1a90-1a90-1a90-1a901a901a90";
+  $fee_input = new \OpenAPI\Client\Model\FeeInput();
+
+  try {
+      $result = $apiInstance->updateFee($id, $fee_input);
+      print_r($result);
+  } catch (Exception $e) {
+      echo 'Exception when calling lago API: ', $e->getMessage(), PHP_EOL;
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "fee": {
+    "payment_status": "succeeded"
+  }
+}
+```
+
+| Attributes | Type | Description |
+|--|--|--|
+| lago_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Fee unique identifier in Lago |
+| payment_status | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Fee payment status <br></br>It can be `pending`, `succeeded`, `failed` or `refunded` |
+
+:::caution
+Payment status can only be manually updated for `instant_charge` fees.
+:::
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The fee has been successfully updated.
+
+  Returns a [fee](./fee-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `fee` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unauthorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "fee_not_found"
+  }
+  ```
+
+  The `fee` was not found
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
+  }
+  ```
+
+  **Possible errors:**
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `payment_status` | `value_is_invalid` | Provided `payment_status` does not match an accepted value |
+
+
+  </TabItem>
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const RequiredUnderCondition = ({children, color}) => (
+  <span
+    style={{
+      color: "#FF7E1D",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

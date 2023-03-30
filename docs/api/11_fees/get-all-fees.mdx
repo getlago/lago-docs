@@ -125,6 +125,58 @@ import TabItem from '@theme/TabItem';
 | refunded_at_from | String <Optional>**Optional**</Optional> | Filter results with payment refund after creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
 | refunded_at_to | String <Optional>**Optional**</Optional> | Filter results with payment refund after creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
 
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  Fees were successfully found.
+
+  Returns a list of [fees](./fee-object) objects.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
+  }
+  ```
+
+  **Possible errors:**
+
+  | Field | Code | Description |
+  |--|--|--|
+  | `fee_type` | `value_is_invalid` | Provided `fee_type` does not match an accepted value |
+  | `payment_status` | `value_is_invalid` | Provided `payment_status` does not match an accepted value |
+
+
+  </TabItem>
+</Tabs>
+
 
 export const Type = ({children, color}) => (
   <span
