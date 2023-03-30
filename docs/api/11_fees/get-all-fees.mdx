@@ -1,0 +1,156 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Get all fees
+
+## Route
+
+```curl title="GET"
+/api/v1/fees?page=2&per_page=20&external_customer_id=hooli_1234
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  curl --location --request GET "$LAGO_URL/api/v1/fees?page=2&per_page=20&external_customer_id=hooli_1234" \
+    --header "Authorization: Bearer $API_KEY"
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  client.fees.find_all({'per_page': 2, 'page': 1})
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  client.fees.get_all({ per_page: 2, page: 3 })
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Javascript">
+
+  ```javascript
+  await client.fees.findAllFees({ per_page: 2, page: 3 });
+  ```
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    feeListInput := &lago.FeeListInput{
+      PerPage: 1,
+      Page: 1,
+      CreatedAtFrom: "2022-01-01T00:00:00Z",
+      CreatedAtTo: "2022-01-01T00:00:00Z",
+    }
+
+    feeResult, err := lagoClient.Fee().GetList(feeListInput)
+    if err != nil {
+      // Error is *lago.Error
+      panic(err)
+    }
+
+    // feeResult is *lago.FeeResult
+    fmt.Println(feeResult)
+  ```
+
+  </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+  var apiInstance = new FeeApi(Configuration.Default);
+  var page = 2;
+  var perPage = 20;
+
+  try
+  {
+    Fee result = apiInstance.FindAllFees(page, perPage);
+  }
+  catch (ApiException e)
+  {
+      Debug.Print("Exception when calling lago API: " + e.Message );
+      Debug.Print("Status Code: "+ e.ErrorCode);
+      Debug.Print(e.StackTrace);
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+  $page = 2;
+  $per_page = 20;
+
+  try {
+    $result = $apiInstance->findAllFees($page, $per_page);
+    print_r($result);
+  } catch (Exception $e) {
+    echo 'Exception when calling lago API: ', $e->getMessage(), PHP_EOL;
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+| Attributes | Type | Description |
+|--|--|--|
+| per_page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Number of records per page. |
+| page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Page number |
+| fee_type | String <Optional>**Optional**</Optional> | Filter results by the fee item type.<br></br> <details><summary>**Possible values**</summary><div>- `add_on`<br></br>- `charge`<br></br>- `credit`<br></br>- `instant_charge`<br></br>- `subscription`<div></div></div></details> |
+| payment_status | String <Optional>**Optional**</Optional> | Filter resilts by the payment status<br></br> <details><summary>**Possible values**</summary><div>- `pending`<br></br>- `succeeded`<br></br>- `failed`<br></br>- `refunded`<div></div></div></details> |
+| external_subscription_id | String <Optional>**Optional**</Optional> |  Filter results by SUBSCRIPTION unique identifier in your application |
+| external_customer_id | String <Optional>**Optional**</Optional> |  Filter results by CUSTOMER unique identifier in your application |
+| billable_metric_code | String <Optional>**Optional**</Optional> | Filter results by the code of the billable metric attached to the fee.<br/>Only applies to `charge` and `instant_charge` types |
+| currency | String <Optional>**Optional**</Optional> | Filter results by the amount currency. See [list](../resources/currencies) for accepted values. |
+| created_at_from | String <Optional>**Optional**</Optional> | Filter results created after creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
+| created_at_to | String <Optional>**Optional**</Optional> | Filter results created before creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
+| failed_at_from | String <Optional>**Optional**</Optional> | Filter results with payment failure after creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
+| failed_at_to | String <Optional>**Optional**</Optional> | Filter results with payment failure after creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
+| succeeded_at_from | String <Optional>**Optional**</Optional> | Filter results with payment success after creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
+| succeeded_at_to | String <Optional>**Optional**</Optional> | Filter results with payment success after creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
+| refunded_at_from | String <Optional>**Optional**</Optional> | Filter results with payment refund after creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
+| refunded_at_to | String <Optional>**Optional**</Optional> | Filter results with payment refund after creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
+
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
