@@ -52,6 +52,7 @@ api/v1/events
 
   ```python
   from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
   from lago_python_client.models import Event
 
   client = Client(api_key='__YOUR_API_KEY__')
@@ -65,7 +66,10 @@ api/v1/events
     properties={"custom_field": "custom", "operation_type": "add"}
   )
 
-  client.events.create(event)
+  try:
+      client.events.create(event)
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
 
   </TabItem>

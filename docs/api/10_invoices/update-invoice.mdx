@@ -44,6 +44,7 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
   from lago_python_client.models import InvoicePaymentStatusChange
 
   client = Client(api_key='__YOUR_API_KEY__')
@@ -58,7 +59,10 @@ import TabItem from '@theme/TabItem';
     metadata=InvoiceMetadataList(__root__=[metadata_object])
   )
 
-  client.invoices.update(invoice_update, "5eb02857-a71e-4ea2-bcf9-57d8885990ba")
+  try:
+      client.invoices.update(invoice_update, "5eb02857-a71e-4ea2-bcf9-57d8885990ba")
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
 
   # Deprecated
 
@@ -66,7 +70,10 @@ import TabItem from '@theme/TabItem';
     payment_status="succeeded"
   )
 
-  client.invoices.update(payment_status_change, "5eb02857-a71e-4ea2-bcf9-57d8885990ba")
+  try:
+      client.invoices.update(payment_status_change, "5eb02857-a71e-4ea2-bcf9-57d8885990ba")
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
   </TabItem>
 

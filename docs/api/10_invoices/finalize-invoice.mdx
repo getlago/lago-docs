@@ -32,13 +32,17 @@ curl --location --request PUT "$LAGO_URL/api/v1/invoices/5eb02857-a71e-4ea2-bcf9
 
   <TabItem value="python" label="Python">
 
-```python
-from lago_python_client.client import Client
+  ```python
+  from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
 
-client = Client(api_key='__YOUR_API_KEY__')
+  client = Client(api_key='__YOUR_API_KEY__')
 
-client.invoices.finalize('5eb02857-a71e-4ea2-bcf9-57d8885990ba') # Invoice ID
-```
+  try:
+      client.invoices.finalize('5eb02857-a71e-4ea2-bcf9-57d8885990ba')  # Invoice ID
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
+  ```
 
   </TabItem>
 

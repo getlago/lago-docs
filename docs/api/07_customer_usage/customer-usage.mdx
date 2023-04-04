@@ -35,12 +35,15 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  customer_usage = client.customers.current_usage(
-    'external_customer_id', 'external_subscription_id'
-  )
+  customer_usage = None
+  try:
+      customer_usage = client.customers.current_usage('external_customer_id', 'external_subscription_id')
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
 
   </TabItem>

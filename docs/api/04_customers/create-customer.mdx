@@ -69,6 +69,7 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
   from lago_python_client.models import Customer, CustomerBillingConfiguration
 
   client = Client(api_key='__YOUR_API_KEY__')
@@ -108,7 +109,10 @@ import TabItem from '@theme/TabItem';
     metadata=MetadataList(__root__=[metadata_object])
   )
 
-  client.customers.create(customer)
+  try:
+      client.customers.create(customer)
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
 
   </TabItem>

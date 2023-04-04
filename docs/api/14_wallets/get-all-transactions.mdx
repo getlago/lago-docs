@@ -31,10 +31,14 @@ import TabItem from '@theme/TabItem';
 
   ```python
   from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  client.wallet_transactions.find_all({'per_page': 2, 'page': 1})
+  try:
+      client.wallet_transactions.find_all({'per_page': 2, 'page': 1})
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
   ```
   </TabItem>
 

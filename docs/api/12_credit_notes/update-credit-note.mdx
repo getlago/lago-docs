@@ -36,15 +36,19 @@ curl --location --request PUT "$LAGO_URL/api/v1/credit_notes/__lago_id__" \
 
   <TabItem value="python" label="Python">
 
-```python
-from lago_python_client.client import Client
-from lago_python_client.models import CreditNoteUpdate
+  ```python
+  from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
+  from lago_python_client.models import CreditNoteUpdate
 
-credit_note_id = "credit-note-id"
-credit_note_update = CreditNoteUpdate(refund_status='pending')
+  credit_note_id = "credit-note-id"
+  credit_note_update = CreditNoteUpdate(refund_status='pending')
 
-client.credit_notes.update(credit_note_update, credit_note_id)
-```
+  try:
+      client.credit_notes.update(credit_note_update, credit_note_id)
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
+  ```
 
   </TabItem>
 
