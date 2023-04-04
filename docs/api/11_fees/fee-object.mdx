@@ -30,47 +30,50 @@ This object represents a line item of an invoice, handling amount, billed units 
 }
 ```
 
-| Attributes | Description |
-| -----------| ----------- |
-| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the fee in Lago application |
-| **lago_group_id** &nbsp &nbsp <Type>String</Type> | Unique identifer of the group in Lago application |
-| **item** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Item attached to the fee. <br></br>**Always have 3 attributes:**<br></br>- `type`: `charge` or `subscription`<br></br>- `code`: Code of the plan or of the billable metric attached to the fee.<br></br>- `name`: Name of the plan of of the billable metric attached to the fee |
-| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents of the fee, VAT excluded |
-| **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
-| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents |
-| **vat_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
-| **total_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Total amount in cents |
-| **total_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount |
-| **units**  &nbsp &nbsp <Type>String (Decimal)</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Units used to charge the customer |
-| **events_count**  &nbsp &nbsp <Type>Integer</Type> | Number of events |
-| **from_date** &nbsp &nbsp <Type>String</Type><br>/<br/><Comment>*ISO 8601 date*</Comment> | Beginning date of the period that the fee covers. <br></br> <details>Only applies to `subscription` and `charge` fees</details> |
-| **to_date** &nbsp &nbsp <Type>String</Type><br></br/><Comment>*ISO 8601 date*</Comment> | Ending date of the period that the fee covers. <br></br> <details>Only applies to `subscription` and `charge` fees</details> |
+| Attributes                                                                                                | Description                                                                                                                                                                                                                                                                          |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>               | Unique identifer of the fee in Lago application                                                                                                                                                                                                                                      |
+| **lago_group_id** &nbsp &nbsp <Type>String</Type>                                                         | Unique identifer of the group in Lago application                                                                                                                                                                                                                                    |
+| **item** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>                    | Item attached to the fee. <br/><br/>**Always have 3 attributes:**<br/><br/>- `type`: `charge` or `subscription`<br/><br/>- `code`: Code of the plan or of the billable metric attached to the fee.<br/><br/>- `name`: Name of the plan of of the billable metric attached to the fee |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>         | Amount in cents of the fee, VAT excluded                                                                                                                                                                                                                                             |
+| **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>       | Currency of the amount                                                                                                                                                                                                                                                               |
+| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>     | VAT amount in cents                                                                                                                                                                                                                                                                  |
+| **vat_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>   | Currency of the VAT amount                                                                                                                                                                                                                                                           |
+| **total_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>   | Total amount in cents                                                                                                                                                                                                                                                                |
+| **total_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount                                                                                                                                                                                                                                                         |
+| **units** &nbsp &nbsp <Type>String (Decimal)</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>       | Units used to charge the customer                                                                                                                                                                                                                                                    |
+| **events_count** &nbsp &nbsp <Type>Integer</Type>                                                         | Number of events                                                                                                                                                                                                                                                                     |
+| **from_date** &nbsp &nbsp <Type>String</Type><br/>/<br/><Comment>_ISO 8601 date_</Comment>                | Beginning date of the period that the fee covers. <br/><br/> <details>Only applies to `subscription` and `charge` fees</details>                                                                                                                                                     |
+| **to_date** &nbsp &nbsp <Type>String</Type><br/></br/><Comment>_ISO 8601 date_</Comment>                  | Ending date of the period that the fee covers. <br/><br/> <details>Only applies to `subscription` and `charge` fees</details>                                                                                                                                                        |
 
-export const Type = ({children, color}) => (
+export const Type = ({ children, color }) => (
   <span
     style={{
       color: "#006CFA",
-      fontSize: "13px"
-    }}>
+      fontSize: "13px",
+    }}
+  >
     {children}
   </span>
 );
 
-export const NotNullable = ({children, color}) => (
+export const NotNullable = ({ children, color }) => (
   <span
     style={{
       color: "#DC3309",
-      fontSize: "13px"
-    }}>
+      fontSize: "13px",
+    }}
+  >
     {children}
   </span>
 );
 
-export const Comment = ({children, color}) => (
+export const Comment = ({ children, color }) => (
   <span
     style={{
-      fontSize: "12px"
-    }}>
+      fontSize: "12px",
+    }}
+  >
     {children}
   </span>
 );
