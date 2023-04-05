@@ -53,7 +53,9 @@ To verify the signature, you must decode the signature and compare the result wi
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  await client.webhooks.fetchPublicKey();
+  const res = yield client.webhooks.fetchPublicKey();
+  const keyText = yield res.text();
+  const webhooksPublicKey = Buffer.from(keyText, "base64").toString("ascii");
   ```
 
 </TabItem>
