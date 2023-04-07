@@ -10,12 +10,16 @@ This object represents a line item of an invoice, handling amount, billed units 
 
 ```json
 {
-  "lago_id": "6be23c42-47d2-45a3-9770-5b3572f225c3",
-  "lago_group_id": "5b4881e3-b451-472e-9e03-d99379550743",
+  "lago_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "lago_group_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "lago_invoice_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "external_subscription_id": "external_id",
   "item": {
     "type": "subscription",
     "code": "plan_code",
-    "name": "Plan"
+    "name": "Plan",
+    "lago_item_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+    "item_type": "Subscription"
   },
   "amount_cents": 100,
   "amount_currency": "EUR",
@@ -26,7 +30,12 @@ This object represents a line item of an invoice, handling amount, billed units 
   "units": "0.32",
   "events_count": 23,
   "from_date": "2022-04-29T08:59:51Z",
-  "to_date": "2022-05-29T08:59:51Z"
+  "to_date": "2022-05-29T08:59:51Z",
+  "payment_status": "pending",
+  "created_at": "2022-08-24T14:58:59Z",
+  "succeeded_at": "2022-08-24T14:58:59Z",
+  "failed_at": "2022-08-24T14:58:59Z",
+  "refunded_at": "2022-08-24T14:58:59Z"
 }
 ```
 
@@ -34,7 +43,6 @@ This object represents a line item of an invoice, handling amount, billed units 
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>               | Unique identifer of the fee in Lago application                                                                                                                                                                                                                                      |
 | **lago_group_id** &nbsp &nbsp <Type>String</Type>                                                         | Unique identifer of the group in Lago application                                                                                                                                                                                                                                    |
-| **item** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>                    | Item attached to the fee. <br/><br/>**Always have 3 attributes:**<br/><br/>- `type`: `charge` or `subscription`<br/><br/>- `code`: Code of the plan or of the billable metric attached to the fee.<br/><br/>- `name`: Name of the plan of of the billable metric attached to the fee |
 | **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>         | Amount in cents of the fee, VAT excluded                                                                                                                                                                                                                                             |
 | **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>       | Currency of the amount                                                                                                                                                                                                                                                               |
 | **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>     | VAT amount in cents                                                                                                                                                                                                                                                                  |
@@ -43,8 +51,25 @@ This object represents a line item of an invoice, handling amount, billed units 
 | **total_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount                                                                                                                                                                                                                                                         |
 | **units** &nbsp &nbsp <Type>String (Decimal)</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>       | Units used to charge the customer                                                                                                                                                                                                                                                    |
 | **events_count** &nbsp &nbsp <Type>Integer</Type>                                                         | Number of events                                                                                                                                                                                                                                                                     |
-| **from_date** &nbsp &nbsp <Type>String</Type><br/>/<br/><Comment>_ISO 8601 date_</Comment>                | Beginning date of the period that the fee covers. <br/><br/> <details>Only applies to `subscription` and `charge` fees</details>                                                                                                                                                     |
-| **to_date** &nbsp &nbsp <Type>String</Type><br/></br/><Comment>_ISO 8601 date_</Comment>                  | Ending date of the period that the fee covers. <br/><br/> <details>Only applies to `subscription` and `charge` fees</details>                                                                                                                                                        |
+| **from_date** &nbsp &nbsp <Type>String (ISO 8601 date)</Type>                                             | Beginning date of the period that the fee covers. <br/><br/> <details>Only applies to `subscription` and `charge` fees</details>                                                                                                                                                     |
+| **to_date** &nbsp &nbsp <Type>String (ISO 8601 date)</Type>                                               | Ending date of the period that the fee covers. <br/><br/> <details>Only applies to `subscription` and `charge` fees</details>                                                                                                                                                        |
+| **payment_status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>        | Status of the payment. <br></br> <details><summary>**Possible values**</summary><div>- `pending`<br></br>- `succeeded`<br></br>- `failed`<br></br>- `refunded`<div></div></div></details> |
+| **created_at**&nbsp &nbsp <Type>String (ISO 8601 datetime)</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable>| Date and time of creation of the credit note in UTC |
+| **succeeded_at**&nbsp &nbsp <Type>String (ISO 8601 datetime)</Type>                                       | Date and time in UTC of the payment success. |
+| **failed_at** <Type>String (ISO 8601 datetime)</Type>                                                     | Date and time in UTC of the payment failure. |
+| **refunded_at** <Type>String (ISO 8601 datetime)</Type>                                                   | Date and time in UTC of the payment refund.  |
+| **item** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>                    | [Item](#item-object) attached to the fee |
+
+## Item object
+
+| Attributes | Description |
+| -----------| ----------- |
+| **type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Type of fee.<br></br> <details><summary>**Possible values**</summary><div>- `add_on`<br></br>- `charge`<br></br>- `credit`<br></br>- `instant_charge`<br></br>- `subscription`<div></div></div></details> |
+| **code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code of item.<br></br> <details><summary>**Possible values**</summary><div>- `add_on`: code of the Add-On<br></br>- `charge`: code of the billable metric<br></br>- `credit`: `credit`<br></br>- `instant_charge`: code of the billable metric<br></br>- `subscription`: code of the plan<div></div></div></details> |
+| **name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Name of item.<br></br> <details><summary>**Possible values**</summary><div>- `add_on`: name of the Add-On<br></br>- `charge`: name of the billable metric<br></br>- `credit`: `credit`<br></br>- `instant_charge`: name of the billable metric<br></br>- `subscription`: name of the plan<div></div></div></details> |
+| **lago_item_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifier of the item.<br></br> <details><summary>**Possible values**</summary><div>- `add_on`: Lago identifier of the Add-On<br></br>- `charge`: Lago identifier of the billable metric<br></br>- `credit`: Lago identifier of the wallet transaction<br></br>- `instant_charge`: Lago identifier of the billable metric<br></br>- `subscription`: Lago identifier of the subscription<div></div></div></details> |
+| **item_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Type of the fee item<br></br> <details><summary>**Possible values**</summary><div>- `add_on`: `AddOn`<br></br>- `charge`: `BillableMetric`<br></br>- `credit`: `WalletTransaction`<br></br>- `instant_charge`: `BillableMetric`<br></br>- `subscription`: `Subscription`<div></div></div></details> |
+
 
 export const Type = ({ children, color }) => (
   <span
