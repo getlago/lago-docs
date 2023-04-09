@@ -4,11 +4,27 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Tue, 28 Mar 2023 11:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 07 Apr 2023 11:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2023 Lago.</copyright>
+        <item>
+            <title><![CDATA[Instant charges ✨]]></title>
+            <link>https://getlago.com/changelog/instant-charges</link>
+            <guid>https://getlago.com/changelog/instant-charges</guid>
+            <pubDate>Fri, 07 Apr 2023 11:00:00 GMT</pubDate>
+            <description><![CDATA[This feature is only available to users with a premium license. Please contact us to get access to Lago Cloud and Lago Self-Hosted Premium.]]></description>
+            <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Premium feature</div><div class="admonitionContent_S0QG"><p>This feature is only available to users with a premium license. Please <strong><a href="mailto:hello@getlago.com" target="_blank" rel="noopener noreferrer">contact us</a></strong> to get access to Lago Cloud and Lago Self-Hosted Premium.</p></div></div><p>If you want to collect payments for usage-based charges on the fly, without waiting for the end-of-period invoice, you can turn on the new instant charge feature.</p><p>When a charge is marked as instant, Lago will automatically calculate the fee associated with each event as soon as it is ingested. This information will then be sent to you in a <code>fee.instant_created</code> webhook message.</p><p>You can also get an estimate for an instant charge before the actual event is confirmed through the <code>/api/v1/events/estimate_fees</code> endpoint.</p><p><a href="/docs/guide/plans/instant-charges">Learn more</a></p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Reset password]]></title>
+            <link>https://getlago.com/changelog/reset-password</link>
+            <guid>https://getlago.com/changelog/reset-password</guid>
+            <pubDate>Fri, 07 Apr 2023 10:00:00 GMT</pubDate>
+            <description><![CDATA[You can now reset your password via the user interface.]]></description>
+            <content:encoded><![CDATA[<p>You can now reset your password via the user interface.</p><p>On the login page, click <strong>"Forgotten password"</strong> to access the dedicated page where you can request a link to reset your password.</p><p><img loading="lazy" alt="Reset password page" src="/assets/images/reset-password-f3bf1adf1ab7196efb7818a6876e0597.png" width="2880" height="1222" class="img_ev3q"></p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Automatic emails ✨]]></title>
             <link>https://getlago.com/changelog/automatic-emails</link>
