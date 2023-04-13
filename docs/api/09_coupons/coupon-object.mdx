@@ -21,6 +21,8 @@ This object represents a coupon.<br></br>
     "reusable": true,
     "limited_plans": true,
     "plan_codes": ["code1"],
+    "limited_billable_metrics": false,
+    "billable_metric_codes": [],
     "frequency": "recurring",
     "frequency_duration": 3,
     "expiration": "time_limit",
@@ -40,6 +42,8 @@ This object represents a coupon.<br></br>
 | **reusable** &nbsp &nbsp <Type>Boolean</Type> | Field specifying if coupon is reusable or not. |
 | **limited_plans** &nbsp &nbsp <Type>Boolean</Type> | Field specifying if coupon has plan limitations or not. |
 | **plan_codes** &nbsp &nbsp <Type>Array</Type> | Field specifying related plan codes. |
+| **limited_billable_metrics** &nbsp &nbsp <Type>Boolean</Type> | Field specifying if coupon has billable metric limitations or not. |
+| **billable_metric_codes** &nbsp &nbsp <Type>Array</Type> | Field specifying related billable metric codes. |
 | **expiration** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Expiration type. <br></br> <details><summary>**Possible values**</summary><div>- `time_limit`<br></br>- `no_expiration`<div></div></div></details> |
 | **expiration_at** &nbsp &nbsp <Type>String</Type> <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Expiration date and time of the coupon. |
 | **coupon_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Coupon type. <br></br> <details><summary>**Possible values**</summary><div>- `fixed_amount`<br></br>- `percentage`<div></div></div></details> |
