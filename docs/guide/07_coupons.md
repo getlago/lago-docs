@@ -18,7 +18,7 @@ To create a coupon through the user interface:
 5. Define its value and frequency (i.e. will be applied once, over several periods or forever);
 6. Choose if the coupon can be applied several times to the same customer account or not;
 7. Choose whether or not to set an expiration date (i.e. date after which the coupon can no longer be redeemed);
-8. Select the plan(s) to which the coupon applies (applies to all plans by default); and
+8. Select the plan(s) or billable metric(s) to which the coupon applies (applies to all plans and metrics by default); and
 9. Click **"Add coupon"** to confirm.
 
 :::info
@@ -40,7 +40,7 @@ You can also apply coupons via the API ([learn more](../api/coupons/apply-coupon
 
 You can apply several coupons to a customer. However, if a coupon has been marked as **non-reusable**, you will only be able to apply it once to the customer account, even if it has not been fully consumed.
 
-In addition to this, it is not possible to apply several **coupons that share the same plan limitation(s)**. Consider the following example:
+In addition to this, it is not possible to apply several **coupons that share the same limitation(s)**. Consider the following example:
 >Your company offers three plans (A, B and C) and three coupons:
 >
 >- Coupon 1 applies to all plans;
@@ -51,19 +51,27 @@ In addition to this, it is not possible to apply several **coupons that share th
 >
 >However, since coupons 2 and 3 share the same limitation related to plan A, they cannot be applied jointly to the customer account.
 
+This restriction also applies to coupons limited to specific billable metrics. For instance:
+> If plan A includes a charge related to the billable metric `api_calls`:
+>
+>- You can apply a coupon limited to plan A; or
+>- You can apply a coupon limited the metric `api_calls`; but
+>- You cannot apply both coupons since they share the same limitation (the coupon that applies to plan A also applies to `api_calls` since this metric is included in plan A).
+
 :::info
 A coupon applied to a customer continues to apply beyond the expiration date.
 :::
 
 ## Application scope
-**Coupons are deducted from the total amount of the future invoice(s)**, including subscription fees and charges. As mentioned previously, the value of the coupon is deducted from the amount of the invoice after tax.
+Coupons are deducted from future invoices. As mentioned previously, the value of the coupon is deducted from the amount of the invoice after tax.
 
 For coupons whose value is a fixed amount:
 - When **the coupon only applies once** and its value is higher than the invoice amount, the remaining unused amount will be applied to the following invoices, until the coupon is totally consumed or removed; and
 - When **the coupon is recurring** and its value is higher than the invoice amount, any remaining unused amount will be lost, even if it is the last application period.
 
 When several coupons are applied to the customer account, they will be deducted according to the following rules:
-- **Coupons limited to specific plans** will be deducted first (if any, and if there is at least one subscription associated with the relevant plan); and
+- **Coupons limited to specific billable metrics** will be deducted first (if any, and if there is at least one subscription associated with the relevant metric);
+- **Coupons limited to specific plans** will be deducted next (if any, and if there is at least one subscription associated with the relevant plan); and
 - **Coupons that apply to all plans** will be deducted according to the date on which they were applied (i.e. the coupon that was applied first will be deducted first).
 
 You can see the remaining value / number of remaining periods for each coupon in the **"Overview"** tab of the customer view.
