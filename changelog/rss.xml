@@ -4,11 +4,19 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Fri, 07 Apr 2023 11:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 17 Apr 2023 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2023 Lago.</copyright>
+        <item>
+            <title><![CDATA[Coupons limited to specific metrics]]></title>
+            <link>https://getlago.com/changelog/coupons-metrics</link>
+            <guid>https://getlago.com/changelog/coupons-metrics</guid>
+            <pubDate>Mon, 17 Apr 2023 10:00:00 GMT</pubDate>
+            <description><![CDATA[We have added a new option to the coupon settings: it is now possible to limit the application scope of a coupon to specific billable metrics.]]></description>
+            <content:encoded><![CDATA[<p>We have added a new option to the coupon settings: it is now possible to limit the application scope of a coupon to specific billable metrics.</p><p>By default, coupons apply to all charges but when creating a new coupon, you can define the list of billable metrics to which the coupon applies.</p><p>This feature is related to the <code>billable_metric_codes</code> attribute of the <code>coupon</code> object (<a href="/docs/api/coupons/create-coupon">see API documentation</a>).</p><p>Please refer to <a href="/docs/guide/coupons">the guide</a> for more information on coupons.</p><p><img loading="lazy" alt="Coupon limitations" src="/assets/images/coupons-bm-1c2ee68ef19c01172755b5f8a2df7a57.png" width="1628" height="760" class="img_ev3q"></p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Instant charges ✨]]></title>
             <link>https://getlago.com/changelog/instant-charges</link>
