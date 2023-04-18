@@ -70,8 +70,10 @@ Lago uses the following environment variables to configure the components of the
 | POSTGRES_PORT | 5432 | Port the postgres database listens to |
 | REDIS_HOST | redis | Host name of the redis server |
 | REDIS_PORT | 6379 | Port the redis database listens to |
+| REDIS_PASSWORD | | Password of the redis database server |
 | LAGO_REDIS_CACHE_HOST | redis | Host name of the redis cache server |
 | LAGO_REDIS_CACHE_PORT | 6379 | Port the redis cache server listens to |
+| LAGO_REDIS_CACHE_PASSWORD | | Password of the redis cache server |
 | LAGO_FRONT_URL | http://localhost | URL of the Lago front-end application.<br/>Used for CORS configuration |
 | FRONT_PORT | 80 | Port the front-end application listens to |
 | LAGO_API_URL | http://localhost:3000 | URL of the Lago back-end application |
@@ -200,7 +202,7 @@ docker-compose up front
 By default, Lago uses the internal storage of the container.
 You can customize it by defining different environment variables.
 
-We currently support : 
+We currently support :
   - AWS S3
   - AWS S3 Compatibles Endpoints
   - Google Cloud Service Cloud Storage
