@@ -29,76 +29,150 @@ The names of your billable metrics, plans, add-ons, coupons and wallets are defi
 
 To add a new language:
 1. [Download the document template](../../../static/files/doc-template.pdf) to see where each key is located;
-2. Use the JSON file below to provide translations for the new language; and
-3. Send the new JSON file to [hello@getlago.com](mailto:hello@getlago.com), so that we can review it and add it to the codebase.
+2. Use the text file below to provide translations for the new language; and
+3. Send the new text file to [hello@getlago.com](mailto:hello@getlago.com), so that we can review it and add it to the codebase.
 
 Thanks for your time and support!
 
 ```json
 en:
   invoice:
-    [01] document_name: Invoice
-    [02] invoice_number: Invoice Number
-    [03] issue_date: Issue Date
-    [04] bill_from: From
-    [05] bill_to: Bill to
-    [07] due_date: Due %{date}
-    [08] all_subscriptions: All Subscriptions    
-    [09] all_usage_based_fees: All usage based fees
-    [10] sub_total_without_tax: Sub total (excl. tax)
-    [11] tax: Tax
-    [12] sub_total_with_tax: Sub total (incl. tax)
-    [13] credit_notes: Credit Notes
-    [14] coupons: Coupons
-    [15] prepaid_credits: Prepaid credits
-    [16] total_due: Total due
-    [17] powered_by: Powered by
+    [1.1] document_name: Invoice
+    [1.2] invoice_number: Invoice Number
+    [1.3] issue_date: Issue Date
+    [1.4] bill_from: From
+    [1.5] bill_to: Bill to
+    [1.7] due_date: Due %{date}
+    [1.8] all_subscriptions: All Subscriptions    
+    [1.9] all_usage_based_fees: All usage based fees
+    [1.10] sub_total_without_tax: Sub total (excl. tax)
+    [1.11] tax: Tax
+    [1.12] sub_total_with_tax: Sub total (incl. tax)
+    [1.13] credit_notes: Credit Notes
+    [1.14] coupons: Coupons
+    [1.15] prepaid_credits: Prepaid credits
+    [1.16] total_due: Total due
+    [1.17] powered_by: Powered by
 
-    [18] details: “%{resource} details”
-    [19] subscription: Subscription
-    [20] date_from: From
-    [21] date_to: To
-    [22] monthly: Monthly
-    [23] yearly: Yearly
-    [24] weekly: Weekly
-    [25] sub_total: Sub total
+    [2.1] details: “%{resource} details”
+    [2.2] subscription: Subscription
+    [2.3] date_from: From
+    [2.4] date_to: To
+    [2.5] monthly: Monthly
+    [2.6] yearly: Yearly
+    [2.7] weekly: Weekly
+    [2.8] sub_total: Sub total
+    [2.9] usage_based_fees: Usage based fees
+    [2.10] list_of_charges: List of charges used from %{from} to %{to}
+    [2.11] see_breakdown: See breakdown for total unit
+    [2.12] TBD
+    [2.13] TBD
+    [2.14] total unit_interval: "Total unit: %{events_count} events for %{units}"
+    [2.15] total_unit: "Total unit: %{units}"
+    [2.16] total: Total
 
-    [26] usage_based_fees: Usage based fees
-    [27] list_of_charges: List of charges used from %{from} to %{to}
-    [28] see_breakdown: See breakdown for total unit
-    [29] total unit_interval: "Total unit: %{events_count} events for %{units}"
-    [30] total_unit: "Total unit: %{units}"
-    [31] total: Total
-    [32] breakdown: Breakdown
-    [34] breakdown_for_days: "%{breakdown_duration} of %{breakdown_total_duration} days"
-    [35] breakdown_of: "%{breakdown} of %{fee_group_name}"
-    [36] notice: For example, if a unit is added with 15 days left in your monthly plan, we multiply the price by 15/31 (days remaining divided by the total number of days in your plan) to calculate the prorated price. Same logic when removing a unit used during 10 days, we multiply the price by 10/31.
+    [3.1] breakdown: Breakdown
+    [3.3] breakdown_for_days: "%{breakdown_duration} of %{breakdown_total_duration} days"
+    [3.4] breakdown_of: "%{breakdown} of %{fee_group_name}"
+    [3.5] notice: For example, if a unit is added with 15 days left in your monthly plan, we multiply the price by 15/31 (days remaining divided by the total number of days in your plan) to calculate the prorated price. Same logic when removing a unit used during 10 days, we multiply the price by 10/31.
 
-    [37] prepaid_credits_with_value: Prepaid credits - %{wallet_name}
-    [38] total_credits_with_value: "Total credits: %{credit_amount} credits"
-    [38] total_credits: Total credits
+
+    [4.1] document_name: Invoice
+    [4.2] invoice_number: Invoice Number
+    [4.3] issue_date: Issue Date
+    [4.4] bill_from: From
+    [4.5] bill_to: Bill to
+    [4.6] due_date: Due %{date}
+    [4.7] item: Item
+    [4.8] quantity: Qty
+    [4.9] unit_price: Unit price
+    [4.10] amount: Amount
+    [4.11] sub_total_without_tax: Sub total (excl. tax)
+    [4.12] tax: Tax
+    [4.13] sub_total_with_tax: Sub total (incl. tax)
+    [4.14] credit_notes: Credit Notes
+    [4.15] coupons: Coupons
+    [4.16] prepaid_credits: Prepaid credits
+    [4.17] total_due: Total due
+    [4.18] powered_by: Powered by
+
+
+
+    [5.1] prepaid_credits_with_value: Prepaid credits - %{wallet_name}
+    [5.2] total_credits_with_value: "Total credits: %{credit_amount} credits"
+    [5.2] total_credits: Total credits
     
 
 =====================================================================
 
 en:
   credit_note:
-    [39] document_name: Credit note
-    [40] credit_note_number: Credit note number
-    [41] invoice_number: Invoice number
-    [42] issue_date: Issue date
-    [43] credit_from: From
-    [44] credit_to: Credit to
-    [45] refunded_notice: Refunded on %{issuing_date}
-    [46] credited_notice: Credited on customer balance on %{issuing_date}
-    [47] credited_refunded_notice: Credited on customer balance and refunded on %{issuing_date}
-    [48] subscription: Subscription
-    [49] sub_total_without_tax: Sub total (excl. tax)
-    [50] tax: Tax
-    [51] credited_on_customer_balance: Credited on customer balance
-    [52] refunded: Refunded
-    [53] total_due: Total due
-    [54] powered_by: Powered by
+    [6.1] document_name: Credit note
+    [6.2] credit_note_number: Credit note number
+    [6.3] invoice_number: Invoice number
+    [6.4] issue_date: Issue date
+    [6.5] credit_from: From
+    [6.6] credit_to: Credit to
+    [6.7] refunded_notice: Refunded on %{issuing_date}
+    [6.8] credited_notice: Credited on customer balance on %{issuing_date}
+    [6.9] credited_refunded_notice: Credited on customer balance and refunded on %{issuing_date}
+    [6.10] subscription: Subscription
+    [6.11] true-up: True-up
+    [6.12] sub_total_without_tax: Sub total (excl. tax)
+    [6.13] tax: Tax
+    [6.14] credited_on_customer_balance: Credited on customer balance
+    [6.15] refunded: Refunded
+    [6.16] total_due: Total due
+    [6.17] powered_by: Powered by
+
+=====================================================================
+
+en:
+  email:
+    [7.1] : subject: Your invoice from {{organization.name}} #LAG-1234-567-981
+		[7.2] : invoice_from: Invoice from {{organization.name}}
+		[7.3] : total_due: Total due Sep. 01, 2023
+    [7.4] refunded_notice: Refunded on %{issuing_date}
+    [7.5] credited_notice: Credited on customer balance on %{issuing_date}
+    [7.6] credited_refunded_notice: Credited on customer balance and refunded on %{issuing_date}
+    [7.7] : credit_note_number: Credit note number
+    [7.8] : invoice_number: Invoice number
+		[7.9] : issue_date: Issue date
+    [7.10] : invoice.download: Download invoice for details
+    [7.11] : credit_note.download: Download invoice for details
+    [7.12] : contact: Questions? Contact us at {{organization.email}}
+		[7.13] : powered_by_lago: Powered by
+
+=====================================================================
+
+en:
+  customer_portal:
+    en:
+  customer_portal:
+    [8.1] powered_by: Powered by
+    [8.2] customer_information: Customer information
+    [8.3] name: Name
+    [8.4] legal_name: Legal name
+    [8.5] payment_provider: Payment provider
+    [8.6] email: Email
+    [8.7] address: Address
+    [8.8] invoice_history: Invoice history
+    [8.9] invoices_search: Search invoices
+    [8.10] issuing_date: Issuing date
+    [8.11] invoice_number: Invoice number
+    [8.12] amount: Amount
+    [8.13] payment: Payment 
+    [8.14] unpaid: Unpaid
+    [8.15] paid: Paid
+    [8.16] download: Download PDF
+    [8.17] name_not_provided: Name not provided
+    [8.18] legal_name_not_provided: Legal name not provided
+    [8.19] payment_provider_not_provided: Payment provider not provided
+    [8.20] email_not_provided: Email not provided
+    [8.21] address_not_provided: Address not provided
+    [8.22] invoices_empty_state: There are currently no invoices attached to this customer. Please check back later, or contact us if you notice any issues.
+    [8.23] expired_customer_portal_header: For security reasons, this page has expired
+    [8.24] error_customer_portal_header: Something went wrong token is invalid or has expired
 
 =====================================================================
 
@@ -111,8 +185,8 @@ en:
 
 en:
   data_formating:
-    [06] amount_format: $1,000,000.00
-    [33] date format: Sep 15, 2022
+    [1.6] amount_format: $1,000,000.00
+    [3.2] date format: Sep 15, 2022
     
     abbr_day_names: Sun / Mon / Tue / Wed / Thu / Fri / Sat
     abbr_month_names: Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep / Oct / Nov / Dec
