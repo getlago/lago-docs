@@ -127,8 +127,10 @@ This will allow your application to proceed with the billing.
     "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     "sequential_id": 2,
     "number": "LAG-1234-001-002",
-    "charges_from_date": "2022-04-01",
-    "issuing_date": "",
+    "issuing_date": "2022-04-29",
+    "invoice_type": "subscription",
+    "status": "finalized",
+    "payment_status": "succeeded",
     "amount_cents": 100,
     "amount_currency": "EUR",
     "vat_amount_cents": 20,
@@ -297,11 +299,23 @@ You can use this information to generate a PDF invoice or collect the payment.
     "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
     "sequential_id": 2,
     "issuing_date": "2022-04-30",
+    "invoice_type": "add_on",
+    "status": "finalized",
+    "payment_status": "succeeded",
+    "currency": "EUR",
     "amount_cents": 100,
-    "amount_currency": "EUR",
     "vat_amount_cents": 20,
-    "vat_amount_currency": "EUR",
+    "coupons_amount_cents": 0,
+    "credit_notes_amount_cents": 0,
+    "credit_amount_cents": 0,
     "total_amount_cents": 120,
+    "prepaid_credit_amount_cents": 0,
+    "file_url": null,
+    "version_number": 2,
+    "legacy": false,
+    "amount_currency": "EUR",
+    "vat_amount_currency": "EUR",
+    "credit_amount_currency": "EUR",
     "total_amount_currency": "EUR",
     "customer": {
       "lago_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
@@ -372,30 +386,36 @@ You can use this information to generate a PDF invoice or collect the payment.
   "webhook_type": "invoice.paid_credit_added",
   "object_type": "invoice",
   "invoice": {
-    "lago_id": "dd3f587c-1122-4fc1-a8dd-dfghj0d98765",
-    "sequential_id": 7,
-    "number": "LAG-C875-031-007",
-    "issuing_date": "2023-01-18",
+    "lago_id": "0e77ace9-68ba-0000-aaaa-999888c43f75",
+    "sequential_id": 14,
+    "number": "SEL-AZ22-034-014",
+    "issuing_date": "2023-04-24",
     "invoice_type": "credit",
     "status": "finalized",
     "payment_status": "pending",
-    "amount_cents": 5000,
-    "amount_currency": "USD",
+    "currency": "USD",
+    "fees_amount_cents": 100,
+    "amount_cents": 100,
     "vat_amount_cents": 0,
-    "vat_amount_currency": "USD",
+    "coupons_amount_cents": 0,
+    "credit_notes_amount_cents": 0,
     "credit_amount_cents": 0,
-    "credit_amount_currency": "USD",
-    "total_amount_cents": 5000,
-    "total_amount_currency": "USD",
+    "total_amount_cents": 100,
+    "prepaid_credit_amount_cents": 0,
     "file_url": null,
+    "version_number": 2,
     "legacy": false,
+    "amount_currency": "USD",
+    "vat_amount_currency": "USD",
+    "credit_amount_currency": "USD",
+    "total_amount_currency": "USD",
     "customer": {
-      "lago_id": "12345678-qsdf-vbnm-898f-f0d29a8e0eea",
-      "external_id": "seb_1234",
-      "name": "Sebastian Molde",
-      "sequential_id": 31,
-      "slug": "LAG-C875-031",
-      "created_at": "2023-01-17T13:43:53Z",
+      "lago_id": "0e77ace9-68ba-1111-bbbb-999888c43f75",
+      "external_id": "customer_1234",
+      "name": "James White",
+      "sequential_id": 34,
+      "slug": "SEL-AZ22-034",
+      "created_at": "2023-04-19T21:49:37Z",
       "country": null,
       "address_line1": null,
       "address_line2": null,
@@ -410,30 +430,41 @@ You can use this information to generate a PDF invoice or collect the payment.
       "legal_number": null,
       "currency": "USD",
       "timezone": null,
-      "applicable_timezone": "Europe/Paris",
+      "applicable_timezone": "UTC",
       "billing_configuration": {
         "invoice_grace_period": null,
         "payment_provider": null,
-        "vat_rate": null
+        "vat_rate": null,
+        "document_locale": null
       }
     },
     "fees": [
       {
-        "lago_id": "600a3709-erty-8765-3214-e4ca436fe6b6",
+        "lago_id": "0e77ace9-68ba-3333-hhhh-999888c43f75",
         "lago_group_id": null,
+        "lago_invoice_id": "0e77ace9-68ba-4444-pppp-999888c43f75",
+        "lago_true_up_fee_id": null,
         "item": {
           "type": "credit",
           "code": "credit",
-          "name": "credit"
+          "name": "credit",
+          "lago_item_id": "0e77ace9-68ba-9999-rrrr-999888c43f75",
+          "item_type": "WalletTransaction"
         },
-        "amount_cents": 5000,
+        "amount_cents": 100,
         "amount_currency": "USD",
         "vat_amount_cents": 0,
         "vat_amount_currency": "USD",
-        "total_amount_cents": 5000,
+        "total_amount_cents": 100,
         "total_amount_currency": "USD",
         "units": "1.0",
-        "events_count": null
+        "events_count": null,
+        "external_subscription_id": null,
+        "payment_status": "pending",
+        "created_at": "2023-04-24T08:47:43Z",
+        "succeeded_at": null,
+        "failed_at": null,
+        "refunded_at": null
       }
     ]
   }
@@ -683,6 +714,48 @@ Includes the URL that should be used to set up the [direct debit mandate](../../
 | **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
 | **payment_provider** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Default payment provider for this customer |
 | **checkout_url** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | URL that should be used to set up the direct debit mandate |
+</details>
+
+
+<details className="custom-toggle">
+<summary><b>Payment status updated</b></summary>
+Sent when the payment status of an invoice is updated based on information provided by the PSP.
+
+```json
+{
+  "webhook_type": "invoice.payment_status_updated",
+  "object_type": "invoice",
+  "invoice": {
+    "lago_id": "68133479-abcd-1234-5678-jklm437da000",
+    "sequential_id": 1,
+    "number": "SEL-AZ22-040-XXX",
+    "issuing_date": "2023-04-24",
+    "invoice_type": "subscription",
+    "status": "finalized",
+    "payment_status": "succeeded",
+    "currency": "USD",
+    "fees_amount_cents": 70,
+    "amount_cents": 70,
+    "vat_amount_cents": 11,
+    "coupons_amount_cents": 0,
+    "credit_notes_amount_cents": 0,
+    "credit_amount_cents": 0,
+    "total_amount_cents": 81,
+    "prepaid_credit_amount_cents": 0,
+    "file_url": null,
+    "version_number": 2,
+    "legacy": false,
+    "amount_currency": "USD",
+    "vat_amount_currency": "USD",
+    "credit_amount_currency": "USD",
+    "total_amount_currency": "USD"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
 </details>
 
 
