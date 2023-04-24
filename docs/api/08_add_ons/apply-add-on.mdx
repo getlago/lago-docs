@@ -208,7 +208,7 @@ try {
 |--|--|--|
 | external_customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Customer unique identifier in your application |
 | add_on_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the add-on.<br></br>It must match the `code` property of the add-on |
-| amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Amount to apply to the customer.<br></br>If defined, it overrides the amount_cents property of the add-on |
+| amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Amount (excluding tax) to apply to the customer.<br></br>If defined, it overrides the amount_cents property of the add-on |
 | amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Currency of the amount to apply to the customer.<br></br>If defined, it overrides the amount_currency property of the add-on.<br></br>It must match the currency of the customer's plan. |
 
 ## Responses
@@ -316,7 +316,7 @@ This object represents an add-on assigned to a customer of your business.<br></b
 | **add_on_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the add-on. |
 | **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application. |
 | **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application. |
-| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents. |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents (excluding tax). |
 | **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount. |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of assignation of the add-on to the customer. |
 
