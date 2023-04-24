@@ -549,7 +549,7 @@ try {
 | code | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Code identifying the Plan<br></br>Cannot be updated if the plan is linked to a subscription |
 | interval | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Interval used for subscription billing.<br></br>It can be `yearly`, `monthly` or `weekly`<br></br>Cannot be updated if the plan is linked to a subscription |
 | description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Description of the plan |
-| amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Amount of the plan<br></br>Cannot be updated if the plan is linked to a subscription |
+| amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Amount of the plan (excluding tax)<br></br>Cannot be updated if the plan is linked to a subscription |
 | amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Currency of the amount<br></br>Cannot be updated if the plan is linked to a subscription |
 | trial_period | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Number of free days<br></br>Cannot be updated if the plan is linked to a subscription |
 | pay_in_advance | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if payment in advance or in arrear will be used<br></br>Cannot be updated if the plan is linked to a subscription |
@@ -576,7 +576,7 @@ Charges cannot be updated if the plan is linked to a subscription.
 #### Standard charge model
 | Attributes | Type | Description |
 |--|--|--|
-| amount | String <br></br><Required>**Required**</Required><br></br><Comment>*Decimal*</Comment> | Price of one aggregated unit |
+| amount | String <br></br><Required>**Required**</Required><br></br><Comment>*Decimal*</Comment> | Unit price (excluding tax) |
 
 #### Graduated charge model
 
@@ -592,21 +592,21 @@ Charges cannot be updated if the plan is linked to a subscription.
 |--|--|--|
 | from_value | Integer <br></br><Required>**Required**</Required> | Lower value of the range.<br></br>- Must be `0` or previous range `to_value + 1` |
 | to_value | Integer | Top value of the range.<br></br>- Must be higher than the range from_value.<br></br>- Must be null on last range |
-| per_unit_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated unit between the boundaries |
-| flat_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Flat amount to add to the result if the range is reached |
+| per_unit_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Amount (excluding tax) to apply to each aggregated unit between the boundaries |
+| flat_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Flat amount (excluding tax) to add to the result if the range is reached |
 
 #### Package charge model
 | Attributes | Type | Description |
 |--|--|--|
-| amount | String <br></br><Required>**Required**</Required><br></br><Comment>*Decimal value*</Comment> | Price of one package |
+| amount | String <br></br><Required>**Required**</Required><br></br><Comment>*Decimal value*</Comment> | Price of one package (excluding tax) |
 | package_size | Integer <br></br><Required>**Required**</Required> | Number of aggregated units per package |
 | free_units | Integer <br></br><Required>**Required**</Required> | Number of aggregated units to exclude before applying the charge model |
 
 #### Percentage charge model
 | Attributes | Type | Description |
 |--|--|--|
-| rate | String <br></br><Required>**Required**</Required><br></br><Comment>*Decimal value*</Comment> | Charge rate that applies to the total amount |
-| fixed_amount | String <br></br><Comment>*Decimal value*</Comment> | Fee that applies to each event ingested during the billing period |
+| rate | String <br></br><Required>**Required**</Required><br></br><Comment>*Decimal value*</Comment> | Charge rate (excluding tax) that applies to the total amount |
+| fixed_amount | String <br></br><Comment>*Decimal value*</Comment> | Fee (excluding tax) that applies to each event ingested during the billing period |
 | free_units_per_events | Integer | Number of events that are not subject to the fixed fee |
 | free_units_per_total_aggregation | String <br></br><Comment>*Decimal value*</Comment> | Amount that is not subject to the charge rate |
 
@@ -624,8 +624,8 @@ Charges cannot be updated if the plan is linked to a subscription.
 |--|--|--|
 | from_value | Integer <br></br><Required>**Required**</Required> | Lower value of the range.<br></br>- Must be `0` or previous range `to_value + 1` |
 | to_value | Integer | Top value of the range.<br></br>- Must be higher than the range from_value.<br></br>- Must be null on last range |
-| per_unit_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Amount to apply to each aggregated unit |
-| flat_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Flat amount to add to the result if the range is reached |
+| per_unit_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Amount (excluding tax) to apply to each aggregated unit |
+| flat_amount | String <br></br><Required>**Required**</Required> <br></br><Comment>*Decimal value*</Comment> | Flat amount (excluding tax) to add to the result if the range is reached |
 
 ## Responses
 
