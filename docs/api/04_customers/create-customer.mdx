@@ -123,37 +123,37 @@ import TabItem from '@theme/TabItem';
   import { BillingConfigurationCustomer } from "lago-javascript-client";
 
   const customerObject = {
-    external_id: "1234-5678-9098-7654-3210",
-    address_line1: "5230 Penfield Ave",
+    externalId: "1234-5678-9098-7654-3210",
+    addressLine1: "5230 Penfield Ave",
     city: "Woodland Hills",
     currency: "EUR",
     country: "US",
     email: "test@example.com",
-    legal_name: "Coleman-Blair",
-    legal_number: "49-008-2965",
-    logo_url: "http://hooli.com/logo.png",
+    legalName: "Coleman-Blair",
+    legalNumber: "49-008-2965",
+    logoUrl: "http://hooli.com/logo.png",
     name: "Test Name",
     phone: "1-171-883-3711 x245",
     state: "CA",
     timezone: "Europe/Paris",
     url: "http://hooli.com",
     zipcode: "91364",
-    billing_configuration: {
-      invoice_grace_period: 3,
-      payment_provider:
-        "stripe" as BillingConfigurationCustomer["payment_provider"],
-      provider_customer_id: "cus_12345",
+    billingConfiguration: {
+      invoiceGracePeriod: 3,
+      paymentProvider:
+        "stripe" as BillingConfigurationCustomer["paymentProvider"],
+      providerCustomerId: "cus_12345",
       sync: true,
-      sync_with_provider: true,
-      document_locale: "fr",
-      vat_rate: 12.5,
+      syncWithProvider: true,
+      documentLocale: "fr",
+      vatRate: 12.5,
     },
     metadata: [
       {
-        lago_id: "1234",
+        lagoId: "1234",
         key: "foo",
         value: "bar",
-        display_in_invoice: true,
+        displayInInvoice: true,
       },
     ],
   };

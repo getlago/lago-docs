@@ -47,11 +47,11 @@ async function onTrack(event, settings) {
   // body of the event following Lago documentation
     const body = {
       event: {
-        transaction_id: event.messageId,
-        external_customer_id: event.userId,
+        transactionId: event.messageId,
+        externalCustomerId: event.userId,
         code: event.event,
         properties: {
-          invoice_id: event.properties.invoice_id
+          invoiceId: event.properties.invoice_id
         }
       }
     };

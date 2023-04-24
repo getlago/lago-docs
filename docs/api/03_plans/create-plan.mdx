@@ -336,11 +336,11 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
   import { ChargeObject, PlanInput } from "lago-javascript-client";
 
   const standardChargeObject = {
-    lago_id: null,
-    billable_metric_code: null,
-    created_at: null,
-    lago_billable_metric_id: "id",
-    charge_model: "standard" as ChargeObject["charge_model"],
+    lagoId: null,
+    billableMetricCode: null,
+    createdAt: null,
+    lagoBillableMetricId: "id",
+    chargeModel: "standard" as ChargeObject["chargeModel"],
     instant: false,
     groupProperties: [
       {
@@ -353,77 +353,77 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
   };
 
   const graduatedChargeObject = {
-    lago_id: null,
-    billable_metric_code: null,
-    created_at: null,
-    lago_billable_metric_id: "id",
-    charge_model: "graduated" as ChargeObject["charge_model"],
+    lagoId: null,
+    billableMetricCode: null,
+    createdAt: null,
+    lagoBillableMetricId: "id",
+    chargeModel: "graduated" as ChargeObject["chargeModel"],
     instant: false,
     properties: [
       {
-        to_value: 10,
-        from_value: 0,
-        flat_amount: "0",
-        per_unit_amount: "0.00010",
+        toValue: 10,
+        fromValue: 0,
+        flatAmount: "0",
+        perUnitAmount: "0.00010",
       },
       {
-        to_value: null,
-        from_value: 11,
-        flat_amount: "0",
-        per_unit_amount: "0.0005",
+        toValue: null,
+        fromValue: 11,
+        flatAmount: "0",
+        perUnitAmount: "0.0005",
       },
     ],
   };
 
   const packageChargeObject = {
-    lago_id: null,
-    billable_metric_code: null,
-    created_at: null,
-    lago_billable_metric_id: "id",
-    charge_model: "package" as ChargeObject["charge_model"],
+    lagoId: null,
+    billableMetricCode: null,
+    createdAt: null,
+    lagoBillableMetricId: "id",
+    chargeModel: "package" as ChargeObject["chargeModel"],
     instant: false,
     properties: {
       amount: "100",
-      free_units: 10000,
-      package_size: 1000,
+      freeUnits: 10000,
+      packageSize: 1000,
     },
   };
 
   const percentageChargeObject = {
-    lago_id: null,
-    billable_metric_code: null,
-    created_at: null,
-    lago_billable_metric_id: "id",
-    charge_model: "percentage" as ChargeObject["charge_model"],
+    lagoId: null,
+    billableMetricCode: null,
+    createdAt: null,
+    lagoBillableMetricId: "id",
+    chargeModel: "percentage" as ChargeObject["chargeModel"],
     instant: false,
     properties: {
       rate: "0.5",
-      fixed_amount: "1",
-      free_units_per_events: 3,
-      free_units_per_total_aggregation: null,
+      fixedAmount: "1",
+      freeUnitsPerEvents: 3,
+      freeUnitsPerTotalAggregation: null,
     },
   };
 
   const volumeChargeObject = {
-    lago_id: null,
-    billable_metric_code: null,
-    created_at: null,
-    lago_billable_metric_id: "id",
-    charge_model: "volume" as ChargeObject["charge_model"],
+    lagoId: null,
+    billableMetricCode: null,
+    createdAt: null,
+    lagoBillableMetricId: "id",
+    chargeModel: "volume" as ChargeObject["chargeModel"],
     instant: false,
     properties: {
-      volume_ranges: [
+      volumeRanges: [
         {
-          to_value: 10,
-          from_value: 0,
-          flat_amount: "0",
-          per_unit_amount: "0.00010",
+          toValue: 10,
+          fromValue: 0,
+          flatAmount: "0",
+          perUnitAmount: "0.00010",
         },
         {
-          to_value: null,
-          from_value: 11,
-          flat_amount: "0",
-          per_unit_amount: "0.0005",
+          toValue: null,
+          fromValue: 11,
+          flatAmount: "0",
+          perUnitAmount: "0.0005",
         },
       ],
     },
@@ -442,12 +442,12 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
       name: "name1",
       code: "code1",
       interval: "weekly",
-      amount_cents: 1000,
-      amount_currency: "USD",
-      pay_in_advance: true,
-      trial_period: 2,
+      amountCents: 1000,
+      amountCurrency: "USD",
+      payInAdvance: true,
+      trialPeriod: 2,
       description: "decs",
-      bill_charges_monthly: false,
+      billChargesMonthly: false,
       charges: charges,
     },
   };
