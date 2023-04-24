@@ -116,23 +116,23 @@ import TabItem from '@theme/TabItem';
   import { CreditNoteObject } from "lago-javascript-client";
 
   const creditNoteObject = {
-    invoice_id: "__LAGO_INVOICE_ID__",
+    invoiceId: "__LAGO_INVOICE_ID__",
     reason: "other" as CreditNoteObject["reason"],
-    credit_amount_cents: 10,
-    refund_amount_cents: 5,
+    creditAmountCents: 10,
+    refundAmountCents: 5,
     items: [
       {
-        fee_id: "__LAGO_FEE_ID__",
-        amount_cents: 10,
+        feeId: "__LAGO_FEE_ID__",
+        amountCents: 10,
       },
       {
-        fee_id: "__LAGO_FEE_ID__",
-        amount_cents: 5,
+        feeId: "__LAGO_FEE_ID__",
+        amountCents: 5,
       },
     ],
   };
 
-  await client.creditNotes.createCreditNote({ credit_note: creditNoteObject });
+  await client.creditNotes.createCreditNote({ creditNote: creditNoteObject });
   ```
 
   </TabItem>

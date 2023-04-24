@@ -85,16 +85,16 @@ import TabItem from '@theme/TabItem';
 
   ```javascript
   const appliedCouponObject = {
-    external_customer_id: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
-    coupon_code: "code",
-    amount_cents: 123,
-    amount_currency: "EUR",
+    externalCustomerId: "5eb02857-a71e-4ea2-bcf9-57d8885990ba",
+    couponCode: "code",
+    amountCents: 123,
+    amountCurrency: "EUR",
     frequency: "once" as AppliedCouponObject["frequency"],
-    frequency_duration: 3,
+    frequencyDuration: 3,
   };
 
   await client.appliedCoupons.applyCoupon({
-    applied_coupon: appliedCouponObject,
+    appliedCoupon: appliedCouponObject,
   });
   ```
   </TabItem>

@@ -110,13 +110,13 @@ import TabItem from '@theme/TabItem';
   await client.organizations.updateOrganization({
     organization: {
       timezone: "Europe/Paris",
-      webhook_url: "https://newwebhookurl.com",
-      email_settings: ["invoice.finalized"],
-      billing_configuration: {
-        invoice_footer: "footer custom",
-        invoice_grace_period: 3,
-        document_locale: "fr",
-        vat_rate: 15.5,
+      webhookUrl: "https://newwebhookurl.com",
+      emailSettings: ["invoice.finalized"],
+      billingConfiguration: {
+        invoiceFooter: "footer custom",
+        invoiceGracePeriod: 3,
+        documentLocale: "fr",
+        vatRate: 15.5,
       },
     },
   });
