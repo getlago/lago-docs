@@ -89,7 +89,7 @@ Usage-based charges are always paid at the end of the billing period, based on t
 
 If your customer spends less than the committed amount, you will **charge a true-up fee equal to the difference between the commitment and the actual usage**. Please note that this true-up fee is tied to the initial charge but will appear as a separate line item in an invoice or in a credit note.
 
-**Spending minimums and true-up fees are always prorated** based on the number of days uses in the subscription. This ensures fairness if your customer signs up at the end of the month, upgrades to a new plan, or terminates an ongoing subscription before the end of the period.
+**Spending minimums and true-up fees are always prorated** based on the number of days used in the subscription. This ensures fairness if your customer signs up at the end of the month, upgrades to a new plan, or terminates an ongoing subscription before the end of the period.
 
 To define a charge spending minimum: 
 
