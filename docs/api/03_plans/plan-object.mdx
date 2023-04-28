@@ -32,6 +32,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "standard",
         "instant": false,
+        "min_amount_cents": 0,
         "group_properties": [
           {
             "group_id": "12345678-4ae0-437b-b822-8771bcd62e3a",
@@ -48,6 +49,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "graduated",
         "instant": false,
+        "min_amount_cents": 0,
         "properties": {
           "graduated_ranges": [
             {
@@ -72,6 +74,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "package",
         "instant": false,
+        "min_amount_cents": 0,
         "properties": {
           "amount": "100",
           "free_units": 10000,
@@ -85,6 +88,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "percentage",
         "instant": false,
+        "min_amount_cents": 0,
         "properties": {
           "rate": "0.5",
           "fixed_amount": "1",
@@ -99,6 +103,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "volume",
         "instant": false,
+        "min_amount_cents": 0,
         "properties": {
           "volume_ranges": [
             {
@@ -147,6 +152,7 @@ This object represents a plan.<br></br>
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of charge creation. |
 | **charge_model** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Charge model used in event calculations. <br></br> <details><summary>**Possible values**</summary><div>- `standard`<br></br>- `graduated`<br></br>- `package`<br></br>- `percentage`<br></br>- `volume`<div></div></div></details> |
 | **instant** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | It should be set to `true` if charge is instant. |
+| **min_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Spending minimum of the charge in cents (excluding tax). |
 | **properties** &nbsp &nbsp <Type>JSON</Type> | Extra data. This field will depend on selected charge_model |
 | **group_properties** &nbsp &nbsp <Type>Array</Type> | Extra data scoped by groups. This field will depend on selected charge_model |
 

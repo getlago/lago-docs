@@ -87,6 +87,8 @@ Sent when a new invoice is in draft.
       {
         "lago_id": "12345678-ebea-47de-ghjk-bbbfd42755f3",
         "lago_group_id": null,
+        "lago_true_up_fee_id": null,
+        "lago_true_up_parent_fee_id": null,
         "item": {
           "type": "subscription",
           "code": "corporate",
@@ -176,6 +178,9 @@ This will allow your application to proceed with the billing.
     "fees": [
       {
         "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+        "lago_group_id": null,
+        "lago_true_up_fee_id": null,
+        "lago_true_up_parent_fee_id": null,
         "item": {
           "type": "subscription",
           "code": "plan_code",
@@ -261,6 +266,8 @@ You can use this information to collect the payment of the instant fee.
   "fee": {
     "lago_id": "6be23c42-47d2-45a3-9770-5b3572f225c3",
     "lago_group_id": "5b4881e3-b451-472e-9e03-d99379550743",
+    "lago_true_up_fee_id": null,
+    "lago_true_up_parent_fee_id": null,
     "item": {
       "type": "subscription",
       "code": "plan_code",
@@ -444,6 +451,7 @@ You can use this information to generate a PDF invoice or collect the payment.
         "lago_group_id": null,
         "lago_invoice_id": "0e77ace9-68ba-4444-pppp-999888c43f75",
         "lago_true_up_fee_id": null,
+        "lago_true_up_parent_fee_id": null,
         "item": {
           "type": "credit",
           "code": "credit",
