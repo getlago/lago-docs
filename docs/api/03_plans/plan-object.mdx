@@ -152,7 +152,7 @@ This object represents a plan.<br></br>
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of charge creation. |
 | **charge_model** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Charge model used in event calculations. <br></br> <details><summary>**Possible values**</summary><div>- `standard`<br></br>- `graduated`<br></br>- `package`<br></br>- `percentage`<br></br>- `volume`<div></div></div></details> |
 | **instant** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | It should be set to `true` if charge is instant. |
-| **min_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Spending minimum of the charge in cents. |
+| **min_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Spending minimum of the charge in cents (excluding tax). |
 | **properties** &nbsp &nbsp <Type>JSON</Type> | Extra data. This field will depend on selected charge_model |
 | **group_properties** &nbsp &nbsp <Type>Array</Type> | Extra data scoped by groups. This field will depend on selected charge_model |
 
