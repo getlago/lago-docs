@@ -699,7 +699,7 @@ try {
 | billable_metric_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Billable metric id in lago application |
 | charge_model | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Charge model used in event calculations.<br></br>It can be `standard`, `graduated`, `package`, `percentage` or `volume` |
 | instant | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if charge is instant or not. |
-| min_amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Spending minimum of the charge in cents. |
+| min_amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Spending minimum of the charge in cents (excluding tax). |
 | properties | JSON &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Extra data to use for the event calculations.<br></br> |
 | group_properties | Array &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Extra data scoped by groups to use for the event calculations.<br></br> |
 
