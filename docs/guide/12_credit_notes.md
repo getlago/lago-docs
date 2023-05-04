@@ -72,16 +72,16 @@ EXAMPLE OF INVOICE
 -----------------------------
 All subscriptions = $50
 All usage-based fees = $20
------------------------------
-Subtotal (excl. tax) = $70
-Tax (10%) = $7
------------------------------
-Subtotal (incl. tax) = $77
-Credit notes = $20
 Coupons = $10
+-----------------------------
+Subtotal (excl. tax) = $60
+Tax (10%) = $6
+-----------------------------
+Subtotal (incl. tax) = $66
+Credit notes = $20
 Prepaid credits = $30
 -----------------------------
-Total due = $17
+Total due = $16
 ```
 
 When the credit note wallet is created, the initial `credit_status` is `available`. Then when the amount of the credit note wallet is zero, the status switches to `consumed`.
