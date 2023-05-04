@@ -4,11 +4,19 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Fri, 28 Apr 2023 11:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 04 May 2023 11:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2023 Lago.</copyright>
+        <item>
+            <title><![CDATA[Coupons applied before tax]]></title>
+            <link>https://getlago.com/changelog/coupons-before-tax</link>
+            <guid>https://getlago.com/changelog/coupons-before-tax</guid>
+            <pubDate>Thu, 04 May 2023 11:00:00 GMT</pubDate>
+            <description><![CDATA[Until now, coupons were deducted from the invoice amount after tax, which was not always allowed from an accounting perspective in some countries.]]></description>
+            <content:encoded><![CDATA[<p>Until now, coupons were deducted from the invoice amount after tax, which was not always allowed from an accounting perspective in some countries.</p><p>Following feedback from our community, we have updated our calculation method to ensure all coupons are deducted from the invoice amount before tax.</p><p><a href="/docs/guide/coupons">Learn more</a></p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Minimum spend on charges ✨]]></title>
             <link>https://getlago.com/changelog/minimum-spend</link>

@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://getlago.com/changelog</id>
     <title>Lago documentation Blog</title>
-    <updated>2023-04-28T11:00:00.000Z</updated>
+    <updated>2023-05-04T11:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://getlago.com/changelog"/>
     <subtitle>Lago documentation Blog</subtitle>
     <icon>https://getlago.com/img/lago.ico</icon>
     <rights>Copyright © 2023 Lago.</rights>
+    <entry>
+        <title type="html"><![CDATA[Coupons applied before tax]]></title>
+        <id>https://getlago.com/changelog/coupons-before-tax</id>
+        <link href="https://getlago.com/changelog/coupons-before-tax"/>
+        <updated>2023-05-04T11:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Until now, coupons were deducted from the invoice amount after tax, which was not always allowed from an accounting perspective in some countries.]]></summary>
+        <content type="html"><![CDATA[<p>Until now, coupons were deducted from the invoice amount after tax, which was not always allowed from an accounting perspective in some countries.</p><p>Following feedback from our community, we have updated our calculation method to ensure all coupons are deducted from the invoice amount before tax.</p><p><a href="/docs/guide/coupons">Learn more</a></p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Minimum spend on charges ✨]]></title>
         <id>https://getlago.com/changelog/minimum-spend</id>
