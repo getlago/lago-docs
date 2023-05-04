@@ -113,12 +113,6 @@ When multiple subscriptions are linked to a customer, Lago will automatically co
 
 It is possible to link to the same customer subscriptions that are based on different billing cycles (e.g. a subscription based on calendar dates and another based on the anniversary date).
 
-In addition to this, please note that **coupons apply to all subscriptions**.
-
-Below is an example of a consolidated invoice:
-
-![Example of consolidated invoice](../../../static/img/consolidated-invoice.png)
-
 ## Overwriting a plan
 You can use an existing plan as a template to create a new plan for your customer.
 
