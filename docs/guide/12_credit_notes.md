@@ -26,7 +26,7 @@ The credit note creation process varies depending on the payment status of the i
 - If the payment status of the invoice is `succeeded`, the credit note will allow you to credit back the customer's account and/or refund them.
 
 :::info
-Coupons and prepaid credits cannot be refunded, they can only be credited back to the customer's account.
+Prepaid credits used to pay for an invoice cannot be refunded, they can only be credited back to the customer's account. Coupons can neither be refunded nor credited back to the customer's account.
 :::
 
 To issue a credit note:
