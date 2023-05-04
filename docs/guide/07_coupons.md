@@ -3,7 +3,7 @@ sidebar_position: 7
 ---
 
 # Coupons
-Coupons allow you to offer discounts to your customers. When you apply a coupon to a customer, its value will be deducted from their next invoice(s).
+Coupons allow you to offer discounts to your customers. When you apply a coupon to a customer, its value will be deducted from their next subscription invoice(s).
 
 :::info
 The value of the coupon is deducted from the amount of the invoice before tax.
@@ -63,7 +63,7 @@ A coupon applied to a customer continues to apply beyond the expiration date.
 :::
 
 ## Application scope
-Coupons are deducted from future invoices. As mentioned previously, the value of the coupon is deducted from the amount of the invoice before tax.
+Coupons are deducted from future subscription invoices. As mentioned previously, the value of the coupon is deducted from the amount of the invoice before tax.
 
 For coupons whose value is a fixed amount:
 - When **the coupon only applies once** and its value is higher than the invoice amount, the remaining unused amount will be applied to the following invoices, until the coupon is totally consumed or removed; and
