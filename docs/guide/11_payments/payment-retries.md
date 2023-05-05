@@ -16,7 +16,7 @@ To re-trigger the payment process through the user interface:
 
 In the **"Pending/Failed"** tab of the **"Invoices"** section, you can also click **"Resend for collection"** in the upper right corner to re-trigger the payment process for all invoices in the list.
 
-When a payment is resent for collection, an `invoice.created` or `invoice.add_on_added` webhook is automatically sent, depending on the type of invoice.
+When a payment is resent for collection, an `invoice.created` or `invoice.one_off_created` webhook is automatically sent, depending on the type of invoice.
 
 In addition to this, if the default payment provider for the customer is [Stripe](stripe-integration) or [GoCardless](gocardless-integration), Lago will automatically process the payment through integration.
 
