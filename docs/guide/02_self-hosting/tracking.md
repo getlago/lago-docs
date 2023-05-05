@@ -31,7 +31,6 @@ This event flow enables Lago to understand the full activation flow, from the re
 - `coupon_created`: whenever a new coupon is created
 - `applied_coupon_created`: when a coupon is assigned to a customer
 - `add_on_created`: whenever a new add-on is created
-- `applied_add_on_created`: when an add-on is assigned to a customer
 - `invoice_created`: when a new invoice is emitted for a specific customer
 - `payment_status_changed`: when the payment status of an invoice changes
 - `credit_note_issued`: when a new credit note is issued for a customer
