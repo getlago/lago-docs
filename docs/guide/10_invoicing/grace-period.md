@@ -14,7 +14,7 @@ In the example below, the timeline includes a billing period of one month and a 
 ![Illustration of the grace period](../../../static/img/grace-period-timeline.png)
 
 ## Application scope and possible actions
-The grace period applies to **subscription invoices**. It does not apply to invoices related to add-ons or credit purchases.
+The grace period applies to **subscription invoices**. It does not apply to invoices related to add-ons (i.e. one-off invoices) or credit purchases.
 
 The creation of a `draft` invoice triggers the `invoice.drafted` [webhook](../../api/webhooks/messages).
 
