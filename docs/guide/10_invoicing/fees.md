@@ -4,8 +4,9 @@ sidebar_position: 2
 
 # Fees
 A fee is a line item in an invoice. There are two types of fees:
-- **Subscription fees** that correspond to the base amount of the plan; and
-- **Charge fees** that correspond to usage-based charges (i.e. the costs associated with each billable metric).
+- **Subscription fees** that correspond to the base amount of the plan;
+- **Charge fees** that correspond to usage-based charges (i.e. the costs associated with each billable metric); and
+- **True-up fees** that correspond to usage-based charges that don't meet the required spending minimum.
 
 Information about fees includes (but is not limited to):
 - Type;
