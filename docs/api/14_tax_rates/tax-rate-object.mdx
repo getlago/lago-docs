@@ -1,0 +1,63 @@
+---
+sidebar_position: 1
+---
+
+# Tax rate object
+
+This object represents a tax rate.<br></br>
+
+## Schema
+
+```json
+{
+  "tax_rate": {
+    "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+    "name": "tax rate name",
+    "code": "tax_rate_code",
+    "value": 15.00,
+    "description": "tax rate description",
+    "customers_count": 12,
+    "created_at": "2022-04-29T08:59:51Z"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifier of the tax rate in Lago application. |
+| **name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Tax rate name. |
+| **code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the tax rate. |
+| **value** &nbsp &nbsp <Type>Float</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Value in decimal applied to the tax rate. |
+| **description** &nbsp &nbsp <Type>String</Type> | Tax rate description. |
+| **customers_count** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Number of customers using this tax rate. |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of tax rate creation. |
+
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

@@ -1,0 +1,237 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Destroy a tax rate
+
+## Route
+
+```curl title="DELETE"
+/api/v1/tax_rates/:code
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request DELETE "$LAGO_URL/api/v1/tax_rates/:code" \
+    --header "Authorization: Bearer $API_KEY"
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  try:
+      client.tax_rates.destroy('code')
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.tax_rates.destroy('code')
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Javascript">
+
+  ```javascript
+  await client.tax_rates.destroyTaxRate('code')
+  ```
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      taxRate, err := lagoClient.TaxRate().Delete("__YOUR_TAX_RATE_CODE__")
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+
+      // taxRate is *lago.TaxRate
+      fmt.Println(taxRate)
+    }
+  ```
+
+  </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class DestroyTaxRateExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TaxRatesApi(Configuration.Default);
+            var code = "example_code";  // string | Code of the existing tax rate
+
+            try
+            {
+                // Delete a tax rate
+                TaxRate result = apiInstance.DestroyTaxRate(code);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling TaxRatesApi.DestroyTaxRate: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+  ```
+
+  </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$code = "example_code"; // string | Code of the existing tax rate
+
+try {
+    $result = $apiInstance->destroyTaxRate($code);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TaxRatesApi->destroyTaxRate: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The tax rate was successfully destroyed
+
+  Returns a [tax rate](./tax-rate-object) object.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "tax_rate_not_found"
+  }
+  ```
+
+  The `tax rate` was not found.
+  </TabItem>
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);

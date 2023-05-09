@@ -160,6 +160,13 @@
     "https://doc.getlago.com/docs/api/organizations/organization-object",
     "https://doc.getlago.com/docs/api/organizations/update-organization",
 
+    "https://doc.getlago.com/docs/api/tax_rates/tax-rate-object",
+    "https://doc.getlago.com/docs/api/tax_rates/create-tax-rate",
+    "https://doc.getlago.com/docs/api/tax_rates/update-tax-rate",
+    "https://doc.getlago.com/docs/api/tax_rates/destroy-tax-rate",
+    "https://doc.getlago.com/docs/api/tax_rates/get-tax-rate",
+    "https://doc.getlago.com/docs/api/tax_rates/get-all-tax-rates",
+
     "https://doc.getlago.com/docs/api/wallets/wallet-object",
     "https://doc.getlago.com/docs/api/wallets/create-wallet",
     "https://doc.getlago.com/docs/api/wallets/update-wallet",
