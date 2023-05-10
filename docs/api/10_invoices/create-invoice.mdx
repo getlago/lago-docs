@@ -1,0 +1,379 @@
+---
+sidebar_position: 9
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Create one-off invoice
+
+## Route
+
+```curl title="POST"
+/api/v1/invoices
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+
+  curl --location --request POST "$LAGO_URL/api/v1/invoices" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "invoice": {
+        "external_customer_id": "12345",
+        "currency": "EUR",
+        "fees": [
+          {
+            "add_on_code": "code1",
+            "units": 2.5,
+            "unit_amount_cents": 1200,
+            "description": "This is description"
+          }
+        ]
+      }
+    }'
+  ```
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
+  from lago_python_client.models import InvoiceFee, OneOffInvoice, InvoiceFeesList
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  fee_object = InvoiceFee(
+    add_on_code='code',
+    units=2.5,
+    unit_amount_cents=1200,
+    description='desc'
+  )
+
+  invoice_create = OneOffInvoice(
+    external_customer_id="__ID__",
+    currency="EUR",
+    fees=InvoiceFeesList(__root__=[fee_object])
+  )
+
+  try:
+      client.invoices.create(invoice_create)
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.invoices.create({
+    external_customer_id: "id_first",
+    currency: 'EUR',
+    fees: [
+      {
+        add_on_code: 'code',
+        units: 2.5,
+        unit_amount_cents: 1200,
+        description: 'desc'
+      }
+    ]
+  })
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Javascript">
+
+  ```javascript
+  const invoiceObject = {
+    externalCustomerId: "12345",
+    currency: "EUR",
+    fees: [
+      {
+        addOnCode: "code",
+        description: "description1",
+        units: 2.5,
+        unitAmountCents: 1200
+      },
+    ],
+  };
+
+  await client.invoices.createInvoice({
+    invoice: invoiceObject,
+  });
+  ```
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      invoiceInput := &lago.OneOffInput{
+        ExternalCustomerId: custID,
+	   		currency: "EUR",
+        Fees: [
+          &InvoiceFeesInput{
+            AddOnCode: "Key",
+            Description: "Value",
+            Units: 2.5,
+            UnitAmountCents: 1200
+          }
+        ]
+      }
+
+      invoice, err := lagoClient.Invoice().Create(invoiceInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+
+      // invoice is *lago.Invoice
+      fmt.Println(invoice)
+    }
+  ```
+
+  </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class UpdateInvoiceExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new InvoicesApi(Configuration.Default);
+            var id = "183da83c-c007-4fbb-afcd-b00c07c41ffe";  // string | ID of the existing Lago Invoice
+            var invoiceInput = new InvoiceOneOffInput();
+
+            try
+            {
+                // Update an existing invoice status
+                Invoice result = apiInstance.CreateInvoice(invoiceInput);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling InvoicesApi.CreateInvoice: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+  ```
+
+  </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoice_input = new \OpenAPI\Client\Model\InvoiceOneOffInput();
+
+try {
+    $result = $apiInstance->createInvoice($invoice_input);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoicesApi->createInvoice: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "invoice": {
+    "external_customer_id": "_ID_",
+    "currency": "EUR",
+    "fees": [
+      {
+        "add_on_code": "code1",
+        "units": 2.5,
+        "unit_amount_cents": 1200,
+        "description": "placeholder",
+      }
+    ]
+  }
+}
+```
+
+| Attributes | Type | Description |
+|--|--|--|
+| external_customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | External customer ID |
+| currency | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Invoice currency |
+
+### Fees
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| add_on_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Add on code |
+| description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Invoice fee description |
+| units | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Fee quantity |
+| unit_amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unit amount cents |
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The invoice has been successfully created.
+
+  Returns an [invoice](./invoice-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `invoice` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unauthorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "resource_not_found"
+  }
+  ```
+
+  **Possible resources:** `add_on`, `customer`, `currency` and `fees`
+
+  The `resource` was not found
+  </TabItem>
+
+  <TabItem value="422" label="HTTP 422">
+
+  ```json
+  {
+    "status": 422,
+    "error": "Unprocessable entity",
+    "code": "validation_errors",
+    "error_details": {
+      "field": ["error"]
+    }
+  }
+  ```
+
+
+  </TabItem>
+</Tabs>
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const RequiredUnderCondition = ({children, color}) => (
+  <span
+    style={{
+      color: "#FF7E1D",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
