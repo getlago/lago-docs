@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklago_doc=self.webpackChunklago_doc||[]).push([[8710],{75140:e=>{e.exports=JSON.parse('{"title":"Fees","slug":"/category/fees","permalink":"/docs/category/fees","navigation":{"previous":{"title":"Create one-off invoice","permalink":"/docs/api/invoices/create-invoice"},"next":{"title":"Fee object","permalink":"/docs/api/fees/fee-object"}}}')}}]);
