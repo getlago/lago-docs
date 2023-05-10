@@ -79,7 +79,7 @@ You can see the remaining value / number of remaining periods for each coupon in
 ![Customer account with several coupons](../../static/img/coupons-remaining.png)
 
 :::info
-Coupons do not apply to add-ons or any other one-off charges.
+Coupons do not apply to one-off invoices.
 :::
 
 ## Edit, terminate and delete coupons

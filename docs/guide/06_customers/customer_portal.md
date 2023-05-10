@@ -14,7 +14,7 @@ To generate a customer portal URL that can be embedded into your product, you ha
 1. Use the [API endpoint](../../api/customers/customer-portal-url); or
 2. Click the Customer Portal link on a specific customer details view.
 
-![Customer Portal Access](../../../static/img/customer-portal-detail-view.png)
+![Customer portal access](../../../static/img/customer-portal-access.png)
 
 ## Customer portal preferred language
 By default, the embedded portal is displayed in English. However, you can easily change the language for a specific customer by adjusting the `document language` in their settings. To access this feature, follow these simple steps:

@@ -7,7 +7,7 @@ sidebar_position: 12
 Lago may automatically generate a credit note when a subscription is upgraded or downgraded. However, only users with a premium license can manually generate credit notes via the user interface or the API. Please **[contact us](mailto:hello@getlago.com)** to get access to Lago Cloud and Lago Self-Hosted Premium.
 :::
 
-You can issue a credit note to refund or credit back a customer's account. Credit notes can be issued for invoices related to subscriptions and add-ons, but not for invoices related to credit purchases.
+You can issue a credit note to refund or credit back a customer's account. Credit notes can be issued for invoices related to subscriptions and add-ons (i.e. one-off invoices), but not for invoices related to credit purchases.
 
 :::info
 Credit notes can only be issued for invoices with the status `finalized` and an amount greater than zero.

@@ -28,7 +28,7 @@ To send emails to your customers, you will need to:
 4. Define the customer’s email address during customer creation/edition.
 
 ## Email scenarios
-Lago sends emails to your customers for two scenarios: when an invoice is created (i.e. for add-ons, subscriptions and prepaid credit purchases), and when a credit note is issued for a customer.
+Lago sends emails to your customers for two scenarios: when an invoice is created (i.e. subscription invoices, one-off invoices, invoices related to credit purchases), and when a credit note is issued for a customer.
 
 By default, both scenarios are switched off. You can turn on/off these scenarios by:
 

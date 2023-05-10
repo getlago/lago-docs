@@ -49,7 +49,7 @@ Prepaid credits are deducted from the subtotal of the next invoice(s), after tax
 ![Invoice partially paid with prepaid credits](../../static/img/prepaid-credits-invoice.png)
 
 :::info
-Prepaid credits **do not apply** to invoices related to add-ons.
+Prepaid credits **do not apply** to one-off invoices.
 :::
 
 ## Expiration date and termination
