@@ -26,7 +26,7 @@ You can also [create and update customers](../../api/customers/create-customer) 
 ## Assign objects to a customer
 The usage monitoring and billing processes start when you assign a plan to a customer, which triggers a [subscription](../plans/subscription).
 
-You can also apply [coupons](../coupons), [add-ons](../addons) and [prepaid credits](../prepaid_credits) to a customer account.
+You can also apply [coupons](../coupons), [add-ons](../addons/overview) and [prepaid credits](../prepaid_credits) to a customer account.
 
 To assign objects to a customer through the user interface:
 1. Access the **"Customers"** section via the side menu;
