@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklago_doc=self.webpackChunklago_doc||[]).push([[2268],{86920:e=>{e.exports=JSON.parse('{"title":"Add-ons","slug":"/category/add-ons","permalink":"/docs/category/add-ons","navigation":{"previous":{"title":"Coupons","permalink":"/docs/guide/coupons"},"next":{"title":"Overview","permalink":"/docs/guide/addons/overview"}}}')}}]);

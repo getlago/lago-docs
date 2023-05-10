@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklago_doc=self.webpackChunklago_doc||[]).push([[29],{84076:e=>{e.exports=JSON.parse('{"permalink":"/changelog","page":1,"postsPerPage":56,"totalPages":1,"totalCount":56,"blogDescription":"Find here all the new features released by Lago.","blogTitle":"Changelog - New features"}')}}]);

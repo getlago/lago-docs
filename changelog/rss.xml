@@ -4,11 +4,19 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Thu, 04 May 2023 11:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 10 May 2023 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2023 Lago.</copyright>
+        <item>
+            <title><![CDATA[One-off invoices]]></title>
+            <link>https://getlago.com/changelog/one-off-invoices</link>
+            <guid>https://getlago.com/changelog/one-off-invoices</guid>
+            <pubDate>Wed, 10 May 2023 10:00:00 GMT</pubDate>
+            <description><![CDATA[After creating an add-on, you can use it to generate a one-off invoice that will be billed instantly.]]></description>
+            <content:encoded><![CDATA[<p>After creating an <a href="/docs/guide/addons/overview">add-on</a>, you can use it to generate a one-off invoice that will be billed instantly.</p><p>A one-off invoice may include multiple fees (i.e. multiple add-ons). You can add a custom description and set a specific price for each add-on, either through the user interface or the API.</p><p><a href="/docs/guide/addons/oneoff-invoices">Learn more</a></p><div class="theme-admonition theme-admonition-caution alert alert--warning admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>caution</div><div class="admonitionContent_S0QG"><p>The endpoint to <a href="/docs/api/add_ons/apply-add-on">apply add-ons</a> is deprecated and will be removed on September 1st, 2023. It has been replaced with the endpoint to <a href="/docs/api/invoices/create-invoice">create one-off invoices</a>.</p></div></div>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Coupons applied before tax]]></title>
             <link>https://getlago.com/changelog/coupons-before-tax</link>
@@ -424,7 +432,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
             <guid>https://getlago.com/changelog/ftr-addons</guid>
             <pubDate>Mon, 06 Jun 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.]]></description>
-            <content:encoded><![CDATA[<p>Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.</p><p>Full documentation <a href="/docs/guide/addons">available here</a>.</p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>Add-ons are now available on Lago. Create add-ons to apply one-time fees (e.g. setup fee, one-time purchase, etc.) and generate the corresponding invoices instantly.</p><p>Full documentation <a href="/docs/guide/addons/overview">available here</a>.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Pay-as-you-go template]]></title>
