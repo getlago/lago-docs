@@ -2,19 +2,16 @@
 sidebar_position: 2
 ---
 
-# Create one-off invoices from add-ons
+# Create one-off invoices
+One-off invoices allow you to bill immediately one or several add-ons to a customer. This guide explains how to create a one-off invoice for a specific customer using the add-ons.
 
-One-off invoices allow you to bill immediately one or several add-ons to a customer. This guide will show you how to create a one-off invoice for a specific customer using the add-ons.
-
-## Creating a One-Off Invoice
-
+## Creating a one-off invoice
 To create a one-off invoice for a specific customer:
 
 1. Select the customer from the list of customers; and
 2. Click the **"Actions"** button located in the upper-right corner and select **"Create one-off invoice"**.
 
-## Adding Add-Ons items to this Invoice
-
+## Adding add-ons to one-off invoices
 Now that you have started the flow to create a one-off invoice, it's time to add one or several add-ons to it:
 
 1. Click **"Add an add-on"** to add a new add-on to the invoice;
@@ -25,22 +22,24 @@ Now that you have started the flow to create a one-off invoice, it's time to add
 
 ![Issue one-off invoices](../../../static/img/one-off-invoices.png)
 
-## Application scope of one-off invoices
+:::caution
+The endpoint to [apply add-ons](../../api/add_ons/apply-add-on) is deprecated and will be removed on September 1st, 2023. It has been replaced with the endpoint to [create one-off invoices](../../api/invoices/create-invoice).
+:::
 
+## Application scope of one-off invoices
 Here are a few things to keep in mind about one-off invoices:
 
-- One-off invoices are issued immediately and can include the same add-on multiple times.
-- If the currency of the customer is already defined, the currency of the one-off invoice must be the same.
-- You can use the same add-on to create one-off invoices for multiple customers whose subscriptions don't have the same currency or to apply a different amount for one of these customers.
-- Coupons or prepaid credits (discounts) **do not apply** to one-off invoices.
-- One-off invoices are subject to taxes, as defined in the customer view.
+- One-off invoices are issued immediately and can include the same add-on multiple times;
+- If the currency of the customer is already defined, the currency of the one-off invoice must be the same;
+- You can use the same add-on to create one-off invoices for multiple customers with different currencies, or to charge a different amount to each customer;
+- Coupons and prepaid credits do not apply to one-off invoices; and
+- One-off invoices are subject to taxes.
 
 :::tip
-
-Note that when using the API endpoint, if the amount and currency are null, Lago will apply the default amount and currency defined in the UI.
-
+Note that when using the [API endpoint](../../api/invoices/create-invoice), if the amount and currency are `null`, Lago will apply the default amount and currency defined in [add-on object](../../api/add_ons/add-on-object).
 :::
 
 ## Invoicing
+As mentioned previously, one-off invoices are billed straight away.
 
-As mentioned previously, a **one-off invoice is invoiced straight away**. You are able to find one-off invoices through webhook with `webhook_type`: `invoice.one_off_created`.
+You can retrieve one-off invoices via webhook: `"webhook_type": "invoice.one_off_created"`.
