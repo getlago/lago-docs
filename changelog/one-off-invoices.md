@@ -5,7 +5,7 @@ date: 2023-05-10T10:00
 # One-off invoices
 After creating an [add-on](../docs/guide/addons/overview), you can use it to generate a one-off invoice that will be billed instantly.
 
-A one-off invoice may include multiple line items (i.e. multiple add-ons). You can add a custom description and set a specific price for each add-on, either through the user interface or the API.
+A one-off invoice may include multiple fees (i.e. multiple add-ons). You can add a custom description and set a specific price for each add-on, either through the user interface or the API.
 
 [Learn more](../docs/guide/addons/oneoff-invoices)
 
