@@ -43,7 +43,6 @@ It lets you create a customer, but also track usage and create invoices for the 
       "provider_customer_id": "cus_12345",
       "sync_with_provider": true,
       "document_locale": "fr",
-      "vat_rate": 12.5
     },
     "metadata": [
       {
@@ -91,8 +90,13 @@ It lets you create a customer, but also track usage and create invoices for the 
 | payment_provider &nbsp &nbsp <Type>String</Type> | Payment provider used to bill the customer. <details><summary>**Possible values**</summary><div>- `stripe`: Use Stripe as the payment provider.<br></br>- `gocardless`: Use GoCardless as the payment provider.<br></br>- `Adyen`: Use Adyen as the payment provider.<br></br>- `null`: No payment providers. Payments processed using Lago's webhooks.<div></div></div></details> |
 | provider_customer_id &nbsp &nbsp <Type>String</Type> | Customer ID on the payment provider |
 | document_locale &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 639-1*</Comment> | Language code - [learn more](../resources/locales) |
-| vat_rate &nbsp &nbsp <Type>Float</Type> | Custom VAT rate applied to the customer |
 | sync_with_provider  &nbsp &nbsp <Type>Boolean</Type> | Field that determines whether to create customer in payment provider or not |
+
+### Deprecated attributes
+
+| Attributes | Description |
+|--|--|
+| **vat_rate** &nbsp &nbsp <Type>Float</Type> | Custom VAT rate applied to the customer.<br/>Replaced by the list of `tax_rates`. |
 
 ## Metadata attributes
 | Attributes | Description |
@@ -102,6 +106,7 @@ It lets you create a customer, but also track usage and create invoices for the 
 | **key** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Key part in metadata pair |
 | **value** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Value part in metadata pair |
 | **display_in_invoice** &nbsp &nbsp <Type>Boolean</Type> | Field that determines if metadata pair will be presented on documents |
+
 
 export const Type = ({children, color}) => (
   <span

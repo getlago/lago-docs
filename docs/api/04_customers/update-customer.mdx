@@ -50,8 +50,7 @@ import TabItem from '@theme/TabItem';
           "provider_customer_id": "cus_12345",
           "sync": true,
           "sync_with_provider": true,
-          "document_locale": "fr",
-          "vat_rate": 12.5
+          "document_locale": "fr"
         },
         "metadata": [
           {
@@ -106,8 +105,7 @@ import TabItem from '@theme/TabItem';
       provider_customer_id="cus_12345",
       sync=true,
       sync_with_provider=true,
-      document_locale="fr",
-      vat_rate=12.5
+      document_locale="fr"
     ),
     metadata=MetadataList(__root__=[metadata_object])
   )
@@ -158,8 +156,7 @@ import TabItem from '@theme/TabItem';
       provider_customer_id: "cus_12345",
       sync: true,
       sync_with_provider: true,
-      document_locale: "fr",
-      vat_rate: 12.5
+      document_locale: "fr"
     },
     metadata: [
       {
@@ -205,8 +202,7 @@ import TabItem from '@theme/TabItem';
           PaymentProvider: lago.PaymentProviderStripe,
           ProviderCustomerID: "__STRIPE_CUSTOMER_ID__",
           SyncWithProvider: true,
-          DocumentLocale: "fr",
-          VatRate: 20.0
+          DocumentLocale: "fr"
         },
         Metadata: [
           &CustomerMetadataInput{
@@ -335,8 +331,7 @@ try {
       "provider_customer_id": "cus_12345",
       "sync": true,
       "sync_with_provider": true,
-      "document_locale": "fr",
-      "vat_rate": 12.5
+      "document_locale": "fr"
     },
     "metadata": [
       {
@@ -381,7 +376,12 @@ try {
 | sync | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` is you want to create the provider customer synchronously with the customer creation.<br/>Apply only when `provider_customer_id` is `null` and payment provider is configured to create customer.<br/>Default value: `false`
 | sync_with_provider | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` if you want to create the customer record in the provider's system. Only applies when `provider_customer_id` is `null` and `sync_with_provider` is set to `true`. Default value: `false`
 | document_locale | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Document locale in ISO 639-1 format - [learn more](../resources/locales)
-| vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Custom VAT applied to the customer.<br></br> It will override the one defined at organization level |
+
+### Deprecated arguments
+
+| Attributes | Type | Description |
+| -----------| -----| ----------- |
+| vat_rate | Float &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> |  Custom VAT applied to the customer.<br/>Will be converted into a [tax rate](../tax_rates/tax-rate-object) object applied the customer to override the organization's one. |
 
 ### Metadata
 
@@ -461,6 +461,7 @@ When updating metadata for a specific customer, all metadata must be included in
   | `invoice_grace_period` | `value_is_out_of_range` | Provided invoice grace period is invalid.<br/>It must be a positive integer. |
   | `payment_provider` | `value_is_invalid` | Provided payment provider is invalid |
   | `timezone` | `timezone_invalid` | Provided timezone is invalid |
+  | `vat_rate` | `multiple_tax_rates` | deprecated `vat_rate` cannot be updated because multiple tax rates are attached to the organization |
   | `vat_rate` | `value_is_out_of_range` | Provided VAT rate is invalid.<br/>It must be a positive integer or floating number between 0 and 100. |
 
   </TabItem>
