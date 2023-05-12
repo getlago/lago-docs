@@ -44,6 +44,11 @@ Your API Key can be found directly in the UI:
 2. The first tab of this section is related to your **API keys**; and
 3. Click the **Copy** button to copy it to clipboard.
 
+## Analytics and tracking
+Please note that Lago, by default, tracks basic actions performed on your self-hosted instance. If you do not disable tracking, you may receive specific communications or product updates. However, rest assured that Lago will not collect any personal information about your customers or financial information about your invoices.
+
+If you would like to know more about Lago's tracking and analytics, please refer to [this page](../../guide/self-hosting/tracking) for comprehensive information.
+
 ## Configuration
 
 ### Version
