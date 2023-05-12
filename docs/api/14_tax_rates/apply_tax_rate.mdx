@@ -1,0 +1,338 @@
+---
+sidebar_position: 7
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Apply a tax rate to a customer
+
+## Route
+
+```curl title="POST"
+/api/v1/customers/:external_customer_id/applied_tax_rates
+```
+
+## Usage
+
+<Tabs groupId="prog-language">
+  <TabItem value="curl" label="Curl" default>
+
+  ```bash
+  LAGO_URL="https://api.getlago.com"
+  API_KEY="__YOUR_API_KEY__"
+  EXTERNAL_CUSTOMER_ID="1a901a90-1a90-1a90-1a90-1a901a901a90"
+
+  curl --location --request POST "$LAGO_URL/api/v1/customers/$EXTERNAL_CUSTOMER_ID/applied_tax_rates" \
+    --header "Authorization: Bearer $API_KEY" \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "applied_tax_rate": {
+        "tax_rate_code": "example_code"
+      }
+    }'
+  ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+  ```python
+  from lago_python_client.client import Client
+  from lago_python_client.exceptions import LagoApiError
+  from lago_python_client.models import AppliedTaxRate
+
+  client = Client(api_key='__YOUR_API_KEY__')
+
+  applied_tax_rate = AppliedTaxRate(
+    external_customer_id="1a901a90-1a90-1a90-1a90-1a901a901a90",
+    tax_rate_code="example_code"
+  )
+
+  try:
+      client.applied_tax_rates.create(applied_tax_rate)
+  except LagoApiError as e:
+      repair_broken_state(e)  # do something on error or raise your own exception
+  ```
+  </TabItem>
+
+  <TabItem value="ruby" label="Ruby">
+
+  ```ruby
+  require 'lago-ruby-client'
+
+  client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
+
+  client.applied_tax_rates.create(
+    external_customer_id: "1a901a90-1a90-1a90-1a90-1a901a901a90",
+    tax_rate_code: "example_code",
+  )
+  ```
+  </TabItem>
+
+  <TabItem value="javascript" label="Javascript">
+
+  ```javascript
+  const appliedTaxRateObject = {
+    externalCustomerId: "1a901a90-1a90-1a90-1a90-1a901a901a90",
+    taxRateCode: "example_code"
+  };
+
+  await client.customers.applyTaxRate({
+    appliedTaxRate: appliedTaxRateObject,
+  });
+  ```
+  </TabItem>
+
+  <TabItem value="go" label="Go">
+
+  ```go
+    import "fmt"
+    import "github.com/getlago/lago-go-client"
+
+    func main() {
+      lagoClient := lago.New().
+        SetApiKey("__YOUR_API_KEY__")
+
+      appliedTaxRateInput := &lago.AppliedTaxRateInput{
+        ExternalCustomerID: "1a901a90-1a90-1a90-1a90-1a901a901a90",
+        TaxRateCode: "example_code",
+      }
+
+      appliedTaxRate, err := lagoClient.AppliedTaxRate().Create(appliedTaxRateInput)
+      if err != nil {
+        // Error is *lago.Error
+        panic(err)
+      }
+
+      // appliedTaxRate is *lago.AppliedTaxRate
+      fmt.Println(appliedTaxRate)
+    }
+  ```
+
+  </TabItem>
+
+  <TabItem value="csharp" label="C#">
+
+  ```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class ApplyTaxRateExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.getlago.com/api/v1";
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomersApi(Configuration.Default);
+            var appliedTaxRateInput = new AppliedTaxRateInput();
+
+            try
+            {
+                AppliedTaxRate result = apiInstance.ApplyTaxRate(appliedTaxRateInput);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling CustomersApi.ApplyTaxRate: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+  ```
+
+  </TabItem>
+  <TabItem value="php" label="PHP">
+
+  ```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$applied_tax_rate_input = new \OpenAPI\Client\Model\AppliedTaxRateInput();
+
+try {
+    $result = $apiInstance->applyTaxRate($applied_tax_rate_input);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomersApi->applyTaxRate: ', $e->getMessage(), PHP_EOL;
+}
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Arguments
+
+```json
+{
+  "applied_tax_rate": {
+    "tax_rate_code": "example_code"
+  }
+}
+```
+
+| Attributes | Type | Description |
+|--|--|--|
+| tax_rate_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the tax rate.<br/> It must match the `code` property of one of the organization's tax rates. |
+
+## Responses
+
+<Tabs>
+  <TabItem value="200" label="HTTP 200" default>
+  The coupon was assigned to the customer.
+
+  Returns an [applied tax rate](#the-applied-tax-rate-object) object.
+  </TabItem>
+
+  <TabItem value="400" label="HTTP 400">
+
+  ```json
+  {
+    "status": 400,
+    "error": "Bad Request"
+  }
+  ```
+
+  The `applied_coupon` json root is not present in the request body.
+  </TabItem>
+
+  <TabItem value="401" label="HTTP 401">
+
+  ```json
+  {
+    "status": 401,
+    "error": "Unauthorized"
+  }
+  ```
+
+  Access to the API endpoint is unhautorized.
+
+  **Possible reasons are:**
+  * The `Authorization` header is missing
+  * The `Authorization` header does not contain the API key
+  * The Api key is invalid or expired
+
+
+  </TabItem>
+
+  <TabItem value="404" label="HTTP 404">
+
+  ```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "code": "customer_not_found"
+  }
+  ```
+
+  **Possible error codes:**
+  * `customer_not_found`: The external customer id does not match an existing customer.
+  * `tax_rate_not_found`: The tax rate code does not match an existing tax rate.
+
+
+  </TabItem>
+</Tabs>
+
+## The applied tax rate object
+
+This object represents a tax rate assigned to a customer of your business.
+
+## Schema
+
+```json
+{
+  "applied_tax_rate": {
+    "lago_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+    "lago_customer_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+    "lago_tax_rate_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+    "tax_rate_code": "example_code",
+    "external_customer_id": "1234",
+    "created_at": "2022-04-29T08:59:51Z",
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the applied tax rate in Lago application. |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application. |
+| **lago_tax_rate_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the tax rate in Lago application. |
+| **tax_rate_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the tax rate. |
+| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application. |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of assignation of the tax rate to the customer. |
+
+
+
+export const Required = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Optional = ({children, color}) => (
+  <span
+    style={{
+      color: "#8C95A6",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Comment = ({children, color}) => (
+  <span
+    style={{
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const PostEndpoint = ({children, color}) => (
+  <span
+    style={{
+      color: "#008559",
+      fontSize: "12px"
+    }}>
+    {children}
+  </span>
+);
+
+export const Type = ({children, color}) => (
+  <span
+    style={{
+      color: "#006CFA",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
+
+export const NotNullable = ({children, color}) => (
+  <span
+    style={{
+      color: "#DC3309",
+      fontSize: "13px"
+    }}>
+    {children}
+  </span>
+);
