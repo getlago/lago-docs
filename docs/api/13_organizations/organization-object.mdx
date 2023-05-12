@@ -34,7 +34,8 @@ This object represents an organization.<br></br>
       "invoice_grace_period": 3,
       "document_locale": "fr",
       "vat_rate": 15.0
-    }
+    },
+    "tax_rates": []
   }
 }
 ```
@@ -55,16 +56,22 @@ This object represents an organization.<br></br>
 | **legal_number** &nbsp &nbsp <Type>String</Type> | Legal number of the organization |
 | **tax_identification_number** &nbsp &nbsp <Type>String</Type> | Tax identification number of the organization |
 | **timezone** &nbsp &nbsp <Type>String</Type><br></br><Comment>*TZ database*</Comment> | Timezone of the organization - [learn more](../resources/timezones) |
-| **email_settings** &nbsp &nbsp <Type>Array</Type><br></br><Comment>Possible Values are `invoice.finalized` and `credit_note.created`</Comment> | Email settings of the organization |
+| **email_settings** &nbsp &nbsp <Type>Array</Type> | Email settings of the organization. <details><summary>**Possible values**</summary><div>- `invoice.finalized`<br/>- `credit_note.created`</div></details> |
+| **tax_rates** &nbsp &nbsp <Type>Array</Type> | List of [tax rate](../tax_rates/tax-rate-object) objects applied by default. |
 
 ## Billing Configuration Object
 
 | Attributes | Description |
 | -----------| ----------- |
-| invoice_footer &nbsp &nbsp <Type>String</Type> | Custom invoice footer |
-| invoice_grace_period &nbsp &nbsp <Type>Integer</Type> | Grace period (in days) |
-| document_locale &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 639-1*</Comment> | Language code - [learn more](../resources/locales) |
-| vat_rate &nbsp &nbsp <Type>Float</Type> | Custom VAT rate |
+| **invoice_footer** &nbsp &nbsp <Type>String</Type> | Custom invoice footer |
+| **invoice_grace_period** &nbsp &nbsp <Type>Integer</Type> | Grace period (in days) |
+| **document_locale** &nbsp &nbsp <Type>String</Type><br></br><Comment>*ISO 639-1*</Comment> | Language code - [learn more](../resources/locales) |
+
+### Deprecated attributes
+
+| Attributes | Description |
+|--|--|
+| **vat_rate** &nbsp &nbsp <Type>Float</Type> | Custom VAT rate. Replaced by the list of `tax_rates` |
 
 export const Type = ({children, color}) => (
   <span
