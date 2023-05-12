@@ -30,7 +30,8 @@ import TabItem from '@theme/TabItem';
         "name": "tax rate name",
         "code": "tax_rate_code",
         "value": 15.0,
-        "description": "tax rate description"
+        "description": "tax rate description",
+        "applied_by_default": false
       }
     }'
   ```
@@ -46,7 +47,7 @@ import TabItem from '@theme/TabItem';
   client = Client(api_key='__YOUR_API_KEY__')
 
   update_params = TaxRate(name='new name')
-  
+
   try:
       client.tax_rates.update(update_params, 'code')
   except LagoApiError as e:
@@ -86,10 +87,11 @@ import TabItem from '@theme/TabItem';
         SetApiKey("__YOUR_API_KEY__")
 
       taxRateInput := &lago.TaxRateInput{
-        Name:        "tax rate name",
-        Code:        "tax_rate_code",
-        Value:       15.0,
-        Description: "tax rate description"
+        Name:             "tax rate name",
+        Code:             "tax_rate_code",
+        Value:            15.0,
+        Description:      "tax rate description",
+        AppliedByDefault: false,
       }
 
       taxRate, err := lagoClient.TaxRate().Update(taxRateInput)
@@ -185,7 +187,8 @@ try {
     "name": "tax rate name",
     "code": "tax_rate_code",
     "value": 10.0,
-    "description": "tax rate description"
+    "description": "tax rate description",
+    "applied_by_default": false
   }
 }
 ```
@@ -196,6 +199,8 @@ try {
 | code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the tax rate |
 | value | Float &nbsp &nbsp &nbsp<Required>**Required**</Required> | Value in decimal applied to the tax rate |
 | description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Tax rate description. |
+| applied_by_default | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to true to use the tax rate as a default one for customers. |
+
 ## Responses
 
 <Tabs>
