@@ -5,12 +5,12 @@ sidebar_position: 7
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Apply a tax rate to a customer
+# Apply a tax to a customer
 
 ## Route
 
 ```curl title="POST"
-/api/v1/customers/:external_customer_id/applied_tax_rates
+/api/v1/customers/:external_customer_id/applied_taxes
 ```
 
 ## Usage
@@ -23,12 +23,12 @@ import TabItem from '@theme/TabItem';
   API_KEY="__YOUR_API_KEY__"
   EXTERNAL_CUSTOMER_ID="1a901a90-1a90-1a90-1a90-1a901a901a90"
 
-  curl --location --request POST "$LAGO_URL/api/v1/customers/$EXTERNAL_CUSTOMER_ID/applied_tax_rates" \
+  curl --location --request POST "$LAGO_URL/api/v1/customers/$EXTERNAL_CUSTOMER_ID/applied_taxes" \
     --header "Authorization: Bearer $API_KEY" \
     --header 'Content-Type: application/json' \
     --data-raw '{
-      "applied_tax_rate": {
-        "tax_rate_code": "example_code"
+      "applied_tax": {
+        "tax_code": "example_code"
       }
     }'
   ```
@@ -38,17 +38,17 @@ import TabItem from '@theme/TabItem';
   ```python
   from lago_python_client.client import Client
   from lago_python_client.exceptions import LagoApiError
-  from lago_python_client.models import AppliedTaxRate
+  from lago_python_client.models import AppliedTax
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  applied_tax_rate = AppliedTaxRate(
+  applied_tax = AppliedTax(
     external_customer_id="1a901a90-1a90-1a90-1a90-1a901a901a90",
-    tax_rate_code="example_code"
+    tax_code="example_code"
   )
 
   try:
-      client.applied_tax_rates.create(applied_tax_rate)
+      client.applied_taxes.create(applied_tax)
   except LagoApiError as e:
       repair_broken_state(e)  # do something on error or raise your own exception
   ```
@@ -61,9 +61,9 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.applied_tax_rates.create(
+  client.applied_taxes.create(
     external_customer_id: "1a901a90-1a90-1a90-1a90-1a901a901a90",
-    tax_rate_code: "example_code",
+    tax_code: "example_code",
   )
   ```
   </TabItem>
@@ -71,13 +71,13 @@ import TabItem from '@theme/TabItem';
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  const appliedTaxRateObject = {
+  const AppliedTaxObject = {
     externalCustomerId: "1a901a90-1a90-1a90-1a90-1a901a901a90",
-    taxRateCode: "example_code"
+    taxCode: "example_code"
   };
 
-  await client.customers.applyTaxRate({
-    appliedTaxRate: appliedTaxRateObject,
+  await client.customers.applytax({
+    AppliedTax: AppliedTaxObject,
   });
   ```
   </TabItem>
@@ -92,19 +92,19 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      appliedTaxRateInput := &lago.AppliedTaxRateInput{
+      AppliedTaxInput := &lago.AppliedTaxInput{
         ExternalCustomerID: "1a901a90-1a90-1a90-1a90-1a901a901a90",
-        TaxRateCode: "example_code",
+        taxCode: "example_code",
       }
 
-      appliedTaxRate, err := lagoClient.AppliedTaxRate().Create(appliedTaxRateInput)
+      AppliedTax, err := lagoClient.AppliedTax().Create(AppliedTaxInput)
       if err != nil {
         // Error is *lago.Error
         panic(err)
       }
 
-      // appliedTaxRate is *lago.AppliedTaxRate
-      fmt.Println(appliedTaxRate)
+      // AppliedTax is *lago.AppliedTax
+      fmt.Println(AppliedTax)
     }
   ```
 
@@ -121,7 +121,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class ApplyTaxRateExample
+    public class ApplytaxExample
     {
         public static void Main()
         {
@@ -129,16 +129,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomersApi(Configuration.Default);
-            var appliedTaxRateInput = new AppliedTaxRateInput();
+            var AppliedTaxInput = new AppliedTaxInput();
 
             try
             {
-                AppliedTaxRate result = apiInstance.ApplyTaxRate(appliedTaxRateInput);
+                AppliedTax result = apiInstance.Applytax(AppliedTaxInput);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling CustomersApi.ApplyTaxRate: " + e.Message );
+                Debug.Print("Exception when calling CustomersApi.Applytax: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -163,13 +163,13 @@ $apiInstance = new OpenAPI\Client\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$applied_tax_rate_input = new \OpenAPI\Client\Model\AppliedTaxRateInput();
+$applied_tax_input = new \OpenAPI\Client\Model\AppliedTaxInput();
 
 try {
-    $result = $apiInstance->applyTaxRate($applied_tax_rate_input);
+    $result = $apiInstance->applytax($applied_tax_input);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomersApi->applyTaxRate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomersApi->applytax: ', $e->getMessage(), PHP_EOL;
 }
   ```
 
@@ -180,15 +180,15 @@ try {
 
 ```json
 {
-  "applied_tax_rate": {
-    "tax_rate_code": "example_code"
+  "applied_tax": {
+    "tax_code": "example_code"
   }
 }
 ```
 
 | Attributes | Type | Description |
 |--|--|--|
-| tax_rate_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the tax rate.<br/> It must match the `code` property of one of the organization's tax rates. |
+| tax_code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the tax.<br/> It must match the `code` property of one of the organization's taxes. |
 
 ## Responses
 
@@ -196,7 +196,7 @@ try {
   <TabItem value="200" label="HTTP 200" default>
   The coupon was assigned to the customer.
 
-  Returns an [applied tax rate](#the-applied-tax-rate-object) object.
+  Returns an [applied tax](#the-applied-tax-object) object.
   </TabItem>
 
   <TabItem value="400" label="HTTP 400">
@@ -242,25 +242,25 @@ try {
 
   **Possible error codes:**
   * `customer_not_found`: The external customer id does not match an existing customer.
-  * `tax_rate_not_found`: The tax rate code does not match an existing tax rate.
+  * `tax_not_found`: The tax code does not match an existing tax.
 
 
   </TabItem>
 </Tabs>
 
-## The applied tax rate object
+## The applied tax object
 
-This object represents a tax rate assigned to a customer of your business.
+This object represents a tax assigned to a customer of your business.
 
 ## Schema
 
 ```json
 {
-  "applied_tax_rate": {
+  "applied_tax": {
     "lago_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
     "lago_customer_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
-    "lago_tax_rate_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
-    "tax_rate_code": "example_code",
+    "lago_tax_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+    "tax_code": "example_code",
     "external_customer_id": "1234",
     "created_at": "2022-04-29T08:59:51Z",
   }
@@ -269,12 +269,12 @@ This object represents a tax rate assigned to a customer of your business.
 
 | Attributes | Description |
 | -----------| ----------- |
-| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the applied tax rate in Lago application. |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the applied tax in Lago application. |
 | **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application. |
-| **lago_tax_rate_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the tax rate in Lago application. |
-| **tax_rate_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the tax rate. |
+| **lago_tax_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the tax in Lago application. |
+| **tax_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the tax. |
 | **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application. |
-| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of assignation of the tax rate to the customer. |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of assignation of the tax to the customer. |
 
 
 

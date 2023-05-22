@@ -5,12 +5,12 @@ sidebar_position: 8
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Destroy applied tax rate
+# Destroy applied tax
 
 ## Route
 
 ```curl title="DELETE"
-/api/v1/customers/:external_customer_id/applied_tax_rates/:tax_rate_code
+/api/v1/customers/:external_customer_id/applied_taxes/:tax_code
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request DELETE "$LAGO_URL/api/v1/customers/:external_customer_id/applied_tax_rates/:tax_rate_code" \
+  curl --location --request DELETE "$LAGO_URL/api/v1/customers/:external_customer_id/applied_taxes/:tax_code" \
     --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
   client = Client(api_key='__YOUR_API_KEY__')
 
   try:
-      client.applied_tax_rates.destroy('external_customer_id', 'tax_rate_code')
+      client.applied_taxes.destroy('external_customer_id', 'tax_code')
   except LagoApiError as e:
       repair_broken_state(e)  # do something on error or raise your own exception
   ```
@@ -49,16 +49,16 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.applied_tax_rate.destroy('external_customer_id', 'tax_rate_code')
+  client.applied_tax.destroy('external_customer_id', 'tax_code')
   ```
   </TabItem>
 
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  await client.customers.deleteAppliedTaxRate(
+  await client.customers.deleteAppliedTax(
     "external_customer_id",
-    "tax_rate_code"
+    "tax_code"
   );
   ```
   </TabItem>
@@ -73,14 +73,14 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      appliedTaxRate, err := lagoClient.AppliedTaxRate().Delete("external_customer_id", "tax_rate_code")
+      appliedTax, err := lagoClient.AppliedTax().Delete("external_customer_id", "tax_code")
       if err != nil {
         // Error is *lago.Error
         panic(err)
       }
 
       // appliedCoupon is *lago.AppliedCoupon
-      fmt.Println(appliedTaxRate)
+      fmt.Println(appliedTax)
     }
   ```
 
@@ -106,16 +106,16 @@ namespace Example
 
             var apiInstance = new CustomerApi(Configuration.Default);
             var externalCustomerId = "external_customer_id";
-            var taxRateCode = "tax_rate_code";
+            var taxCode = "tax_code";
 
             try
             {
-                AppliedTaxRate result = apiInstance.DestroyAppliedTaxRate(externalCustomerId, taxRateCode);
+                AppliedTax result = apiInstance.DestroyAppliedTax(externalCustomerId, taxCode);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling CustomerApi.DestroyAppliedTaxRate: " + e.Message );
+                Debug.Print("Exception when calling CustomerApi.DestroyAppliedTax: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -131,9 +131,9 @@ namespace Example
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  The applied tax rate was successfully destroyed
+  The applied tax was successfully destroyed
 
-  Returns an [applied tax rate](../tax_rates/apply_tax_rate#the-applied-tax-rate-object) object.
+  Returns an [applied tax](../taxes/apply_tax#the-applied-tax-object) object.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -167,8 +167,8 @@ namespace Example
 
   **Possible error codes:**
   * `customer_not_found`: The external customer id does not match an existing customer.
-  * `tax_rate_not_found`: The tax rate code does not match an existing tax rate.
-  * `applied_tax_rate`: The tax rate was not applied to the customer.
+  * `tax_not_found`: The tax code does not match an existing tax.
+  * `applied_tax`: The tax was not applied to the customer.
 
 
   </TabItem>

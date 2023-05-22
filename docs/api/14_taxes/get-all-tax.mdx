@@ -5,12 +5,12 @@ sidebar_position: 6
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Get all tax rates
+# Get all tax
 
 ## Route
 
 ```curl title="GET"
-/api/v1/tax_rates?per_page=2&page=1
+/api/v1/taxes?per_page=2&page=1
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import TabItem from "@theme/TabItem";
 LAGO_URL="https://api.getlago.com"
 API_KEY="__YOUR_API_KEY__"
 
-curl --location --request GET "$LAGO_URL/api/v1/tax_rates?per_page=2&page=1" \
+curl --location --request GET "$LAGO_URL/api/v1/taxes?per_page=2&page=1" \
   --header "Authorization: Bearer $API_KEY"
 ```
 
@@ -37,7 +37,7 @@ curl --location --request GET "$LAGO_URL/api/v1/tax_rates?per_page=2&page=1" \
   client = Client(api_key='__YOUR_API_KEY__')
 
   try:
-      client.tax_rates.find_all({'per_page': 2, 'page': 1})
+      client.taxes.find_all({'per_page': 2, 'page': 1})
   except LagoApiError as e:
       repair_broken_state(e)  # do something on error or raise your own exception
   ```
@@ -51,7 +51,7 @@ require 'lago-ruby-client'
 
 client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-client.tax_rates.get_all({ per_page: 2, page: 3 })
+client.taxes.get_all({ per_page: 2, page: 3 })
 ```
 
   </TabItem>
@@ -59,7 +59,7 @@ client.tax_rates.get_all({ per_page: 2, page: 3 })
   <TabItem value="javascript" label="Javascript">
 
 ```javascript
-await client.taxRates.findAllTaxRates({ perPage: 2, page: 3 });
+await client.taxes.findAllTaxes({ perPage: 2, page: 3 });
 ```
 
   </TabItem>
@@ -74,19 +74,19 @@ await client.taxRates.findAllTaxRates({ perPage: 2, page: 3 });
     lagoClient := lago.New().
       SetApiKey("__YOUR_API_KEY__")
 
-    taxRateListInput := &lago.TaxRateListInput{
+    taxListInput := &lago.TaxListInput{
       PerPage: 1,
       Page: 1,
     }
 
-    taxRateResult, err := lagoClient.TaxRate().GetList(taxRateListInput)
+    taxResult, err := lagoClient.Tax().GetList(taxListInput)
     if err != nil {
       // Error is *lago.Error
       panic(err)
     }
 
-    // taxRateResult is *lago.TaxRateResult
-    fmt.Println(taxRateResult)
+    // taxResult is *lago.TaxResult
+    fmt.Println(taxResult)
   }
 ```
 
@@ -103,7 +103,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-  public class FindAllTaxRatesExample
+  public class FindAllTaxesExample
   {
       public static void Main()
       {
@@ -111,19 +111,19 @@ namespace Example
           // Configure HTTP bearer authorization: bearerAuth
           Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-          var apiInstance = new TaxRatesApi(Configuration.Default);
+          var apiInstance = new TaxesApi(Configuration.Default);
           var page = 2;  // int? | Number of page (optional)
           var perPage = 20;  // int? | Number of records per page (optional)
 
           try
           {
-              // Find tax rates
-              TaxRates result = apiInstance.FindAllTaxRates(page, perPage);
+              // Find taxes
+              Taxes result = apiInstance.FindAllTaxes(page, perPage);
               Debug.WriteLine(result);
           }
           catch (ApiException e)
           {
-              Debug.Print("Exception when calling TaxRatesApi.FindAllTaxRates: " + e.Message );
+              Debug.Print("Exception when calling TaxesApi.FindAllTaxes: " + e.Message );
               Debug.Print("Status Code: "+ e.ErrorCode);
               Debug.Print(e.StackTrace);
           }
@@ -144,7 +144,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
+$apiInstance = new OpenAPI\Client\Api\TaxesApi(
   // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
   // This is optional, `GuzzleHttp\Client` will be used as default.
   new GuzzleHttp\Client(),
@@ -154,10 +154,10 @@ $page = 2; // int | Number of page
 $per_page = 20; // int | Number of records per page
 
 try {
-  $result = $apiInstance->findAllTaxRates($page, $per_page);
+  $result = $apiInstance->findAllTaxes($page, $per_page);
   print_r($result);
 } catch (Exception $e) {
-  echo 'Exception when calling TaxRatesApi->findAllTaxRates: ', $e->getMessage(), PHP_EOL;
+  echo 'Exception when calling TaxesApi->findAllTaxes: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -175,9 +175,9 @@ try {
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  Tax rates were successfully found
+  Taxes were successfully found
 
-  Returns a list of [tax rate](./tax-rate-object) objects.
+  Returns a list of [tax](./tax-object) objects.
 
   </TabItem>
 

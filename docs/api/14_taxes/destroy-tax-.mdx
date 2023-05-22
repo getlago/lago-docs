@@ -5,12 +5,12 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Destroy a tax rate
+# Destroy a tax
 
 ## Route
 
 ```curl title="DELETE"
-/api/v1/tax_rates/:code
+/api/v1/taxes/:code
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request DELETE "$LAGO_URL/api/v1/tax_rates/:code" \
+  curl --location --request DELETE "$LAGO_URL/api/v1/taxes/:code" \
     --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
   client = Client(api_key='__YOUR_API_KEY__')
 
   try:
-      client.tax_rates.destroy('code')
+      client.taxes.destroy('code')
   except LagoApiError as e:
       repair_broken_state(e)  # do something on error or raise your own exception
   ```
@@ -49,14 +49,14 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  client.tax_rates.destroy('code')
+  client.taxes.destroy('code')
   ```
   </TabItem>
 
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  await client.tax_rates.destroyTaxRate('code')
+  await client.taxes.destroyTax('code')
   ```
   </TabItem>
 
@@ -70,14 +70,14 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      taxRate, err := lagoClient.TaxRate().Delete("__YOUR_TAX_RATE_CODE__")
+      tax, err := lagoClient.Tax().Delete("__YOUR_TAX_CODE__")
       if err != nil {
         // Error is *lago.Error
         panic(err)
       }
 
-      // taxRate is *lago.TaxRate
-      fmt.Println(taxRate)
+      // tax is *lago.Tax
+      fmt.Println(tax)
     }
   ```
 
@@ -94,7 +94,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class DestroyTaxRateExample
+    public class DestroyTaxExample
     {
         public static void Main()
         {
@@ -102,18 +102,18 @@ namespace Example
             // Configure HTTP bearer authorization: bearerAuth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new TaxRatesApi(Configuration.Default);
-            var code = "example_code";  // string | Code of the existing tax rate
+            var apiInstance = new TaxesApi(Configuration.Default);
+            var code = "example_code";  // string | Code of the existing tax
 
             try
             {
-                // Delete a tax rate
-                TaxRate result = apiInstance.DestroyTaxRate(code);
+                // Delete a tax
+                Tax result = apiInstance.DestroyTax(code);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling TaxRatesApi.DestroyTaxRate: " + e.Message );
+                Debug.Print("Exception when calling TaxesApi.DestroyTax: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -134,19 +134,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
+$apiInstance = new OpenAPI\Client\Api\TaxesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$code = "example_code"; // string | Code of the existing tax rate
+$code = "example_code"; // string | Code of the existing tax
 
 try {
-    $result = $apiInstance->destroyTaxRate($code);
+    $result = $apiInstance->destroyTax($code);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaxRatesApi->destroyTaxRate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaxesApi->destroyTax: ', $e->getMessage(), PHP_EOL;
 }
   ```
 
@@ -157,9 +157,9 @@ try {
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  The tax rate was successfully destroyed
+  The tax was successfully destroyed
 
-  Returns a [tax rate](./tax-rate-object) object.
+  Returns a [tax](./tax-object) object.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -187,11 +187,11 @@ try {
   {
     "status": 404,
     "error": "Not Found",
-    "code": "tax_rate_not_found"
+    "code": "tax_not_found"
   }
   ```
 
-  The `tax rate` was not found.
+  The `tax` was not found.
   </TabItem>
 </Tabs>
 

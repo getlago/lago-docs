@@ -5,12 +5,12 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Create a tax rate
+# Create a tax
 
 ## Route
 
 ```curl title="POST"
-/api/v1/tax_rates
+/api/v1/taxes
 ```
 
 ## Usage
@@ -22,16 +22,16 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request POST "$LAGO_URL/api/v1/tax_rates" \
+  curl --location --request POST "$LAGO_URL/api/v1/taxes" \
     --header "Authorization: Bearer $API_KEY" \
     --header 'Content-Type: application/json' \
     --data-raw '{
-      "tax_rate": {
-        "name": "tax rate name",
-        "code": "tax_rate_code",
-        "value": 15.0,
-        "description": "tax rate description",
-        "applied_by_default": false
+      "tax": {
+        "name": "tax name",
+        "code": "tax_code",
+        "rate": 15.0,
+        "description": "tax description",
+        "applied_to_organization": false
       }
     }'
   ```
@@ -42,20 +42,20 @@ import TabItem from '@theme/TabItem';
   ```python
   from lago_python_client.client import Client
   from lago_python_client.exceptions import LagoApiError
-  from lago_python_client.models import TaxRate
+  from lago_python_client.models import Tax
 
   client = Client(api_key='__YOUR_API_KEY__')
 
-  tax_rate = TaxRate(
-    name='tax rate name',
-    code='tax_rate_code',
-    value=10.0,
-    description='tax rate description',
-    applied_by_default=false
+  tax = Tax(
+    name='tax name',
+    code='tax_code',
+    rate=10.0,
+    description='tax description',
+    applied_to_organization=false
   )
 
   try:
-      client.tax_rates.create(tax_rate)
+      client.taxes.create(tax)
   except LagoApiError as e:
       repair_broken_state(e)  # do something on error or raise your own exception
   ```
@@ -68,30 +68,30 @@ import TabItem from '@theme/TabItem';
 
   client = Lago::Api::Client.new({api_key: '__YOUR_API_KEY__'})
 
-  tax_rate = {
-    name: 'tax rate name',
-    code: 'tax_rate_code',
-    value: 10.0,
-    description: 'tax rate description',
-    applied_by_default: false,
+  tax = {
+    name: 'tax name',
+    code: 'tax_code',
+    rate: 10.0,
+    description: 'tax description',
+    applied_to_organization: false,
   }
 
-  client.tax_rates.create(tax_rate)
+  client.taxes.create(tax)
   ```
   </TabItem>
 
   <TabItem value="javascript" label="Javascript">
 
   ```javascript
-  const taxRateObject = {
-    name: "tax rate name",
-    code: "tax_rate_code",
+  const taxObject = {
+    name: "tax name",
+    code: "tax_code",
     value: 10.0,
-    description: "tax rate description",
-    appliedByDefault: false
+    description: "tax description",
+    appliedToOrganization: false
   };
 
-  await client.taxRates.createTaxRate({ taxRate: taxRateObject });
+  await client.taxes.createTax({ tax: taxObject });
   ```
   </TabItem>
 
@@ -105,22 +105,22 @@ import TabItem from '@theme/TabItem';
       lagoClient := lago.New().
         SetApiKey("__YOUR_API_KEY__")
 
-      taxRateInput := &lago.TaxRateInput{
-        Name:             "tax rate name",
-        Code:             "tax_rate_code",
-        Value:            10.0,
-        Description:      "tax rate description",
-        AppliedByDefault: false,
+      taxInput := &lago.TaxInput{
+        Name:                  "tax name",
+        Code:                  "tax_code",
+        Rate:                  10.0,
+        Description:           "tax description",
+        AppliedToOrganization: false,
       }
 
-      taxRate, err := lagoClient.TaxRate().Create(taxRateInput)
+      tax, err := lagoClient.Tax().Create(taxInput)
       if err != nil {
         // Error is *lago.Error
         panic(err)
       }
 
-      // taxRate is *lago.TaxRate
-      fmt.Println(taxRate)
+      // tax is *lago.Tax
+      fmt.Println(tax)
     }
   ```
 
@@ -137,7 +137,7 @@ using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class CreateTaxRateExample
+    public class CreateTaxExample
     {
         public static void Main()
         {
@@ -145,18 +145,18 @@ namespace Example
             // Configure HTTP bearer authorization: bearerAuth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new TaxRatesApi(Configuration.Default);
-            var taxRateInput = new TaxRateInput(); // TaxRateInput | TaxRate payload
+            var apiInstance = new TaxApi(Configuration.Default);
+            var taxInput = new TaxInput(); // TaxInput | Tax payload
 
             try
             {
-                // Create a new tax rate
-                TaxRate result = apiInstance.CreateTaxRate(taxRateInput);
+                // Create a new tax
+                Tax result = apiInstance.CreateTax(taxInput);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling TaxRatesApi.CreateTaxRate: " + e.Message );
+                Debug.Print("Exception when calling TaxesApi.CreateTax: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -177,19 +177,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
+$apiInstance = new OpenAPI\Client\Api\TaxesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$tax_rate_input = new \OpenAPI\Client\Model\TaxRateInput(); // \OpenAPI\Client\Model\TaxRateInput | TaxRate payload
+$tax_input = new \OpenAPI\Client\Model\TaxInput(); // \OpenAPI\Client\Model\TaxInput | Tax payload
 
 try {
-    $result = $apiInstance->createTaxRate($tax_rate_input);
+    $result = $apiInstance->createTax($tax_input);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaxRatesApi->createTaxRate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaxesApi->createTax: ', $e->getMessage(), PHP_EOL;
 }
   ```
 
@@ -200,31 +200,31 @@ try {
 
 ```json
 {
-  "tax_rate": {
-    "name": "tax rate name",
-    "code": "tax_rate_code",
-    "value": 10.0,
-    "description": "tax rate description",
-    "applied_by_default": false
+  "tax": {
+    "name": "tax name",
+    "code": "tax_code",
+    "rate": 10.0,
+    "description": "tax description",
+    "applied_to_organization": false
   }
 }
 ```
 
 | Attributes | Type | Description |
 |--|--|--|
-| name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Tax rate name |
-| code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the tax rate |
-| value | Float &nbsp &nbsp &nbsp<Required>**Required**</Required> | Value in decimal applied to the tax rate |
-| description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Tax rate description. |
-| applied_by_default | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to true to use the tax rate as a default one for customers. |
+| name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Tax name |
+| code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the tax |
+| rate | Float &nbsp &nbsp &nbsp<Required>**Required**</Required> | Value in decimal applied to the tax |
+| description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Tax description. |
+| applied_to_organization | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to true to use the tax as a default one for customers. |
 
 ## Responses
 
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
-  The tax rate was created
+  The tax was created
 
-  Returns a [tax rate](./tax-rate-object) object.
+  Returns a [tax](./tax-object) object.
   </TabItem>
 
   <TabItem value="400" label="HTTP 400">
@@ -236,7 +236,7 @@ try {
   }
   ```
 
-  The `tax rate` json root is not present in the request body.
+  The `tax` json root is not present in the request body.
   </TabItem>
 
   <TabItem value="401" label="HTTP 401">
@@ -276,8 +276,8 @@ try {
   | field | error | description |
   |--|--|--|
   | `name` | `value_is_mandatory` | `name` is missing |
-  | `value` | `value_is_mandatory` | `value` is missing |
-  | `code` | `value_already_exists` | `code` value is already used for another tax rate |
+  | `rate` | `value_is_mandatory` | `rate` is missing |
+  | `code` | `value_already_exists` | `code` value is already used for another tax |
 
 
   </TabItem>

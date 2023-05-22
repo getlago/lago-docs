@@ -160,12 +160,12 @@
     "https://doc.getlago.com/docs/api/organizations/organization-object",
     "https://doc.getlago.com/docs/api/organizations/update-organization",
 
-    "https://doc.getlago.com/docs/api/tax_rates/tax-rate-object",
-    "https://doc.getlago.com/docs/api/tax_rates/create-tax-rate",
-    "https://doc.getlago.com/docs/api/tax_rates/update-tax-rate",
-    "https://doc.getlago.com/docs/api/tax_rates/destroy-tax-rate",
-    "https://doc.getlago.com/docs/api/tax_rates/get-tax-rate",
-    "https://doc.getlago.com/docs/api/tax_rates/get-all-tax-rates",
+    "https://doc.getlago.com/docs/api/taxes/tax-object",
+    "https://doc.getlago.com/docs/api/taxes/create-tax",
+    "https://doc.getlago.com/docs/api/taxes/update-tax",
+    "https://doc.getlago.com/docs/api/taxes/destroy-tax",
+    "https://doc.getlago.com/docs/api/taxes/get-tax",
+    "https://doc.getlago.com/docs/api/taxes/get-all-taxes",
 
     "https://doc.getlago.com/docs/api/wallets/wallet-object",
     "https://doc.getlago.com/docs/api/wallets/create-wallet",
@@ -183,7 +183,7 @@
     "https://doc.getlago.com/docs/api/resources/currencies",
     "https://doc.getlago.com/docs/api/resources/locales",
     "https://doc.getlago.com/docs/api/resources/timezones",
-    
+
     "https://doc.getlago.com/changelog",
 
     "https://doc.getlago.com/docs/integrations/intro",
