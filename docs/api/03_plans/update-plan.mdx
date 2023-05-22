@@ -41,7 +41,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "id": "__CHARGE_ID__",
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "standard",
-          "instant": false,
+          "pay_in_advance": false,
           "min_amount_cents": 0,
           "group_properties": [
             {
@@ -56,7 +56,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "id": "__CHARGE_ID__",
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "graduated",
-          "instant": false,
+          "pay_in_advance": false,
           "min_amount_cents": 0,
           "properties": {
             "graduated_ranges": [
@@ -79,7 +79,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "id": "__CHARGE_ID__",
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "package",
-          "instant": false,
+          "pay_in_advance": false,
           "min_amount_cents": 0,
           "properties": {
             "amount": "100",
@@ -91,7 +91,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "id": "__CHARGE_ID__",
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "percentage",
-          "instant": false,
+          "pay_in_advance": false,
           "min_amount_cents": 0,
           "properties": {
             "rate": "0.5",
@@ -104,7 +104,7 @@ curl --location --request PUT "$LAGO_URL/api/v1/plans/__plan_code__" \
           "id": "__CHARGE_ID__",
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "volume",
-          "instant": false,
+          "pay_in_advance": false,
           "min_amount_cents": 0,
           "properties": {
             "volume_ranges": [
@@ -568,7 +568,7 @@ Charges cannot be updated if the plan is linked to a subscription.
 | id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Charge unique id in Lago application |
 | billable_metric_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Billable metric id in lago application |
 | charge_model | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Charge model used in event calculations.<br></br>It can be `standard`, `graduated`, `package`, `percentage` or `volume` |
-| instant | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if charge is instant or not. |
+| pay_in_advance | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if charge is pay_in_advance or not. |
 | min_amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Spending minimum of the charge in cents (excluding tax). |
 | properties | JSON &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Extra data to use for the event calculations.<br></br> |
 | group_properties | Array &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Extra data scoped by groups to use for the event calculations.<br></br> |
@@ -720,7 +720,7 @@ Charges cannot be updated if the plan is linked to a subscription.
   | Field | Code | Description |
   |--|--|--|
   | `properties` | `invalid_amount` | `amount` value is invalid |
-  | `min_amount_cents` | `not_compatible_with_instant` | `min_amount_cents` value is not permitted on instant charges |
+  | `min_amount_cents` | `not_compatible_with_pay_in_advance` | `min_amount_cents` value is not permitted on pay_in_advance charges |
 
     - Graduated charge model:
 

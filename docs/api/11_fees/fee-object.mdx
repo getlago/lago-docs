@@ -22,6 +22,7 @@ This object represents a line item of an invoice, handling amount, billed units 
     "lago_item_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
     "item_type": "Subscription"
   },
+  "pay_in_advance": true,
   "amount_cents": 100,
   "unit_amount_cents": 50,
   "amount_currency": "EUR",
@@ -64,15 +65,16 @@ This object represents a line item of an invoice, handling amount, billed units 
 | **from_date** &nbsp &nbsp <Type>String (ISO 8601 date)</Type>                                             | Beginning date of the period that the fee covers. <br/><br/> <details>Only applies to `subscription` and `charge` fees</details>                                                                                                                                                     |
 | **to_date** &nbsp &nbsp <Type>String (ISO 8601 date)</Type>                                               | Ending date of the period that the fee covers. <br/><br/> <details>Only applies to `subscription` and `charge` fees</details>                                                                                                                                                        |
 | **payment_status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>        | Status of the payment. <br></br> <details><summary>**Possible values**</summary><div>- `pending`<br></br>- `succeeded`<br></br>- `failed`<br></br>- `refunded`<div></div></div></details> |
+| **pay_in_advance** &nbsp &nbsp <Type>Boolean</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>       | Flag to indicate if the fee was paid in advance |
 | **created_at**&nbsp &nbsp <Type>String (ISO 8601 datetime)</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable>| Date and time of creation of the credit note in UTC |
 | **succeeded_at**&nbsp &nbsp <Type>String (ISO 8601 datetime)</Type>                                       | Date and time in UTC of the payment success. |
 | **failed_at** <Type>String (ISO 8601 datetime)</Type>                                                     | Date and time in UTC of the payment failure. |
 | **refunded_at** <Type>String (ISO 8601 datetime)</Type>                                                   | Date and time in UTC of the payment refund.  |
-| **external_subscription_id** <Type>String</Type> | Unique identifer of the subscription in your application.<br/>Present only if fee has `instant_charge` fee_type. |
-| **lago_subscription_id** <Type>String</Type> | Unique identifer of the subscription in Lago application.<br/>Present only if fee has `instant_charge` fee_type. |
-| **external_customer_id** <Type>String</Type> | Unique identifer of the customer in your application.<br/>Present only if fee has `instant_charge` fee_type. |
-| **lago_customer_id** <Type>String</Type> | Unique identifer of the customer in Lago application.<br/>Present only if fee has `instant_charge` fee_type. |
-| **event_transaction_id** <Type>String</Type> | Event's transaction_id that triggered the fee.<br/>Present only if fee has `instant_charge` fee_type. |
+| **external_subscription_id** <Type>String</Type> | Unique identifer of the subscription in your application.<br/>Present only if fee has `charge` fee_type and `pay_in_advance` is true. |
+| **lago_subscription_id** <Type>String</Type> | Unique identifer of the subscription in Lago application.<br/>Present only if fee has `charge` fee_type and `pay_in_advance` is true. |
+| **external_customer_id** <Type>String</Type> | Unique identifer of the customer in your application.<br/>Present only if fee has `charge` fee_type and `pay_in_advance` is true. |
+| **lago_customer_id** <Type>String</Type> | Unique identifer of the customer in Lago application.<br/>Present only if fee has `charge` fee_type and `pay_in_advance` is true. |
+| **event_transaction_id** <Type>String</Type> | Event's transaction_id that triggered the fee.<br/>Present only if fee has `charge` fee_type and `pay_in_advance` is true. |
 | **item** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>                    | [Item](#item-object) attached to the fee |
 
 ## Item object
