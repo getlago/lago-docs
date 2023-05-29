@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
-# Adyen integration
+# Adyen
 Lago's seamless integration with Adyen offers a wide range of payment options, enabling you to conveniently collect payments from your customers. Supported payment methods include:
 
 - Card payments (Visa, MasterCard, CB)
