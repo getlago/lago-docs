@@ -23,6 +23,7 @@ This object represents a line item of an invoice, handling amount, billed units 
     "item_type": "Subscription"
   },
   "pay_in_advance": true,
+  "invoiceable": true,
   "amount_cents": 100,
   "unit_amount_cents": 50,
   "amount_currency": "EUR",
@@ -66,6 +67,7 @@ This object represents a line item of an invoice, handling amount, billed units 
 | **to_date** &nbsp &nbsp <Type>String (ISO 8601 date)</Type>                                               | Ending date of the period that the fee covers. <br/><br/> <details>Only applies to `subscription` and `charge` fees</details>                                                                                                                                                        |
 | **payment_status** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>        | Status of the payment. <br></br> <details><summary>**Possible values**</summary><div>- `pending`<br></br>- `succeeded`<br></br>- `failed`<br></br>- `refunded`<div></div></div></details> |
 | **pay_in_advance** &nbsp &nbsp <Type>Boolean</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>       | Flag to indicate if the fee was paid in advance |
+| **invoiceable** &nbsp &nbsp <Type>Boolean</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>          | Flag to indicate if the fee was included on invoice |
 | **created_at**&nbsp &nbsp <Type>String (ISO 8601 datetime)</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable>| Date and time of creation of the credit note in UTC |
 | **succeeded_at**&nbsp &nbsp <Type>String (ISO 8601 datetime)</Type>                                       | Date and time in UTC of the payment success. |
 | **failed_at** <Type>String (ISO 8601 datetime)</Type>                                                     | Date and time in UTC of the payment failure. |

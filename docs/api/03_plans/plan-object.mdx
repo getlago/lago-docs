@@ -32,6 +32,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "standard",
         "pay_in_advance": false,
+        "invoiceable": true,
         "min_amount_cents": 0,
         "group_properties": [
           {
@@ -49,6 +50,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "graduated",
         "pay_in_advance": false,
+        "invoiceable": true,
         "min_amount_cents": 0,
         "properties": {
           "graduated_ranges": [
@@ -74,6 +76,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "package",
         "pay_in_advance": false,
+        "invoiceable": true,
         "min_amount_cents": 0,
         "properties": {
           "amount": "100",
@@ -88,6 +91,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "percentage",
         "pay_in_advance": false,
+        "invoiceable": true,
         "min_amount_cents": 0,
         "properties": {
           "rate": "0.5",
@@ -103,6 +107,7 @@ This object represents a plan.<br></br>
         "created_at": "2022-08-24T14:58:59Z",
         "charge_model": "volume",
         "pay_in_advance": false,
+        "invoiceable": true,
         "min_amount_cents": 0,
         "properties": {
           "volume_ranges": [
@@ -151,7 +156,8 @@ This object represents a plan.<br></br>
 | **billable_metric_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not Null</NotNullable> | Code identifying the billable metric. |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of charge creation. |
 | **charge_model** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Charge model used in event calculations. <br></br> <details><summary>**Possible values**</summary><div>- `standard`<br></br>- `graduated`<br></br>- `package`<br></br>- `percentage`<br></br>- `volume`<div></div></div></details> |
-| **pay_in_advance** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | It should be set to `true` if charge is pay_in_advance. |
+| **pay_in_advance** &nbsp &nbsp <Type>Boolean</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | It should be set to `true` if charge is pay_in_advance. |
+| **invoiceable** &nbsp &nbsp <Type>Boolean</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | It should be set to `true` if charge is invoiceable. |
 | **min_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable><br></br> | Spending minimum of the charge in cents (excluding tax). |
 | **properties** &nbsp &nbsp <Type>JSON</Type> | Extra data. This field will depend on selected charge_model |
 | **group_properties** &nbsp &nbsp <Type>Array</Type> | Extra data scoped by groups. This field will depend on selected charge_model |
