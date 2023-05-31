@@ -40,7 +40,7 @@ The Merchant Account is required to ensure that Lago targets the correct Adyen a
 - Copy the **Account code** of the targeted account you want to use with Lago.
 
 ### 3. Live Prefix (optional)
-The Live Prefix represents the suffix of your live Adyen account. This field is optional. If left empty, you can connect a test account. However, for live accounts, you must provide a Live Prefix. Follow these steps to obtain the Live Prefix:
+The Live Prefix represents the prefix url of your live Adyen account. This field is optional. If left empty, you can connect a test account. However, for live accounts, you must provide a Live Prefix. Follow these steps to obtain the Live Prefix:
 
 - Go to **Developers** > **API URLs** > **Prefix** in your Adyen account.
 
@@ -54,6 +54,8 @@ Adyen's HMAC signatures are used to protect webhook endpoints and messages creat
 The Live Prefix and HMAC Signature fields are optional and may not be required depending on your use case.
 :::
 
+## Setting up Adyen's Payments Auto Capture
+To enable automatic payment capture in your Adyen account, ensure that you have configured the account settings accordingly. Automatic payment capture allows for immediate processing without manual intervention. Refer to Adyen's documentation for instructions on [setting up auto capture](https://docs.adyen.com/online-payments/capture#automatic-capture).
 
 ## Setting up Adyen Webhook for Listening to Important Events
 **This step is crucial and mandatory** for Lago to receive and process messages from Adyen, enabling functionalities such as customer creation/update, payment processing, and refunds. To configure Adyen webhook and establish communication with Lago, follow the steps below:
