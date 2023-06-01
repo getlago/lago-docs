@@ -10,7 +10,7 @@ However, **Lago is not a payment service provider (PSP)**.
 ## Payment collection process
 To collect payments from your customers, you can:
 - Use our native integrations with [GoCardless](gocardless-integration), [Stripe Payments](stripe-integration) or [Adyen](adyen-integration); or
-- Use the [webhooks](../../api/webhooks/messages) sent by Lago to transmit billing information to your PSP (e.g. Paddle, Adyen, internal ledger, etc.).
+- Use the [webhooks](../../api/webhooks/messages) sent by Lago to transmit billing information to your PSP (e.g. Paddle, Razorpay, Authorize.net, internal ledger, etc.).
 
 Lago is **agnostic**, which means that you can use our billing solution with any PSP.
 
