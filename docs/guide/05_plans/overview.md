@@ -18,8 +18,11 @@ Defining billiable metrics is not mandatory to create plans. It is possible to c
     - Currency;
     - Boolean to define whether the plan should be paid in advance;
     - Trial period in days;
-3. [Additional charges](./charges) (associated with billable metrics):
-    - Charge model (e.g. standard, graduated, percentage, package, volume); and
-    - Charge amount.
+3. [Additional charges](./charges/overview) (associated with billable metrics):
+    - Charge model (e.g. standard, graduated, percentage, package, volume);
+    - Charge amount;
+    - Charge paid in arrears or in advance;
+    - Charge invoiceable or not; and
+    - Charge spending minimum.
 
 You can create plans via the user interface or [the API](../../api/plans/create-plan).
