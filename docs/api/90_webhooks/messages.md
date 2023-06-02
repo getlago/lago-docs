@@ -570,13 +570,13 @@ Sent when the payment status of an invoice is updated based on information provi
 
 <details className="custom-toggle">
 <summary><b>Instant fee created</b></summary>
-Sent when a fee for an instant charge is created.
+Sent when a fee for an pay_in_advance charge is created.
 
-You can use this information to collect the payment of the instant fee.
+You can use this information to collect the payment of the pay_in_advance fee.
 
 ```json
 {
-  "webhook_type": "fee.instant_created",
+  "webhook_type": "fee.created",
   "object_type": "fee",
   "fee": {
     "lago_id": "6be23c42-47d2-45a3-9770-5b3572f225c3",
@@ -641,7 +641,6 @@ Sent when a subscription is terminated.
 | **subscription** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Subscription object](../subscriptions/subscription-object) |
 </details>
 
-## External payment providers 
 <details className="custom-toggle">
 <summary><b>Payment provider created</b></summary>
 This webhook is sent when a customer is successfully created in the payment provider's application.

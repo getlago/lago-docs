@@ -40,7 +40,8 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
         {
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "standard",
-          "instant": false,
+          "pay_in_advance": false,
+          "invoiceable": true,
           "min_amount_cents": 0,
           "group_properties": [
             {
@@ -54,7 +55,8 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
         {
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "graduated",
-          "instant": false,
+          "pay_in_advance": false,
+          "invoiceable": true,
           "min_amount_cents": 0,
           "properties": {
             "graduated_ranges": [
@@ -76,7 +78,8 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
         {
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "package",
-          "instant": false,
+          "pay_in_advance": false,
+          "invoiceable": true,
           "min_amount_cents": 0,
           "properties": {
             "amount": "100",
@@ -87,7 +90,8 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
         {
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "percentage",
-          "instant": false,
+          "pay_in_advance": false,
+          "invoiceable": true,
           "min_amount_cents": 0,
           "properties": {
             "rate": "0.5",
@@ -99,7 +103,8 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
         {
           "billable_metric_id": "__BILLABLE_METRIC_ID__",
           "charge_model": "volume",
-          "instant": false,
+          "pay_in_advance": false,
+          "invoiceable": true,
           "min_amount_cents": 0,
           "properties": {
             "volume_ranges": [
@@ -136,7 +141,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
   standard_charge = Charge(
     billable_metric_id='id',
     charge_model='standard',
-    instant=false,
+    pay_in_advance=false,
     min_amount_cents=0,
     group_properties=[
       {
@@ -151,7 +156,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
   graduated_charge = Charge(
     billable_metric_id='id,
     charge_model='graduated',
-    instant=false,
+    pay_in_advance=false,
     min_amount_cents=0,
     properties=[
       {
@@ -172,7 +177,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
   package_charge = Charge(
     billable_metric_id='id,
     charge_model='package',
-    instant=false,
+    pay_in_advance=false,
     min_amount_cents=0,
     properties={
       'amount': '100',
@@ -184,7 +189,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
   percentage_charge = Charge(
     billable_metric_id='id,
     charge_model='percentage',
-    instant=false,
+    pay_in_advance=false,
     min_amount_cents=0,
     properties={
       'rate': '0.5',
@@ -197,7 +202,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
   volume_charge = Charge(
     billable_metric_id='id,
     charge_model='volume',
-    instant=false,
+    pay_in_advance=false,
     min_amount_cents=0,
     properties={
       'volume_ranges': [
@@ -262,7 +267,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
       {
         billable_metric_id: 'id',
         charge_model: 'standard',
-        instant: false,
+        pay_in_advance: false,
         min_amount_cents: 0,
         group_properties: [
           {
@@ -276,7 +281,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
       {
         billable_metric_id: 'id',
         charge_model: 'graduated',
-        instant: false,
+        pay_in_advance: false,
         min_amount_cents: 0,
         properties: [
           {
@@ -296,7 +301,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
       {
         billable_metric_id: 'id',
         charge_model: 'package',
-        instant: false,
+        pay_in_advance: false,
         min_amount_cents: 0,
         properties: {
           amount: '100',
@@ -307,7 +312,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
       {
         billable_metric_id: 'id',
         charge_model: 'percentage',
-        instant: false,
+        pay_in_advance: false,
         min_amount_cents: 0,
         properties: {
           rate: '0.5',
@@ -319,7 +324,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
       {
         billable_metric_id: 'id',
         charge_model: 'volume',
-        instant: false,
+        pay_in_advance: false,
         min_amount_cents: 0,
         properties: {
           volume_ranges: [
@@ -356,7 +361,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
     createdAt: null,
     lagoBillableMetricId: "id",
     chargeModel: "standard" as ChargeObject["chargeModel"],
-    instant: false,
+    payInAdvance: false,
     minAmountCents: 0,
     groupProperties: [
       {
@@ -374,7 +379,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
     createdAt: null,
     lagoBillableMetricId: "id",
     chargeModel: "graduated" as ChargeObject["chargeModel"],
-    instant: false,
+    payInAdvance: false,
     minAmountCents: 0,
     properties: [
       {
@@ -398,7 +403,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
     createdAt: null,
     lagoBillableMetricId: "id",
     chargeModel: "package" as ChargeObject["chargeModel"],
-    instant: false,
+    payInAdvance: false,
     minAmountCents: 0,
     properties: {
       amount: "100",
@@ -413,7 +418,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
     createdAt: null,
     lagoBillableMetricId: "id",
     chargeModel: "percentage" as ChargeObject["chargeModel"],
-    instant: false,
+    payInAdvance: false,
     minAmountCents: 0,
     properties: {
       rate: "0.5",
@@ -429,7 +434,7 @@ curl --location --request POST "$LAGO_URL/api/v1/plans" \
     createdAt: null,
     lagoBillableMetricId: "id",
     chargeModel: "volume" as ChargeObject["chargeModel"],
-    instant: false,
+    payInAdvance: false,
     minAmountCents: 0,
     properties: {
       volumeRanges: [
@@ -598,7 +603,8 @@ try {
       {
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
         "charge_model": "standard",
-        "instant": false,
+        "pay_in_advance": false,
+        "invoiceable": true,
         "min_amount_cents": 0,
         "group_properties": [
           {
@@ -612,7 +618,8 @@ try {
       {
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
         "charge_model": "graduated",
-        "instant": false,
+        "pay_in_advance": false,
+        "invoiceable": true,
         "min_amount_cents": 0,
         "properties": {
           "graduated_ranges": [
@@ -634,7 +641,8 @@ try {
       {
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
         "charge_model": "package",
-        "instant": false,
+        "pay_in_advance": false,
+        "invoiceable": true,
         "min_amount_cents": 0,
         "properties": {
           "amount": "100",
@@ -645,7 +653,8 @@ try {
       {
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
         "charge_model": "percentage",
-        "instant": false,
+        "pay_in_advance": false,
+        "invoiceable": true,
         "min_amount_cents": 0,
         "properties": {
           "rate": "0.5",
@@ -657,7 +666,8 @@ try {
       {
         "billable_metric_id": "__BILLABLE_METRIC_ID__",
         "charge_model": "volume",
-        "instant": false,
+        "pay_in_advance": false,
+        "invoiceable": true,
         "min_amount_cents": 0,
         "properties": {
           "volume_ranges": [
@@ -698,7 +708,8 @@ try {
 |--|--|--|
 | billable_metric_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Billable metric id in lago application |
 | charge_model | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Charge model used in event calculations.<br></br>It can be `standard`, `graduated`, `package`, `percentage` or `volume` |
-| instant | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if charge is instant or not. |
+| pay_in_advance | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if charge is pay_in_advance or not. |
+| invoiceable | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if charge is invoiceable or not. Invoiceable `false` is allowed only with pay_in_advance `true` |
 | min_amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Spending minimum of the charge in cents (excluding tax). |
 | properties | JSON &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Extra data to use for the event calculations.<br></br> |
 | group_properties | Array &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Extra data scoped by groups to use for the event calculations.<br></br> |
@@ -846,7 +857,7 @@ try {
   | Field | Code | Description |
   |--|--|--|
   | `properties` | `invalid_amount` | `amount` value is invalid |
-  | `min_amount_cents` | `not_compatible_with_instant` | `min_amount_cents` value is not permitted on instant charges |
+  | `min_amount_cents` | `not_compatible_with_pay_in_advance` | `min_amount_cents` value is not permitted on pay_in_advance charges |
 
     - Graduated charge model:
 
