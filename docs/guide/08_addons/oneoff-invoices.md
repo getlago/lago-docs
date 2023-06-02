@@ -2,6 +2,7 @@
 sidebar_position: 2
 ---
 
+
 # Create one-off invoices from add-ons
 
 One-off invoices allow you to bill immediately one or several add-ons to a customer. This guide will show you how to create a one-off invoice for a specific customer using the add-ons.
@@ -13,8 +14,7 @@ To create a one-off invoice for a specific customer:
 1. Select the customer from the list of customers; and
 2. Click the **"Actions"** button located in the upper-right corner and select **"Create one-off invoice"**.
 
-## Adding Add-Ons items to this Invoice
-
+## Adding add-ons to one-off invoices
 Now that you have started the flow to create a one-off invoice, it's time to add one or several add-ons to it:
 
 1. Click **"Add an add-on"** to add a new add-on to the invoice;

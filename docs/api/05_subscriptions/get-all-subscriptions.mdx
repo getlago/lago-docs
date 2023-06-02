@@ -5,12 +5,12 @@ sidebar_position: 5
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Get all subscriptions for a customer
+# Get all subscriptions
 
 ## Route
 
 ```curl title="GET"
-/api/v1/subscriptions?external_customer_id=id
+/api/v1/subscriptions?external_customer_id=id&plan_code=code
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
   LAGO_URL="https://api.getlago.com"
   API_KEY="__YOUR_API_KEY__"
 
-  curl --location --request GET "$LAGO_URL/api/v1/subscriptions?external_customer_id=123" \
+  curl --location --request GET "$LAGO_URL/api/v1/subscriptions?external_customer_id=123&plan_code=starter" \
     --header "Authorization: Bearer $API_KEY"
   ```
   </TabItem>
@@ -84,8 +84,8 @@ namespace Example
 
             var apiInstance = new SubscriptionsApi(Configuration.Default);
             var externalCustomerId = "12345";  // string | External customer ID
-            var page = 2;  // int? | Number of page (optional) 
-            var perPage = 20;  // int? | Number of records per page (optional) 
+            var page = 2;  // int? | Number of page (optional)
+            var perPage = 20;  // int? | Number of records per page (optional)
 
             try
             {
@@ -139,7 +139,8 @@ try {
 
 | Attributes | Type | Description |
 |--|--|--|
-| external_customer_id | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Unique identifer of the customer in your application. |
+| external_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique identifer of the customer in your application |
+| plan_code | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Code of one of your plans |
 
 ## Responses
 

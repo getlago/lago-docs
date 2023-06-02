@@ -15,7 +15,6 @@ This object represents a line item of an invoice, handling amount, billed units 
   "lago_invoice_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
   "lago_true_up_fee_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
   "lago_true_up_parent_fee_id": null,
-  "external_subscription_id": "external_id",
   "item": {
     "type": "subscription",
     "code": "plan_code",
@@ -24,6 +23,7 @@ This object represents a line item of an invoice, handling amount, billed units 
     "item_type": "Subscription"
   },
   "amount_cents": 100,
+  "unit_amount_cents": 50,
   "amount_currency": "EUR",
   "vat_amount_cents": 20,
   "vat_amount_currency": "EUR",
@@ -34,10 +34,16 @@ This object represents a line item of an invoice, handling amount, billed units 
   "from_date": "2022-04-29T08:59:51Z",
   "to_date": "2022-05-29T08:59:51Z",
   "payment_status": "pending",
+  "description": "description",
   "created_at": "2022-08-24T14:58:59Z",
   "succeeded_at": "2022-08-24T14:58:59Z",
   "failed_at": "2022-08-24T14:58:59Z",
-  "refunded_at": "2022-08-24T14:58:59Z"
+  "refunded_at": "2022-08-24T14:58:59Z",
+  "external_subscription_id": "external_id",
+  "lago_subscription_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "external_customer_id": "external_id",
+  "lago_customer_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "event_transaction_id": "1a901a90-1a90-1a90-1a90-1a901a901a90"
 }
 ```
 
@@ -62,6 +68,11 @@ This object represents a line item of an invoice, handling amount, billed units 
 | **succeeded_at**&nbsp &nbsp <Type>String (ISO 8601 datetime)</Type>                                       | Date and time in UTC of the payment success. |
 | **failed_at** <Type>String (ISO 8601 datetime)</Type>                                                     | Date and time in UTC of the payment failure. |
 | **refunded_at** <Type>String (ISO 8601 datetime)</Type>                                                   | Date and time in UTC of the payment refund.  |
+| **external_subscription_id** <Type>String</Type> | Unique identifer of the subscription in your application.<br/>Present only if fee has `instant_charge` fee_type. |
+| **lago_subscription_id** <Type>String</Type> | Unique identifer of the subscription in Lago application.<br/>Present only if fee has `instant_charge` fee_type. |
+| **external_customer_id** <Type>String</Type> | Unique identifer of the customer in your application.<br/>Present only if fee has `instant_charge` fee_type. |
+| **lago_customer_id** <Type>String</Type> | Unique identifer of the customer in Lago application.<br/>Present only if fee has `instant_charge` fee_type. |
+| **event_transaction_id** <Type>String</Type> | Event's transaction_id that triggered the fee.<br/>Present only if fee has `instant_charge` fee_type. |
 | **item** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>                    | [Item](#item-object) attached to the fee |
 
 ## Item object

@@ -62,7 +62,7 @@ It is also possible to define two levels for grouping events. Following our prev
 >
 >Therefore, you can define `"key": "region"` to add a second dimension (see snippet below).
 >
->When creating a plan, you will then be able to add a [charge](../plans/charges) for each region available for each provider.
+>When creating a plan, you will then be able to add a [charge](../plans/charges/overview) for each region available for each provider.
 
 ```json title="JSON snippet for two dimensions"
 {
