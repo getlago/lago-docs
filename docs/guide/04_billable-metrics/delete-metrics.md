@@ -3,7 +3,7 @@ sidebar_position: 5
 ---
 
 # Delete billable metrics
-You may delete a billable metric linked to [charges](../plans/charges) associated with existing [subscriptions](../plans/subscription).
+You may delete a billable metric linked to [charges](../plans/charges/overview) associated with existing [subscriptions](../plans/subscription).
 
 If you do so:
 - The events associated with this billable metric, which are assigned to the current billing period or linked to `draft` invoices, will be immediately deleted;

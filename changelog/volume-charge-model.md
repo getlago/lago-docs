@@ -7,4 +7,4 @@ The new volume charge model allows you to create a tiered pricing structure and 
 
 It is similar to the graduated charge model, except that only one price tier applies at the end of the billing period.
 
-Please refer to [the guide](../docs/guide/plans/charges#volume-charge-model) and [API documentation](../docs/api/plans/create-plan) for more information.
+Please refer to [the guide](../docs/guide/plans/charges/price-models/volume) and [API documentation](../docs/api/plans/create-plan) for more information.
