@@ -3,6 +3,9 @@ sidebar_position: 5
 ---
 
 # Invoiceable
+:::note Premium feature ✨
+Only users with a premium license can define whether or not a charge is invoiceable. Please **[contact us](mailto:hello@getlago.com)** to get access to Lago Cloud and Lago Self-Hosted Premium.
+:::
 
 If a charge is paid in advance, indicating that Lago creates a fee upon direct changes in usage, **you have the option to choose whether to invoice it or not.**
 
