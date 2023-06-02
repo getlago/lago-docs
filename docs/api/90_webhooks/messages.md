@@ -954,32 +954,3 @@ This webhook is sent when there is an error related to a credit note refund of a
 </details>
 
 
-
-export const Type = ({children, color}) => (
-  <span
-    style={{
-      color: "#006CFA",
-      fontSize: "13px"
-    }}>
-    {children}
-  </span>
-);
-
-export const NotNullable = ({children, color}) => (
-  <span
-    style={{
-      color: "#DC3309",
-      fontSize: "13px"
-    }}>
-    {children}
-  </span>
-);
-
-export const Comment = ({children, color}) => (
-  <span
-    style={{
-      fontSize: "12px"
-    }}>
-    {children}
-  </span>
-);
