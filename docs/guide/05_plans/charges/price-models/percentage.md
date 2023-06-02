@@ -8,6 +8,7 @@ Select the percentage charge model if you want to apply a **percentage and a fix
 
 This charge model is generally used with billable metrics that allow users to calculate the total amount of transactions (e.g. `sum` aggregation type and `amount` defined as the event property - [learn more](../../../04_billable-metrics/aggregation-types#2-sum)).
 
+
 You can define several parameters for the percentage charge model, including:
 - **Percentage rate**: charge rate that applies to the total amount (e.g. 1.2% on transactions);
 - **Fixed fee (optional)**: fee that applies to each event ingested during the billing period (e.g. $0.10 per transaction);

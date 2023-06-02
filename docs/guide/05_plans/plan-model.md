@@ -6,7 +6,7 @@ sidebar_position: 2
 The plan model defines **when** and **how much** a customer is charged.
 
 ## Plan interval
-The plan interval corresponds to the billing period and defines when invoices are generated. In most cases, the [charges](charges) are also calculated according to the plan interval.
+The plan interval corresponds to the billing period and defines when invoices are generated. In most cases, the [charges](../plans/charges/overview) are also calculated according to the plan interval.
 
 There are several plan intervals:
 1. **Weekly**: subscription fees and charges are billed on a weekly basis (Monday to Sunday);
