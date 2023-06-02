@@ -32,6 +32,3 @@ Alternatively, you can easily manage the billing settings through the user inter
 
 ![Charges paid in arrears](../../../../static/img/in-advance-charges.png)
 
-:::tip
-You can use the `api/v1/events/estimate_fees` endpoint to estimate fees for charges to be paid in advance ([learn more](../../../api/events/estimate-instant)).
-:::

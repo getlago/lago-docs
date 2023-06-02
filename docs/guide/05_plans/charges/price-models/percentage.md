@@ -6,8 +6,7 @@ sidebar_position: 4
 
 Select the percentage charge model if you want to apply a **percentage and a fixed fee on transactions** (e.g. bank transfers, ATM withdrawals, etc.).
 
-This charge model is generally used with billable metrics that allow users to calculate the total amount of transactions (e.g. `sum` aggregation type and `amount` defined as the event property - [learn more](../../../04_billable-metrics/aggregation-types#2-sum)).
-
+This charge model is generally used with billable metrics that allow users to calculate the total amount of transactions (e.g. `sum` aggregation type and `amount` defined as the event property - [learn more](../../../billable-metrics/aggregation-types#2-sum)).
 
 You can define several parameters for the percentage charge model, including:
 - **Percentage rate**: charge rate that applies to the total amount (e.g. 1.2% on transactions);
