@@ -30,5 +30,3 @@ To specify that charges of a plan should be billed in advance using the API, you
 
 Alternatively, you can easily manage the billing settings through the user interface. Within the UI, you will find options to customize the invoice cadence by setting a charge as billed in advance, and thus invoiced immediately upon changes.
 
-![Charges paid in arrears](../../../../static/img/in-advance-charges.png)
-
