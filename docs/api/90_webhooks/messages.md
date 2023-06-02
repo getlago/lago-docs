@@ -583,6 +583,7 @@ This allows you to retrieve the identifier assigned to the customer by the payme
 </details>
 
 
+
 <details className="custom-toggle">
 <summary><b>Checkout URL generated</b></summary>
 Sent when a new customer is created through integration with GoCardless.
