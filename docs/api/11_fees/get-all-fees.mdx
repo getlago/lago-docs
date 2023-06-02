@@ -110,11 +110,11 @@ import TabItem from '@theme/TabItem';
 |--|--|--|
 | per_page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Number of records per page. |
 | page | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Page number |
-| fee_type | String <Optional>**Optional**</Optional> | Filter results by the fee item type.<br></br> <details><summary>**Possible values**</summary><div>- `add_on`<br></br>- `charge`<br></br>- `credit`<br></br>- `instant_charge`<br></br>- `subscription`<div></div></div></details> |
+| fee_type | String <Optional>**Optional**</Optional> | Filter results by the fee item type.<br></br> <details><summary>**Possible values**</summary><div>- `add_on`<br></br>- `charge`<br></br>- `credit`<br></br>- `subscription`<div></div></div></details> |
 | payment_status | String <Optional>**Optional**</Optional> | Filter resilts by the payment status<br></br> <details><summary>**Possible values**</summary><div>- `pending`<br></br>- `succeeded`<br></br>- `failed`<br></br>- `refunded`<div></div></div></details> |
 | external_subscription_id | String <Optional>**Optional**</Optional> |  Filter results by SUBSCRIPTION unique identifier in your application |
 | external_customer_id | String <Optional>**Optional**</Optional> |  Filter results by CUSTOMER unique identifier in your application |
-| billable_metric_code | String <Optional>**Optional**</Optional> | Filter results by the code of the billable metric attached to the fee.<br/>Only applies to `charge` and `instant_charge` types |
+| billable_metric_code | String <Optional>**Optional**</Optional> | Filter results by the code of the billable metric attached to the fee.<br/>Only applies to `charge` types |
 | currency | String <Optional>**Optional**</Optional> | Filter results by the amount currency. See [list](../resources/currencies) for accepted values. |
 | created_at_from | String <Optional>**Optional**</Optional> | Filter results created after creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
 | created_at_to | String <Optional>**Optional**</Optional> | Filter results created before creation date and time in UTC.<br></br>Format example: `2022-02-15T00:00:00Z` |
