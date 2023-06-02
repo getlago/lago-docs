@@ -257,7 +257,6 @@ This will allow your application to proceed with the billing.
 | **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
 </details>
 
-
 <details className="custom-toggle">
 <summary><b>One-off invoice created</b></summary>
 Sent when a one-off invoice is created. Only add-ons can be applied to one-off invoices.
@@ -391,6 +390,156 @@ Sent when a one-off invoice is created. Only add-ons can be applied to one-off i
 </details>
 
 
+
+<details className="custom-toggle">
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **subscription** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Subscription object](../subscriptions/subscription-object) |
+</details>
+
+## External payment providers 
+<details className="custom-toggle">
+<summary><b>Payment provider created</b></summary>
+This webhook is sent when a customer is successfully created in the payment provider's application.
+
+This allows you to retrieve the identifier assigned to the customer by the payment service provider.
+
+```json
+{
+  "webhook_type": "customer.payment_provider_created",
+  "object_type": "customer",
+  "customer": {
+    "lago_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "external_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "address_line1": "5230 Penfield Ave",
+    "address_line2": null,
+    "city": "Woodland Hills",
+    "country": "US",
+    "created_at": "2022-04-29T08:59:51Z",
+    "email": "dinesh@piedpiper.test",
+    "legal_name": "Coleman-Blair",
+    "legal_number": "49-008-2965",
+    "logo_url": "http://hooli.com/logo.png",
+    "name": "Gavin Belson",
+    "phone": "1-171-883-3711 x245",
+    "state": "CA",
+    "url": "http://hooli.com",
+    "vat_rate": 12.5,
+    "zipcode": "91364",
+    "billing_configuration": {
+      "payment_provider": "stripe",
+      "provider_customer_id": "cus_12345"
+    }
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **customer** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Customer object](../customers/customer-object) |
+</details>
+
+
+<details className="custom-toggle">
+<summary><b>Checkout URL generated</b></summary>
+Sent when a new customer is created through integration with GoCardless.
+
+Includes the URL that should be used to set up the [direct debit mandate](../../guide/payments/gocardless-integration#direct-debit).
+
+```json
+{
+  "webhook_type": "customer.checkout_url_generated",
+  "object_type": "payment_provider_customer_checkout_url",
+  "payment_provider_customer_checkout_url": {
+    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "payment_provider": "gocardless",
+    "checkout_url": "__CUSTOM_CHECKOUT_URL__"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago |
+| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **payment_provider** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Default payment provider for this customer |
+| **checkout_url** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | URL that should be used to set up the direct debit mandate |
+</details>
+
+<details className="custom-toggle">
+<summary><b>Payment provider error</b></summary>
+This webhook is sent when there is an error related to the creation of a customer in the payment provider's application.
+
+You should review the customer's data.
+
+```json
+{
+  "webhook_type": "invoice.payment_failure",
+  "object_type": "payment_provider_customer_error",
+  "payment_provider_customer_error": {
+    "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "external_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "payment_provider": "stripe",
+    "provider_error": {
+      "message": "Invalid email address",
+      "error_code": "email_invalid"
+    }
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
+| **external_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **payment_provider** &nbsp &nbsp <Type>String</Type> | Payment provider used to process the payment |
+| **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
+| **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
+</details>
+
+<details className="custom-toggle">
+<summary><b>Payment failure</b></summary>
+Sent when there is an error related to the payment process.
+
+Usually occurs when no valid payment method is defined for the customer in the payment service provider's application.
+
+```json
+{
+  "webhook_type": "invoice.payment_failure",
+  "object_type": "payment_provider_invoice_payment_error",
+  "payment_provider_invoice_payment_error": {
+    "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
+    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "provider_customer_id": "cus_123456",
+    "payment_provider": "stripe",
+    "provider_error": {
+      "message": "Cannot charge a customer that has no active card",
+      "error_code": "missing"
+    }
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_invoice_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the invoice in Lago application |
+| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
+| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
+| **provider_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in payment provider application |
+| **payment_provider** &nbsp &nbsp <Type>String</Type> | Payment provider used to process the payment |
+| **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
+| **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
+</details>
+
+
+## Credits and refunds
+
 <details className="custom-toggle">
 <summary><b>Prepaid credits added</b></summary>
 Sent when prepaid credits have been added to the customer's wallet.
@@ -493,7 +642,6 @@ You can use this information to generate a PDF invoice or collect the payment.
 | **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
 </details>
 
-
 <details className="custom-toggle">
 <summary><b>PDF invoice generated</b></summary>
 Sent when the PDF file has been generated for a customer invoice.
@@ -527,7 +675,6 @@ This will allow your application to retrieve the PDF invoice.
 | -----------| ----------- |
 | **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
 </details>
-
 
 <details className="custom-toggle">
 <summary><b>Payment status updated</b></summary>
@@ -694,28 +841,8 @@ This allows you to retrieve the identifier assigned to the customer by the payme
 <summary><b>Checkout URL generated</b></summary>
 Sent when a new customer is created through integration with GoCardless.
 
-Includes the URL that should be used to set up the [direct debit mandate](../../guide/payments/gocardless-integration#direct-debit).
 
-```json
-{
-  "webhook_type": "customer.checkout_url_generated",
-  "object_type": "payment_provider_customer_checkout_url",
-  "payment_provider_customer_checkout_url": {
-    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
-    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "payment_provider": "gocardless",
-    "checkout_url": "__CUSTOM_CHECKOUT_URL__"
-  }
-}
-```
 
-| Attributes | Description |
-| -----------| ----------- |
-| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago |
-| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
-| **payment_provider** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Default payment provider for this customer |
-| **checkout_url** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | URL that should be used to set up the direct debit mandate |
-</details>
 
 
 <details className="custom-toggle">
@@ -750,40 +877,10 @@ You should review the customer's data.
 </details>
 
 
-<details className="custom-toggle">
-<summary><b>Payment failure</b></summary>
-Sent when there is an error related to the payment process.
 
-Usually occurs when no valid payment method is defined for the customer in the payment service provider's application.
 
-```json
-{
-  "webhook_type": "invoice.payment_failure",
-  "object_type": "payment_provider_invoice_payment_error",
-  "payment_provider_invoice_payment_error": {
-    "lago_invoice_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "lago_customer_id": "99a6094e-199b-4101-896a-54e927ce7bd7",
-    "external_customer_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-    "provider_customer_id": "cus_123456",
-    "payment_provider": "stripe",
-    "provider_error": {
-      "message": "Cannot charge a customer that has no active card",
-      "error_code": "missing"
-    }
-  }
-}
-```
 
-| Attributes | Description |
-| -----------| ----------- |
-| **lago_invoice_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the invoice in Lago application |
-| **lago_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in Lago application |
-| **external_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in your application |
-| **provider_customer_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the customer in payment provider application |
-| **payment_provider** &nbsp &nbsp <Type>String</Type> | Payment provider used to process the payment |
-| **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
-| **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error code sent by the payment provider |
-</details>
+
 
 
 ## Credits and refunds
@@ -957,7 +1054,6 @@ This webhook is sent when there is an error related to a credit note refund of a
 | **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
 | **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
 </details>
-
 
 
 export const Type = ({children, color}) => (
