@@ -13,22 +13,34 @@
     "https://doc.getlago.com/docs/guide/billable-metrics/aggregation-types",
     "https://doc.getlago.com/docs/guide/billable-metrics/aggregation-examples",
     "https://doc.getlago.com/docs/guide/billable-metrics/dimensions",
+    "https://doc.getlago.com/docs/guide/billable-metrics/delete-metrics",
 
     "https://doc.getlago.com/docs/guide/plans/overview",
     "https://doc.getlago.com/docs/guide/plans/plan-model",
-    "https://doc.getlago.com/docs/guide/plans/charges",
-    "https://doc.getlago.com/docs/guide/plans/instant-charges",
+    "https://doc.getlago.com/docs/category/usage-based-charges",
+    "https://doc.getlago.com/docs/guide/plans/charges/overview",
+    "https://doc.getlago.com/docs/category/price-models",
+    "https://doc.getlago.com/docs/guide/plans/charges/price-models/standard",
+    "https://doc.getlago.com/docs/guide/plans/charges/price-models/graduated",
+    "https://doc.getlago.com/docs/guide/plans/charges/price-models/package",
+    "https://doc.getlago.com/docs/guide/plans/charges/price-models/percentage",
+    "https://doc.getlago.com/docs/guide/plans/charges/price-models/volume",
+    "https://doc.getlago.com/docs/guide/plans/charges/charge-minimum",
+    "https://doc.getlago.com/docs/guide/plans/charges/cadence",
+    "https://doc.getlago.com/docs/guide/plans/charges/invoiceable",
     "https://doc.getlago.com/docs/guide/plans/subscription",
     "https://doc.getlago.com/docs/guide/plans/upgrades-downgrades",
 
     "https://doc.getlago.com/docs/guide/customers/management",
     "https://doc.getlago.com/docs/guide/customers/metadata",
     "https://doc.getlago.com/docs/guide/customers/invoice_customer",
+    "https://doc.getlago.com/docs/guide/customers/customer_portal",
 
 
     "https://doc.getlago.com/docs/guide/coupons",
 
     "https://doc.getlago.com/docs/guide/addons",
+    "https://doc.getlago.com/docs/guide/addons/oneoff-invoices",
 
     "https://doc.getlago.com/docs/guide/events/ingesting_events",
     "https://doc.getlago.com/docs/guide/events/debugger",
@@ -59,6 +71,9 @@
 
     "https://doc.getlago.com/docs/guide/openapi",
 
+
+
+
     "https://doc.getlago.com/docs/api/intro",
 
     "https://doc.getlago.com/docs/api/billable_metrics/billable-metric-object",
@@ -77,9 +92,12 @@
     "https://doc.getlago.com/docs/api/plans/get-all-plans",
 
     "https://doc.getlago.com/docs/api/customers/customer-object",
-    "https://doc.getlago.com/docs/api/customers/create-update-customer",
+    "https://doc.getlago.com/docs/api/customers/create-customer",
+    "https://doc.getlago.com/docs/api/customers/update-customer",
+    "https://doc.getlago.com/docs/api/customers/destroy-customer",
     "https://doc.getlago.com/docs/api/customers/get-customer",
     "https://doc.getlago.com/docs/api/customers/get-all-customers",
+    "https://doc.getlago.com/docs/api/customers/customer-portal-url",
 
     "https://doc.getlago.com/docs/api/subscriptions/subscription-object",
     "https://doc.getlago.com/docs/api/subscriptions/create-subscription",
@@ -92,6 +110,7 @@
     "https://doc.getlago.com/docs/api/events/persisted-event",
     "https://doc.getlago.com/docs/api/events/create-batch-event",
     "https://doc.getlago.com/docs/api/events/get-event",
+    "https://doc.getlago.com/docs/api/events/estimate-instant",
 
     "https://doc.getlago.com/docs/api/customer_usage/customer-usage-object",
     "https://doc.getlago.com/docs/api/customer_usage/customer-usage",
@@ -111,6 +130,7 @@
     "https://doc.getlago.com/docs/api/coupons/get-coupon",
     "https://doc.getlago.com/docs/api/coupons/get-all-coupons",
     "https://doc.getlago.com/docs/api/coupons/apply-coupon",
+    "https://doc.getlago.com/docs/api/coupons/destroy-applied-coupon",
     "https://doc.getlago.com/docs/api/coupons/get-all-applied-coupons",
 
     "https://doc.getlago.com/docs/api/invoices/invoice-object",
@@ -121,6 +141,12 @@
     "https://doc.getlago.com/docs/api/invoices/finalize-invoice",
     "https://doc.getlago.com/docs/api/invoices/retry-payment",
     "https://doc.getlago.com/docs/api/invoices/update-payment-status",
+    "https://doc.getlago.com/docs/api/invoices/create-invoice",
+
+    "https://doc.getlago.com/docs/api/fees/fee-object",
+    "https://doc.getlago.com/docs/api/fees/get_fee",
+    "https://doc.getlago.com/docs/api/fees/get-all-fees",
+    "https://doc.getlago.com/docs/api/fees/update-fee",
 
     "https://doc.getlago.com/docs/api/credit_notes/credit-note-object",
     "https://doc.getlago.com/docs/api/credit_notes/create-credit-note",
@@ -141,6 +167,7 @@
     "https://doc.getlago.com/docs/api/wallets/get-all-wallets",
     "https://doc.getlago.com/docs/api/wallets/top-up",
     "https://doc.getlago.com/docs/api/wallets/wallet-transaction-object",
+    "https://doc.getlago.com/docs/api/wallets/get-all-transactions",
 
     "https://doc.getlago.com/docs/api/webhooks/message-signature",
     "https://doc.getlago.com/docs/api/webhooks/messages",
