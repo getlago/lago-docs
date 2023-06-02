@@ -834,13 +834,6 @@ This allows you to retrieve the identifier assigned to the customer by the payme
 </details>
 
 
-<details className="custom-toggle">
-<summary><b>Checkout URL generated</b></summary>
-Sent when a new customer is created through integration with GoCardless.
-
-
-
-
 
 <details className="custom-toggle">
 <summary><b>Payment provider error</b></summary>
@@ -1051,33 +1044,3 @@ This webhook is sent when there is an error related to a credit note refund of a
 | **provider_error[message]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
 | **provider_error[error_code]** &nbsp &nbsp <Type>String</Type> | Error message sent by the payment provider |
 </details>
-
-
-export const Type = ({children, color}) => (
-  <span
-    style={{
-      color: "#006CFA",
-      fontSize: "13px"
-    }}>
-    {children}
-  </span>
-);
-
-export const NotNullable = ({children, color}) => (
-  <span
-    style={{
-      color: "#DC3309",
-      fontSize: "13px"
-    }}>
-    {children}
-  </span>
-);
-
-export const Comment = ({children, color}) => (
-  <span
-    style={{
-      fontSize: "12px"
-    }}>
-    {children}
-  </span>
-);
