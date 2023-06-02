@@ -110,7 +110,7 @@
     "https://doc.getlago.com/docs/api/events/persisted-event",
     "https://doc.getlago.com/docs/api/events/create-batch-event",
     "https://doc.getlago.com/docs/api/events/get-event",
-    "https://doc.getlago.com/docs/api/events/estimate-instant",
+    "https://doc.getlago.com/docs/api/events/estimate-fee",
 
     "https://doc.getlago.com/docs/api/customer_usage/customer-usage-object",
     "https://doc.getlago.com/docs/api/customer_usage/customer-usage",
