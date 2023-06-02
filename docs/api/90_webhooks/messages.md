@@ -45,6 +45,7 @@ This webhook is sent when there is an error related to the creation of an event.
 </details>
 
 ## Invoices
+
 <details className="custom-toggle">
 <summary><b>Draft invoice created</b></summary>
 Sent when a new invoice is in draft.
@@ -389,6 +390,147 @@ Sent when a one-off invoice is created. Only add-ons can be applied to one-off i
 
 
 <details className="custom-toggle">
+<summary><b>PDF invoice generated</b></summary>
+Sent when the PDF file has been generated for a customer invoice.
+
+This will allow your application to retrieve the PDF invoice.
+
+```json
+{
+  "webhook_type": "invoice.generated",
+  "object_type": "invoice",
+  "invoice": {
+    "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
+    "sequential_id": 2,
+    "number": "LAG-1234-001-002",
+    "from_date": "2022-04-01",
+    "to_date": "2022-04-30",
+    "charges_from_date": "2022-04-01",
+    "issuing_date": "",
+    "amount_cents": 100,
+    "amount_currency": "EUR",
+    "vat_amount_cents": 20,
+    "vat_amount_currency": "EUR",
+    "total_amount_cents": 120,
+    "total_amount_currency": "EUR",
+    "file_url": "https://getlago.com/invoice/file",
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
+</details>
+
+<details className="custom-toggle">
+<summary><b>Payment status updated</b></summary>
+Sent when the payment status of an invoice is updated based on information provided by the PSP.
+
+```json
+{
+  "webhook_type": "invoice.payment_status_updated",
+  "object_type": "invoice",
+  "invoice": {
+    "lago_id": "68133479-abcd-1234-5678-jklm437da000",
+    "sequential_id": 1,
+    "number": "SEL-AZ22-040-XXX",
+    "issuing_date": "2023-04-24",
+    "invoice_type": "subscription",
+    "status": "finalized",
+    "payment_status": "succeeded",
+    "currency": "USD",
+    "fees_amount_cents": 70,
+    "amount_cents": 70,
+    "vat_amount_cents": 11,
+    "coupons_amount_cents": 0,
+    "credit_notes_amount_cents": 0,
+    "credit_amount_cents": 0,
+    "total_amount_cents": 81,
+    "prepaid_credit_amount_cents": 0,
+    "file_url": null,
+    "version_number": 2,
+    "legacy": false,
+    "amount_currency": "USD",
+    "vat_amount_currency": "USD",
+    "credit_amount_currency": "USD",
+    "total_amount_currency": "USD"
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **invoice** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Invoice object](../invoices/invoice-object) |
+</details>
+
+
+## Subscriptions and fees
+
+<details className="custom-toggle">
+<summary><b>Instant fee created</b></summary>
+Sent when a fee for an instant charge is created.
+
+You can use this information to collect the payment of the instant fee.
+
+```json
+{
+  "webhook_type": "fee.instant_created",
+  "object_type": "fee",
+  "fee": {
+    "lago_id": "6be23c42-47d2-45a3-9770-5b3572f225c3",
+    "lago_group_id": "5b4881e3-b451-472e-9e03-d99379550743",
+    "lago_true_up_fee_id": null,
+    "lago_true_up_parent_fee_id": null,
+    "item": {
+      "type": "subscription",
+      "code": "plan_code",
+      "name": "Plan"
+    },
+    "amount_cents": 100,
+    "amount_currency": "EUR",
+    "vat_amount_cents": 20,
+    "vat_amount_currency": "EUR",
+    "total_amount_cents": 120,
+    "total_amount_currency": "EUR",
+    "units": "0.32",
+    "events_count": 23
+  }
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **fee** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Fee object](../fees/fee-object) |
+
+</details>
+
+<details className="custom-toggle">
+<summary><b>Subscription terminated</b></summary>
+Sent when a subscription is terminated.
+
+```json
+{
+  "webhook_type": "subscription.terminated",
+  "object_type": "subscription",
+  "subscription": {
+    "lago_id": "0fd99089-b15a-abcd-1234-a8292df18990",
+    "external_id": "custom_sub_id_1234",
+    "lago_customer_id": "27b9c2d9-abcd-1234-898f-hyt29a8e0eea",
+    "external_customer_id": "customer_1234",
+    "name": "",
+    "plan_code": "premium",
+    "status": "terminated",
+    "billing_time": "anniversary",
+    "subscription_at": "2023-01-11T10:51:29Z",
+    "started_at": "2023-01-11T10:51:29Z",
+    "terminated_at": "2023-01-24T14:53:02Z",
+    "canceled_at": null,
+    "created_at": "2023-01-11T10:51:34Z",
+    "previous_plan_code": null,
+    "next_plan_code": null,
+    "downgrade_plan_date": null,
+    "subscription_date": "2023-01-11"
   }
 }
 ```
@@ -941,8 +1083,6 @@ This will allow your application to proceed with the refund.
 | -----------| ----------- |
 | **credit_note** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not nullable</NotNullable> | [Credit note object](../credit_notes/credit-note-object) |
 </details>
-
-
 <details className="custom-toggle">
 <summary><b>PDF credit note generated</b></summary>
 Sent when the PDF file has been generated for a credit note.
