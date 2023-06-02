@@ -30,7 +30,7 @@ Lago allows you create charges with up to fifteen decimals (e.g. $0.000123456789
 Please note that charges are invoiced in amount_cents. Therefore, Lago automatically rounds prices (e.g. USD 1102 amount_cents = $11.02).
 
 ## Deleting a Charge
-You may delete a charge included in a plan associated with existing [subscriptions](../../lans/subscription).
+You may delete a charge included in a plan associated with existing [subscriptions](../../plans/subscription).
 
 If you do so and save the change:
 - The charge will be immediately removed from all subscriptions linked to this plan;

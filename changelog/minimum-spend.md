@@ -13,4 +13,4 @@ The minimum spend is defined as an amount excluding tax. If at the end of the bi
 
 Minimum spending requirements are defined when creating or editing plans, either through the user interface or the API.
 
-[Learn more](../docs/guide/plans/charges#charge-spending-minimum)
+[Learn more](../docs/guide/plans/charges/charge-minimum)
