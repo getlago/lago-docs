@@ -4,11 +4,19 @@
         <title>Lago documentation Blog</title>
         <link>https://getlago.com/changelog</link>
         <description>Lago documentation Blog</description>
-        <lastBuildDate>Wed, 10 May 2023 10:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 01 Jun 2023 11:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2023 Lago.</copyright>
+        <item>
+            <title><![CDATA[Charges paid in advance]]></title>
+            <link>https://getlago.com/changelog/charges-in-advance</link>
+            <guid>https://getlago.com/changelog/charges-in-advance</guid>
+            <pubDate>Thu, 01 Jun 2023 11:00:00 GMT</pubDate>
+            <description><![CDATA[If you want to collect payments for usage-based charges on the fly, without waiting for the end-of-period invoice, you can turn on the new payinadvance feature.]]></description>
+            <content:encoded><![CDATA[<p>If you want to collect payments for usage-based charges on the fly, without waiting for the end-of-period invoice, you can turn on the new <code>pay_in_advance</code> feature.</p><p>When a charge is <a href="/docs/guide/plans/charges/cadence#charges-paid-in-advance">marked as paid in advance</a>, Lago will automatically calculate the fee associated with each event as soon as it is ingested. This information will then be sent to you in a <code>fee.created</code> webhook message.</p><p>You can also get an estimate for a charge to be paid in advance before the actual event is confirmed through the <code>/api/v1/events/estimate_fees</code> endpoint.</p><p>In addition to this, users with a premium license can define whether or not <code>pay_in_advance</code> charges are <a href="/docs/guide/plans/charges/invoiceable">invoiceable</a>.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[One-off invoices]]></title>
             <link>https://getlago.com/changelog/one-off-invoices</link>
@@ -31,7 +39,7 @@
             <guid>https://getlago.com/changelog/minimum-spend</guid>
             <pubDate>Fri, 28 Apr 2023 11:00:00 GMT</pubDate>
             <description><![CDATA[This feature is only available to users with a premium license. Please contact us to get access to Lago Cloud and Lago Self-Hosted Premium.]]></description>
-            <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Premium feature</div><div class="admonitionContent_S0QG"><p>This feature is only available to users with a premium license. Please <strong><a href="mailto:hello@getlago.com" target="_blank" rel="noopener noreferrer">contact us</a></strong> to get access to Lago Cloud and Lago Self-Hosted Premium.</p></div></div><p>You can now define minimum spending requirements for usage-based charges.</p><p>The minimum spend is defined as an amount excluding tax. If at the end of the billing period, your customer has spent less than the minimum, then Lago will automatically generate a true-up fee to compensate for the difference.</p><p>Minimum spending requirements are defined when creating or editing plans, either through the user interface or the API.</p><p><a href="/docs/guide/plans/charges#charge-spending-minimum">Learn more</a></p>]]></content:encoded>
+            <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Premium feature</div><div class="admonitionContent_S0QG"><p>This feature is only available to users with a premium license. Please <strong><a href="mailto:hello@getlago.com" target="_blank" rel="noopener noreferrer">contact us</a></strong> to get access to Lago Cloud and Lago Self-Hosted Premium.</p></div></div><p>You can now define minimum spending requirements for usage-based charges.</p><p>The minimum spend is defined as an amount excluding tax. If at the end of the billing period, your customer has spent less than the minimum, then Lago will automatically generate a true-up fee to compensate for the difference.</p><p>Minimum spending requirements are defined when creating or editing plans, either through the user interface or the API.</p><p><a href="/docs/guide/plans/charges/charge-minimum">Learn more</a></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Coupons limited to specific metrics]]></title>
@@ -40,14 +48,6 @@
             <pubDate>Mon, 17 Apr 2023 10:00:00 GMT</pubDate>
             <description><![CDATA[We have added a new option to the coupon settings: it is now possible to limit the application scope of a coupon to specific billable metrics.]]></description>
             <content:encoded><![CDATA[<p>We have added a new option to the coupon settings: it is now possible to limit the application scope of a coupon to specific billable metrics.</p><p>By default, coupons apply to all charges but when creating a new coupon, you can define the list of billable metrics to which the coupon applies.</p><p>This feature is related to the <code>billable_metric_codes</code> attribute of the <code>coupon</code> object (<a href="/docs/api/coupons/create-coupon">see API documentation</a>).</p><p>Please refer to <a href="/docs/guide/coupons">the guide</a> for more information on coupons.</p><p><img loading="lazy" alt="Coupon limitations" src="/assets/images/coupons-bm-1c2ee68ef19c01172755b5f8a2df7a57.png" width="1628" height="760" class="img_ev3q"></p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Instant charges ✨]]></title>
-            <link>https://getlago.com/changelog/instant-charges</link>
-            <guid>https://getlago.com/changelog/instant-charges</guid>
-            <pubDate>Fri, 07 Apr 2023 11:00:00 GMT</pubDate>
-            <description><![CDATA[This feature is only available to users with a premium license. Please contact us to get access to Lago Cloud and Lago Self-Hosted Premium.]]></description>
-            <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Premium feature</div><div class="admonitionContent_S0QG"><p>This feature is only available to users with a premium license. Please <strong><a href="mailto:hello@getlago.com" target="_blank" rel="noopener noreferrer">contact us</a></strong> to get access to Lago Cloud and Lago Self-Hosted Premium.</p></div></div><p>If you want to collect payments for usage-based charges on the fly, without waiting for the end-of-period invoice, you can turn on the new instant charge feature.</p><p>When a charge is marked as instant, Lago will automatically calculate the fee associated with each event as soon as it is ingested. This information will then be sent to you in a <code>fee.instant_created</code> webhook message.</p><p>You can also get an estimate for an instant charge before the actual event is confirmed through the <code>/api/v1/events/estimate_fees</code> endpoint.</p><p><a href="/docs/guide/plans/instant-charges">Learn more</a></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Reset password]]></title>
@@ -311,7 +311,7 @@
             <guid>https://getlago.com/changelog/volume-charge-model</guid>
             <pubDate>Wed, 31 Aug 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[The new volume charge model allows you to create a tiered pricing structure and then calculate a unit price that applies to all units depending on total volume.]]></description>
-            <content:encoded><![CDATA[<p>The new volume charge model allows you to create a tiered pricing structure and then calculate a unit price that applies to all units depending on total volume.</p><p>It is similar to the graduated charge model, except that only one price tier applies at the end of the billing period.</p><p>Please refer to <a href="/docs/guide/plans/charges#volume-charge-model">the guide</a> and <a href="/docs/api/plans/create-plan">API documentation</a> for more information.</p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>The new volume charge model allows you to create a tiered pricing structure and then calculate a unit price that applies to all units depending on total volume.</p><p>It is similar to the graduated charge model, except that only one price tier applies at the end of the billing period.</p><p>Please refer to <a href="/docs/guide/plans/charges/price-models/volume">the guide</a> and <a href="/docs/api/plans/create-plan">API documentation</a> for more information.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Anniversary dates for subscriptions]]></title>
@@ -327,7 +327,7 @@
             <guid>https://getlago.com/changelog/free-units-percentage-model</guid>
             <pubDate>Tue, 23 Aug 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[We have released an enhanced version of the percentage charge model, including:]]></description>
-            <content:encoded><![CDATA[<p>We have released an enhanced version of the percentage charge model, including:</p><ul><li>Ability to define free units based on the number of events (e.g. first 3 events are free); and</li><li>Ability to define free units based on the total amount (e.g. first $500 are free).</li></ul><p>Please refer to the <a href="/docs/guide/plans/charges#percentage-charge-model">documentation</a> for more information.</p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>We have released an enhanced version of the percentage charge model, including:</p><ul><li>Ability to define free units based on the number of events (e.g. first 3 events are free); and</li><li>Ability to define free units based on the total amount (e.g. first $500 are free).</li></ul><p>Please refer to the <a href="/docs/guide/plans/charges/price-models/percentage">documentation</a> for more information.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Multiple plans]]></title>
@@ -440,7 +440,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
             <guid>https://getlago.com/changelog/template-algolia</guid>
             <pubDate>Fri, 03 Jun 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[We've added a new template to our collection: click here to learn how to replicate Algolia's pay-as-you-go pricing.]]></description>
-            <content:encoded><![CDATA[<p>We've added a new template to our collection: <a href="https://www.getlago.com/resources/templates/algolia" target="_blank" rel="noopener noreferrer">click here</a> to learn how to replicate Algolia's pay-as-you-go pricing.</p><p>It's a great starting point for companies whose pricing fully depends on usage, such as cloud service providers and API companies.</p><p>With Lago, you can adapt this template to your products and services, using some of our most popular features, including the <a href="/docs/guide/billable-metrics/aggregation-types#2-sum">'sum' aggregation type</a> and the <a href="/docs/guide/plans/charges#the-package-charge-model">package charge model</a>.</p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>We've added a new template to our collection: <a href="https://www.getlago.com/resources/templates/algolia" target="_blank" rel="noopener noreferrer">click here</a> to learn how to replicate Algolia's pay-as-you-go pricing.</p><p>It's a great starting point for companies whose pricing fully depends on usage, such as cloud service providers and API companies.</p><p>With Lago, you can adapt this template to your products and services, using some of our most popular features, including the <a href="/docs/guide/billable-metrics/aggregation-types#2-sum">'sum' aggregation type</a> and the <a href="/docs/guide/plans/charges/price-models/package">package charge model</a>.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Coupons]]></title>
@@ -464,7 +464,7 @@ We called this feature <code>debugger</code> because it makes the event ingestio
             <guid>https://getlago.com/changelog/package-pricing</guid>
             <pubDate>Wed, 18 May 2022 10:00:00 GMT</pubDate>
             <description><![CDATA[It is now possible to apply a package pricing model to a charge. To do so:]]></description>
-            <content:encoded><![CDATA[<p>It is now possible to apply a <a href="/docs/guide/plans/charges#the-package-charge-model">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>It is now possible to apply a <a href="/docs/guide/plans/charges/price-models/package">package pricing model</a> to a charge. To do so:</p><ol><li>Select an existing plan (or create a new one);</li><li>Add a charge; and</li><li>Select the package pricing model.</li></ol><p>This new pricing model allows you to apply a flat fee to a range of units. The price will be fixed for the entire range, regardless of the number of units consumed by the customer during the billing period.</p>]]></content:encoded>
         </item>
     </channel>
 </rss>
