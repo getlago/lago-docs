@@ -5,8 +5,11 @@ sidebar_position: 7
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Estimate fees 
-This endpoint works only for charges paid in advance.
+# Estimate fees
+
+:::info
+This endpoint only works for charges paid in advance.
+:::
 
 ## Route
 
@@ -203,7 +206,7 @@ api/v1/events/estimate_fees
 
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
-| **code** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the type of the event.<br></br> It should match the `code` property of one of your active billable metrics attached to an `pay_in_advance` charge. |
+| **code** | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the type of the event.<br></br> It should match the `code` property of one of your active billable metrics attached to a `pay_in_advance` charge. |
 | **external_customer_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique customer ID in your application.<br></br>If `external_subscription_id` is not given, `external_customer_id` is required if there is only one subscription attached to customer. For multiple subscriptions per customer this attribute is not enough |
 | **external_subscription_id** | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Unique subscription ID in your application.<br></br>`external_subscription_id` is required if the customer has multiple subscriptions or if `external_customer_id` is not provided (in case there's only one subscription) |
 | **properties** | JSON &nbsp &nbsp &nbsp<Variable>**Variable**</Variable> | Extra data to use for the event aggregation.<br></br>When mandatory, it should contains the `field_name` configured at billable metric level as `key` and any value as field `value`. |
@@ -219,7 +222,7 @@ api/v1/events/estimate_fees
 <Tabs>
   <TabItem value="200" label="HTTP 200" default>
 
-  The event estimate was succesfuly estimated.
+  The event estimate was succesfuly calculated.
 
   Returns a list of [fee](../fees/fee-object) objects.
 
