@@ -14,6 +14,15 @@
             "tags": []
         },
         {
+            "id": "https://getlago.com/changelog/adyen-integration",
+            "content_html": "<p>Lago now offers native integration with <a href=\"https://www.adyen.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Adyen</a>, including (but not limited to):</p><ul><li>Ability to define Adyen as the default payment provider for a customer;</li><li>Ability to automatically create Lago customers in Adyen and retrieve their customer ID;</li><li>Ability to automatically collect payments via credit cards, Apple Pay, PayPal and many other payment methods;</li><li>Ability to automatically update an invoice based on the payment status retrieved from Adyen; and</li><li>Ability to process refunds using credit notes.</li></ul><p>To learn more about this integration, please <a href=\"/docs/guide/payments/adyen-integration\">consult our guide</a>.</p>",
+            "url": "https://getlago.com/changelog/adyen-integration",
+            "title": "Integration with Adyen",
+            "summary": "Lago now offers native integration with Adyen, including (but not limited to):",
+            "date_modified": "2023-06-01T10:00:00.000Z",
+            "tags": []
+        },
+        {
             "id": "https://getlago.com/changelog/one-off-invoices",
             "content_html": "<p>After creating an <a href=\"/docs/guide/addons/overview\">add-on</a>, you can use it to generate a one-off invoice that will be billed instantly.</p><p>A one-off invoice may include multiple fees (i.e. multiple add-ons). You can add a custom description and set a specific price for each add-on, either through the user interface or the API.</p><p><a href=\"/docs/guide/addons/oneoff-invoices\">Learn more</a></p><div class=\"theme-admonition theme-admonition-caution alert alert--warning admonition_LlT9\"><div class=\"admonitionHeading_tbUL\"><span class=\"admonitionIcon_kALy\"><svg viewBox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z\"></path></svg></span>caution</div><div class=\"admonitionContent_S0QG\"><p>The endpoint to <a href=\"/docs/api/add_ons/apply-add-on\">apply add-ons</a> is deprecated and will be removed on September 1st, 2023. It has been replaced with the endpoint to <a href=\"/docs/api/invoices/create-invoice\">create one-off invoices</a>.</p></div></div>",
             "url": "https://getlago.com/changelog/one-off-invoices",

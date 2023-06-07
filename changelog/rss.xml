@@ -18,6 +18,14 @@
             <content:encoded><![CDATA[<p>If you want to collect payments for usage-based charges on the fly, without waiting for the end-of-period invoice, you can turn on the new <code>pay_in_advance</code> feature.</p><p>When a charge is <a href="/docs/guide/plans/charges/cadence#charges-paid-in-advance">marked as paid in advance</a>, Lago will automatically calculate the fee associated with each event as soon as it is ingested. This information will then be sent to you in a <code>fee.created</code> webhook message.</p><p>You can also get an estimate for a charge to be paid in advance before the actual event is confirmed through the <code>/api/v1/events/estimate_fees</code> endpoint.</p><p>In addition to this, users with a premium license can define whether or not <code>pay_in_advance</code> charges are <a href="/docs/guide/plans/charges/invoiceable">invoiceable</a>.</p>]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[Integration with Adyen]]></title>
+            <link>https://getlago.com/changelog/adyen-integration</link>
+            <guid>https://getlago.com/changelog/adyen-integration</guid>
+            <pubDate>Thu, 01 Jun 2023 10:00:00 GMT</pubDate>
+            <description><![CDATA[Lago now offers native integration with Adyen, including (but not limited to):]]></description>
+            <content:encoded><![CDATA[<p>Lago now offers native integration with <a href="https://www.adyen.com/" target="_blank" rel="noopener noreferrer">Adyen</a>, including (but not limited to):</p><ul><li>Ability to define Adyen as the default payment provider for a customer;</li><li>Ability to automatically create Lago customers in Adyen and retrieve their customer ID;</li><li>Ability to automatically collect payments via credit cards, Apple Pay, PayPal and many other payment methods;</li><li>Ability to automatically update an invoice based on the payment status retrieved from Adyen; and</li><li>Ability to process refunds using credit notes.</li></ul><p>To learn more about this integration, please <a href="/docs/guide/payments/adyen-integration">consult our guide</a>.</p>]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[One-off invoices]]></title>
             <link>https://getlago.com/changelog/one-off-invoices</link>
             <guid>https://getlago.com/changelog/one-off-invoices</guid>
