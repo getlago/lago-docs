@@ -344,9 +344,6 @@ try {
   }
 }
 ```
-:::info
-If the customer already exists, this request will trigger an update.
-:::
 
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
@@ -373,7 +370,7 @@ If the customer already exists, this request will trigger an update.
 | Attributes | Type | Description |
 | -----------| -----| ----------- |
 | invoice_grace_period | Integer &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Grace period in days for the invoice.
-| payment_provider | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider used to bill the customer.<br/>Accepted values: `stripe` and `gocardless`<br/>This field is required if you want to assign a `provider_customer_id`
+| payment_provider | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Payment provider used to bill the customer.<br/>Accepted values: `stripe`, `adyen`, `gocardless` or `null`. This field is required if you want to assign a `provider_customer_id`
 | provider_customer_id | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Customer ID on the payment provider.<br/>If not provided, Lago can optionally create the provider customer
 | sync | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` is you want to create the provider customer synchronously with the customer creation.<br/>Apply only when `provider_customer_id` is `null` and payment provider is configured to create customer.<br/>Default value: `false`
 | sync_with_provider | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Set to `true` if you want to create the customer record in the provider's system. Only applies when `provider_customer_id` is `null` and `sync_with_provider` is set to `true`. Default value: `false`

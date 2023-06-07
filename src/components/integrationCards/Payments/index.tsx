@@ -37,6 +37,18 @@ const WebDevCards = [
       </Translate>
     ),
   },
+  {
+    name: 'Adyen',
+    image: 'https://uploads-ssl.webflow.com/635119506e36baf5c267fecd/647526ae766525597277a0df_adyen.svg',
+    url: {
+      page: '../../docs/integrations/payments/adyen',
+    },
+    description: (
+      <Translate id="special.adyen.description">
+        Adyen is an omnichannel payment processing company providing multiple ways to accept payments.
+      </Translate>
+    ),
+  },
 ];
 
 interface Props {
