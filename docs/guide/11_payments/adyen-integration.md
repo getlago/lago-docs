@@ -54,10 +54,10 @@ Adyen's HMAC signatures are used to protect webhook endpoints and messages creat
 The Live Prefix and HMAC Signature fields are optional and may not be required depending on your use case.
 :::
 
-## Setting up Adyen's Payments Auto Capture
+## Setting up Adyen's payments auto-capture
 To enable automatic payment capture in your Adyen account, ensure that you have configured the account settings accordingly. Automatic payment capture allows for immediate processing without manual intervention. Refer to Adyen's documentation for instructions on [setting up auto capture](https://docs.adyen.com/online-payments/capture#automatic-capture).
 
-## Setting up Adyen Webhook for Listening to Important Events
+## Setting up Adyen Webhook for listening to important events
 **This step is crucial and mandatory** for Lago to receive and process messages from Adyen, enabling functionalities such as customer creation/update, payment processing, and refunds. To configure Adyen webhook and establish communication with Lago, follow the steps below:
 
 1. Access your Adyen application and navigate to the **Developers** section;
@@ -71,7 +71,7 @@ You can find your Organization ID in Lago under the Developers section, specific
 
 **Please ensure that you complete this setup correctly, as your Adyen integration will not function without this vital step.**
 
-## Setting Adyen as a Payment Provider for a Customer
+## Setting Adyen as a Payment Provider for a customer
 In order to facilitate automated payment collection, it is essential for the customer to exist in both the Lago and Adyen databases. Please note that in Adyen, customers are referred to as **Shoppers**.
 
 ### Adding a new customer in Adyen
@@ -106,7 +106,7 @@ By following these steps, you can integrate an existing customer from Adyen into
 
 ![Adyen as PSP for existing customer](../../../static/img/existing-customer-adyen-psp.png)
 
-## Adyen Checkout: Storing Customer's Payment Method Information
+## Adyen Checkout: storing customer's payment method information
 When Lago automatically creates a customer in Adyen, you will receive a checkout link from Lago to facilitate the storage of your customer's payment method information.
 
 The payload sent by Lago will have the following structure, with the checkout link stored under **`checkout_url`**:
@@ -132,12 +132,12 @@ By utilizing this provided checkout link, your customers can perform a pre-autho
 
 ![Adyen checkout with Lago](../../../static/img/adyen-checkout-url.png)
 
-## Creating Payments from Lago Invoices
+## Creating payments from Lago Invoices
 When a customer has Adyen defined as their payment provider, Lago seamlessly automates the process of triggering payments in Adyen whenever a new invoice is generated.
 
 This integration ensures that payments are initiated in Adyen without any manual intervention. Lago's automatic payment creation saves time and effort, providing a streamlined experience for both you and your customers.
 
-## Creating Refunds from Lago Credit Notes
+## Creating refunds from Lago Credit Notes
 In cases where a customer has Adyen defined as their payment provider, Lago simplifies the refund process by automatically triggering refunds in Adyen whenever a new refund is initiated through credit notes.
 
 This integration eliminates the need for manual refund processing and ensures that refunds are efficiently handled in Adyen. Lago's automated refund functionality helps you maintain accurate and timely refund transactions, enhancing customer satisfaction and operational efficiency.
