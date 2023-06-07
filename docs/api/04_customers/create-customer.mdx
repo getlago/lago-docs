@@ -36,6 +36,7 @@ import TabItem from '@theme/TabItem';
         "email": "dinesh@piedpiper.test",
         "legal_name": "Coleman-Blair",
         "legal_number": "49-008-2965",
+        "tax_identification_number": "EU123456789",
         "logo_url": "http://hooli.com/logo.png",
         "name": "Gavin Belson",
         "phone": "1-171-883-3711 x245",
@@ -90,6 +91,7 @@ import TabItem from '@theme/TabItem';
     email="test@example.com",
     legal_name="Coleman-Blair",
     legal_number="49-008-2965",
+    tax_identification_number="EU123456789",
     logo_url="http://hooli.com/logo.png",
     name="Test Name",
     phone="1-171-883-3711 x245",
@@ -131,6 +133,7 @@ import TabItem from '@theme/TabItem';
     email: "test@example.com",
     legalName: "Coleman-Blair",
     legalNumber: "49-008-2965",
+    taxIdentificationNumber: "EU123456789",
     logoUrl: "http://hooli.com/logo.png",
     name: "Test Name",
     phone: "1-171-883-3711 x245",
@@ -179,6 +182,7 @@ import TabItem from '@theme/TabItem';
     email: "dinesh@piedpiper.test",
     legal_name: "Coleman-Blair",
     legal_number: "49-008-2965",
+    tax_identification_number: "EU123456789",
     logo_url: "http://hooli.com/logo.png",
     name: "Gavin Belson",
     phone: "1-171-883-3711 x245",
@@ -218,21 +222,22 @@ import TabItem from '@theme/TabItem';
         SetApiKey("__YOUR_API_KEY__")
 
       customerInput := &lago.CustomerInput{
-        ExternalID:   "__YOUR_CUSTOMER_ID__",
-        Name:         "Customer",
-        Email:        "customer@getlago.com",
-        AddressLine1: "Address Line 1",
-        AddressLine2: "Address Line 2",
-        City:         "Paris",
-        Country:      "France",
-        Currency:     "EUR",
-        State:        "Paris",
-        Zipcode:      "75001",
-        LegalName:    "GetLago",
-        LegalNumber:  "123456",
-        Phone:        "+330100000000",
-        Timezone:     "Europe/Paris",
-        URL:          "https://getlago.com",
+        ExternalID:              "__YOUR_CUSTOMER_ID__",
+        Name:                    "Customer",
+        Email:                   "customer@getlago.com",
+        AddressLine1:            "Address Line 1",
+        AddressLine2:            "Address Line 2",
+        City:                    "Paris",
+        Country:                 "France",
+        Currency:                "EUR",
+        State:                   "Paris",
+        Zipcode:                 "75001",
+        LegalName:               "GetLago",
+        LegalNumber:             "123456",
+        TaxIdentificationNumber: "EU123456789",
+        Phone:                   "+330100000000",
+        Timezone:                "Europe/Paris",
+        URL:                     "https://getlago.com",
         BillingConfiguration: &CustomerBillingConfigurationInput{
           InvoiceGracePeriod: 3,
           PaymentProvider: lago.PaymentProviderStripe,
@@ -354,6 +359,7 @@ try {
     "email": "dinesh@piedpiper.test",
     "legal_name": "Coleman-Blair",
     "legal_number": "49-008-2965",
+    "tax_identification_number": "EU123456789",
     "logo_url": "http://hooli.com/logo.png",
     "name": "Gavin Belson",
     "phone": "1-171-883-3711 x245",
@@ -395,6 +401,7 @@ If the customer already exists, this request will trigger an update.
 | email | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Email of the customer |
 | legal_name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal company name of the customer |
 | legal_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Legal company number of the customer |
+| tax_identification_number | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Taxi dentification number of the customer |
 | logo_url | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Logo URL of the customer |
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Full name of the customer |
 | phone | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Phone number of the customer |
