@@ -141,3 +141,6 @@ This integration ensures that payments are initiated in Adyen without any manual
 In cases where a customer has Adyen defined as their payment provider, Lago simplifies the refund process by automatically triggering refunds in Adyen whenever a new refund is initiated through credit notes.
 
 This integration eliminates the need for manual refund processing and ensures that refunds are efficiently handled in Adyen. Lago's automated refund functionality helps you maintain accurate and timely refund transactions, enhancing customer satisfaction and operational efficiency.
+
+## Watch the demo video
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/Zh7NNbgS7Bo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
