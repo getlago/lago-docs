@@ -37,6 +37,29 @@ If the customer already exists in Stripe but not in Lago, you should create the 
 
 ![Migration of an existing Stripe customer](../../../static/img/stripe-customer-migration.png)
 
+## Stripe Checkout: storing customer's payment method information
+When Lago automatically creates a customer in Stripe, you will receive a checkout link from Lago to facilitate the storage of your customer's payment method information.
+
+The payload sent by Lago will have the following structure, with the checkout link stored under `checkout_url`:
+
+```json
+{
+  "webhook_type": "customer.checkout_url_generated",
+  "object_type": "payment_provider_customer_checkout_url",
+  "payment_provider_customer_checkout_url": {
+    "lago_customer_id": "88d23508-47fd-46bb-a87e-50c50f3cb371",
+    "external_customer_id": "hooli_1234",
+    "payment_provider": "stripe",
+    "checkout_url": "https://checkout.stripe.com/c/pay/prod_c15sTbBMLep5FKOA9b9pZBiRBBYYSU1IJ5T89I5TTtpKgzE380JSmxnVYz#fidkdWxOYHw"
+  }
+}
+```
+:::caution
+Note: The checkout link automatically expires after 24 hours!
+:::
+
+By utilizing this provided checkout link, your customers can perform a pre-authorization payment. It's important to note that the pre-authorization payment will not collect any funds from the customer. Once the pre-authorization is confirmed, Lago will send the payment method details and securely store them into Stripe for future transactions.
+
 ## Payment intents
 Once Stripe is connected and the customer exists in both databases, you can start collecting payments.
 
