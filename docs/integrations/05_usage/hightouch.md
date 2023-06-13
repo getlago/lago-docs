@@ -82,7 +82,7 @@ The `body` structure of the event depends on your use case. Please adapt it if n
 
 ### Test and activate your sync
 
-Note that you can test your sync with a data sample. As a result of this test, you should see data flowing into Lago, in the events debugger. Once you are ready to go, you can activate this sync, and define the periodic trigger.
+Note that you can test your sync with a data sample. As a result of this test, you should see data flowing into Lago, in the events list. Once you are ready to go, you can activate this sync, and define the periodic trigger.
 
 ![Hightouch Test Sync with Lago](../../../static/img/sync-test-hightouch.png)
 

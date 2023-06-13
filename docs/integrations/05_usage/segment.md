@@ -105,7 +105,7 @@ To create **Settings** variables:
 
 ### Send usage events to Lago
 
-By running the function in Segment, this will send a test usage to Lago events. You can retrieve this event in the debugger. By finalizing the setup in Segment, the function will be automatically triggered based on your defined behavior
+By running the function in Segment, this will send a test usage to Lago events. You can retrieve this event in the events list. By finalizing the setup in Segment, the function will be automatically triggered based on your defined behavior
 
 ## Segment to Lago - demo video
 
