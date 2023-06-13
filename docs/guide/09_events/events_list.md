@@ -2,13 +2,13 @@
 sidebar_position: 2
 ---
 
-# Using the debugger
-By ingesting events, you can see them flowing in the Lago application by using the `debugger`. It allows you to take a deeper look at ingested events and detect possible warnings.
+# Using the events list
+By ingesting events, you can see them flowing in the Lago application by using the `Events` list. It allows you to take a deeper look at ingested events and detect possible warnings.
 
-## Accessing the debugger
-You can access the event debugger from the UI by following this path:
+## Accessing the events list
+You can access the Events list from the UI by following this path:
 1. Go to the **Developers** section in the sidebar;
-2. Click the **Debugger** tab;
+2. Click the **Events** tab;
 3. See a list of ingested events; and
 4. Reload this list when you ingest new events.
 
@@ -18,10 +18,10 @@ By default, the UI shows you a list of the latest 20 events, but you can load mu
 If an event is not shown in the UI, it has **not** been ingested.
 :::
 
-![Event debugger](../../../static//img/events-debugger.png)
+![Events list](../../../static/img/events-list.png)
 
 ## Accessing a specific event
-In the debugger, by clicking on a specific event, you will have access to 2 main blocks:
+In the events list, by clicking on a specific event, you will have access to 2 main blocks:
 1. **A list of useful properties returned**
     - **Time:** timestamp of the received events;
     - **Customer ID:** the ID of your customer;
