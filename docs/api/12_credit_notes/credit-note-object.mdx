@@ -79,6 +79,7 @@ This object represents a credit note emited to re-credit a customer for a fee or
         "tax_code": "tax_code",
         "tax_rate": "20.0",
         "tax_description": "tax description",
+        "base_amount_cents": 100,
         "amount_cents": 20,
         "amount_currency": "EUR",
         "created_at": "2022-04-29T08:59:51Z"
@@ -164,6 +165,7 @@ This object represents a credit note emited to re-credit a customer for a fee or
 | **tax_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the tax |
 | **tax_rate** &nbsp &nbsp <Type>Float</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Value in decimal applied to the tax. |
 | **tax_description** &nbsp &nbsp <Type>String</Type> | Tax description. |
+| **base_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Base amount used to compute the applied tax |
 | **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents of the applied tax |
 | **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
 | **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of applied tax object creation. |

@@ -18,12 +18,10 @@ It allows you to monitor customer usage throughout the period.
     "from_datetime": "2022-07-01T00:00:00Z",
     "to_datetime": "2022-07-31T23:59:59Z",
     "issuing_date": "2022-08-01",
+    "currency": "EUR",
     "amount_cents": 123,
-    "amount_currency": "EUR",
     "total_amount_cents": 123,
-    "total_amount_currency": "EUR",
-    "vat_amount_cents": 0,
-    "vat_amount_currency": "EUR",
+    "taxes_amount_cents": 0,
     "charges_usage": [
       {
         "units": "1.0",
@@ -59,12 +57,10 @@ It allows you to monitor customer usage throughout the period.
 | **from_datetime** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Lower bound of the billing period |
 | **to_datetime** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Upper bound of the billing period |
 | **issuing_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Date of creation of the invoice |
-| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents, VAT (tax) excluded|
-| **amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
+| **currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currencies of the amount fields |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents, tax excluded|
+| **taxes_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Taxes amount in cents |
 | **total_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Should be the sum of the amount and the VAT amount |
-| **total_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount |
-| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents |
-| **vat_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
 | **charges_usage** &nbsp &nbsp <Type>Array</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Array of [charge usage](#charge-usage-object) objects |
 
 ### Deprecated attributes
@@ -73,6 +69,10 @@ It allows you to monitor customer usage throughout the period.
 | -----------| ----------- |
 | **from_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Lower bound of the billing period |
 | **to_date** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 date*</Comment> | Upper bound of the billing period |
+| **amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount. Replaced by the `currency` field. |
+| **total_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount. Replaced by the `currency` field. |
+| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents. Replaced by the `taxes_amount_cents` field. |
+| **vat_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount. Replaced by the `currency` field. |
 
 ## Charge Usage object
 
