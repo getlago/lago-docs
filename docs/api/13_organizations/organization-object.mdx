@@ -35,7 +35,7 @@ This object represents an organization.<br></br>
       "document_locale": "fr",
       "vat_rate": 15.0
     },
-    "tax_rates": []
+    "taxes": []
   }
 }
 ```
@@ -57,7 +57,7 @@ This object represents an organization.<br></br>
 | **tax_identification_number** &nbsp &nbsp <Type>String</Type> | Tax identification number of the organization |
 | **timezone** &nbsp &nbsp <Type>String</Type><br></br><Comment>*TZ database*</Comment> | Timezone of the organization - [learn more](../resources/timezones) |
 | **email_settings** &nbsp &nbsp <Type>Array</Type> | Email settings of the organization. <details><summary>**Possible values**</summary><div>- `invoice.finalized`<br/>- `credit_note.created`</div></details> |
-| **tax_rates** &nbsp &nbsp <Type>Array</Type> | List of [tax rate](../tax_rates/tax-rate-object) objects applied by default. |
+| **taxes** &nbsp &nbsp <Type>Array</Type> | List of [tax](../taxes/tax-object) objects applied by default. |
 
 ## Billing Configuration Object
 
