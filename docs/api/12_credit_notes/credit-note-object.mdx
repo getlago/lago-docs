@@ -23,17 +23,11 @@ This object represents a credit note emited to re-credit a customer for a fee or
     "description": "Free text",
     "currency": "EUR",
     "total_amount_cents": 120,
-    "total_amount_currency": "EUR",
     "credit_amount_cents": 100,
-    "credit_amount_currency": "EUR",
     "refund_amount_cents": 0,
-    "refund_amount_currency": "EUR",
     "balance_amount_cents": 100,
-    "balance_amount_currency": "EUR",
-    "vat_amount_cents": 20,
-    "vat_amount_currency": "EUR",
-    "sub_total_vat_excluded_amount_cents": 100,
-    "sub_total_vat_excluded_amount_currency": "EUR",
+    "taxes_amount_cents": 20,
+    "sub_total_excluding_taxes_amount_cents": 100,
     "coupons_adjustement_amount_cents": 0,
     "created_at": "2022-10-06 09:52:00",
     "updated_at": "2022-10-06 09:52:00",
@@ -43,22 +37,51 @@ This object represents a credit note emited to re-credit a customer for a fee or
         "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
         "amount_cents": 100,
         "amount_currency": "EUR",
-        "fee":       {
-          "lago_id": "5eb02857-a71e-4ea2-bcf9-57d3a41bc6ba",
-          "item": {
-            "type": "charge",
-            "code": "user_seats",
-            "name": "User Seats"
-          },
-          "amount_cents": 100,
-          "amount_currency": "EUR",
-          "vat_amount_cents": 20,
-          "vat_amount_currency": "EUR",
-          "total_amount_cents": 120,
-          "total_amount_currency": "EUR",
-          "units": 12.6,
-          "events_count": 10
+        "fee": {
+            "lago_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+            "lago_group_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+            "lago_invoice_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+            "lago_true_up_fee_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+            "lago_true_up_parent_fee_id": null,
+            "item": {
+              "type": "subscription",
+              "code": "plan_code",
+              "name": "Plan",
+              "lago_item_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+              "item_type": "Subscription"
+            },
+            "pay_in_advance": true,
+            "invoiceable": true,
+            "amount_cents": 100,
+            "unit_amount_cents": 50,
+            "amount_currency": "EUR",
+            "vat_amount_cents": 20,
+            "vat_amount_currency": "EUR",
+            "total_amount_cents": 120,
+            "total_amount_currency": "EUR",
+            "units": "0.32",
+            "events_count": 23,
+            "payment_status": "pending",
+            "description": "description",
+            "created_at": "2022-08-24T14:58:59Z",
+            "succeeded_at": "2022-08-24T14:58:59Z",
+            "failed_at": "2022-08-24T14:58:59Z",
+            "refunded_at": "2022-08-24T14:58:59Z"
         }
+      }
+    ],
+    "applied_taxes": [
+      {
+        "lago_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+        "lago_credit_note_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+        "lago_tax_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+        "tax_name": "tax name",
+        "tax_code": "tax_code",
+        "tax_rate": "20.0",
+        "tax_description": "tax description",
+        "amount_cents": 20,
+        "amount_currency": "EUR",
+        "created_at": "2022-04-29T08:59:51Z"
       }
     ]
   }
@@ -85,15 +108,14 @@ This object represents a credit note emited to re-credit a customer for a fee or
 | **refund_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the refund amount |
 | **balance_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Remaining credit amount in cents |
 | **balance_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the balance amount |
-| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents |
-| **vat_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
-| **sub_total_vat_excluded_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Subtotal excluding tax, in cents |
-| **sub_total_vat_excluded_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the subtotal amount |
+| **taxes_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Taxes amount in cents |
+| **sub_total_excluding_taxes_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Subtotal excluding taxes, in cents |
 | **coupons_adjustement_amount_cents**  &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Pro-rated amount of the source invoice coupons, in cents |
 | **created_at** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime*</Comment> | Date and time of creation of the credit note in UTC |
 | **updated_at** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable><br></br><Comment>*ISO 8601 datetime*</Comment> | Date and time of last update of the credit note in UTC |
 | **file_url** &nbsp &nbsp <Type>String</Type>&nbsp&nbsp | File url of the credit note PDF |
-| **items** &nbsp &nbsp <Type>JSON</Type> | Array of [item](#credit-note-object) object |
+| **items** &nbsp &nbsp <Type>JSON</Type> | Array of [item](#item-object) object |
+| **applied_taxes** &nbsp &nbsp <Type>JSON</Type> | Array of [Credit note applied taxes](#credit-note-applied-tax-object) object |
 
 ### Deprecated arguments
 | Attributes | Description |
@@ -102,7 +124,9 @@ This object represents a credit note emited to re-credit a customer for a fee or
 | **credit_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the credit amount |
 | **refund_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the refund amount |
 | **balance_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the balance amount |
+| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents. Replaced by the `taxes_amount_cents` field. |
 | **vat_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount |
+| **sub_total_vat_excluded_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Subtotal excluding tax, in cents. Replaced by the `sub_total_excluding_taxes_amount_cents` field. |
 | **sub_total_vat_excluded_amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the subtotal amount |
 
 ## Item object
@@ -113,6 +137,36 @@ This object represents a credit note emited to re-credit a customer for a fee or
 | **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents |
 | **amount_currency** &nbsp &nbsp <Type>String</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
 | **fee** &nbsp &nbsp <Type>JSON</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | [Fee](../invoices/invoice-object#fee-object) object |
+
+## Credit Note Applied Tax object
+
+```json
+{
+  "lago_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "lago_credit_note_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "lago_tax_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "tax_name": "tax name",
+  "tax_code": "tax_code",
+  "tax_rate": "20.0",
+  "tax_description": "tax description",
+  "amount_cents": 20,
+  "amount_currency": "EUR",
+  "created_at": "2022-04-29T08:59:51Z"
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the invoice applied tax in Lago application |
+| **lago_credit_note_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the credit note in Lago application |
+| **lago_tax_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the tax in Lago application |
+| **tax_name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Tax name |
+| **tax_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the tax |
+| **tax_rate** &nbsp &nbsp <Type>Float</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Value in decimal applied to the tax. |
+| **tax_description** &nbsp &nbsp <Type>String</Type> | Tax description. |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents of the applied tax |
+| **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of applied tax object creation. |
 
 export const Type = ({children, color}) => (
   <span
