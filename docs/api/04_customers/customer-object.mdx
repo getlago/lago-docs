@@ -52,6 +52,18 @@ It lets you create a customer, but also track usage and create invoices for the 
         "display_in_invoice": true,
         "created_at": "2022-04-29T08:59:51Z"
       }
+    ],
+    "taxes": [
+      {
+        "lago_id": "b7ab2926-1de8-4428-9bcd-779314ac129b",
+        "name": "tax name",
+        "code": "tax_code",
+        "rate": 15.00,
+        "description": "tax description",
+        "applied_to_organization": false,
+        "customers_count": 12,
+        "created_at": "2022-04-29T08:59:51Z"
+      }
     ]
   }
 }
@@ -81,6 +93,8 @@ It lets you create a customer, but also track usage and create invoices for the 
 | **applicable_timezone** &nbsp &nbsp <Type>String</Type> | Timezone applicable the customer.<br></br>Value is inherited from the organization if timezone attribute is null |
 | **url** &nbsp &nbsp <Type>String</Type> | Custom URL of the customer |
 | **zipcode** &nbsp &nbsp <Type>String</Type> | Zipcode of the customer's billing address |
+| **metadata** &nbsp &nbsp <Type>JSON</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Array of [Metadata](#metadata-attributes) |
+| **taxes** &nbsp &nbsp <Type>JSON</Type> | Array of [Tax](../taxes/tax-object) object |
 
 ## Billing Configuration Object
 
@@ -96,7 +110,7 @@ It lets you create a customer, but also track usage and create invoices for the 
 
 | Attributes | Description |
 |--|--|
-| **vat_rate** &nbsp &nbsp <Type>Float</Type> | Custom VAT rate applied to the customer.<br/>Replaced by the list of `tax_rates`. |
+| **vat_rate** &nbsp &nbsp <Type>Float</Type> | Custom VAT rate applied to the customer.<br/>Replaced by the list of `taxes`. |
 
 ## Metadata attributes
 | Attributes | Description |
