@@ -45,7 +45,21 @@ This object represents a line item of an invoice, handling amount, billed units 
   "lago_subscription_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
   "external_customer_id": "external_id",
   "lago_customer_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
-  "event_transaction_id": "1a901a90-1a90-1a90-1a90-1a901a901a90"
+  "event_transaction_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "applied_taxes": [
+    {
+      "lago_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+      "lago_fee_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+      "lago_tax_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+      "tax_name": "tax name",
+      "tax_code": "tax_code",
+      "tax_rate": "20.0",
+      "tax_description": "tax description",
+      "amount_cents": 20,
+      "amount_currency": "EUR",
+      "created_at": "2022-04-29T08:59:51Z"
+    }
+  ]
 }
 ```
 
@@ -57,8 +71,8 @@ This object represents a line item of an invoice, handling amount, billed units 
 | **lago_true_up_parent_fee_id** &nbsp &nbsp <Type>String</Type>                                            | Unique identifer of the parent true up usage based fee in Lago application                                                                                                                                                                                                           |
 | **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>         | Amount in cents of the fee, VAT excluded                                                                                                                                                                                                                                             |
 | **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>       | Currency of the amount                                                                                                                                                                                                                                                               |
-| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>     | VAT amount in cents                                                                                                                                                                                                                                                                  |
-| **vat_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>   | Currency of the VAT amount                                                                                                                                                                                                                                                           |
+| **taxes_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>     | Taxes amount in cents                                                                                                                                                                                                                                                                  |
+| **taxes_rate** &nbsp &nbsp <Type>Float</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>   | Decimal applied taxes rate. |
 | **total_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>   | Total amount in cents                                                                                                                                                                                                                                                                |
 | **total_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the total amount                                                                                                                                                                                                                                                         |
 | **units** &nbsp &nbsp <Type>String (Decimal)</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>       | Units used to charge the customer                                                                                                                                                                                                                                                    |
@@ -78,6 +92,14 @@ This object represents a line item of an invoice, handling amount, billed units 
 | **lago_customer_id** <Type>String</Type> | Unique identifer of the customer in Lago application.<br/>Present only if fee has `charge` fee_type and `pay_in_advance` is true. |
 | **event_transaction_id** <Type>String</Type> | Event's transaction_id that triggered the fee.<br/>Present only if fee has `charge` fee_type and `pay_in_advance` is true. |
 | **item** &nbsp &nbsp <Type>JSON</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable>                    | [Item](#item-object) attached to the fee |
+| **applied_taxes** &nbsp &nbsp <Type>JSON</Type>&nbsp &nbsp <NotNullable>Not null</NotNullable> | Array of [Fee applied taxes](#fee-applied-tax-object) object |
+
+### Deprecated arguments
+
+| Attributes | Description |
+| -----------| ----------- |
+| **vat_amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | VAT amount in cents. Replace by the `taxes_amount_cents` field. |
+| **vat_amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the VAT amount. Use `amount_currency` field instead. |
 
 ## Item object
 
@@ -89,6 +111,35 @@ This object represents a line item of an invoice, handling amount, billed units 
 | **lago_item_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifier of the item.<br></br> <details><summary>**Possible values**</summary><div>- `add_on`: Lago identifier of the Add-On<br></br>- `charge`: Lago identifier of the billable metric<br></br>- `credit`: Lago identifier of the wallet transaction<br></br>- `instant_charge`: Lago identifier of the billable metric<br></br>- `subscription`: Lago identifier of the subscription<div></div></div></details> |
 | **item_type** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Type of the fee item<br></br> <details><summary>**Possible values**</summary><div>- `add_on`: `AddOn`<br></br>- `charge`: `BillableMetric`<br></br>- `credit`: `WalletTransaction`<br></br>- `instant_charge`: `BillableMetric`<br></br>- `subscription`: `Subscription`<div></div></div></details> |
 
+## Fee Applied Tax object
+
+```json
+{
+  "lago_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "lago_fee_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "lago_tax_id": "1a901a90-1a90-1a90-1a90-1a901a901a90",
+  "tax_name": "tax name",
+  "tax_code": "tax_code",
+  "tax_rate": "20.0",
+  "tax_description": "tax description",
+  "amount_cents": 20,
+  "amount_currency": "EUR",
+  "created_at": "2022-04-29T08:59:51Z"
+}
+```
+
+| Attributes | Description |
+| -----------| ----------- |
+| **lago_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the invoice applied tax in Lago application |
+| **lago_fee_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the fee in Lago application |
+| **lago_tax_id** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Unique identifer of the tax in Lago application |
+| **tax_name** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Tax name |
+| **tax_code** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Code identifying the tax |
+| **tax_rate** &nbsp &nbsp <Type>Float</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Value in decimal applied to the tax. |
+| **tax_description** &nbsp &nbsp <Type>String</Type> | Tax description. |
+| **amount_cents** &nbsp &nbsp <Type>Integer</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Amount in cents of the applied tax |
+| **amount_currency** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> | Currency of the amount |
+| **created_at** &nbsp &nbsp <Type>String</Type> &nbsp &nbsp <NotNullable>Not null</NotNullable> &nbsp &nbsp <br></br><Comment>*ISO 8601 datetime in UTC*</Comment> | Date of applied tax object creation. |
 
 export const Type = ({ children, color }) => (
   <span
