@@ -31,7 +31,7 @@ If you want Lago to automatically retrieve the status of the payments processed 
 2. Go to the **"Developers"** section;
 3. In the upper right corner, click **"Create"** and then select **"Webhook endpoint"**;
 4. Choose a name for this webhook (e.g. Lago);
-5. Enter the following URL: https://api.getlago.com/webhook/gocardless/:id (you must replace `:id` with your Lago organization ID);
+5. Enter the following URL: https://api.getlago.com/webhooks/gocardless/:id (you must replace `:id` with your Lago organization ID);
 6. Enter your secret key; and
 7. Click **"Create webhook endpoint"**.
 
