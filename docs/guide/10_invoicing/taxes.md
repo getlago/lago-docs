@@ -3,49 +3,47 @@ sidebar_position: 3
 ---
 
 # Taxes
-A tax object represents various types of taxes that an organization may incur. These taxes can be applied at both the organization level and the customer level.
+An organization may need to collect various taxes, represented by different tax objects. These taxes can be applied at both the organization level and the customer level.
 
 ## Create taxes
 To add a new tax through the user interface:
-1. Access to the taxes settings page through the Settings page > Taxes tab
-2. In the upper right corner of the list, click **“Add”** to create a new tax;
+1. Access the tax settings page through the **Settings** section > **Taxes** tab;
+2. In the upper right corner of the list, click **"Add"** to create a new tax;
 3. Enter its `name`;
-4. Assign it a unique `code` (i.e. unique ID as defined in your backend system)
-5. Add a `description` *(optional)*;
-6. Define the `rate` that applies to invoices.
+4. Assign it a unique `code` (i.e. unique ID as defined in your backend system);
+5. Add a `description` *(optional)*; and
+6. Define the `rate` that applies.
 
 ## Editing and deleting taxes
-A tax can be deleted or edited even if it is linked to an organization or a customer. However, it's important to note that any changes made to a tax, including its removal, will have an impact on all existing draft invoices or upcoming invoices that are associated with that tax.
+A tax can be deleted or edited even if it is linked to an organization or a customer. However, it's important to note that any change made to a tax object, including its removal, has an impact on all existing draft invoices or upcoming invoices associated with this tax.
 
-1. **Edit**: allows you to modify the name, code and the rate of the tax;
-2. **Delete**: allows you to delete the tax and remove it from the list (this action cannot be undone).
+Available actions include:
+- **Edit**: allows you to modify the name, code and rate of the tax object; and
+- **Delete**: allows you to delete the tax object and remove it from the list (this action cannot be undone).
 
-
-## Apply taxes on objects
+## Apply taxes to objects
 When generating invoices, you may need to apply taxes. The tax rate applies to all fees (i.e. subscription fees and charges) and appears on the invoices.
 
+### Taxes at the organization level
+To apply tax objects to the organization through the user interface:
+1. Access the invoice settings page through the **Settings** section > **Invoice** tab;
+2. In the **Taxes on organization** section, click **"Add"** to add a new tax;
+3. Select the tax object you want to apply; and
+4. Repeat the action if you want to add another tax.
 
-### Taxes on the organization
-To apply tax objects on the organization through the user interface:
-1. Access to the invoice settings page through the Settings page > **Invoice** tab
-2. In the Taxes on organization section, click **“Add”** to add a new tax
-3. Select the tax object you want to apply in the dialog
-4. Repeat the action if you want to add more than 1 tax
+### Taxes at the customer level
+To apply tax objects to a specific customer through the user interface:
+1. Access the customer settings page through the **Customer** details page > **Settings** tab;
+2. In the **Tax rates** section, click **"Add a tax"** to add a new tax;
+3. Select the tax object you want to apply; and
+4. Repeat the action if you want to add another tax.
 
+### Tax hierarchy
+When taxes are defined at the organization level, customers who do not have specific tax settings inherit the default taxes, which means that the organization's tax settings are automatically applied to these customers.
 
-### Taxes on a specific customer
-To apply tax objects on a specific customer through the user interface:
-1. Access to customer taxes settings page through the **Customer** details page > **Settings** tab
-2. In the Tax rates section, click **“Add a tax”** to add a new tax
-3. Select the tax object you want to apply in the dialog
-4. Repeat the action if you want to add more than 1 tax
-
-### Hierarchy between objects on invoice generation
-When taxes are applied at the organization level, it is crucial to note that any customers without specific tax settings will inherit the defined taxes. This means that the tax settings defined for the organization will be automatically applied to those customers who do not have their own individual tax configurations.
-
-**Taxes hierarchy when generating an invoice:**
-1. Apply taxes defined at the customer level on invoice; if customer’s taxes are empty
-2. Apply taxes defined at the organization level on invoice; if organization’s taxes are empty
-3. Apply a tax at 0% and display “Tax (0%) on invoice.
+When an invoice is generated, the tax hierarchy is as follows:
+1. Lago applies the tax objects defined at the customer level;
+2. If there are no taxes at the customer level, Lago applies the tax objects defined at the organization level; and
+3. If there are no taxes at the organization level, Lago applies a 0% tax rate (visible on the invoice).
 
 ![Tax hierarchy](../../../static/img/tax-hierarchy.png)
