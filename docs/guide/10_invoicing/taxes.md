@@ -3,37 +3,49 @@ sidebar_position: 3
 ---
 
 # Taxes
+A tax object represents various types of taxes that an organization may incur. These taxes can be applied at both the organization level and the customer level.
+
+## Create taxes
+To add a new tax through the user interface:
+1. Access to the taxes settings page through the Settings page > Taxes tab
+2. In the upper right corner of the list, click **“Add”** to create a new tax;
+3. Enter its `name`;
+4. Assign it a unique `code` (i.e. unique ID as defined in your backend system)
+5. Add a `description` *(optional)*;
+6. Define the `rate` that applies to invoices.
+
+## Editing and deleting taxes
+A tax can be deleted or edited even if it is linked to an organization or a customer. However, it's important to note that any changes made to a tax, including its removal, will have an impact on all existing draft invoices or upcoming invoices that are associated with that tax.
+
+1. **Edit**: allows you to modify the name, code and the rate of the tax;
+2. **Delete**: allows you to delete the tax and remove it from the list (this action cannot be undone).
+
+
+## Apply taxes on objects
 When generating invoices, you may need to apply taxes. The tax rate applies to all fees (i.e. subscription fees and charges) and appears on the invoices.
 
-## General tax rate
-There is a default tax rate at the organization level that applies to all customers and is 0%.
 
-To modify the default tax rate for the organization:
-1. Click **"Settings"** in the side menu;
-2. Open the **"Invoice & tax"** tab;
-3. Select **"Edit tax rate"** on the right;
-4. Enter the desired tax rate; and
-5. Click **"Edit tax rate"** to confirm.
+### Taxes on the organization
+To apply tax objects on the organization through the user interface:
+1. Access to the invoice settings page through the Settings page > **Invoice** tab
+2. In the Taxes on organization section, click **“Add”** to add a new tax
+3. Select the tax object you want to apply in the dialog
+4. Repeat the action if you want to add more than 1 tax
 
-![Default tax rate at the organization level](../../../static/img/organization-tax-rate.png)
 
-## Customer-specific tax rate
-If you need to define a specific tax rate for a customer, you can override the organization's tax rate by defining a tax rate at customer level.
+### Taxes on a specific customer
+To apply tax objects on a specific customer through the user interface:
+1. Access to customer taxes settings page through the **Customer** details page > **Settings** tab
+2. In the Tax rates section, click **“Add a tax”** to add a new tax
+3. Select the tax object you want to apply in the dialog
+4. Repeat the action if you want to add more than 1 tax
 
-To define a customer-specific tax rate through the user interface:
-1. Click **"Customers"** in the side menu;
-2. Select a customer from the list;
-3. Open the **"Tax rate"** tab;
-4. Click **"Add a tax rate"** on the right;
-5. Enter the desired tax rate; and
-6. Click **"Add tax rate"** to confirm.
+### Hierarchy between objects on invoice generation
+When taxes are applied at the organization level, it is crucial to note that any customers without specific tax settings will inherit the defined taxes. This means that the tax settings defined for the organization will be automatically applied to those customers who do not have their own individual tax configurations.
 
-If later you want to edit or delete the customer's tax rate, click the **ellipsis icon** to see all available actions.
+**Taxes hierarchy when generating an invoice:**
+1. Apply taxes defined at the customer level on invoice; if customer’s taxes are empty
+2. Apply taxes defined at the organization level on invoice; if organization’s taxes are empty
+3. Apply a tax at 0% and display “Tax (0%) on invoice.
 
-You can also use the following endpoint to add or edit the customer's tax rate via API:
-
-```curl title="POST"
-/api/v1/customers
-```
-
-To do so, you must include the `vat_rate` argument in the body of the request.
+![Tax hierarchy](../../../static/img/tax-hierarchy.png)
