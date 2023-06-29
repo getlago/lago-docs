@@ -29,6 +29,7 @@ import TabItem from '@theme/TabItem';
       "coupon": {
         "name": "coupon_name",
         "code": "coupon_code",
+        "description": "Description of the coupon",
         "amount_cents": 5000,
         "amount_currency": "USD",
         "coupon_type": "fixed_amount",
@@ -58,6 +59,7 @@ import TabItem from '@theme/TabItem';
   coupon = Coupon(
     name='name',
     code='code_first',
+    description='Description of the coupon',
     amount_cents=1000,
     amount_currency='EUR',
     coupon_type='fixed_amount',
@@ -86,6 +88,7 @@ import TabItem from '@theme/TabItem';
   coupon = {
     name: 'coupon name',
     code: 'code',
+    description: 'Description of the coupon',
     expiration: 'time_limit',
     expiration_at: '2022-08-08T23:59:59Z',
     amount_cents: 100,
@@ -109,6 +112,7 @@ import TabItem from '@theme/TabItem';
   const couponObject = {
     name: "name1",
     code: "code1",
+    description: "Description of the coupon",
     expiration: "time_limit" as CouponObject["expiration"],
     expirationAt: "2022-08-08T23:59:59Z",
     amountCents: 10000,
@@ -143,6 +147,7 @@ import TabItem from '@theme/TabItem';
       couponInput := &lago.CouponInput{
         Name:               "Coupon",
         Code:               "coupon",
+        Description:        "Description of the coupon",
         AmountCents:        1500,
         AmountCurrency:     lago.EUR,
         Reusable:           true,
@@ -244,6 +249,7 @@ try {
   "coupon": {
     "name": "coupon_name",
     "code": "coupon_code",
+    "description": "Description of the coupon",
     "amount_cents": 5000,
     "amount_currency": "USD",
     "expiration": "time_limit",
@@ -264,6 +270,7 @@ try {
 |--|--|--|
 | name | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Coupon name |
 | code | String &nbsp &nbsp &nbsp<Required>**Required**</Required> | Code identifying the coupon |
+| description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Description of the coupon |
 | amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Amount of the coupon |
 | amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Currency of the amount |
 | reusable | Boolean &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Field specifying if coupon is reusable or not. |
