@@ -29,6 +29,7 @@ import TabItem from '@theme/TabItem';
       "coupon": {
         "name": "coupon_name",
         "code": "coupon_code",
+        "description": "Description of the coupon",
         "amount_cents": 5000,
         "amount_currency": "USD",
         "coupon_type": "fixed_amount",
@@ -92,6 +93,7 @@ import TabItem from '@theme/TabItem';
       couponInput := &lago.CouponInput{
         Name:               "Coupon",
 	   		Code:               "coupon",
+	   		Description:        "Description of the coupon",
 	   		AmountCents:        1500,
 	   		AmountCurrency:     lago.EUR,
 	   		Expiration:         lago.CouponExpirationTimeLimit,
@@ -190,6 +192,7 @@ try {
   "coupon": {
     "name": "coupon_name",
     "code": "coupon_code",
+    "description": "Description of the coupon",    
     "amount_cents": 5000,
     "amount_currency": "USD",
     "expiration": "time_limit",
@@ -210,6 +213,7 @@ try {
 |--|--|--|
 | name | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Coupon name |
 | code | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Code identifying the coupon |
+| description | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Description of the coupon |
 | amount_cents | Integer &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Amount of the coupon |
 | amount_currency | String &nbsp &nbsp &nbsp<Optional>**Optional (required only for `fixed_amount` type)**</Optional> | Currency of the amount |
 | expiration | String &nbsp &nbsp &nbsp<Optional>**Optional**</Optional> | Expiration type.<br></br>It can be `time_limit` or `no_expiration` |
