@@ -175,6 +175,9 @@ docker-compose up front
   - You must replace `lago.example` with your domain name
   - You must enter a valid email address
 
+- Edit the file `extra/nginx-letsencrypt.conf`
+  - You must replace `lago.example` with your domain name
+
 - Run the script
 
 ```shell
