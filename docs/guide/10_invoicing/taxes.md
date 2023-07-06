@@ -3,37 +3,47 @@ sidebar_position: 3
 ---
 
 # Taxes
+An organization may need to collect various taxes, represented by different tax objects. These taxes can be applied at both the organization level and the customer level.
+
+## Create taxes
+To add a new tax through the user interface:
+1. Access the tax settings page through the **Settings** section > **Taxes** tab;
+2. In the upper right corner of the list, click **"Add"** to create a new tax;
+3. Enter its `name`;
+4. Assign it a unique `code` (i.e. unique ID as defined in your backend system);
+5. Add a `description` *(optional)*; and
+6. Define the `rate` that applies.
+
+## Editing and deleting taxes
+A tax can be deleted or edited even if it is linked to an organization or a customer. However, it's important to note that any change made to a tax object, including its removal, has an impact on all existing draft invoices or upcoming invoices associated with this tax.
+
+Available actions include:
+- **Edit**: allows you to modify the name, code and rate of the tax object; and
+- **Delete**: allows you to delete the tax object and remove it from the list (this action cannot be undone).
+
+## Apply taxes to objects
 When generating invoices, you may need to apply taxes. The tax rate applies to all fees (i.e. subscription fees and charges) and appears on the invoices.
 
-## General tax rate
-There is a default tax rate at the organization level that applies to all customers and is 0%.
+### Taxes at the organization level
+To apply tax objects to the organization through the user interface:
+1. Access the invoice settings page through the **Settings** section > **Invoice** tab;
+2. In the **Taxes on organization** section, click **"Add"** to add a new tax;
+3. Select the tax object you want to apply; and
+4. Repeat the action if you want to add another tax.
 
-To modify the default tax rate for the organization:
-1. Click **"Settings"** in the side menu;
-2. Open the **"Invoice & tax"** tab;
-3. Select **"Edit tax rate"** on the right;
-4. Enter the desired tax rate; and
-5. Click **"Edit tax rate"** to confirm.
+### Taxes at the customer level
+To apply tax objects to a specific customer through the user interface:
+1. Access the customer settings page through the **Customer** details page > **Settings** tab;
+2. In the **Tax rates** section, click **"Add a tax"** to add a new tax;
+3. Select the tax object you want to apply; and
+4. Repeat the action if you want to add another tax.
 
-![Default tax rate at the organization level](../../../static/img/organization-tax-rate.png)
+### Tax hierarchy
+When taxes are defined at the organization level, customers who do not have specific tax settings inherit the default taxes, which means that the organization's tax settings are automatically applied to these customers.
 
-## Customer-specific tax rate
-If you need to define a specific tax rate for a customer, you can override the organization's tax rate by defining a tax rate at customer level.
+When an invoice is generated, the tax hierarchy is as follows:
+1. Lago applies the tax objects defined at the customer level;
+2. If there are no taxes at the customer level, Lago applies the tax objects defined at the organization level; and
+3. If there are no taxes at the organization level, Lago applies a 0% tax rate (visible on the invoice).
 
-To define a customer-specific tax rate through the user interface:
-1. Click **"Customers"** in the side menu;
-2. Select a customer from the list;
-3. Open the **"Tax rate"** tab;
-4. Click **"Add a tax rate"** on the right;
-5. Enter the desired tax rate; and
-6. Click **"Add tax rate"** to confirm.
-
-If later you want to edit or delete the customer's tax rate, click the **ellipsis icon** to see all available actions.
-
-You can also use the following endpoint to add or edit the customer's tax rate via API:
-
-```curl title="POST"
-/api/v1/customers
-```
-
-To do so, you must include the `vat_rate` argument in the body of the request.
+![Tax hierarchy](../../../static/img/tax-hierarchy.png)
